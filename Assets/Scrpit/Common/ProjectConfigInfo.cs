@@ -11,5 +11,5 @@ public class ProjectConfigInfo
     /// <summary>
     /// steamAppId
     /// </summary>
-    public static readonly string STEAM_APP_ID = "983170";
+    public readonly static string STEAM_APP_ID = "983170";
 }

@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class UIGameMenuCpt : BaseUIComponent
 {
-
     //按钮-商店
     public Button btStore;
     //按钮-技能
@@ -29,10 +28,6 @@ public class UIGameMenuCpt : BaseUIComponent
         if (btSaveAndExit != null)
             btSaveAndExit.onClick.AddListener(BTSaveAndExitOnClick);
     }
-
-    private void Update () {
-		
-	}
 
     /// <summary>
     /// 商店按钮点击

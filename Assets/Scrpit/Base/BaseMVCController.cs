@@ -3,7 +3,6 @@ using UnityEditor;
 
 public abstract class BaseMVCController<M,V> : BaseMVC
 where M : BaseMVCModel, new()
-where V : IBaseMVCView, new()
 {
     //模型
     private M mModel;

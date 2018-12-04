@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-public class GameUtil 
+public class GameUtil
 {
     /// <summary>
     /// 获取屏幕宽
@@ -40,5 +40,17 @@ public class GameUtil
         downBorder = Camera.main.transform.position.y - (cornerPos.y - Camera.main.transform.position.y);
 
         return topBorder - downBorder;
+    }
+
+    /// <summary>
+    /// 离开游戏
+    /// </summary>
+    public static void ExitGame()
+    {
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #else
+		Application.Quit();
+        #endif
     }
 }

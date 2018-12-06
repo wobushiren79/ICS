@@ -9,25 +9,24 @@ public class ReflexUtil : ScriptableObject
     /// 根据反射获取所有属性名称
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    /// <param name="classType"></param>
     /// <returns></returns>
-    public static List<string> GetAllName<T>(T classType)
+    public static List<string> GetAllName<T>()
     {
         List<string> listName = new List<string>();
-        Type type = classType.GetType();
-        PropertyInfo[] propertyInfos = type.GetProperties();
-
-        if (propertyInfos == null)
+        Type type =typeof(T);
+        FieldInfo[] fieldInfos = type.GetFields();
+        if (fieldInfos == null)
             return listName;
 
-        int propertyInfoSize = propertyInfos.Length;
+        int propertyInfoSize = fieldInfos.Length;
         for (int i = 0; i < propertyInfoSize; i++)
         {
-            PropertyInfo propertyInfo = propertyInfos[i];
-            listName.Add(propertyInfo.Name);
+            FieldInfo fieldInfo = fieldInfos[i];
+            listName.Add(fieldInfo.Name);
         };
         return listName;
     }
+
     /// <summary>
     /// 根据反射获取所有属性名称及值
     /// </summary>
@@ -37,20 +36,21 @@ public class ReflexUtil : ScriptableObject
     public static Dictionary<String, object> GetAllNameAndValue<T>(T classType)
     {
         Dictionary<String, object> listData = new Dictionary<string, object>();
-        Type type = classType.GetType();
-        PropertyInfo[] propertyInfos = type.GetProperties();
+        Type type = typeof(T);
+        FieldInfo[] fieldInfos = type.GetFields();
 
-        if (propertyInfos == null)
+        if (fieldInfos == null)
             return listData;
 
-        int propertyInfoSize = propertyInfos.Length;
+        int propertyInfoSize = fieldInfos.Length;
         for (int i = 0; i < propertyInfoSize; i++)
         {
-            PropertyInfo propertyInfo = propertyInfos[i];
-            listData.Add(propertyInfo.Name, propertyInfo.GetValue(classType,null));
+            FieldInfo fieldInfo = fieldInfos[i];
+            listData.Add(fieldInfo.Name, fieldInfo.GetValue(classType));
         };
         return listData;
     }
+
     /// <summary>
     /// 根据反射 设置值
     /// </summary>
@@ -58,13 +58,12 @@ public class ReflexUtil : ScriptableObject
     /// <param name="classType"></param>
     /// <param name="name"></param>
     /// <param name="value"></param>
-    public static void SetValueByName<T>(T classType,string name,object value)
+    public static void SetValueByName<T>(T classType, string name,object value)
     {
         Type type = classType.GetType();
-        PropertyInfo propertyInfo = type.GetProperty(name);
-
-        if (propertyInfo == null)
+        FieldInfo fieldInfo = type.GetField(name);
+        if (fieldInfo == null)
             return;
-        propertyInfo.SetValue(classType,value,null);
+        fieldInfo.SetValue(classType, value);  
     }
 }

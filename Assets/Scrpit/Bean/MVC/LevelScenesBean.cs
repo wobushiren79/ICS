@@ -7,5 +7,7 @@ using UnityEngine;
 public class LevelScenesBean  {
 
     public long id;
+    //等级
+    public int level;
 
 }

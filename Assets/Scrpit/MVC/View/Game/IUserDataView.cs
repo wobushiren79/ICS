@@ -4,6 +4,18 @@ using UnityEditor;
 public interface IUserDataView 
 {
     /// <summary>
+    /// 获取用户数据成功
+    /// </summary>
+    /// <param name="userData"></param>
+    void GetUserDataSuccess(UserDataBean userData);
+
+    /// <summary>
+    /// 获取用户数据失败
+    /// </summary>
+    /// <param name="failEnum"></param>
+    void GetUserDataFail(UserDataModel.UserDataFailEnum failEnum);
+
+    /// <summary>
     /// 创建用户数据成功
     /// </summary>
     /// <param name="userData"></param>

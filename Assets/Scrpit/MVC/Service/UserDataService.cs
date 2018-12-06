@@ -57,13 +57,19 @@ public class UserDataService : BaseDataStorageImpl<UserDataBean>
             BaseStartSaveDataForList(mSaveFileName,listUserData);
             return userData;
         }
+        bool hasSameData = false;
         for(int i=0;i< listUserData.Count; i++)
         {
             UserDataBean itemData = listUserData[i];
             if (itemData.userId.Equals(userData.userId))
             {
                 listUserData[i] = userData;
+                hasSameData = true;
             }
+        }
+        if (!hasSameData)
+        {
+            listUserData.Add(userData);
         }
         BaseStartSaveDataForList(mSaveFileName, listUserData);
         return userData;

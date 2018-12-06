@@ -99,4 +99,26 @@ public class TypeConversionUtil
         return data;
     }
 
+    /// <summary>
+    /// 数组转string 通过split分割
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="list"></param>
+    /// <param name="split"></param>
+    /// <returns></returns>
+    public static string ArrayToStringBySplit<T>(T[] list, string split)
+    {
+        string data = "";
+        if (data == null)
+            return data;
+        for (int i = 0; i < list.Length; i++)
+        {
+            if (i != 0)
+            {
+                data += split;
+            }
+            data += list[i].ToString();
+        }
+        return data;
+    }
 }

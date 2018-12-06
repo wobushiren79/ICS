@@ -32,4 +32,18 @@ public class LevelScenesService
         string[] colValue = new string[] { level+"" };
         return SQliteHandle.LoadTableData<LevelScenesBean>(ProjectConfigInfo.DATA_BASE_INFO_NAME, mTableName, colName, operations, colValue);
     }
+
+    /// <summary>
+    /// 根据场景等级查询场景数据
+    /// </summary>
+    /// <param name="level"></param>
+    /// <returns></returns>
+    public List<LevelScenesBean> QueryDataByLevel(int[] levels)
+    {
+        string[] colName = new string[] { "level" };
+        string[] operations = new string[] { "IN" };
+        string values=  TypeConversionUtil.ArrayToStringBySplit(levels,",");
+        string[] colValue = new string[] {"("+ values + ")" };
+        return SQliteHandle.LoadTableData<LevelScenesBean>(ProjectConfigInfo.DATA_BASE_INFO_NAME, mTableName, colName, operations, colValue);
+    }
 }

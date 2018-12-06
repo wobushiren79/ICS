@@ -14,6 +14,8 @@ public class UIGameMenuCpt : BaseUIComponent
     //按钮-保存并退出
     public Button btSaveAndExit;
 
+    //数据管理
+    public GameDataCpt gameDataCpt;
     /// <summary>
     /// 初始化
     /// </summary>
@@ -27,6 +29,12 @@ public class UIGameMenuCpt : BaseUIComponent
             btAchievement.onClick.AddListener(BTAchievementOnClick);
         if (btSaveAndExit != null)
             btSaveAndExit.onClick.AddListener(BTSaveAndExitOnClick);
+    }
+
+    private void Update()
+    {
+        //实时更新数据
+        UpdateUIData();
     }
 
     /// <summary>
@@ -58,6 +66,16 @@ public class UIGameMenuCpt : BaseUIComponent
     /// </summary>
     public void BTSaveAndExitOnClick()
     {
+
+    }
+
+    /// <summary>
+    /// //实时更新数据
+    /// </summary>
+    public void UpdateUIData()
+    {
+        if (gameDataCpt == null)
+            return;
 
     }
 }

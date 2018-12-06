@@ -112,8 +112,7 @@ public class SQliteHandle
         List<T> listData = new List<T>();
         try
         {
-            T tempData = Activator.CreateInstance<T>();
-            List<String> dataNameList = ReflexUtil.GetAllName(tempData);
+            List<String> dataNameList = ReflexUtil.GetAllName<T>();
             reader = sql.ReadTable(mainTable, leftTableName, mainKey, leftKey, mainColNames, mainOperations, mainColValues);
             while (reader.Read())
             {

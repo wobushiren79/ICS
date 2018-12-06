@@ -27,10 +27,26 @@ public class GameScenesModel : BaseMVCModel
     public LevelScenesBean GetLevelScenesDataByLevel(int level)
     {
         List<LevelScenesBean> listData= mLevelScenesService.QueryDataByLevel(level);
-        if (listData == null || listData.Count == 0)
+        if (CheckUtil.ListIsNull(listData))
             return null;
         //如果查询有多个数据，说明数据有误，默认返回第一个
         return listData[0];
+    }
+
+    /// <summary>
+    /// 获取指定等级范围的场景数据
+    /// </summary>
+    /// <param name="level"></param>
+    /// <returns></returns>
+    public List<LevelScenesBean> GetLevelScenesDataByLevel(int startLevel,int endLevel)
+    {
+        int count = endLevel - startLevel + 1;
+        int[] levels = new int[count];
+        for(int i = 0; i < count; i++)
+        {
+            levels[i] = startLevel+i;
+        }
+        return mLevelScenesService.QueryDataByLevel(levels);
     }
 
 }

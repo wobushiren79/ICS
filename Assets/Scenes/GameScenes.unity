@@ -372,6 +372,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &506167126 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114838025964777838, guid: 2d45b780a4f3e1c439d8b669f5aa8a1f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1292732830}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &510485172
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,6 +423,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &728590120 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114553850808930788, guid: 2d45b780a4f3e1c439d8b669f5aa8a1f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1292732830}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &738061360 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114600286789730066, guid: 2d45b780a4f3e1c439d8b669f5aa8a1f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1292732830}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1240478022
 GameObject:
   m_ObjectHideFlags: 0
@@ -714,6 +732,30 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114488898588167592, guid: 2d45b780a4f3e1c439d8b669f5aa8a1f,
+        type: 2}
+      propertyPath: gameDataCpt
+      value: 
+      objectReference: {fileID: 1387247830}
+    - target: {fileID: 114488898588167592, guid: 2d45b780a4f3e1c439d8b669f5aa8a1f,
+        type: 2}
+      propertyPath: tvName
+      value: 
+      objectReference: {fileID: 738061360}
+    - target: {fileID: 114488898588167592, guid: 2d45b780a4f3e1c439d8b669f5aa8a1f,
+        type: 2}
+      propertyPath: tvScore
+      value: 
+      objectReference: {fileID: 728590120}
+    - target: {fileID: 1661282333079792, guid: 2d45b780a4f3e1c439d8b669f5aa8a1f, type: 2}
+      propertyPath: m_Name
+      value: MainScore
+      objectReference: {fileID: 0}
+    - target: {fileID: 114488898588167592, guid: 2d45b780a4f3e1c439d8b669f5aa8a1f,
+        type: 2}
+      propertyPath: tvGrow
+      value: 
+      objectReference: {fileID: 506167126}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d45b780a4f3e1c439d8b669f5aa8a1f, type: 2}
   m_IsPrefabAsset: 0
@@ -841,6 +883,7 @@ MonoBehaviour:
     userId: 
     userName: 
     userLevel: 1
+    userScore: 0
     itemLevelList: []
 --- !u!114 &1387247831
 MonoBehaviour:
@@ -867,8 +910,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameScenes: {fileID: 510485173}
   gameCamera: {fileID: 1240478024}
-  mCameraMoveLeftMax: 0
-  mCameraMoveRightMax: 0
 --- !u!1 &1482000304
 GameObject:
   m_ObjectHideFlags: 0
@@ -1040,7 +1081,7 @@ Prefab:
     - target: {fileID: 224848622442623986, guid: 0ec66beaecfdae443b908fe628fe5c1e,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000014267739
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 223596615911465650, guid: 0ec66beaecfdae443b908fe628fe5c1e,
         type: 2}

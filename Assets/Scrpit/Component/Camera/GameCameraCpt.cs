@@ -8,9 +8,9 @@ public class GameCameraCpt : BaseMonoBehaviour {
     public GameScenesCpt gameScenes;
     public Camera gameCamera;
     //镜头移动左边界
-    public float mCameraMoveLeftMax;
+    private float mCameraMoveLeftMax;
     //镜头一栋右边界
-    public float mCameraMoveRightMax;
+    private float mCameraMoveRightMax;
 
     private void Start()
     {

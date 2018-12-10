@@ -1,10 +1,19 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UIGameMenuCpt : BaseUIComponent
 {
+
+    //显示-名字
+    public Text tvName;
+    //显示-实时分数
+    public Text tvScore;
+    //显示-增量
+    public Text tvGrow;
+
     //按钮-商店
     public Button btStore;
     //按钮-技能
@@ -19,7 +28,8 @@ public class UIGameMenuCpt : BaseUIComponent
     /// <summary>
     /// 初始化
     /// </summary>
-    private void Start () {
+    private void Start()
+    {
         //初始化按钮点击事件
         if (btStore != null)
             btStore.onClick.AddListener(BTStoreOnClick);
@@ -66,7 +76,7 @@ public class UIGameMenuCpt : BaseUIComponent
     /// </summary>
     public void BTSaveAndExitOnClick()
     {
-
+        gameDataCpt.SaveUserData();
     }
 
     /// <summary>
@@ -76,6 +86,14 @@ public class UIGameMenuCpt : BaseUIComponent
     {
         if (gameDataCpt == null)
             return;
-
+        if (tvScore != null)
+        {
+            string outNumberStr;
+            UnitUtil.UnitEnum outUnit;
+            UnitUtil.DoubleToStrUnit(gameDataCpt.userData.userScore,out outNumberStr,out outUnit);
+            tvScore.text = outNumberStr+" "+(int)outUnit;
+        }
+        if (tvName != null)
+            tvName.text = gameDataCpt.userData.userName;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
+using System.Collections;
 
 public class GameDataCpt : BaseMonoBehaviour, IUserDataView
 {
@@ -17,6 +18,23 @@ public class GameDataCpt : BaseMonoBehaviour, IUserDataView
         mUserDataController.GetUserData("UserId_260e8c7c6a824cdcb09221e31253d01f");
     }
 
+    private void FixedUpdate()
+    {
+        float updateNumber =  1/Time.fixedDeltaTime;
+        if (updateNumber <= 0)
+            return;
+        double tempGrow = userData.userGrow / updateNumber;
+        userData.userScore += tempGrow;
+    }
+
+    /// <summary>
+    /// 保存当前数据
+    /// </summary>
+    /// <returns></returns>
+    public void SaveUserData()
+    {
+        mUserDataController.SaveUserData(userData);
+    }
 
     /// <summary>
     /// 获取用户名称

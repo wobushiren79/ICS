@@ -93,6 +93,13 @@ public class UIGameMenuCpt : BaseUIComponent
             UnitUtil.DoubleToStrUnit(gameDataCpt.userData.userScore,out outNumberStr,out outUnit);
             tvScore.text = outNumberStr+" "+(int)outUnit;
         }
+        if (tvGrow != null)
+        {
+            string outNumberStr;
+            UnitUtil.UnitEnum outUnit;
+            UnitUtil.DoubleToStrUnitKeepNumber(gameDataCpt.userData.userGrow, 2, out outNumberStr, out outUnit);
+            tvGrow.text = "per second:" + outNumberStr +" "+ (int)outUnit;
+        }
         if (tvName != null)
             tvName.text = gameDataCpt.userData.userName;
     }

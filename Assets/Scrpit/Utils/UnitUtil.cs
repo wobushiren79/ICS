@@ -39,23 +39,28 @@ public class UnitUtil
     /// <param name="outUnit"></param>
     public static void DoubleToStrUnit(double number,out string outNumberStr,out UnitEnum outUnit)
     {
-        string numberStr= number.ToString("f0");
+        DoubleToStrUnitKeepNumber(number,0,out outNumberStr,out outUnit);
+    }
+
+    public static void DoubleToStrUnitKeepNumber(double number,int keepNumber, out string outNumberStr, out UnitEnum outUnit)
+    {
+        string numberStr = number.ToString("f0");
         outUnit = GetUnitByLength(numberStr.Length);
+        string tempNumberStr = number.ToString("f"+ keepNumber + ""); 
         switch (outUnit)
         {
             case UnitEnum.None:
-                outNumberStr = string.Format("{0:N0}", ulong.Parse(numberStr));
+                outNumberStr = string.Format("{0:N"+ keepNumber + "}", double.Parse(tempNumberStr));
                 break;
             case UnitEnum.Max:
                 outNumberStr = "∞";
                 break;
             default:
                 double tempNumber = (number / Math.Pow(10, 6 + (int)(outUnit - 1) * 3));
-                outNumberStr = Math.Truncate(tempNumber * 1000) / 1000+"";
+                outNumberStr = Math.Truncate(tempNumber * 1000) / 1000 + "";
                 break;
         }
     }
-
 
     /// <summary>
     /// 根据数字长度获取单位

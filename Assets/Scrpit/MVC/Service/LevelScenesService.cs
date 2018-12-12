@@ -5,10 +5,12 @@ using UnityEngine;
 public class LevelScenesService 
 {
     private readonly string mTableName;
+    private readonly string mLeftTableName;
 
     public LevelScenesService()
     {
-        mTableName = "level_scenes";
+            mTableName = "level_scenes";
+        mLeftTableName = "level_scenes_details_" + GameConfigInfo.LANGUAGE;
     }
 
     /// <summary>

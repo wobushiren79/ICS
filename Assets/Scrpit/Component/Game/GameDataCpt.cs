@@ -3,7 +3,7 @@ using UnityEditor;
 using System.Collections.Generic;
 using System.Collections;
 
-public class GameDataCpt : BaseMonoBehaviour, IUserDataView
+public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView
 {
 
     //用户数据
@@ -11,6 +11,8 @@ public class GameDataCpt : BaseMonoBehaviour, IUserDataView
 
     //用户数据管理
     private UserDataController mUserDataController;
+
+  
 
     private void Awake()
     {

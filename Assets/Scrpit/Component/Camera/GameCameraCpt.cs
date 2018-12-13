@@ -27,7 +27,6 @@ public class GameCameraCpt : BaseMonoBehaviour {
         if (gameCamera == null)
             return;
         float moveAfterX = gameCamera.transform.position.x + move.x;
-        LogUtil.Log("transform.position.x"+ gameCamera.transform.position.x+ " move.x:" + move.x + " moveAfterX:" + moveAfterX);
         if(moveAfterX< mCameraMoveLeftMax||moveAfterX>mCameraMoveRightMax)
         {
             return;

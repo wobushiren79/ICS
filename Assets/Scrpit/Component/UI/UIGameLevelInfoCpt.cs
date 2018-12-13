@@ -23,15 +23,6 @@ public class UIGameLevelInfoCpt : BaseUIComponent,IGameDataCallBack
         CreateLevelButton();
     }
 
-
-
-    public void ObserbableUpdate(int type, params Object[] obj)
-    {
-      
-    }
-
-
-
     public void CreateLevelButton()
     {
         if (gameDataCpt == null|| levelItemModel == null|| levelContent==null|| levelItemModel == null)
@@ -58,4 +49,21 @@ public class UIGameLevelInfoCpt : BaseUIComponent,IGameDataCallBack
     
         }
     }
+
+    #region 游戏数据回调
+    public void ObserbableUpdate(int type, params Object[] obj)
+    {
+
+    }
+
+    public void GoodsNumberChange(int level, int number)
+    {
+     
+    }
+
+    public void SpaceNumberChange(int level, int number)
+    {
+      
+    }
+    #endregion
 }

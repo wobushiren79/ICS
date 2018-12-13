@@ -20,7 +20,7 @@ public class GameScenesController : BaseMVCController<GameScenesModel, IGameScen
     /// 根据用户数据创建等级场景
     /// </summary>
     /// <param name="userData"></param>
-    public void CreateGameScenesByUserData(UserDataBean userData)
+    public void GetGameScenesDataByUserData(UserDataBean userData)
     {
         if (userData == null)
             return;
@@ -34,13 +34,21 @@ public class GameScenesController : BaseMVCController<GameScenesModel, IGameScen
             {
                 if (itemLevelData.level.Equals(itemScenes.level))
                 {
-                    GetView().CreateLevelScenes(itemScenes, itemLevelData);
+                    GetView().GetScenesDataSuccessByUserData(itemScenes, itemLevelData);
                     break;
                 }
             }
         }
     }
 
-
+    /// <summary>
+    /// 获取所有场景数据
+    /// </summary>
+    /// <returns></returns>
+    public void GetAllGameScenesData()
+    {
+        List<LevelScenesBean> listScecesData= GetModel().GetAllLevelScenesData();
+        GetView().GetAllScenesDataSuccess(listScecesData);
+    }
     
 }

@@ -11,11 +11,13 @@ public class UserDataModel : BaseMVCModel
         NoUserId,//没用用户ID
     }
 
-    private UserDataService mUserDataService; 
+    private UserDataService mUserDataService;
+    private LevelScenesService mLevelScenesService;
 
     public override void InitData()
     {
         mUserDataService = new UserDataService();
+        mLevelScenesService = new LevelScenesService();
     }
 
 
@@ -43,15 +45,23 @@ public class UserDataModel : BaseMVCModel
     {
         UserDataBean userData = new UserDataBean();
         List<UserItemLevelBean> itemLevelList = new List<UserItemLevelBean>();
-        for(int i = 0; i < 1; i++)
-        {
-            UserItemLevelBean itemLevelData = new UserItemLevelBean();
-            itemLevelData.level = 1;
-            itemLevelData.goodsNumber = 1;
-            itemLevelList.Add(itemLevelData);
-        }
+
+        //查询等级1的数据 
+        List<LevelScenesBean> listLevelData = mLevelScenesService.QueryDataByLevel(1);
+        if (CheckUtil.ListIsNull(listLevelData))
+            return null;
+        LevelScenesBean initLevelData = listLevelData[0];
+        //添加一个数据
+        UserItemLevelBean itemLevelData = new UserItemLevelBean();
+        itemLevelData.level = initLevelData.level;
+        itemLevelData.goodsNumber = 1;
+        itemLevelData.spaceNumber = 1;
+        itemLevelData.itemGrow = initLevelData.item_grow;
+        itemLevelList.Add(itemLevelData);
+
         userData.userId = "UserId_" + SystemUtil.GetUUID(SystemUtil.UUIDTypeEnum.N);
         userData.itemLevelList = itemLevelList;
+        userData.userGrow = initLevelData.item_grow;
         userData = mUserDataService.SaveData(userData);
         return userData;
     }

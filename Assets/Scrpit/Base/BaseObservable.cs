@@ -13,6 +13,8 @@ public class BaseObservable<T> : BaseMonoBehaviour
     /// <returns></returns>
     public List<T> GetAllObserver()
     {
+        if (mObserverList == null)
+            mObserverList = new List<T>();
         return mObserverList;
     }
 

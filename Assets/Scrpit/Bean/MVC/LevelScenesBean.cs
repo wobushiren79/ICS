@@ -10,8 +10,13 @@ public class LevelScenesBean  {
     //等级
     public int level;
     //物品初始销售价格
-    public double item_sell_price;
+    public double goods_sell_price;
+    //场地初始销售价格
+    public double space_sell_price;
     //物品初始增长
     public double item_grow;
-
+    //商品名称
+    public string goods_name;
+    //场地名称
+    public string space_name;
 }

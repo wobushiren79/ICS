@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView
+public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView,IGameDataCallBack
 {
 
     //场景创建控制
@@ -11,17 +11,21 @@ public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView
     //游戏数据管理
     public GameDataCpt gameData;
 
-    public GameObject itemSpaceObj;
-    public GameObject itemGoodsObj;
+    public GameObject itemSpaceModel;
+    public GameObject itemGoodsModel;
 
     //等级纹理
     public List<Texture> listLevelSpaceTexture;
 
     //场景间隙
     public int scenesInterval = 50;
+    //当前标记最后一个item 位置
+    private Dictionary<int, Vector3> mMarkLocation;
 
     private void Awake()
     {
+        gameData.AddObserver(this);
+        mMarkLocation = new Dictionary<int, Vector3>();
         mGameScenesController = new GameScenesController(this, this);
     }
 
@@ -30,7 +34,7 @@ public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView
     {
         if (gameData == null)
             return;
-        mGameScenesController.CreateGameScenesByUserData(gameData.userData);
+        mGameScenesController.GetGameScenesDataByUserData(gameData.userData);
     }
 
     // Update is called once per frame
@@ -64,21 +68,21 @@ public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView
             rightX = 0;
             return;
         }
-        leftX = 0 - itemSpaceObj.transform.localScale.x / 2f;
-        rightX = 0 + itemSpaceObj.transform.localScale.x / 2f + (levelData.spaceNumber - 1) * itemSpaceObj.transform.localScale.x;
+        leftX = 0 - itemSpaceModel.transform.localScale.x / 2f;
+        rightX = 0 + itemSpaceModel.transform.localScale.x / 2f + (levelData.spaceNumber - 1) * itemSpaceModel.transform.localScale.x;
     }
 
-
+    #region 场景数据回调
     /// <summary>
     /// 创建场景
     /// </summary>
     /// <param name="levelScenesData"></param>
     /// <param name="itemLevelData"></param>
-    public void CreateLevelScenes(LevelScenesBean levelScenesData, UserItemLevelBean itemLevelData)
+    public void GetScenesDataSuccessByUserData(LevelScenesBean levelScenesData, UserItemLevelBean itemLevelData)
     {
         GameObject levelObj = new GameObject("LevelScene_" + levelScenesData.level);
         levelObj.transform.parent = transform;
-        if (itemSpaceObj == null)
+        if (itemSpaceModel == null)
             return;
         //获取当前Y轴位置
         float objPositionY = scenesInterval * (levelScenesData.level - 1);
@@ -88,8 +92,8 @@ public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView
         for (int i = 0; i < itemLevelData.spaceNumber; i++)
         {
             //设置地形位置
-            Vector3 itemSpacePosition = new Vector3(i * itemSpaceObj.transform.localScale.x, objPositionY);
-            GameObject levelSpaceItem = Instantiate(itemSpaceObj, itemSpacePosition, itemSpaceObj.transform.rotation);
+            Vector3 itemSpacePosition = new Vector3(i * itemSpaceModel.transform.localScale.x, objPositionY);
+            GameObject levelSpaceItem = Instantiate(itemSpaceModel, itemSpacePosition, itemSpaceModel.transform.rotation);
             levelSpaceItem.SetActive(true);
             levelSpaceItem.transform.parent = levelObj.transform;
             GameItemSpaceCpt spaceCpt = levelSpaceItem.GetComponent<GameItemSpaceCpt>();
@@ -105,22 +109,63 @@ public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView
         }
 
         //创建单位
-        float tempX = -itemSpaceObj.transform.localScale.x/2f;
-        float tempZ = -itemSpaceObj.transform.localScale.y/2f;
-        for(int i = 0; i < itemLevelData.goodsNumber; i++)
+        float tempX = -itemSpaceModel.transform.localScale.x / 2f;
+        float tempZ = -itemSpaceModel.transform.localScale.y / 2f;
+        mMarkLocation.Add(levelScenesData.level,new Vector3(tempX, objPositionY, tempZ));
+        for(int i=0;i< itemLevelData.goodsNumber;i++)
         {
-
-            Vector3 itemGoodsPosition = new Vector3(tempX+0.5f, objPositionY+0.5f, tempZ+0.5f);
-            GameObject levelGoodsItem = Instantiate(itemGoodsObj, itemGoodsPosition, itemGoodsObj.transform.rotation);
-            levelGoodsItem.SetActive(true);
-            levelGoodsItem.transform.parent = levelObj.transform;
-
-            tempZ++;
-            if (tempZ >= 5)
-            {
-                tempZ = -5;
-                tempX++;
-            }
+            CreateGoodsItem(levelScenesData.level, levelObj);
         }
     }
+
+    public void GetAllScenesDataSuccess(List<LevelScenesBean> listScenesData)
+    {
+    
+    }
+    #endregion
+
+    #region 数据改变回调
+    public void GoodsNumberChange(int level, int number)
+    {
+        Transform levelParentTf =CptUtil.GetCptInChildrenByName<Transform>(gameObject, "LevelScene_"+level);
+        for(int i = 0; i < number; i++)
+        {
+            CreateGoodsItem(level, levelParentTf.gameObject);
+        }
+    }
+
+    public void ObserbableUpdate(int type, params Object[] obj)
+    {
+
+    }
+    #endregion
+
+    #region 私有方法
+    /// <summary>
+    /// 创建一个item
+    /// </summary>
+    /// <param name="level"></param>
+    /// <param name="parentObj"></param>
+    private void CreateGoodsItem(int level,GameObject parentObj)
+    {
+        Vector3 markLoaction=  mMarkLocation[level];
+        Vector3 itemGoodsPosition = new Vector3(markLoaction.x + 0.5f, markLoaction.y + 0.5f, markLoaction.z + 0.5f);
+        GameObject levelGoodsItem = Instantiate(itemGoodsModel, itemGoodsPosition, itemGoodsModel.transform.rotation);
+        levelGoodsItem.SetActive(true);
+        levelGoodsItem.transform.parent = parentObj.transform;
+
+        markLoaction.z++;
+        if (markLoaction.z >= 5)
+        {
+            markLoaction.z = -5;
+            markLoaction.x++;
+        }
+        mMarkLocation[level] = markLoaction;
+    }
+
+    public void SpaceNumberChange(int level, int number)
+    {
+        
+    }
+    #endregion
 }

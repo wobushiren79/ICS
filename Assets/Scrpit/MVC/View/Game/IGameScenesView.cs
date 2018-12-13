@@ -9,5 +9,11 @@ public interface IGameScenesView
     /// </summary>
     /// <param name="levelScenesData"></param>
     /// <param name="itemLevelData"></param>
-    void CreateLevelScenes(LevelScenesBean levelScenesData,UserItemLevelBean itemLevelData);
+    void GetScenesDataSuccessByUserData(LevelScenesBean levelScenesData,UserItemLevelBean itemLevelData);
+
+    /// <summary>
+    /// 获取所有场景数据成功
+    /// </summary>
+    /// <param name="listScenesData"></param>
+    void GetAllScenesDataSuccess(List<LevelScenesBean> listScenesData);
 }

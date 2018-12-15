@@ -44,7 +44,7 @@ public class UIGameLevelInfoCpt : BaseUIComponent,IGameDataCallBack
             //设置按钮
             Button itemButton = levelObj.GetComponent<Button>();
             itemButton.onClick.AddListener(delegate() {
-                gameCameraCpt.ChangePerspectiveByLevel(levelData.level);
+                gameCameraCpt.ChangePerspectiveByLevel(levelData.level,0);
             });
     
         }
@@ -63,7 +63,7 @@ public class UIGameLevelInfoCpt : BaseUIComponent,IGameDataCallBack
 
     public void SpaceNumberChange(int level, int number)
     {
-      
+        CreateLevelButton();
     }
     #endregion
 }

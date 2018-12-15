@@ -14,7 +14,7 @@ public class GameCameraCpt : BaseMonoBehaviour {
 
     private void Start()
     {
-        ChangePerspectiveByLevel(1);
+        ChangePerspectiveByLevel(1,0);
     }
 
 
@@ -39,7 +39,7 @@ public class GameCameraCpt : BaseMonoBehaviour {
     /// 根据等级改变视角位置
     /// </summary>
     /// <param name="level"></param>
-    public void ChangePerspectiveByLevel(int level)
+    public void ChangePerspectiveByLevel(int level,float x)
     {
         if (gameScenes == null)
             return;
@@ -51,7 +51,7 @@ public class GameCameraCpt : BaseMonoBehaviour {
         //获取场景位置
         Vector3 levelScenesPosition= gameScenes.GetScenesPositionByLevel(level);
         //设置摄像头位置
-        gameCamera.transform.position = new Vector3(levelScenesPosition.x, levelScenesPosition.y+5,-7);
+        gameCamera.transform.position = new Vector3(x, levelScenesPosition.y+5,-7);
         gameCamera.transform.rotation = new Quaternion();
         gameCamera.transform.Rotate(new Vector3(45,0,0));
         //gameCamera.transform.LookAt(levelScenesPosition);

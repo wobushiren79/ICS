@@ -9,32 +9,37 @@ public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView,IGameDataCallBac
     private GameScenesController mGameScenesController;
 
     //游戏数据管理
-    public GameDataCpt gameData;
+    public GameDataCpt gameDataCpt;
+    public GameCameraCpt gameCameraCpt;
 
     public GameObject itemSpaceModel;
     public GameObject itemGoodsModel;
 
     //等级纹理
     public List<Texture> listLevelSpaceTexture;
+    //等级物品模组
+    public List<GameObject> listGoodsItemModel;
 
     //场景间隙
     public int scenesInterval = 50;
     //当前标记最后一个item 位置
-    private Dictionary<int, Vector3> mMarkLocation;
+    private Dictionary<int, Vector3> mMarkGoodsLocation;
+    private Dictionary<int, int> mMarkSpaceLocation;
 
     private void Awake()
     {
-        gameData.AddObserver(this);
-        mMarkLocation = new Dictionary<int, Vector3>();
+        gameDataCpt.AddObserver(this);
+        mMarkGoodsLocation = new Dictionary<int, Vector3>();
+        mMarkSpaceLocation = new Dictionary<int, int>();
         mGameScenesController = new GameScenesController(this, this);
     }
 
     // Use this for initialization
     void Start()
     {
-        if (gameData == null)
+        if (gameDataCpt == null)
             return;
-        mGameScenesController.GetGameScenesDataByUserData(gameData.userData);
+        mGameScenesController.GetGameScenesDataByUserData(gameDataCpt.userData);
     }
 
     // Update is called once per frame
@@ -61,7 +66,7 @@ public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView,IGameDataCallBac
     /// <param name="rightX"></param>
     public void GetScenesBorderByLevel(int level, out float leftX, out float rightX)
     {
-        UserItemLevelBean levelData = gameData.GetUserItemLevelDataByLevel(level);
+        UserItemLevelBean levelData = gameDataCpt.GetUserItemLevelDataByLevel(level);
         if (levelData == null)
         {
             leftX = 0;
@@ -87,31 +92,16 @@ public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView,IGameDataCallBac
         //获取当前Y轴位置
         float objPositionY = scenesInterval * (levelScenesData.level - 1);
         levelObj.transform.position = new Vector3(levelObj.transform.position.x,objPositionY);
-
         //创建地形
         for (int i = 0; i < itemLevelData.spaceNumber; i++)
         {
-            //设置地形位置
-            Vector3 itemSpacePosition = new Vector3(i * itemSpaceModel.transform.localScale.x, objPositionY);
-            GameObject levelSpaceItem = Instantiate(itemSpaceModel, itemSpacePosition, itemSpaceModel.transform.rotation);
-            levelSpaceItem.SetActive(true);
-            levelSpaceItem.transform.parent = levelObj.transform;
-            GameItemSpaceCpt spaceCpt = levelSpaceItem.GetComponent<GameItemSpaceCpt>();
-
-            //设置地形数据
-            if (spaceCpt != null
-                && listLevelSpaceTexture != null
-                && levelScenesData.level <= listLevelSpaceTexture.Count)
-            {
-                spaceCpt.SetLevelData(levelScenesData.level);
-                spaceCpt.SetLevelTexture(listLevelSpaceTexture[levelScenesData.level - 1]);
-            }
+            CreateSpaceItem(levelScenesData.level, levelObj);
         }
 
         //创建单位
         float tempX = -itemSpaceModel.transform.localScale.x / 2f;
         float tempZ = -itemSpaceModel.transform.localScale.y / 2f;
-        mMarkLocation.Add(levelScenesData.level,new Vector3(tempX, objPositionY, tempZ));
+        mMarkGoodsLocation.Add(levelScenesData.level,new Vector3(tempX, objPositionY, tempZ));
         for(int i=0;i< itemLevelData.goodsNumber;i++)
         {
             CreateGoodsItem(levelScenesData.level, levelObj);
@@ -127,10 +117,29 @@ public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView,IGameDataCallBac
     #region 数据改变回调
     public void GoodsNumberChange(int level, int number)
     {
-        Transform levelParentTf =CptUtil.GetCptInChildrenByName<Transform>(gameObject, "LevelScene_"+level);
+        Transform levelParentTF =CptUtil.GetCptInChildrenByName<Transform>(gameObject, "LevelScene_"+level);
+        if (levelParentTF == null)
+            return;
         for(int i = 0; i < number; i++)
         {
-            CreateGoodsItem(level, levelParentTf.gameObject);
+            CreateGoodsItem(level, levelParentTF.gameObject);
+        }
+    }
+
+    public void SpaceNumberChange(int level, int number)
+    {
+        Transform levelParentTF = CptUtil.GetCptInChildrenByName<Transform>(gameObject, "LevelScene_" + level);
+        if (levelParentTF == null)
+        {
+            GameObject levelObj = new GameObject("LevelScene_" + level);
+            levelObj.transform.parent = transform;
+            float objPositionY = scenesInterval * (level - 1);
+            levelObj.transform.position = new Vector3(levelObj.transform.position.x, objPositionY);
+            levelParentTF = levelObj.transform;
+        }
+        for (int i = 0; i < number; i++)
+        {
+            CreateSpaceItem(level, levelParentTF.gameObject);
         }
     }
 
@@ -142,17 +151,26 @@ public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView,IGameDataCallBac
 
     #region 私有方法
     /// <summary>
-    /// 创建一个item
+    /// 创建一个goods
     /// </summary>
     /// <param name="level"></param>
     /// <param name="parentObj"></param>
     private void CreateGoodsItem(int level,GameObject parentObj)
     {
-        Vector3 markLoaction=  mMarkLocation[level];
+        Vector3 markLoaction= mMarkGoodsLocation[level];
         Vector3 itemGoodsPosition = new Vector3(markLoaction.x + 0.5f, markLoaction.y + 0.5f, markLoaction.z + 0.5f);
         GameObject levelGoodsItem = Instantiate(itemGoodsModel, itemGoodsPosition, itemGoodsModel.transform.rotation);
         levelGoodsItem.SetActive(true);
         levelGoodsItem.transform.parent = parentObj.transform;
+
+        //添加不同等级goods
+        GameObject tempItem= Instantiate(listGoodsItemModel[level - 1], levelGoodsItem.transform);
+        tempItem.SetActive(true);
+        tempItem.transform.parent = levelGoodsItem.transform;
+
+        //设置数据
+        GameItemGoodsCpt itemCpt = levelGoodsItem.GetComponent<GameItemGoodsCpt>();
+        itemCpt.SetLevelData(level);
 
         markLoaction.z++;
         if (markLoaction.z >= 5)
@@ -160,12 +178,46 @@ public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView,IGameDataCallBac
             markLoaction.z = -5;
             markLoaction.x++;
         }
-        mMarkLocation[level] = markLoaction;
+        mMarkGoodsLocation[level] = markLoaction;
     }
 
-    public void SpaceNumberChange(int level, int number)
-    {
-        
+    /// <summary>
+    /// 创建一个space
+    /// </summary>
+    /// <param name="level"></param>
+    /// <param name="parentObj"></param>
+    private void CreateSpaceItem(int level, GameObject parentObj)
+    {        
+        //获取当前Y轴位置
+        float objPositionY = scenesInterval * (level - 1);
+
+        if (!mMarkSpaceLocation.ContainsKey(level))
+        {
+            mMarkSpaceLocation.Add(level, 0);
+        }
+        int  markLocation= mMarkSpaceLocation[level];
+        //设置地形位置
+        Vector3 itemSpacePosition = new Vector3(markLocation * itemSpaceModel.transform.localScale.x, objPositionY);
+        GameObject levelSpaceItem = Instantiate(itemSpaceModel, itemSpacePosition, itemSpaceModel.transform.rotation);
+        levelSpaceItem.SetActive(true);
+        levelSpaceItem.transform.parent = parentObj.transform;
+        GameItemSpaceCpt spaceCpt = levelSpaceItem.GetComponent<GameItemSpaceCpt>();
+
+        //设置地形数据
+        if (spaceCpt != null
+            && listLevelSpaceTexture != null
+            && level <= listLevelSpaceTexture.Count)
+        {
+            spaceCpt.SetLevelData(level);
+            spaceCpt.SetLevelTexture(listLevelSpaceTexture[level - 1]);
+        }
+
+        mMarkSpaceLocation[level] = (markLocation + 1);
+
+        if (gameCameraCpt != null)
+        {
+            gameCameraCpt.ChangePerspectiveByLevel(level, levelSpaceItem.transform.position.x);
+        }
     }
     #endregion
 }

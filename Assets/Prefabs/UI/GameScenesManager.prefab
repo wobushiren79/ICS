@@ -191,8 +191,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameData: {fileID: 0}
-  itemSpaceObj: {fileID: 1032455944001932}
-  itemGoodsObj: {fileID: 1965201855508676}
+  itemSpaceModel: {fileID: 0}
+  itemGoodsModel: {fileID: 0}
   listLevelSpaceTexture:
   - {fileID: 2800000, guid: 054e2e7b242669e4095c750610cf7bb9, type: 3}
   - {fileID: 2800000, guid: 3e5ace57d486517439ce5bd0d73a7ec9, type: 3}
@@ -268,7 +268,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 13.66, y: 7.68}
+  m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

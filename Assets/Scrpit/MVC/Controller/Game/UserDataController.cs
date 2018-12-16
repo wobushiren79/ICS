@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using System.Collections.Generic;
 
 public class UserDataController : BaseMVCController<UserDataModel, IUserDataView>
 {
@@ -13,6 +14,24 @@ public class UserDataController : BaseMVCController<UserDataModel, IUserDataView
 
     }
 
+    /// <summary>
+    /// 获取所有用户数据
+    /// </summary>
+    public void GetAllUserData()
+    {
+        List<UserDataBean> listData = GetModel().GetAllUserData();
+        if (CheckUtil.ListIsNull(listData))
+        {
+            GetView().GetUserDataFail(UserDataModel.UserDataFailEnum.Fail);
+        }
+        else
+        {
+            foreach (UserDataBean itemData in listData)
+            {
+                GetView().GetUserDataSuccess(itemData);
+            }
+        }
+    }
 
     /// <summary>
     /// 根据ID获取用户数据
@@ -30,10 +49,10 @@ public class UserDataController : BaseMVCController<UserDataModel, IUserDataView
     /// <summary>
     /// 创建用户数据
     /// </summary>
-    public void CreateUserData()
+    public void CreateUserData(string userName)
     {
         //创建用户数据
-        UserDataBean userData = GetModel().CreateUserData();
+        UserDataBean userData = GetModel().CreateUserData(userName);
         //通知创建成功
         if (userData != null)
             GetView().CreateUserDataSuccess(userData);

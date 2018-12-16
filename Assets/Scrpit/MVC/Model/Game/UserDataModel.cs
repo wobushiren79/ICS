@@ -20,6 +20,14 @@ public class UserDataModel : BaseMVCModel
         mLevelScenesService = new LevelScenesService();
     }
 
+    /// <summary>
+    /// 获取所有用户数据
+    /// </summary>
+    /// <returns></returns>
+    public List<UserDataBean> GetAllUserData()
+    {
+        return mUserDataService.QueryAllData();
+    }
 
     /// <summary>
     /// 根据用户ID获取用户数据
@@ -41,7 +49,7 @@ public class UserDataModel : BaseMVCModel
     /// 创建一个全新的用户数据
     /// </summary>
     /// <returns></returns>
-    public UserDataBean CreateUserData()
+    public UserDataBean CreateUserData(string userName)
     {
         UserDataBean userData = new UserDataBean();
         List<UserItemLevelBean> itemLevelList = new List<UserItemLevelBean>();
@@ -62,6 +70,7 @@ public class UserDataModel : BaseMVCModel
         userData.userId = "UserId_" + SystemUtil.GetUUID(SystemUtil.UUIDTypeEnum.N);
         userData.itemLevelList = itemLevelList;
         userData.userGrow = initLevelData.item_grow;
+        userData.userName = userName;
         userData = mUserDataService.SaveData(userData);
         return userData;
     }

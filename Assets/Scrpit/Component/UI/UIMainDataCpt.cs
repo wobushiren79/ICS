@@ -4,6 +4,12 @@ using UnityEngine.UI;
 
 public class UIMainDataCpt : BaseUIComponent,IUserDataView
 {
+    //标题文字
+    public Text tvTitle;
+    //返回按钮文字
+    public Text tvBack;
+
+
     //返回按钮
     public Button btBack;
 
@@ -21,9 +27,13 @@ public class UIMainDataCpt : BaseUIComponent,IUserDataView
 
     private void Start()
     {
-        RefreshData();
         if (btBack != null)
             btBack.onClick.AddListener(BTBackOnClick);
+        if (tvTitle != null)
+            tvTitle.text = GameCommonInfo.GetTextById(3);
+        if (tvBack != null)
+            tvBack.text = GameCommonInfo.GetTextById(4);
+        RefreshData();
     }
 
     /// <summary>
@@ -59,7 +69,8 @@ public class UIMainDataCpt : BaseUIComponent,IUserDataView
 
     public void CreateUserDataSuccess(UserDataBean userData)
     {
-      
+        GameCommonInfo.gameUserId = userData.userId;
+        SceneUtil.SceneChange("GameScene");
     }
 
     public void CreateUserDataFail(UserDataModel.UserDataFailEnum failEnum)
@@ -109,7 +120,7 @@ public class UIMainDataCpt : BaseUIComponent,IUserDataView
             string outNumber;
            UnitUtil.UnitEnum outUnit;
                 UnitUtil.DoubleToStrUnit(userData.userScore,out outNumber,out outUnit);
-            tvScore.text = outNumber + " " + outUnit;
+            tvScore.text = outNumber + " " + GameCommonInfo.GetUnitStr(outUnit);
         }
         //设置删除按钮
         Button btDelete = CptUtil.GetCptInChildrenByName<Button>(oldItem, "Delete");
@@ -122,7 +133,8 @@ public class UIMainDataCpt : BaseUIComponent,IUserDataView
         Button btStart = oldItem.GetComponent<Button>();
         btStart.onClick.AddListener(delegate ()
         {
-
+            GameCommonInfo.gameUserId = userData.userId;
+            SceneUtil.SceneChange("GameScene");
         });
     }
 
@@ -138,8 +150,9 @@ public class UIMainDataCpt : BaseUIComponent,IUserDataView
         Button btCreate = newItem.GetComponent<Button>();
         btCreate.onClick.AddListener(delegate ()
         {
-            mUserDataController.CreateUserData("Text2");
-            RefreshData();
+            uiManager.OpenUIAndCloseOtherByName("Create");
         });
+        Text tvCreate = CptUtil.GetCptInChildrenByName<Text>(newItem, "Content");
+        tvCreate.text = GameCommonInfo.GetTextById(5);
     }
 }

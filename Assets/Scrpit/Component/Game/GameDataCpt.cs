@@ -17,7 +17,7 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView
     private void Awake()
     {
         mUserDataController = new UserDataController(this, this);
-        mUserDataController.GetUserData("UserId_260e8c7c6a824cdcb09221e31253d01f");
+        mUserDataController.GetUserData(GameCommonInfo.gameUserId);
     }
 
     private void FixedUpdate()

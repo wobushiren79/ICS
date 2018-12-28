@@ -77,6 +77,7 @@ public class UIGameMenuCpt : BaseUIComponent
     public void BTSaveAndExitOnClick()
     {
         gameDataCpt.SaveUserData();
+        SceneUtil.SceneChange("MainScene");
     }
 
     /// <summary>
@@ -91,14 +92,14 @@ public class UIGameMenuCpt : BaseUIComponent
             string outNumberStr;
             UnitUtil.UnitEnum outUnit;
             UnitUtil.DoubleToStrUnit(gameDataCpt.userData.userScore,out outNumberStr,out outUnit);
-            tvScore.text = outNumberStr+" "+(int)outUnit;
+            tvScore.text = outNumberStr+" " + GameCommonInfo.GetUnitStr(outUnit);
         }
         if (tvGrow != null)
         {
             string outNumberStr;
             UnitUtil.UnitEnum outUnit;
             UnitUtil.DoubleToStrUnitKeepNumber(gameDataCpt.userData.userGrow, 2, out outNumberStr, out outUnit);
-            tvGrow.text = "per second:" + outNumberStr +" "+ (int)outUnit;
+            tvGrow.text = "per second:" + outNumberStr +" "+GameCommonInfo.GetUnitStr(outUnit);
         }
         if (tvName != null)
             tvName.text = gameDataCpt.userData.userName;

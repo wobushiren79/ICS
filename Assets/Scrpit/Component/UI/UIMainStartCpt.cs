@@ -7,8 +7,10 @@ public class UIMainStartCpt : BaseUIComponent {
     
     //退出按钮
     public Button btExit;
+    public Text tvExit;
     //开始按钮
     public Button btStart;
+    public Text tvStart;
 
     private void Start()
     {
@@ -16,7 +18,14 @@ public class UIMainStartCpt : BaseUIComponent {
             btExit.onClick.AddListener(BTExitOnClick);
         if (btStart != null)
             btStart.onClick.AddListener(BTStartOnClick);
+
+        if (tvStart != null)
+            tvStart.text = GameCommonInfo.GetTextById(1);
+        if (tvExit != null)
+            tvExit.text = GameCommonInfo.GetTextById(2);
     }
+
+
     /// <summary>
     /// 开始按钮点击
     /// </summary>

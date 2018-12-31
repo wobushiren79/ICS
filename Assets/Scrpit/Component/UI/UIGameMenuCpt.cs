@@ -47,6 +47,7 @@ public class UIGameMenuCpt : BaseUIComponent
         UpdateUIData();
     }
 
+
     /// <summary>
     /// 商店按钮点击
     /// </summary>
@@ -79,6 +80,7 @@ public class UIGameMenuCpt : BaseUIComponent
         gameDataCpt.SaveUserData();
         SceneUtil.SceneChange("MainScene");
     }
+
 
     /// <summary>
     /// //实时更新数据

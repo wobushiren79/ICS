@@ -70,6 +70,15 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView
     }
 
     /// <summary>
+    /// 增加分数
+    /// </summary>
+    /// <param name="score"></param>
+    public void AddScore(double score)
+    {
+        userData.userScore += score;
+    }
+
+    /// <summary>
     /// 增加对应等级商品数量
     /// </summary>
     /// <param name="level"></param>

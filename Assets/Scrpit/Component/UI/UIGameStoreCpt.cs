@@ -77,6 +77,9 @@ public class UIGameStoreCpt : BaseUIComponent, IGameScenesView
             GameObject itemObj = Instantiate(contentGoodsItemModel, contentGoodsItemModel.transform);
             itemObj.SetActive(true);
             itemObj.transform.parent = listContentObj.transform;
+            //设置数据
+            PopupReplyGoodsView prgv = itemObj.GetComponent<PopupReplyGoodsView>();
+            prgv.SetData(itemData);
             //设置按钮
             Button itemBT=  itemObj.GetComponent<Button>();
             itemBT.onClick.AddListener(delegate() {
@@ -108,6 +111,7 @@ public class UIGameStoreCpt : BaseUIComponent, IGameScenesView
             GameObject itemObj = Instantiate(contentSpaceItemModel, contentSpaceItemModel.transform);
             itemObj.SetActive(true);
             itemObj.transform.parent = listContentObj.transform;
+
             //设置按钮
             Button itemBT = itemObj.GetComponent<Button>();
             itemBT.onClick.AddListener(delegate () {

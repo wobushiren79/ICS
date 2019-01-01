@@ -16,12 +16,16 @@ public class UIGameMenuCpt : BaseUIComponent
 
     //按钮-商店
     public Button btStore;
+    public Text tvStore;
     //按钮-技能
     public Button btSkill;
+    public Text tvSill;
     //按钮-成就
     public Button btAchievement;
+    public Text tvAchievement;
     //按钮-保存并退出
     public Button btSaveAndExit;
+    public Text tvSaveAndExit;
 
     //数据管理
     public GameDataCpt gameDataCpt;
@@ -39,6 +43,15 @@ public class UIGameMenuCpt : BaseUIComponent
             btAchievement.onClick.AddListener(BTAchievementOnClick);
         if (btSaveAndExit != null)
             btSaveAndExit.onClick.AddListener(BTSaveAndExitOnClick);
+        //初始化数据
+        if (tvStore != null)
+            tvStore.text = GameCommonInfo.GetTextById(32);
+        if (tvSill != null)
+            tvSill.text = GameCommonInfo.GetTextById(33);
+        if (tvAchievement != null)
+            tvAchievement.text = GameCommonInfo.GetTextById(34);
+        if (tvSaveAndExit != null)
+            tvSaveAndExit.text = GameCommonInfo.GetTextById(35);
     }
 
     private void Update()

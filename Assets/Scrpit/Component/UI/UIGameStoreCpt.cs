@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using DG.Tweening;
 public class UIGameStoreCpt : BaseUIComponent, IGameScenesView
 {
     //分数
@@ -10,8 +10,10 @@ public class UIGameStoreCpt : BaseUIComponent, IGameScenesView
 
     //按钮-类型-商品
     public Button btTypeGoods;
+    public Text tvTypeGoods;
     //按钮-类型-地皮
     public Button btTypeSpace;
+    public Text tvTypeSpace;
     //列表
     public GameObject listContentObj;
     //列表item模型
@@ -22,6 +24,7 @@ public class UIGameStoreCpt : BaseUIComponent, IGameScenesView
 
     //返回按钮
     public Button btBack;
+    public Text tvBack;
     //游戏数据
     public GameDataCpt gameDataCpt;
 
@@ -45,6 +48,12 @@ public class UIGameStoreCpt : BaseUIComponent, IGameScenesView
             btTypeSpace.onClick.AddListener(TypeSpaceSelect);
         if (btBack != null)
             btBack.onClick.AddListener(BTBack);
+        if (tvBack != null)
+            tvBack.text = GameCommonInfo.GetTextById(36);
+        if (tvTypeGoods != null)
+            tvTypeGoods.text = GameCommonInfo.GetTextById(37);
+        if (tvTypeSpace != null)
+            tvTypeSpace.text = GameCommonInfo.GetTextById(38);
     }
 
     /// <summary>
@@ -72,18 +81,22 @@ public class UIGameStoreCpt : BaseUIComponent, IGameScenesView
             return;
         selectType = 1;
         CptUtil.RemoveChildsByActive(listContentObj.transform);
-        foreach (LevelScenesBean itemData in mListScenesData)
+        for(int i=0;i< mListScenesData.Count; i++)
         {
+            LevelScenesBean itemData = mListScenesData[i];
             GameObject itemObj = Instantiate(contentGoodsItemModel, contentGoodsItemModel.transform);
             itemObj.SetActive(true);
             itemObj.transform.parent = listContentObj.transform;
+            //动画
+            itemObj.transform.localScale = new Vector3(0, 0, 1);
+            itemObj.transform.DOScale(new Vector3(1, 1), 0.5f).SetEase(Ease.OutBack).SetDelay(i*0.05f);
             //设置数据
             PopupReplyGoodsView prgv = itemObj.GetComponent<PopupReplyGoodsView>();
             prgv.SetData(itemData);
             //设置按钮
-            Button itemBT=  itemObj.GetComponent<Button>();
-            itemBT.onClick.AddListener(delegate() {
-                gameDataCpt.AddLevelGoods(itemData.level,1);
+            Button itemBT = itemObj.GetComponent<Button>();
+            itemBT.onClick.AddListener(delegate () {
+                gameDataCpt.AddLevelGoods(itemData.level, 1);
             });
             //设置名字
             Text itemName = CptUtil.GetCptInChildrenByName<Text>(itemObj, "GoodsName");
@@ -105,13 +118,15 @@ public class UIGameStoreCpt : BaseUIComponent, IGameScenesView
             return;
         selectType = 2;
         CptUtil.RemoveChildsByActive(listContentObj.transform);
-
-        foreach (LevelScenesBean itemData in mListScenesData)
+        for (int i = 0; i < mListScenesData.Count; i++)
         {
+            LevelScenesBean itemData = mListScenesData[i];
             GameObject itemObj = Instantiate(contentSpaceItemModel, contentSpaceItemModel.transform);
             itemObj.SetActive(true);
             itemObj.transform.parent = listContentObj.transform;
-
+            //动画
+            itemObj.transform.localScale = new Vector3(0, 0, 1);
+            itemObj.transform.DOScale(new Vector3(1, 1), 0.5f).SetEase(Ease.OutBack).SetDelay(i * 0.05f);
             //设置按钮
             Button itemBT = itemObj.GetComponent<Button>();
             itemBT.onClick.AddListener(delegate () {

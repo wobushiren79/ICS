@@ -49,7 +49,6 @@ public class GameToastCpt : BaseMonoBehaviour
         //定时销毁
         toastHintObj.transform.DOScaleZ(1, destoryTime).OnComplete(delegate() {
             DestroyToast(toastHintObj);
-       
         });
     }
 

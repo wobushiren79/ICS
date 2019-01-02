@@ -42,6 +42,8 @@ public class UITextController : BaseMVCController<UITextModel,IUITextView>
         if (mMapData == null)
             return null;
         UITextBean itemData = mMapData[id];
+        if (itemData == null)
+            return null;
         return itemData.content;
     }
 }

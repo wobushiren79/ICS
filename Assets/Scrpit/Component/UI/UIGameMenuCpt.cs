@@ -13,6 +13,8 @@ public class UIGameMenuCpt : BaseUIComponent
     public Text tvScore;
     //显示-增量
     public Text tvGrow;
+    //显示-标题
+    public Text tvTitle;
 
     //按钮-商店
     public Button btStore;
@@ -52,6 +54,8 @@ public class UIGameMenuCpt : BaseUIComponent
             tvAchievement.text = GameCommonInfo.GetTextById(34);
         if (tvSaveAndExit != null)
             tvSaveAndExit.text = GameCommonInfo.GetTextById(35);
+        if (tvTitle != null)
+            tvTitle.text = GameCommonInfo.GetTextById(40);
     }
 
     private void Update()
@@ -114,7 +118,7 @@ public class UIGameMenuCpt : BaseUIComponent
             string outNumberStr;
             UnitUtil.UnitEnum outUnit;
             UnitUtil.DoubleToStrUnitKeepNumber(gameDataCpt.userData.userGrow, 2, out outNumberStr, out outUnit);
-            tvGrow.text = "per second:" + outNumberStr +" "+GameCommonInfo.GetUnitStr(outUnit);
+            tvGrow.text = GameCommonInfo.GetTextById(39)+":" + outNumberStr +" "+GameCommonInfo.GetUnitStr(outUnit);
         }
         if (tvName != null)
             tvName.text = gameDataCpt.userData.userName;

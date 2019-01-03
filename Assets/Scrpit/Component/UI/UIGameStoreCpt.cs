@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using DG.Tweening;
 public class UIGameStoreCpt : BaseUIComponent, IGameScenesView
 {
+    //标题
+    public Text tvTitle;
     //分数
     public Text tvScore;
 
@@ -48,6 +50,8 @@ public class UIGameStoreCpt : BaseUIComponent, IGameScenesView
             btTypeSpace.onClick.AddListener(TypeSpaceSelect);
         if (btBack != null)
             btBack.onClick.AddListener(BTBack);
+        if (tvTitle != null)
+            tvTitle.text = GameCommonInfo.GetTextById(32);
         if (tvBack != null)
             tvBack.text = GameCommonInfo.GetTextById(36);
         if (tvTypeGoods != null)
@@ -68,7 +72,7 @@ public class UIGameStoreCpt : BaseUIComponent, IGameScenesView
             string outNumberStr;
             UnitUtil.UnitEnum outUnit;
             UnitUtil.DoubleToStrUnit(gameDataCpt.userData.userScore, out outNumberStr, out outUnit);
-            tvScore.text = outNumberStr + " " + (int)outUnit;
+            tvScore.text = outNumberStr + " " + GameCommonInfo.GetUnitStr(outUnit);
         }
     }
 
@@ -89,15 +93,14 @@ public class UIGameStoreCpt : BaseUIComponent, IGameScenesView
             itemObj.transform.parent = listContentObj.transform;
             //动画
             itemObj.transform.localScale = new Vector3(0, 0, 1);
-            itemObj.transform.DOScale(new Vector3(1, 1), 0.5f).SetEase(Ease.OutBack).SetDelay(i*0.05f);
+            itemObj
+                .transform
+                .DOScale(new Vector3(1, 1), 0.5f)
+                .SetEase(Ease.OutBack)
+                .SetDelay(i * 0.05f);
             //设置数据
             PopupReplyGoodsView prgv = itemObj.GetComponent<PopupReplyGoodsView>();
             prgv.SetData(itemData);
-            //设置按钮
-            Button itemBT = itemObj.GetComponent<Button>();
-            itemBT.onClick.AddListener(delegate () {
-                gameDataCpt.AddLevelGoods(itemData.level, 1);
-            });
             //设置名字
             Text itemName = CptUtil.GetCptInChildrenByName<Text>(itemObj, "GoodsName");
             if (itemName != null)
@@ -106,6 +109,14 @@ public class UIGameStoreCpt : BaseUIComponent, IGameScenesView
             Image itemIcon = CptUtil.GetCptInChildrenByName<Image>(itemObj, "GoodsIcon");
             if (itemIcon != null)
                 itemIcon.sprite = listGoodsIcon[itemData.level - 1];
+            //设置按钮
+            Button itemBT = itemObj.GetComponent<Button>();
+            itemBT.onClick.AddListener(delegate () {
+                itemObj.transform.DOKill();
+                itemObj.transform.localScale = new Vector3(1, 1, 1);
+                itemObj.transform.DOShakeScale(1f, new Vector3(1.1f, 1.1f));
+                gameDataCpt.AddLevelGoods(itemData.level, 1);
+            });
         }
     }
 
@@ -127,11 +138,6 @@ public class UIGameStoreCpt : BaseUIComponent, IGameScenesView
             //动画
             itemObj.transform.localScale = new Vector3(0, 0, 1);
             itemObj.transform.DOScale(new Vector3(1, 1), 0.5f).SetEase(Ease.OutBack).SetDelay(i * 0.05f);
-            //设置按钮
-            Button itemBT = itemObj.GetComponent<Button>();
-            itemBT.onClick.AddListener(delegate () {
-                gameDataCpt.AddLevelSpace(itemData.level, 1);
-            });
             //设置名字
             Text itemName = CptUtil.GetCptInChildrenByName<Text>(itemObj, "SpaceName");
             if (itemName != null)
@@ -140,6 +146,14 @@ public class UIGameStoreCpt : BaseUIComponent, IGameScenesView
             Image itemIcon = CptUtil.GetCptInChildrenByName<Image>(itemObj, "SpaceIcon");
             if (itemIcon != null)
                 itemIcon.sprite = listSpaceIcon[itemData.level - 1];
+            //设置按钮
+            Button itemBT = itemObj.GetComponent<Button>();
+            itemBT.onClick.AddListener(delegate () {
+                itemObj.transform.DOKill();
+                itemObj.transform.localScale = new Vector3(1, 1, 1);
+                itemObj.transform.DOShakeScale(1f, new Vector3(1.1f, 1.1f));
+                gameDataCpt.AddLevelSpace(itemData.level, 1);
+            });
         }
     }
 

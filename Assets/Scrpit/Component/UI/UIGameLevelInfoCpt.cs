@@ -23,6 +23,12 @@ public class UIGameLevelInfoCpt : BaseUIComponent,IGameDataCallBack
         CreateLevelButton();
     }
 
+    private void OnDestroy()
+    {
+        if (gameDataCpt != null)
+            gameDataCpt.RemoveObserver(this);
+    }
+
     public void CreateLevelButton()
     {
         if (gameDataCpt == null|| levelItemModel == null|| levelContent==null|| levelItemModel == null)
@@ -59,6 +65,11 @@ public class UIGameLevelInfoCpt : BaseUIComponent,IGameDataCallBack
     public void GoodsNumberChange(int level, int number)
     {
      
+    }
+
+    public void ScoreChange(double score)
+    {
+
     }
 
     public void SpaceNumberChange(int level, int number)

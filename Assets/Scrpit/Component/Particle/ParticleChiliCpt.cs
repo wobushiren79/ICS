@@ -1,20 +1,26 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-public class ParticleChiliCpt : BaseMonoBehaviour,IGameDataCallBack
+public class ParticleChiliCpt : BaseMonoBehaviour, IGameDataCallBack
 {
-    public  GameDataCpt gameData;
+    public GameDataCpt gameData;
     private ParticleSystem mChiliParticle;
 
     private void Awake()
     {
-        if(gameData!=null)
-        gameData.AddObserver(this);
+        if (gameData != null)
+            gameData.AddObserver(this);
+    }
+
+    private void OnDestroy()
+    {
+        if (gameData != null)
+            gameData.RemoveObserver(this);
     }
 
     private void Start()
     {
-        mChiliParticle=GetComponent<ParticleSystem>();
+        mChiliParticle = GetComponent<ParticleSystem>();
         SetChiliDensity(1);
     }
 
@@ -41,9 +47,14 @@ public class ParticleChiliCpt : BaseMonoBehaviour,IGameDataCallBack
         SetChiliDensity(gameData.userData.userLevel);
     }
 
+    public void ScoreChange(double score)
+    {
+
+    }
+
     public void ObserbableUpdate(int type, params Object[] obj)
     {
-        throw new System.NotImplementedException();
+
     }
     #endregion
 }

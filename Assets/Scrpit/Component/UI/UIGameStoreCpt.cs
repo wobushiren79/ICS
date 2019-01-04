@@ -39,11 +39,12 @@ public class UIGameStoreCpt : BaseUIComponent, IGameScenesView
     private void Awake()
     {
         mGameScenesController = new GameScenesController(this, this);
-        mGameScenesController.GetAllGameScenesData();
     }
 
     private void Start()
     {
+        mGameScenesController.GetAllGameScenesData();
+
         if (btTypeGoods != null)
             btTypeGoods.onClick.AddListener(TypeGoodsSelect);
         if (btTypeSpace != null)
@@ -99,24 +100,8 @@ public class UIGameStoreCpt : BaseUIComponent, IGameScenesView
                 .SetEase(Ease.OutBack)
                 .SetDelay(i * 0.05f);
             //设置数据
-            PopupReplyGoodsView prgv = itemObj.GetComponent<PopupReplyGoodsView>();
-            prgv.SetData(itemData);
-            //设置名字
-            Text itemName = CptUtil.GetCptInChildrenByName<Text>(itemObj, "GoodsName");
-            if (itemName != null)
-                itemName.text = itemData.goods_name;
-            //设置图标
-            Image itemIcon = CptUtil.GetCptInChildrenByName<Image>(itemObj, "GoodsIcon");
-            if (itemIcon != null)
-                itemIcon.sprite = listGoodsIcon[itemData.level - 1];
-            //设置按钮
-            Button itemBT = itemObj.GetComponent<Button>();
-            itemBT.onClick.AddListener(delegate () {
-                itemObj.transform.DOKill();
-                itemObj.transform.localScale = new Vector3(1, 1, 1);
-                itemObj.transform.DOShakeScale(1f, new Vector3(1.1f, 1.1f));
-                gameDataCpt.AddLevelGoods(itemData.level, 1);
-            });
+            GameStoreItem itemCpt = itemObj.GetComponent<GameStoreItem>();
+            itemCpt.SetData(GameStoreItem.StoreItemType.Goods,listGoodsIcon[itemData.level - 1], listGoodsIcon[itemData.level - 1],itemData);
         }
     }
 
@@ -137,23 +122,14 @@ public class UIGameStoreCpt : BaseUIComponent, IGameScenesView
             itemObj.transform.parent = listContentObj.transform;
             //动画
             itemObj.transform.localScale = new Vector3(0, 0, 1);
-            itemObj.transform.DOScale(new Vector3(1, 1), 0.5f).SetEase(Ease.OutBack).SetDelay(i * 0.05f);
-            //设置名字
-            Text itemName = CptUtil.GetCptInChildrenByName<Text>(itemObj, "SpaceName");
-            if (itemName != null)
-                itemName.text = itemData.space_name;
-            //设置图标
-            Image itemIcon = CptUtil.GetCptInChildrenByName<Image>(itemObj, "SpaceIcon");
-            if (itemIcon != null)
-                itemIcon.sprite = listSpaceIcon[itemData.level - 1];
-            //设置按钮
-            Button itemBT = itemObj.GetComponent<Button>();
-            itemBT.onClick.AddListener(delegate () {
-                itemObj.transform.DOKill();
-                itemObj.transform.localScale = new Vector3(1, 1, 1);
-                itemObj.transform.DOShakeScale(1f, new Vector3(1.1f, 1.1f));
-                gameDataCpt.AddLevelSpace(itemData.level, 1);
-            });
+            itemObj
+                .transform
+                .DOScale(new Vector3(1, 1), 0.5f)
+                .SetEase(Ease.OutBack)
+                .SetDelay(i * 0.05f);
+            //设置数据
+            GameStoreItem itemCpt = itemObj.GetComponent<GameStoreItem>();
+            itemCpt.SetData(GameStoreItem.StoreItemType.Space, listSpaceIcon[itemData.level - 1], listSpaceIcon[itemData.level - 1], itemData);
         }
     }
 

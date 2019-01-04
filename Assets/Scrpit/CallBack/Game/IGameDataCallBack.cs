@@ -17,4 +17,10 @@ public interface IGameDataCallBack : IBaseObserver
     /// <param name="number"></param>
     void SpaceNumberChange(int level,int number);
 
+    /// <summary>
+    /// 分数改变
+    /// </summary>
+    /// <param name="score"></param>
+    void ScoreChange(double score);
+
 }

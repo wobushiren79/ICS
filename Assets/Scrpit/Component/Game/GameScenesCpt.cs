@@ -34,6 +34,12 @@ public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView,IGameDataCallBac
         mGameScenesController = new GameScenesController(this, this);
     }
 
+    private void OnDestroy()
+    {
+        if (gameDataCpt != null)
+            gameDataCpt.RemoveObserver(this);
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -143,6 +149,10 @@ public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView,IGameDataCallBac
         }
     }
 
+    public void ScoreChange(double score)
+    {
+    }
+
     public void ObserbableUpdate(int type, params Object[] obj)
     {
 
@@ -219,5 +229,7 @@ public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView,IGameDataCallBac
             gameCameraCpt.ChangePerspectiveByLevel(level, levelSpaceItem.transform.position.x);
         }
     }
+
+
     #endregion
 }

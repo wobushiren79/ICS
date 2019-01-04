@@ -433,7 +433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7058824, g: 0.7058824, b: 0.7058824, a: 1}
+  m_Color: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -940,6 +940,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1965201855508676, guid: c803676256329d849a118e5a81fb296e,
     type: 2}
   m_PrefabInternal: {fileID: 576186758}
+--- !u!114 &276265892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 276265891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91fd7b912763d7c42855c3daa236cdc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &310418545
 GameObject:
   m_ObjectHideFlags: 0
@@ -1771,7 +1782,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 909099052}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9999999
+  m_Size: 0.9999998
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1961,6 +1972,8 @@ Prefab:
       objectReference: {fileID: 1387247832}
     m_RemovedComponents:
     - {fileID: 95338086525674956, guid: c803676256329d849a118e5a81fb296e, type: 2}
+    - {fileID: 114641140202851980, guid: c803676256329d849a118e5a81fb296e, type: 2}
+    - {fileID: 114944942685551820, guid: c803676256329d849a118e5a81fb296e, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: c803676256329d849a118e5a81fb296e, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &585399365
@@ -2818,7 +2831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7058824, g: 0.7058824, b: 0.7058824, a: 1}
+  m_Color: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3195,7 +3208,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000010041982, y: -0.00004353289}
+  m_AnchoredPosition: {x: -0.000010041982, y: 0.00019005976}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &867068114
@@ -4719,6 +4732,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1032455944001932, guid: c803676256329d849a118e5a81fb296e,
     type: 2}
   m_PrefabInternal: {fileID: 576186758}
+--- !u!114 &1256054737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1256054735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85fbf0db46757c540b3470e6bb061406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSpaceLevel: 0
 --- !u!1 &1285870121
 GameObject:
   m_ObjectHideFlags: 0
@@ -4772,6 +4797,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoPopupView: {fileID: 1457210681}
+  tvName: {fileID: 1920852389}
+  tvNumber: {fileID: 1938064362}
+  tvPrice: {fileID: 1998352074}
+  ivIcon: {fileID: 430172244}
+  btSubmit: {fileID: 1285870124}
   levelScenesBean:
     id: 0
     level: 0
@@ -4780,6 +4810,11 @@ MonoBehaviour:
     item_grow: 0
     goods_name: 
     space_name: 
+    goods_introduction: 
+    space_introduction: 
+  gameData: {fileID: 1387247830}
+  thumbIcon: {fileID: 0}
+  itemType: 0
 --- !u!114 &1285870124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5877,12 +5912,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 5
-    m_Right: 5
-    m_Top: 5
-    m_Bottom: 5
+    m_Left: 10
+    m_Right: 10
+    m_Top: 10
+    m_Bottom: 10
   m_ChildAlignment: 0
-  m_Spacing: 2
+  m_Spacing: 5
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
@@ -6000,6 +6035,7 @@ GameObject:
   - component: {fileID: 1516840810}
   - component: {fileID: 1516840809}
   - component: {fileID: 1516840808}
+  - component: {fileID: 1516840807}
   m_Layer: 5
   m_Name: StoreSpaceItem
   m_TagString: Untagged
@@ -6028,6 +6064,36 @@ RectTransform:
   m_AnchoredPosition: {x: 116.5, y: -97.5}
   m_SizeDelta: {x: 223, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1516840807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1516840805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3529f8b74e9711e4b83fda53c54795c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infoPopupView: {fileID: 1457210681}
+  tvName: {fileID: 1431652428}
+  tvNumber: {fileID: 1608135551}
+  tvPrice: {fileID: 1716640394}
+  ivIcon: {fileID: 163544969}
+  btSubmit: {fileID: 1516840808}
+  levelScenesBean:
+    id: 0
+    level: 0
+    goods_sell_price: 0
+    space_sell_price: 0
+    item_grow: 0
+    goods_name: 
+    space_name: 
+    goods_introduction: 
+    space_introduction: 
+  gameData: {fileID: 1387247830}
+  thumbIcon: {fileID: 0}
+  itemType: 0
 --- !u!114 &1516840808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7872,7 +7938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7058824, g: 0.7058824, b: 0.7058824, a: 1}
+  m_Color: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

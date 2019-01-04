@@ -76,6 +76,12 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView
     public void AddScore(double score)
     {
         userData.userScore += score;
+        //通知所有观察者
+        List<IGameDataCallBack> listObserver = GetAllObserver();
+        foreach (IGameDataCallBack itemObserver in listObserver)
+        {
+            itemObserver.ScoreChange(score);
+        }
     }
 
     /// <summary>

@@ -19,4 +19,9 @@ public class LevelScenesBean  {
     public string goods_name;
     //场地名称
     public string space_name;
+
+    //商品简介
+    public string goods_introduction;
+    //地皮简介
+    public string space_introduction;
 }

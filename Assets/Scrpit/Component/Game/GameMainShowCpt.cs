@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using System.Collections.Generic;
 
-public class GameMainShowCpt : BaseMonoBehaviour
+public class GameMainShowCpt : BaseMonoBehaviour,IGameDataCallBack
 {
     //增加按钮
     public Button btAdd;
@@ -24,10 +24,16 @@ public class GameMainShowCpt : BaseMonoBehaviour
 
     private void Start()
     {
+        dataCpt.AddObserver(this);
         if (btAdd != null)
             btAdd.onClick.AddListener(BTAddOnClick);
     }
 
+    private void OnDestroy()
+    {
+        if (dataCpt != null)
+            dataCpt.RemoveObserver(this);
+    }
     /// <summary>
     /// 增加按钮点击
     /// </summary>
@@ -50,5 +56,27 @@ public class GameMainShowCpt : BaseMonoBehaviour
         });
         CanvasGroup itemCG = addItem.GetComponent<CanvasGroup>();
         itemCG.DOFade(0, addAnimTime * 0.3f).SetDelay(addAnimTime * 0.7f);
+    }
+
+    public void GoodsNumberChange(int level, int number)
+    {
+   
+    }
+
+    public void SpaceNumberChange(int level, int number)
+    {
+   
+    }
+
+    public void ScoreChange(double score)
+    {
+        tvScore.transform.DOKill();
+        tvScore.transform.localScale = new Vector3(1,1,1);
+        tvScore.transform.DOPunchScale(new Vector3(0.5f,0.5f,1),3);
+    }
+
+    public void ObserbableUpdate(int type, params Object[] obj)
+    {
+    
     }
 }

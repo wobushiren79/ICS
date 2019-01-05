@@ -2,6 +2,7 @@
 using UnityEditor;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System.Collections;
 
 public class UIGameLevelInfoCpt : BaseUIComponent,IGameDataCallBack
 {
@@ -12,6 +13,7 @@ public class UIGameLevelInfoCpt : BaseUIComponent,IGameDataCallBack
 
     //等级容器
     public GameObject levelContent;
+    public RadioGroupView levelRG;
     public GameObject levelItemModel;
 
     public List<Sprite> levelIconList;
@@ -21,6 +23,7 @@ public class UIGameLevelInfoCpt : BaseUIComponent,IGameDataCallBack
         if (gameDataCpt != null)
             gameDataCpt.AddObserver(this);
         CreateLevelButton();
+        StartCoroutine(InitRadioGroup());
     }
 
     private void OnDestroy()
@@ -35,6 +38,7 @@ public class UIGameLevelInfoCpt : BaseUIComponent,IGameDataCallBack
             return;
         //删除原数据
         CptUtil.RemoveChildsByActive(levelContent.transform);
+
         List<UserItemLevelBean> userLevelDataList =  gameDataCpt.userData.itemLevelList;
         if (CheckUtil.ListIsNull(userLevelDataList))
             return;
@@ -45,14 +49,13 @@ public class UIGameLevelInfoCpt : BaseUIComponent,IGameDataCallBack
             levelObj.SetActive(true);
             levelObj.transform.parent = levelContent.transform;
             //设置等级图片
-            Image itemImage = levelObj.GetComponent<Image>();
+            Image itemImage = CptUtil.GetCptInChildrenByName<Image>(levelObj,"Icon");
             itemImage.sprite = levelIconList[levelData.level-1];
             //设置按钮
             Button itemButton = levelObj.GetComponent<Button>();
             itemButton.onClick.AddListener(delegate() {
                 gameCameraCpt.ChangePerspectiveByLevel(levelData.level,0);
-            });
-    
+            });    
         }
     }
 
@@ -74,7 +77,19 @@ public class UIGameLevelInfoCpt : BaseUIComponent,IGameDataCallBack
 
     public void SpaceNumberChange(int level, int number)
     {
+        //创建Item
         CreateLevelButton();
+        StartCoroutine(InitRadioGroup());
     }
     #endregion
+
+    private IEnumerator InitRadioGroup()
+    {
+        yield return new WaitForEndOfFrame();
+        //重新初始化RB
+        if (levelRG != null)
+            levelRG.AutoFindRadioButton();
+       RadioButtonView itemRB=  levelRG.listButton[gameCameraCpt.cameraLevel - 1];
+        levelRG.RadioButtonSelected(itemRB);
+    }
 }

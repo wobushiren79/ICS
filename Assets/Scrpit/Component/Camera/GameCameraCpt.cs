@@ -11,7 +11,8 @@ public class GameCameraCpt : BaseMonoBehaviour {
     private float mCameraMoveLeftMax;
     //镜头一栋右边界
     private float mCameraMoveRightMax;
-
+    //当前镜头所在等级
+    public int cameraLevel;
     private void Start()
     {
         ChangePerspectiveByLevel(1,0);
@@ -55,6 +56,7 @@ public class GameCameraCpt : BaseMonoBehaviour {
         gameCamera.transform.rotation = new Quaternion();
         gameCamera.transform.Rotate(new Vector3(45,0,0));
         //gameCamera.transform.LookAt(levelScenesPosition);
+        cameraLevel = level;
     }
 
 }

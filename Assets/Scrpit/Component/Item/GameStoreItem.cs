@@ -18,6 +18,7 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
     public Image ivIcon;
     public Button btSubmit;
 
+    public GameToastCpt toastCpt;
     //相关数据
     public LevelScenesBean levelScenesBean;
     public GameDataCpt gameData;
@@ -79,14 +80,39 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
                 gameObject.transform.DOKill();
                 gameObject.transform.localScale = new Vector3(1, 1, 1);
                 gameObject.transform.DOShakeScale(1f, new Vector3(1.1f, 1.1f));
+                //是否扣款成功
+                bool isRemove = false;
+                //是否有足够的地皮
+                bool isSpace = true;
                 switch (itemType)
                 {
                     case StoreItemType.Goods:
-                        gameData.AddLevelGoods(itemData.level, 1);
+                        if (mUserLevelData==null||mUserLevelData.goodsNumber >= mUserLevelData.spaceNumber * 25)
+                            isSpace = false;
+                        if (isSpace)
+                            isRemove = gameData.RemoveScore(PriceConversion(StoreItemType.Goods, this.levelScenesBean.goods_sell_price, mUserLevelData.goodsNumber));
+                        if (isRemove&&isSpace)
+                            gameData.AddLevelGoods(itemData.level, 1);
                         break;
                     case StoreItemType.Space:
-                        gameData.AddLevelSpace(itemData.level, 1);
+                        int spaceNumber = 0;
+                        if (mUserLevelData != null)
+                            spaceNumber = mUserLevelData.spaceNumber;
+                        isRemove = gameData.RemoveScore(PriceConversion(StoreItemType.Space, this.levelScenesBean.space_sell_price, spaceNumber));
+                        if (isRemove)
+                            gameData.AddLevelSpace(itemData.level, 1);
                         break;
+                }
+                if (!isRemove&&toastCpt!=null)
+                {
+                    if (isSpace)
+                    {
+                        toastCpt.ToastHint(GameCommonInfo.GetTextById(44));
+                    }
+                    else
+                    {
+                        toastCpt.ToastHint(GameCommonInfo.GetTextById(45));
+                    }
                 }
             });
     }
@@ -98,7 +124,7 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
     public void SetNumber(int number)
     {
         if (tvNumber != null)
-            tvNumber.text = number+"";
+            tvNumber.text = number + "";
     }
 
     /// <summary>
@@ -111,7 +137,7 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
         UnitUtil.UnitEnum outUnit;
         UnitUtil.DoubleToStrUnit(price, out priceStr, out outUnit);
         if (tvPrice != null)
-            tvPrice.text = priceStr + " "+GameCommonInfo.GetUnitStr(outUnit);
+            tvPrice.text = priceStr + " " + GameCommonInfo.GetUnitStr(outUnit);
     }
 
     public override void OpenPopup()
@@ -122,7 +148,7 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
         string nameStr = "---";
         string introductionStr = "---";
         string otherStr = "";
-;       switch (itemType)
+        ; switch (itemType)
         {
             case StoreItemType.Goods:
                 if (levelScenesBean != null)
@@ -133,9 +159,9 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
                 if (mUserLevelData != null)
                 {
                     number = mUserLevelData.goodsNumber;
-                    otherStr = 
-                        "➤"+GameCommonInfo.GetTextById(41)+" "+ nameStr + " "+ GameCommonInfo.GetTextById(39) + GameCommonInfo.GetTextById(42) + mUserLevelData.itemGrow+ GameCommonInfo.GetTextById(40)+"\n"+
-                        "➤ " + number + " " + GameCommonInfo.GetTextById(43) + " " + nameStr + " " +GameCommonInfo.GetTextById(39) + GameCommonInfo.GetTextById(42) + mUserLevelData.itemGrow*number + GameCommonInfo.GetTextById(40);
+                    otherStr =
+                        "➤ " + GameCommonInfo.GetTextById(41) + " " + nameStr + " " + GameCommonInfo.GetTextById(39) + GameCommonInfo.GetTextById(42) + mUserLevelData.itemGrow + GameCommonInfo.GetTextById(40) + "\n" +
+                        "➤ " + number + " " + GameCommonInfo.GetTextById(43) + " " + nameStr + " " + GameCommonInfo.GetTextById(39) + GameCommonInfo.GetTextById(42) + mUserLevelData.itemGrow * number + GameCommonInfo.GetTextById(40);
                 }
                 break;
             case StoreItemType.Space:
@@ -144,13 +170,13 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
                     nameStr = levelScenesBean.space_name;
                     introductionStr = levelScenesBean.space_introduction;
                 }
-                if (mUserLevelData!=null)
+                if (mUserLevelData != null)
                 {
                     number = mUserLevelData.spaceNumber;
                 }
                 break;
         }
-        infoPopupView.SetInfoData(thumbIcon, nameStr, "["+ number + "]", tvPrice.text+ "", introductionStr, otherStr);
+        infoPopupView.SetInfoData(thumbIcon, nameStr, "[" + number + "]", tvPrice.text + "", introductionStr, otherStr);
     }
 
     public override void ClosePopup()
@@ -174,7 +200,7 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
                 price = originalPrice * Math.Pow(1.15f, number);
                 break;
             case StoreItemType.Space:
-                price = originalPrice * Math.Pow(2f, number);
+                price = originalPrice * Math.Pow(2.5f, number);
                 break;
         }
         return price;
@@ -185,7 +211,7 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
     {
         if (mUserLevelData == null)
             return;
-        SetNumber(mUserLevelData.goodsNumber );
+        SetNumber(mUserLevelData.goodsNumber);
         double pirce = PriceConversion(StoreItemType.Goods, this.levelScenesBean.goods_sell_price, mUserLevelData.goodsNumber);
         SetPrice(pirce);
         OpenPopup();

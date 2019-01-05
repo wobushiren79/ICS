@@ -85,6 +85,24 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView
     }
 
     /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="score"></param>
+    /// <returns></returns>
+    public bool RemoveScore(double score)
+    {
+        if (userData.userScore < score)
+        {
+            return false;
+        }
+        else
+        {
+            userData.userScore -= score;
+            return true;
+        }
+    }
+
+    /// <summary>
     /// 增加对应等级商品数量
     /// </summary>
     /// <param name="level"></param>
@@ -135,7 +153,7 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView
         {
             UserItemLevelBean userItemLevelBean = new UserItemLevelBean();
             userItemLevelBean.level = level;
-            userItemLevelBean.spaceNumber =number;
+            userItemLevelBean.spaceNumber = number;
             userData.itemLevelList.Add(userItemLevelBean);
         }
         //通知所有观察者

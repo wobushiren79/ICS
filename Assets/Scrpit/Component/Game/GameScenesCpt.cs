@@ -167,8 +167,16 @@ public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView,IGameDataCallBac
     /// <param name="parentObj"></param>
     private void CreateGoodsItem(int level,GameObject parentObj)
     {
+        if (!mMarkGoodsLocation.ContainsKey(level))
+        {
+            //创建单位
+            float tempX = -itemSpaceModel.transform.localScale.x / 2f;
+            float tempZ = -itemSpaceModel.transform.localScale.y / 2f;
+            mMarkGoodsLocation.Add(level, new Vector3(tempX, scenesInterval * (level - 1), tempZ));
+        }
+
         Vector3 markLoaction= mMarkGoodsLocation[level];
-        Vector3 itemGoodsPosition = new Vector3(markLoaction.x + 0.5f, markLoaction.y + 0.5f, markLoaction.z + 0.5f);
+        Vector3 itemGoodsPosition = new Vector3(markLoaction.x+1f , markLoaction.y +0.5f, markLoaction.z+1f);
         GameObject levelGoodsItem = Instantiate(itemGoodsModel, itemGoodsPosition, itemGoodsModel.transform.rotation);
         levelGoodsItem.SetActive(true);
         levelGoodsItem.transform.parent = parentObj.transform;
@@ -182,11 +190,11 @@ public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView,IGameDataCallBac
         GameItemGoodsCpt itemCpt = levelGoodsItem.GetComponent<GameItemGoodsCpt>();
         itemCpt.SetLevelData(level);
 
-        markLoaction.z++;
+        markLoaction.z+=2;
         if (markLoaction.z >= 5)
         {
             markLoaction.z = -5;
-            markLoaction.x++;
+            markLoaction.x+=2;
         }
         mMarkGoodsLocation[level] = markLoaction;
     }

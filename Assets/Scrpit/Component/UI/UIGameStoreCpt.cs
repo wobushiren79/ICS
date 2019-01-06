@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-public class UIGameStoreCpt : BaseUIComponent, IGameScenesView
+public class UIGameStoreCpt : BaseUIComponent, IGameScenesView,IGameDataCallBack
 {
     //标题
     public Text tvTitle;
@@ -43,6 +43,8 @@ public class UIGameStoreCpt : BaseUIComponent, IGameScenesView
 
     private void Start()
     {
+        gameDataCpt.AddObserver(this);
+
         mGameScenesController.GetAllGameScenesData();
 
         if (btTypeGoods != null)
@@ -86,12 +88,12 @@ public class UIGameStoreCpt : BaseUIComponent, IGameScenesView
             return;
         selectType = 1;
         CptUtil.RemoveChildsByActive(listContentObj.transform);
-        for(int i=0;i< mListScenesData.Count; i++)
+        for (int i = 0; i < mListScenesData.Count; i++)
         {
             LevelScenesBean itemData = mListScenesData[i];
             GameObject itemObj = Instantiate(contentGoodsItemModel, contentGoodsItemModel.transform);
             itemObj.SetActive(true);
-            itemObj.transform.parent = listContentObj.transform;
+            itemObj.transform.SetParent(listContentObj.transform);
             //动画
             itemObj.transform.localScale = new Vector3(0, 0, 1);
             itemObj
@@ -101,7 +103,7 @@ public class UIGameStoreCpt : BaseUIComponent, IGameScenesView
                 .SetDelay(i * 0.05f);
             //设置数据
             GameStoreItem itemCpt = itemObj.GetComponent<GameStoreItem>();
-            itemCpt.SetData(GameStoreItem.StoreItemType.Goods,listGoodsIcon[itemData.level - 1], listGoodsIcon[itemData.level - 1],itemData);
+            itemCpt.SetData(GameStoreItem.StoreItemType.Goods, listGoodsIcon[itemData.level - 1], listGoodsIcon[itemData.level - 1], itemData);
         }
     }
 
@@ -125,7 +127,7 @@ public class UIGameStoreCpt : BaseUIComponent, IGameScenesView
             itemObj
                 .transform
                 .DOScale(new Vector3(1, 1), 0.5f)
-                .SetEase(Ease.OutBack)
+                .SetEase(Ease.OutBack) 
                 .SetDelay(i * 0.05f);
             //设置数据
             GameStoreItem itemCpt = itemObj.GetComponent<GameStoreItem>();
@@ -153,6 +155,35 @@ public class UIGameStoreCpt : BaseUIComponent, IGameScenesView
     public void GetScenesDataSuccessByUserData(LevelScenesBean levelScenesData, UserItemLevelBean itemLevelData)
     {
 
+    }
+
+    public void GoodsNumberChange(int level, int number)
+    {
+    }
+
+    public void SpaceNumberChange(int level, int number)
+    {
+    }
+
+    public void ScoreChange(double score)
+    {
+    }
+
+    public void LevelChange(int level)
+    {
+        switch (selectType)
+        {
+            case 1:
+                TypeGoodsSelect();
+                break;
+            case 2:
+                TypeSpaceSelect();
+                break;
+        }
+    }
+
+    public void ObserbableUpdate(int type, params Object[] obj)
+    {
     }
 
     #endregion

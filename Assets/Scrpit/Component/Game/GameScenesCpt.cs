@@ -151,6 +151,12 @@ public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView,IGameDataCallBac
 
     public void ScoreChange(double score)
     {
+
+    }
+
+    public void LevelChange(int level)
+    {
+
     }
 
     public void ObserbableUpdate(int type, params Object[] obj)
@@ -237,6 +243,8 @@ public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView,IGameDataCallBac
             gameCameraCpt.ChangePerspectiveByLevel(level, levelSpaceItem.transform.position.x);
         }
     }
+
+
 
 
     #endregion

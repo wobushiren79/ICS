@@ -3,21 +3,27 @@ using UnityEditor;
 using System.Collections.Generic;
 using System.Collections;
 
-public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView
+public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGameScenesView
 {
 
     //用户数据
     public UserDataBean userData;
+    //场景数据
+    public List<LevelScenesBean> listScenesData;
 
     //用户数据管理
     private UserDataController mUserDataController;
+    private GameScenesController mGameScenesController;
 
 
 
     private void Awake()
     {
         mUserDataController = new UserDataController(this, this);
+        mGameScenesController = new GameScenesController(this, this);
+
         mUserDataController.GetUserData(GameCommonInfo.gameUserId);
+        mGameScenesController.GetAllGameScenesData();
     }
 
     private void FixedUpdate()
@@ -27,6 +33,32 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView
             return;
         double tempGrow = userData.userGrow / updateNumber;
         userData.userScore += tempGrow;
+        CheckLevel();
+    }
+
+    /// <summary>
+    /// 检测等级
+    /// </summary>
+    public void CheckLevel()
+    {
+        if (listScenesData != null && userData != null)
+            for (int i = 0; i < listScenesData.Count; i++)
+            {
+                LevelScenesBean itemData = listScenesData[i];
+                if (userData.userScore >= itemData.goods_sell_price && userData.userLevel < itemData.level)
+                {
+                    userData.userLevel = itemData.level;
+
+                    //通知所有观察者
+                    List<IGameDataCallBack> listObserver = GetAllObserver();
+                    for(int f=0;f< listObserver.Count; f++)
+                    {
+                        IGameDataCallBack itemObserver=  listObserver[f];
+                        itemObserver.LevelChange(userData.userLevel);
+                    }
+                }
+            }
+
     }
 
     /// <summary>
@@ -220,6 +252,16 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView
     public void SaveUserDataSuccess(UserDataBean userData)
     {
 
+    }
+
+    public void GetScenesDataSuccessByUserData(LevelScenesBean levelScenesData, UserItemLevelBean itemLevelData)
+    {
+
+    }
+
+    public void GetAllScenesDataSuccess(List<LevelScenesBean> listScenesData)
+    {
+        this.listScenesData = listScenesData;
     }
     #endregion
 

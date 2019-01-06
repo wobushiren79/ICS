@@ -21,7 +21,7 @@ public class ParticleChiliCpt : BaseMonoBehaviour, IGameDataCallBack
     private void Start()
     {
         mChiliParticle = GetComponent<ParticleSystem>();
-        SetChiliDensity(1);
+        SetChiliDensity(gameData.userData.userLevel);
     }
 
     /// <summary>
@@ -39,17 +39,22 @@ public class ParticleChiliCpt : BaseMonoBehaviour, IGameDataCallBack
     #region 用户数据改变回调
     public void GoodsNumberChange(int level, int number)
     {
-        SetChiliDensity(gameData.userData.userLevel);
+ 
     }
 
     public void SpaceNumberChange(int level, int number)
     {
-        SetChiliDensity(gameData.userData.userLevel);
+    
     }
 
     public void ScoreChange(double score)
     {
 
+    }
+
+    public void LevelChange(int level)
+    {
+        SetChiliDensity(gameData.userData.userLevel);
     }
 
     public void ObserbableUpdate(int type, params Object[] obj)

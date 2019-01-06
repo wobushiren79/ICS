@@ -12,10 +12,19 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
         Goods,//商品
         Space,//地皮
     }
+
+    public enum ItemStatus
+    {
+        Normal,//普通
+        Invalid,//失效
+        Hide//隐藏
+    }
     public Text tvName;
     public Text tvNumber;
     public Text tvPrice;
     public Image ivIcon;
+    public Image ivIconBorder;
+    public Image ivContentBorder;
     public Button btSubmit;
 
     public GameToastCpt toastCpt;
@@ -87,11 +96,11 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
                 switch (itemType)
                 {
                     case StoreItemType.Goods:
-                        if (mUserLevelData==null||mUserLevelData.goodsNumber >= mUserLevelData.spaceNumber * 25)
+                        if (mUserLevelData == null || mUserLevelData.goodsNumber >= mUserLevelData.spaceNumber * 25)
                             isSpace = false;
                         if (isSpace)
                             isRemove = gameData.RemoveScore(PriceConversion(StoreItemType.Goods, this.levelScenesBean.goods_sell_price, mUserLevelData.goodsNumber));
-                        if (isRemove&&isSpace)
+                        if (isRemove && isSpace)
                             gameData.AddLevelGoods(itemData.level, 1);
                         break;
                     case StoreItemType.Space:
@@ -103,7 +112,7 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
                             gameData.AddLevelSpace(itemData.level, 1);
                         break;
                 }
-                if (!isRemove&&toastCpt!=null)
+                if (!isRemove && toastCpt != null)
                 {
                     if (isSpace)
                     {
@@ -115,6 +124,35 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
                     }
                 }
             });
+
+        //设置不同状态的按钮
+        if (gameData.userData.userLevel >= levelScenesBean.level)
+        {
+
+        }
+        else if (levelScenesBean.level - 1 == gameData.userData.userLevel)
+        {
+            if (ivIcon != null)
+                ivIcon.color = Color.HSVToRGB(0, 0, 0);
+            if (tvName != null)
+                tvName.text = "????";
+            if (btSubmit != null)
+                btSubmit.onClick.RemoveAllListeners();
+            if (ivIconBorder != null)
+                ivIconBorder.color = Color.HSVToRGB(0.5f, 0.5f, 0.5f);
+            if (ivContentBorder != null)
+                ivContentBorder.color = Color.HSVToRGB(0.5f, 0.5f, 0.5f);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
+    public void SetStatus()
+    {
+
     }
 
     /// <summary>
@@ -144,11 +182,13 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
     {
         if (levelScenesBean == null)
             return;
+        if (levelScenesBean.level - 1 == gameData.userData.userLevel)
+            infoPopupView.gameObject.SetActive(false);
         int number = 0;
         string nameStr = "---";
         string introductionStr = "---";
         string otherStr = "";
-        ; switch (itemType)
+        switch (itemType)
         {
             case StoreItemType.Goods:
                 if (levelScenesBean != null)
@@ -228,6 +268,12 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
 
     public void ScoreChange(double score)
     {
+
+    }
+
+    public void LevelChange(int level)
+    {
+
     }
 
     public void ObserbableUpdate(int type, params UnityEngine.Object[] obj)

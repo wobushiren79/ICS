@@ -20,7 +20,7 @@ public class GameMainShowCpt : BaseMonoBehaviour,IGameDataCallBack
     //屏幕(用来找到鼠标点击的相对位置)
     public RectTransform screenRTF;
 
-    public float addAnimTime = 5;
+    public float addAnimTime =3;
 
     private void Start()
     {
@@ -43,7 +43,7 @@ public class GameMainShowCpt : BaseMonoBehaviour,IGameDataCallBack
             return;
         GameObject addItem = Instantiate(itemAddModel, itemAddModel.transform);
         addItem.SetActive(true);
-        addItem.transform.parent = transform;
+        addItem.transform.SetParent(transform);
         Vector2 outPosition;
         //屏幕坐标转换为UI坐标
         RectTransformUtility.ScreenPointToLocalPointInRectangle(screenRTF, Input.mousePosition, Camera.main, out outPosition);
@@ -75,8 +75,15 @@ public class GameMainShowCpt : BaseMonoBehaviour,IGameDataCallBack
         tvScore.transform.DOPunchScale(new Vector3(0.5f,0.5f,1),3);
     }
 
+    public void LevelChange(int level)
+    {
+
+    }
+
     public void ObserbableUpdate(int type, params Object[] obj)
     {
     
     }
+
+
 }

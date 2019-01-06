@@ -75,6 +75,10 @@ public class UIGameLevelInfoCpt : BaseUIComponent,IGameDataCallBack
 
     }
 
+    public void LevelChange(int level)
+    {
+
+    }
     public void SpaceNumberChange(int level, int number)
     {
         //创建Item
@@ -92,4 +96,6 @@ public class UIGameLevelInfoCpt : BaseUIComponent,IGameDataCallBack
        RadioButtonView itemRB=  levelRG.listButton[gameCameraCpt.cameraLevel - 1];
         levelRG.RadioButtonSelected(itemRB);
     }
+
+
 }

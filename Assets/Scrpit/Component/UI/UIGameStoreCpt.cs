@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-public class UIGameStoreCpt : BaseUIComponent, IGameScenesView,IGameDataCallBack
+public class UIGameStoreCpt : BaseUIComponent,IGameDataCallBack
 {
     //标题
     public Text tvTitle;
@@ -30,22 +30,15 @@ public class UIGameStoreCpt : BaseUIComponent, IGameScenesView,IGameDataCallBack
     //游戏数据
     public GameDataCpt gameDataCpt;
 
-    //游戏场景数据控制
-    private GameScenesController mGameScenesController;
-    private List<LevelScenesBean> mListScenesData;
-
     public int selectType = 1;
 
     private void Awake()
     {
-        mGameScenesController = new GameScenesController(this, this);
     }
 
     private void Start()
     {
         gameDataCpt.AddObserver(this);
-
-        mGameScenesController.GetAllGameScenesData();
 
         if (btTypeGoods != null)
             btTypeGoods.onClick.AddListener(TypeGoodsSelect);
@@ -61,6 +54,8 @@ public class UIGameStoreCpt : BaseUIComponent, IGameScenesView,IGameDataCallBack
             tvTypeGoods.text = GameCommonInfo.GetTextById(37);
         if (tvTypeSpace != null)
             tvTypeSpace.text = GameCommonInfo.GetTextById(38);
+
+        TypeGoodsSelect(); 
     }
 
     /// <summary>
@@ -84,13 +79,14 @@ public class UIGameStoreCpt : BaseUIComponent, IGameScenesView,IGameDataCallBack
     /// </summary>
     public void TypeGoodsSelect()
     {
-        if (mListScenesData == null)
+        List<LevelScenesBean> listScenesData = gameDataCpt.GetScenesListByLevel(gameDataCpt.userData.userLevel + 1);
+        if (listScenesData == null)
             return;
         selectType = 1;
         CptUtil.RemoveChildsByActive(listContentObj.transform);
-        for (int i = 0; i < mListScenesData.Count; i++)
+        for (int i = 0; i < listScenesData.Count; i++)
         {
-            LevelScenesBean itemData = mListScenesData[i];
+            LevelScenesBean itemData = listScenesData[i];
             GameObject itemObj = Instantiate(contentGoodsItemModel, contentGoodsItemModel.transform);
             itemObj.SetActive(true);
             itemObj.transform.SetParent(listContentObj.transform);
@@ -112,13 +108,14 @@ public class UIGameStoreCpt : BaseUIComponent, IGameScenesView,IGameDataCallBack
     /// </summary>
     public void TypeSpaceSelect()
     {
-        if (mListScenesData == null)
+        List<LevelScenesBean> listScenesData=gameDataCpt.GetScenesListByLevel(gameDataCpt.userData.userLevel+1);
+        if (listScenesData == null)
             return;
         selectType = 2;
         CptUtil.RemoveChildsByActive(listContentObj.transform);
-        for (int i = 0; i < mListScenesData.Count; i++)
+        for (int i = 0; i < listScenesData.Count; i++)
         {
-            LevelScenesBean itemData = mListScenesData[i];
+            LevelScenesBean itemData = listScenesData[i];
             GameObject itemObj = Instantiate(contentSpaceItemModel, contentSpaceItemModel.transform);
             itemObj.SetActive(true);
             itemObj.transform.parent = listContentObj.transform;
@@ -145,17 +142,6 @@ public class UIGameStoreCpt : BaseUIComponent, IGameScenesView,IGameDataCallBack
 
 
     #region  -------------------------场景数据回调-------------------------------
-
-    public void GetAllScenesDataSuccess(List<LevelScenesBean> listScenesData)
-    {
-        this.mListScenesData = listScenesData;
-        TypeGoodsSelect();
-    }
-
-    public void GetScenesDataSuccessByUserData(LevelScenesBean levelScenesData, UserItemLevelBean itemLevelData)
-    {
-
-    }
 
     public void GoodsNumberChange(int level, int number)
     {

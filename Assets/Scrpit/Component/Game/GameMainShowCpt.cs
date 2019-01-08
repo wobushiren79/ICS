@@ -53,7 +53,7 @@ public class GameMainShowCpt : BaseMonoBehaviour,IGameDataCallBack
             if (dataCpt != null)
                 dataCpt.AddScore(1);
             Destroy(addItem);
-        });
+        }) ;
         CanvasGroup itemCG = addItem.GetComponent<CanvasGroup>();
         itemCG.DOFade(0, addAnimTime * 0.3f).SetDelay(addAnimTime * 0.7f);
     }

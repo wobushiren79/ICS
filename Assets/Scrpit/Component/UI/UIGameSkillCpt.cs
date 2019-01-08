@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIGameSkillCpt : BaseUIComponent
+public class UIGameSkillCpt : BaseUIComponent, IGameDataCallBack
 {
     //返回按钮
     public Button btBack;
@@ -14,16 +14,22 @@ public class UIGameSkillCpt : BaseUIComponent
     //分数
     public Text tvScore;
 
-
     public GameDataCpt gameDataCpt;
+
+    public GameObject listSkillsContent;
+    public GameObject itemSkillsModel;
     private void Start()
     {
+        gameDataCpt.AddObserver(this);
+
         if (btBack != null)
             btBack.onClick.AddListener(BTBack);
         if (tvBack != null)
             tvBack.text = GameCommonInfo.GetTextById(36);
         if (tvTitle != null)
             tvTitle.text = GameCommonInfo.GetTextById(33);
+
+        RefreshData();
     }
 
     /// <summary>
@@ -49,4 +55,48 @@ public class UIGameSkillCpt : BaseUIComponent
     {
         uiManager.OpenUIAndCloseOtherByName("GameMenu");
     }
+
+    /// <summary>
+    /// 刷新数据
+    /// </summary>
+    public void RefreshData()
+    {
+        //List<LevelScenesBean> listScenesData = gameDataCpt.GetScenesListByLevel(gameDataCpt.userData.userLevel);
+        List<LevelScenesBean> listScenesData = gameDataCpt.listScenesData;
+        if (CheckUtil.ListIsNull(listScenesData) || listSkillsContent == null || itemSkillsModel == null)
+            return;
+        CptUtil.RemoveChildsByActive(listSkillsContent.transform);
+        for (int i = 0; i < listScenesData.Count; i++)
+        {
+            LevelScenesBean itemData = listScenesData[i];
+            GameObject itemObj = Instantiate(itemSkillsModel, itemSkillsModel.transform);
+            itemObj.transform.SetParent(listSkillsContent.transform);
+            itemObj.SetActive(true);
+            GameSkillsItem skillItem= itemObj.GetComponent<GameSkillsItem>();
+            skillItem.SetData(itemData);
+        }
+    }
+
+    #region
+    public void GoodsNumberChange(int level, int number)
+    {
+    }
+
+    public void SpaceNumberChange(int level, int number)
+    {
+    }
+
+    public void ScoreChange(double score)
+    {
+    }
+
+    public void LevelChange(int level)
+    {
+        RefreshData();
+    }
+
+    public void ObserbableUpdate(int type, params Object[] obj)
+    {
+    }
+    #endregion
 }

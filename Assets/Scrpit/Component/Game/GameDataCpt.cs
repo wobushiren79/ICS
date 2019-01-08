@@ -3,27 +3,30 @@ using UnityEditor;
 using System.Collections.Generic;
 using System.Collections;
 
-public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGameScenesView
+public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGameScenesView, IGameSkillsView
 {
 
     //用户数据
     public UserDataBean userData;
     //场景数据
     public List<LevelScenesBean> listScenesData;
+    //所有技能数据
+    public List<LevelSkillsBean> listSkillsData;
 
     //用户数据管理
     private UserDataController mUserDataController;
     private GameScenesController mGameScenesController;
-
-
+    private GameSkillsController mGameSkillsController;
 
     private void Awake()
     {
         mUserDataController = new UserDataController(this, this);
         mGameScenesController = new GameScenesController(this, this);
+        mGameSkillsController = new GameSkillsController(this, this);
 
         mUserDataController.GetUserData(GameCommonInfo.gameUserId);
         mGameScenesController.GetAllGameScenesData();
+        mGameSkillsController.GetAllLevelSkill();
     }
 
     private void FixedUpdate()
@@ -51,14 +54,13 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
 
                     //通知所有观察者
                     List<IGameDataCallBack> listObserver = GetAllObserver();
-                    for(int f=0;f< listObserver.Count; f++)
+                    for (int f = 0; f < listObserver.Count; f++)
                     {
-                        IGameDataCallBack itemObserver=  listObserver[f];
+                        IGameDataCallBack itemObserver = listObserver[f];
                         itemObserver.LevelChange(userData.userLevel);
                     }
                 }
             }
-
     }
 
     /// <summary>
@@ -80,6 +82,51 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
             return "";
         else
             return userData.userName;
+    }
+
+    /// <summary>
+    /// 根据等级获取相信技能列表
+    /// </summary>
+    /// <param name="level">技能等级</param>
+    /// <param name="userLevel">技能解锁等级</param>
+    /// <returns></returns>
+    public List<LevelSkillsBean> GetSkillsListByLevel(int level, int userLevel)
+    {
+        List<LevelSkillsBean> tempListData = new List<LevelSkillsBean>();
+        if (CheckUtil.ListIsNull(listSkillsData))
+        {
+            return tempListData;
+        }
+        for (int i = 0; i < listSkillsData.Count; i++)
+        {
+            LevelSkillsBean itemData = listSkillsData[i];
+            if (itemData.level == level && userLevel >= itemData.unlock_level)
+            {
+                tempListData.Add(itemData);
+            }
+        }
+        return tempListData;
+    }
+
+    /// <summary>
+    /// 根据用户等级获取场景数据
+    /// </summary>
+    /// <param name="userLevel"></param>
+    /// <returns></returns>
+    public List<LevelScenesBean> GetScenesListByLevel(int userLevel)
+    {
+        List<LevelScenesBean> tempListData = new List<LevelScenesBean>();
+        if (CheckUtil.ListIsNull(listScenesData))
+            return tempListData;
+        for (int i = 0; i < listScenesData.Count; i++)
+        {
+            LevelScenesBean itemData = listScenesData[i];
+            if (userLevel >= itemData.level)
+            {
+                tempListData.Add(itemData);
+            }
+        }
+        return tempListData;
     }
 
     /// <summary>
@@ -117,7 +164,7 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
     }
 
     /// <summary>
-    /// 
+    /// 移除分数
     /// </summary>
     /// <param name="score"></param>
     /// <returns></returns>
@@ -262,6 +309,16 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
     public void GetAllScenesDataSuccess(List<LevelScenesBean> listScenesData)
     {
         this.listScenesData = listScenesData;
+    }
+
+    public void GetAllLevelSkillsDataSuccess(List<LevelSkillsBean> listSkillsData)
+    {
+        this.listSkillsData = listSkillsData;
+    }
+
+    public void GetAllLevelSkillsDataFail()
+    {
+
     }
     #endregion
 

@@ -48,7 +48,8 @@ public class GameMainShowCpt : BaseMonoBehaviour,IGameDataCallBack
         //屏幕坐标转换为UI坐标
         RectTransformUtility.ScreenPointToLocalPointInRectangle(screenRTF, Input.mousePosition, Camera.main, out outPosition);
         addItem.transform.localPosition = new Vector3(outPosition.x, outPosition.y, addItem.transform.position.z);
-        addItem.transform.DOMove(tvScore.transform.position, addAnimTime).SetEase(Ease.InOutBack).OnComplete(delegate ()
+        Vector3 moveLocation = new Vector3(tvScore.transform.position.x, tvScore.transform.position.y+100, tvScore.transform.position.z);
+        addItem.transform.DOLocalMove(moveLocation, addAnimTime ).SetEase(Ease.InOutBack).OnComplete(delegate ()
         {
             if (dataCpt != null)
                 dataCpt.AddScore(1);

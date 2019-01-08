@@ -12,6 +12,8 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
     public List<LevelScenesBean> listScenesData;
     //所有技能数据
     public List<LevelSkillsBean> listSkillsData;
+    //图标列表
+    public List<IconKV> listIconData;
 
     //用户数据管理
     private UserDataController mUserDataController;
@@ -64,6 +66,28 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
     }
 
     /// <summary>
+    /// 是否拥有技能  通过Id查询
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public bool HasSkillsById(long id)
+    {
+        if (CheckUtil.ListIsNull(userData.userSkillsList))
+        {
+            return false;
+        }
+        for (int i = 0; i < userData.userSkillsList.Count; i++)
+        {
+            long skillsId = userData.userSkillsList[i];
+            if (skillsId == id)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /// <summary>
     /// 保存当前数据
     /// </summary>
     /// <returns></returns>
@@ -82,6 +106,28 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
             return "";
         else
             return userData.userName;
+    }
+
+    /// <summary>
+    /// 根据键值对关系获取图标
+    /// </summary>
+    /// <param name="key"></param>
+    /// <returns></returns>
+    public Sprite GetIconByKey(string key)
+    {
+        if (CheckUtil.ListIsNull(listIconData))
+        {
+            return null;
+        }
+        for(int i=0;i< listIconData.Count; i++)
+        {
+           IconKV itemData=  listIconData[i];
+            if (itemData.key.Equals(key))
+            {
+                return itemData.value;
+            }
+        }
+        return null;
     }
 
     /// <summary>
@@ -107,6 +153,7 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
         }
         return tempListData;
     }
+
 
     /// <summary>
     /// 根据用户等级获取场景数据
@@ -324,4 +371,10 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
 
 
 
+    [System.Serializable]
+    public class IconKV
+    {
+        public string key;
+        public Sprite value;
+    }
 }

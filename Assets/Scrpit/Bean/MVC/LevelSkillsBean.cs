@@ -5,6 +5,7 @@ using System;
 [Serializable]
 public class LevelSkillsBean 
 {
+    public long id;
     //图标key
     public string icon_key;
     //等级

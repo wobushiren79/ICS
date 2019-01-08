@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +17,7 @@ public class UIGameSkillCpt : BaseUIComponent, IGameDataCallBack
 
     public GameObject listSkillsContent;
     public GameObject itemSkillsModel;
+
     private void Start()
     {
         gameDataCpt.AddObserver(this);
@@ -61,8 +61,7 @@ public class UIGameSkillCpt : BaseUIComponent, IGameDataCallBack
     /// </summary>
     public void RefreshData()
     {
-        //List<LevelScenesBean> listScenesData = gameDataCpt.GetScenesListByLevel(gameDataCpt.userData.userLevel);
-        List<LevelScenesBean> listScenesData = gameDataCpt.listScenesData;
+        List<LevelScenesBean> listScenesData = gameDataCpt.GetScenesListByLevel(gameDataCpt.userData.userLevel);
         if (CheckUtil.ListIsNull(listScenesData) || listSkillsContent == null || itemSkillsModel == null)
             return;
         CptUtil.RemoveChildsByActive(listSkillsContent.transform);
@@ -95,8 +94,9 @@ public class UIGameSkillCpt : BaseUIComponent, IGameDataCallBack
         RefreshData();
     }
 
-    public void ObserbableUpdate(int type, params Object[] obj)
+    public void ObserbableUpdate(int type, params UnityEngine.Object[] obj)
     {
     }
     #endregion
+
 }

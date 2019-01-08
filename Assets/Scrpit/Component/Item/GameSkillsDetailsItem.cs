@@ -1,19 +1,53 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using UnityEngine.UI;
+using DG.Tweening;
 
 
 public class GameSkillsDetailsItem : PopupReplyView
 {
     public Image ivIcon;
+    public Image ivBorder;
+    public Button btSubmit;
     public LevelSkillsBean levelSkillsBean;
+    public GameDataCpt gameDataCpt;
+    private bool hasSkills=false;
 
-    public void SetData(LevelSkillsBean levelSkillsBean,Sprite iconSp)
+    public void SetData(LevelSkillsBean levelSkillsBean)
     {
         this.levelSkillsBean = levelSkillsBean;
+        if (gameDataCpt == null)
+            return;
         if (ivIcon != null)
-            ivIcon.sprite = iconSp;
+            ivIcon.sprite = gameDataCpt.GetIconByKey(levelSkillsBean.icon_key);
+         hasSkills =  gameDataCpt.HasSkillsById(levelSkillsBean.id);
+        if (hasSkills)
+        {
+
+        }
+        else
+        {
+              ivBorder.color = new Color(0.5f, 0.5f, 0.5f);
+        }
+        btSubmit.onClick.AddListener(BTSkillsBuyOnClick);
     }
+
+    public void BTSkillsBuyOnClick()
+    {
+        transform.DOKill();
+        transform.localScale = new Vector3(1,1, 1);
+        transform.localRotation = new Quaternion();
+        transform.DOPunchScale(new Vector3(0.5f,0.5f,1),1);
+        transform.DOShakeRotation(1,new Vector3(0, 0,360));
+
+        if (!hasSkills)
+        {
+            gameDataCpt.userData.userSkillsList.Add(levelSkillsBean.id);
+            ivBorder.color = new Color(1, 1, 1);
+            hasSkills = true;
+        }
+    }
+
 
     public override void ClosePopup()
     {

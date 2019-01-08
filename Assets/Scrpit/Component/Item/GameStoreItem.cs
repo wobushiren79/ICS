@@ -139,9 +139,9 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
             if (btSubmit != null)
                 btSubmit.onClick.RemoveAllListeners();
             if (ivIconBorder != null)
-                ivIconBorder.color = Color.HSVToRGB(0.5f, 0.5f, 0.5f);
+                ivIconBorder.color = new Color(0.5f, 0.5f, 0.5f);
             if (ivContentBorder != null)
-                ivContentBorder.color = Color.HSVToRGB(0.5f, 0.5f, 0.5f);
+                ivContentBorder.color = new Color(0.5f, 0.5f, 0.5f);
         }
         else
         {

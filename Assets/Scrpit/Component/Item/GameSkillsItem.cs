@@ -31,7 +31,7 @@ public class GameSkillsItem :BaseMonoBehaviour
             itemObj.SetActive(true);
             GameSkillsDetailsItem itemCpt= itemObj.GetComponent<GameSkillsDetailsItem>();
             if (itemCpt != null)
-                itemCpt.SetData(itemData,null);
+                itemCpt.SetData(itemData);
         }
     }
 

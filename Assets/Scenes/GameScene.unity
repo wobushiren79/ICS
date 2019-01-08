@@ -1804,7 +1804,7 @@ Canvas:
   m_GameObject: {fileID: 351465807}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 1240478024}
   m_PlaneDistance: 1
   m_PixelPerfect: 0
@@ -4897,8 +4897,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1143885929}
   m_HandleRect: {fileID: 1143885928}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.9999996
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4996,6 +4996,7 @@ GameObject:
   - component: {fileID: 1024926867}
   - component: {fileID: 1024926869}
   - component: {fileID: 1024926868}
+  - component: {fileID: 1024926870}
   m_Layer: 5
   m_Name: SkillItem
   m_TagString: Untagged
@@ -5036,7 +5037,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   infoPopupView: {fileID: 1457210681}
   ivIcon: {fileID: 367966849}
+  ivBorder: {fileID: 2059875243}
+  btSubmit: {fileID: 1024926870}
   levelSkillsBean:
+    id: 0
     icon_key: 
     level: 0
     price: 0
@@ -5044,6 +5048,7 @@ MonoBehaviour:
     name: 
     introduction: 
     unlock_level: 0
+  gameDataCpt: {fileID: 1387247830}
 --- !u!222 &1024926869
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5051,6 +5056,47 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1024926866}
   m_CullTransparentMesh: 0
+--- !u!114 &1024926870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1024926866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 0}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1036675711
 GameObject:
   m_ObjectHideFlags: 0
@@ -5302,7 +5348,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000016212, y: 0}
+  m_AnchoredPosition: {x: -0.000016212, y: -0.00007814603}
   m_SizeDelta: {x: 0.000015259, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1120993538
@@ -6784,8 +6830,14 @@ MonoBehaviour:
     userScore: 0
     userGrow: 0
     itemLevelList: []
+    userSkillsList: 
   listScenesData: []
   listSkillsData: []
+  listIconData:
+  - key: level_icon_1
+    value: {fileID: 21300000, guid: 9c95aa1478dea0d4fb667fed93d2ddf3, type: 3}
+  - key: level_icon_2
+    value: {fileID: 21300000, guid: 2f6406e784bb2494db0df2866bf11685, type: 3}
 --- !u!114 &1387247831
 MonoBehaviour:
   m_ObjectHideFlags: 0

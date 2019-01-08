@@ -18,4 +18,6 @@ public class UserDataBean
     public double userGrow;
     //不同等级的数据
     public List<UserItemLevelBean> itemLevelList;
+    //用户技能列表
+    public List<long> userSkillsList;
 }

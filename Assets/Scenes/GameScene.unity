@@ -1144,6 +1144,10 @@ MonoBehaviour:
   uiManager: {fileID: 1573118311}
   uiAnimator: {fileID: 0}
   tvContent: {fileID: 1588318314}
+  listNewsInfoData: []
+  gameDataCpt: {fileID: 1387247830}
+  newsUpdateTime: 10
+  isShowNews: 1
 --- !u!1 &228493700
 GameObject:
   m_ObjectHideFlags: 0
@@ -7222,11 +7226,12 @@ MonoBehaviour:
   userData:
     userId: 
     userName: 
-    userLevel: 1
+    goodsLevel: 1
+    scoreLevel: 1
     userScore: 0
     userGrow: 0
-    itemLevelList: []
-    userSkillsList: 
+    listUserLevelData: []
+    listSkillsData: 
   listScenesData: []
   listSkillsData: []
   listIconData:

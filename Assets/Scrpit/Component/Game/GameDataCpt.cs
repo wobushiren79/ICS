@@ -46,23 +46,44 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
     /// </summary>
     public void CheckLevel()
     {
-        if (listScenesData != null && userData != null)
+        if (userData == null)
+            return;
+        if (listScenesData != null)
             for (int i = 0; i < listScenesData.Count; i++)
             {
                 LevelScenesBean itemData = listScenesData[i];
-                if (userData.userScore >= itemData.goods_sell_price && userData.userLevel < itemData.level)
+                if (userData.userScore >= itemData.goods_sell_price && userData.scoreLevel < itemData.level)
                 {
-                    userData.userLevel = itemData.level;
+                    userData.scoreLevel = itemData.level;
 
                     //通知所有观察者
                     List<IGameDataCallBack> listObserver = GetAllObserver();
                     for (int f = 0; f < listObserver.Count; f++)
                     {
                         IGameDataCallBack itemObserver = listObserver[f];
-                        itemObserver.LevelChange(userData.userLevel);
+                        itemObserver.ScoreLevelChange(userData.scoreLevel);
                     }
                 }
             }
+        if (userData.listUserLevelData != null)
+        {
+            for(int i=0;i< userData.listUserLevelData.Count; i++)
+            {
+                UserItemLevelBean itemData = userData.listUserLevelData[i];
+                if (itemData.level > userData.goodsLevel&&itemData.goodsNumber!=0)
+                {
+                    userData.goodsLevel = itemData.level;
+                    //通知所有观察者
+                    List<IGameDataCallBack> listObserver = GetAllObserver();
+                    for (int f = 0; f < listObserver.Count; f++)
+                    {
+                        IGameDataCallBack itemObserver = listObserver[f];
+                        itemObserver.GoodsLevelChange(userData.goodsLevel);
+                    }
+                }
+            }
+        }
+
     }
 
     /// <summary>
@@ -72,19 +93,37 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
     /// <returns></returns>
     public bool HasSkillsById(long id)
     {
-        if (CheckUtil.ListIsNull(userData.userSkillsList))
+        if (CheckUtil.ListIsNull(userData.listSkillsData))
         {
             return false;
         }
-        for (int i = 0; i < userData.userSkillsList.Count; i++)
+        for (int i = 0; i < userData.listSkillsData.Count; i++)
         {
-            long skillsId = userData.userSkillsList[i];
+            long skillsId = userData.listSkillsData[i];
             if (skillsId == id)
             {
                 return true;
             }
         }
         return false;
+    }
+
+    /// <summary>
+    /// 检测当前等级是否还有空间可以添加物品
+    /// </summary>
+    /// <param name="level"></param>
+    /// <returns></returns>
+    public bool HasSpaceToAddGoodsByLevel(int level,int number)
+    {
+        UserItemLevelBean itemData= GetUserItemLevelDataByLevel(level);
+        return HasSpaceToAddGoodsByLevel(itemData, number);
+    }
+
+    public bool HasSpaceToAddGoodsByLevel(UserItemLevelBean itemData,int number)
+    {
+        if (itemData == null || itemData.goodsNumber + number > itemData.spaceNumber * 25)
+            return false;
+        return true;
     }
 
     /// <summary>
@@ -197,9 +236,9 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
     /// <param name="level"></param>
     public UserItemLevelBean GetUserItemLevelDataByLevel(int level)
     {
-        if (userData == null || CheckUtil.ListIsNull(userData.itemLevelList))
+        if (userData == null || CheckUtil.ListIsNull(userData.listUserLevelData))
             return null;
-        List<UserItemLevelBean> listLevelData = userData.itemLevelList;
+        List<UserItemLevelBean> listLevelData = userData.listUserLevelData;
         foreach (UserItemLevelBean itemLevel in listLevelData)
         {
             if (itemLevel.level.Equals(level))
@@ -251,7 +290,7 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
     /// <param name="number"></param>
     public void AddLevelGoods(int level, int number)
     {
-        List<UserItemLevelBean> listUserLevelData = userData.itemLevelList;
+        List<UserItemLevelBean> listUserLevelData = userData.listUserLevelData;
         if (CheckUtil.ListIsNull(listUserLevelData))
             listUserLevelData = new List<UserItemLevelBean>();
         for (int i = 0; i < listUserLevelData.Count; i++)
@@ -278,7 +317,7 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
     /// <param name="number"></param>
     public void AddLevelSpace(int level, int number)
     {
-        List<UserItemLevelBean> listUserLevelData = userData.itemLevelList;
+        List<UserItemLevelBean> listUserLevelData = userData.listUserLevelData;
         if (CheckUtil.ListIsNull(listUserLevelData))
             listUserLevelData = new List<UserItemLevelBean>();
         bool hasData = false;
@@ -299,7 +338,7 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
             LevelScenesBean levelScenesData = GetScenesByLevel(level);
             if (levelScenesData != null)
                 userItemLevelBean.itemGrow = levelScenesData.item_grow;
-            userData.itemLevelList.Add(userItemLevelBean);
+            userData.listUserLevelData.Add(userItemLevelBean);
         }
         //通知所有观察者
         List<IGameDataCallBack> listObserver = GetAllObserver();
@@ -314,7 +353,7 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
     /// </summary>
     public void RefreshData()
     {
-        List<UserItemLevelBean> listUserLevelData = userData.itemLevelList;
+        List<UserItemLevelBean> listUserLevelData = userData.listUserLevelData;
         userData.userGrow = 0;
         if (CheckUtil.ListIsNull(listUserLevelData))
         {

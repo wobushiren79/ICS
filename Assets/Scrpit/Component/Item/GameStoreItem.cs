@@ -96,8 +96,7 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
                 switch (itemType)
                 {
                     case StoreItemType.Goods:
-                        if (mUserLevelData == null || mUserLevelData.goodsNumber >= mUserLevelData.spaceNumber * 25)
-                            isSpace = false;
+                        isSpace = gameData.HasSpaceToAddGoodsByLevel(mUserLevelData,1); 
                         if (isSpace)
                             isRemove = gameData.RemoveScore(PriceConversion(StoreItemType.Goods, this.levelScenesBean.goods_sell_price, mUserLevelData.goodsNumber));
                         if (isRemove && isSpace)
@@ -126,11 +125,11 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
             });
 
         //设置不同状态的按钮
-        if (gameData.userData.userLevel >= levelScenesBean.level)
+        if (gameData.userData.scoreLevel >= levelScenesBean.level)
         {
 
         }
-        else if (levelScenesBean.level - 1 == gameData.userData.userLevel)
+        else if (levelScenesBean.level - 1 == gameData.userData.scoreLevel)
         {
             if (ivIcon != null)
                 ivIcon.color = Color.HSVToRGB(0, 0, 0);
@@ -182,7 +181,7 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
     {
         if (levelScenesBean == null)
             return;
-        if (levelScenesBean.level - 1 == gameData.userData.userLevel)
+        if (levelScenesBean.level - 1 == gameData.userData.scoreLevel)
             infoPopupView.gameObject.SetActive(false);
         int number = 0;
         string nameStr = "---";
@@ -271,13 +270,18 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
 
     }
 
-    public void LevelChange(int level)
-    {
-
-    }
-
     public void ObserbableUpdate(int type, params UnityEngine.Object[] obj)
     {
+    }
+
+    public void ScoreLevelChange(int level)
+    {
+       
+    }
+
+    public void GoodsLevelChange(int level)
+    {
+  
     }
     #endregion
 }

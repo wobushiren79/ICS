@@ -26,10 +26,10 @@ public class GameScenesController : BaseMVCController<GameScenesModel, IGameScen
         if (CheckUtil.StringIsNull(userData.userId))
             return;
         //获取场景数据
-        List<LevelScenesBean> listLevelScenesData=  GetModel().GetLevelScenesDataByLevel(1,userData.userLevel);
+        List<LevelScenesBean> listLevelScenesData=  GetModel().GetLevelScenesDataByLevel(1,userData.scoreLevel);
         foreach (LevelScenesBean itemScenes in listLevelScenesData)
         {
-            foreach (UserItemLevelBean itemLevelData in  userData.itemLevelList)
+            foreach (UserItemLevelBean itemLevelData in  userData.listUserLevelData)
             {
                 if (itemLevelData.level.Equals(itemScenes.level))
                 {

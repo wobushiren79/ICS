@@ -68,7 +68,7 @@ public class UserDataModel : BaseMVCModel
         itemLevelList.Add(itemLevelData);
 
         userData.userId = "UserId_" + SystemUtil.GetUUID(SystemUtil.UUIDTypeEnum.N);
-        userData.itemLevelList = itemLevelList;
+        userData.listUserLevelData = itemLevelList;
         userData.userGrow = initLevelData.item_grow;
         userData.userName = userName;
         userData = mUserDataService.SaveData(userData);

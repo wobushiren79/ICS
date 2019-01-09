@@ -76,9 +76,14 @@ public class GameMainShowCpt : BaseMonoBehaviour,IGameDataCallBack
         tvScore.transform.DOPunchScale(new Vector3(0.5f,0.5f,1),3);
     }
 
-    public void LevelChange(int level)
+    public void ScoreLevelChange(int level)
     {
+      
+    }
 
+    public void GoodsLevelChange(int level)
+    {
+       
     }
 
     public void ObserbableUpdate(int type, params Object[] obj)

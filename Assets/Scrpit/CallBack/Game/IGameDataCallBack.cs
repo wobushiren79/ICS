@@ -24,9 +24,14 @@ public interface IGameDataCallBack : IBaseObserver
     void ScoreChange(double score);
 
     /// <summary>
-    /// 等级改变
+    /// 分数等级改变
     /// </summary>
     /// <param name="level"></param>
-    void LevelChange(int level);
+    void ScoreLevelChange(int level);
 
+    /// <summary>
+    /// 商品等级改变
+    /// </summary>
+    /// <param name="level"></param>
+    void GoodsLevelChange(int level);
 }

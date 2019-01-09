@@ -43,35 +43,45 @@ public class GameSkillsDetailsItem : PopupReplyView
             return;
         if (!hasSkills)
         {
+            UserItemLevelBean userLevelData = gameDataCpt.GetUserItemLevelDataByLevel(levelSkillsBean.level);
+            if (userLevelData == null || userLevelData.goodsNumber == 0)
+            {
+                gameToastCpt.ToastHint(GameCommonInfo.GetTextById(51) + " " + levelScenesBean.goods_name);
+                return;
+            }
+            if (levelSkillsBean.add_number != 0)
+            {
+                bool canAdd = gameDataCpt.HasSpaceToAddGoodsByLevel(levelSkillsBean.level, levelSkillsBean.add_number);
+                if (!canAdd)
+                {
+                    gameToastCpt.ToastHint(GameCommonInfo.GetTextById(45));
+                    return;
+                }
+            }
             bool hasRemove = gameDataCpt.RemoveScore(levelSkillsBean.price);
             if (!hasRemove)
             {
                 gameToastCpt.ToastHint(GameCommonInfo.GetTextById(44));
                 return;
             }
-            UserItemLevelBean userLevelData = gameDataCpt.GetUserItemLevelDataByLevel(levelSkillsBean.level);
-
-            if (userLevelData == null|| userLevelData.goodsNumber==0)
-            {
-                gameToastCpt.ToastHint(GameCommonInfo.GetTextById(51)+" "+ levelScenesBean.goods_name);
-                return;
-            }
-            gameDataCpt.userData.userSkillsList.Add(levelSkillsBean.id);
-            ivBorder.color = new Color(1, 1, 1);
-            hasSkills = true;
             //设置数据
-            if (levelSkillsBean.add_grow != 0)
-            {
-                userLevelData.itemGrow += levelSkillsBean.add_grow;
-            }
             if (levelSkillsBean.add_number != 0)
             {
                 gameDataCpt.AddLevelGoods(levelSkillsBean.level, levelSkillsBean.add_number);
+            }
+            if (levelSkillsBean.add_grow != 0)
+            {
+                userLevelData.itemGrow += levelSkillsBean.add_grow;
             }
             if (levelSkillsBean.add_times != 0)
             {
                 userLevelData.itemTimes += levelSkillsBean.add_times;
             }
+
+            gameDataCpt.userData.listSkillsData.Add(levelSkillsBean.id);
+            ivBorder.color = new Color(1, 1, 1);
+            hasSkills = true;
+
             gameDataCpt.RefreshData();
             OpenPopup();
         }

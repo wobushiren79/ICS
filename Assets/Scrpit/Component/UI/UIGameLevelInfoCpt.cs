@@ -39,7 +39,7 @@ public class UIGameLevelInfoCpt : BaseUIComponent,IGameDataCallBack
         //删除原数据
         CptUtil.RemoveChildsByActive(levelContent.transform);
 
-        List<UserItemLevelBean> userLevelDataList =  gameDataCpt.userData.itemLevelList;
+        List<UserItemLevelBean> userLevelDataList =  gameDataCpt.userData.listUserLevelData;
         if (CheckUtil.ListIsNull(userLevelDataList))
             return;
         for(int i=0;i< userLevelDataList.Count; i++)
@@ -75,7 +75,12 @@ public class UIGameLevelInfoCpt : BaseUIComponent,IGameDataCallBack
 
     }
 
-    public void LevelChange(int level)
+    public void ScoreLevelChange(int level)
+    {
+
+    }
+
+    public void GoodsLevelChange(int level)
     {
 
     }
@@ -96,6 +101,5 @@ public class UIGameLevelInfoCpt : BaseUIComponent,IGameDataCallBack
        RadioButtonView itemRB=  levelRG.listButton[gameCameraCpt.cameraLevel - 1];
         levelRG.RadioButtonSelected(itemRB);
     }
-
 
 }

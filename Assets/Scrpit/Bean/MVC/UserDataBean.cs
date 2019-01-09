@@ -10,14 +10,16 @@ public class UserDataBean
     public string userId;
     //用户名称
     public string userName;
-    //用户等级（默认1级）
-    public int userLevel = 1;
+    //用户商品等级（默认1级）
+    public int goodsLevel = 1;
+    //用户分数等级
+    public int scoreLevel = 1;
     //用户分数
     public double userScore;
     //用户分数增量(每秒增量)
     public double userGrow;
     //不同等级的数据
-    public List<UserItemLevelBean> itemLevelList;
+    public List<UserItemLevelBean> listUserLevelData;
     //用户技能列表
-    public List<long> userSkillsList;
+    public List<long> listSkillsData;
 }

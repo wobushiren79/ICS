@@ -61,7 +61,7 @@ public class UIGameSkillCpt : BaseUIComponent, IGameDataCallBack
     /// </summary>
     public void RefreshData()
     {
-        List<LevelScenesBean> listScenesData = gameDataCpt.GetScenesListByLevel(gameDataCpt.userData.userLevel);
+        List<LevelScenesBean> listScenesData = gameDataCpt.GetScenesListByLevel(gameDataCpt.userData.goodsLevel);
         if (CheckUtil.ListIsNull(listScenesData) || listSkillsContent == null || itemSkillsModel == null)
             return;
         CptUtil.RemoveChildsByActive(listSkillsContent.transform);
@@ -89,14 +89,20 @@ public class UIGameSkillCpt : BaseUIComponent, IGameDataCallBack
     {
     }
 
-    public void LevelChange(int level)
+    public void ScoreLevelChange(int level)
+    {
+
+    }
+
+    public void GoodsLevelChange(int level)
     {
         RefreshData();
     }
-
     public void ObserbableUpdate(int type, params UnityEngine.Object[] obj)
     {
     }
+
+
     #endregion
 
 }

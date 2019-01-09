@@ -79,7 +79,7 @@ public class UIGameStoreCpt : BaseUIComponent,IGameDataCallBack
     /// </summary>
     public void TypeGoodsSelect()
     {
-        List<LevelScenesBean> listScenesData = gameDataCpt.GetScenesListByLevel(gameDataCpt.userData.userLevel + 1);
+        List<LevelScenesBean> listScenesData = gameDataCpt.GetScenesListByLevel(gameDataCpt.userData.scoreLevel + 1);
         if (listScenesData == null)
             return;
         selectType = 1;
@@ -108,7 +108,7 @@ public class UIGameStoreCpt : BaseUIComponent,IGameDataCallBack
     /// </summary>
     public void TypeSpaceSelect()
     {
-        List<LevelScenesBean> listScenesData=gameDataCpt.GetScenesListByLevel(gameDataCpt.userData.userLevel+1);
+        List<LevelScenesBean> listScenesData=gameDataCpt.GetScenesListByLevel(gameDataCpt.userData.scoreLevel+1);
         if (listScenesData == null)
             return;
         selectType = 2;
@@ -154,8 +154,7 @@ public class UIGameStoreCpt : BaseUIComponent,IGameDataCallBack
     public void ScoreChange(double score)
     {
     }
-
-    public void LevelChange(int level)
+    public void ScoreLevelChange(int level)
     {
         switch (selectType)
         {
@@ -168,9 +167,13 @@ public class UIGameStoreCpt : BaseUIComponent,IGameDataCallBack
         }
     }
 
+    public void GoodsLevelChange(int level)
+    {
+
+    }
+
     public void ObserbableUpdate(int type, params Object[] obj)
     {
     }
-
     #endregion
 }

@@ -19,7 +19,7 @@ public class GameSkillsItem :BaseMonoBehaviour
     public void SetData(LevelScenesBean levelScenesData)
     {
         this.levelScenesData = levelScenesData;
-        this.listSkills = gameDataCpt.GetSkillsListByLevel(levelScenesData.level, gameDataCpt.userData.userLevel);
+        this.listSkills = gameDataCpt.GetSkillsListByLevel(levelScenesData.level, gameDataCpt.userData.goodsLevel);
         if (tvName != null)
             tvName.text = levelScenesData.goods_name;
         if (listSkills == null|| itemDetailsModel==null|| itemDetailsModel==null)

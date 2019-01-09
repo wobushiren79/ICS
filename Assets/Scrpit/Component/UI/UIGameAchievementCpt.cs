@@ -5,13 +5,20 @@ using UnityEngine.UI;
 
 public class UIGameAchievementCpt : BaseUIComponent
 {
-    //返回按钮
     public Button btBack;
+    public Text tvBack;
+
+    //标题
+    public Text tvTitle;
 
     private void Start()
     {
         if (btBack != null)
             btBack.onClick.AddListener(BTBack);
+        if (tvBack != null)
+            tvBack.text = GameCommonInfo.GetTextById(36);
+        if (tvTitle != null)
+            tvTitle.text = GameCommonInfo.GetTextById(34);
     }
 
     /// <summary>

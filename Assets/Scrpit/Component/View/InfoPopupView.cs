@@ -65,6 +65,10 @@ public class InfoPopupView : BaseMonoBehaviour
         {
             popupPriceCG.alpha = 0;
         }
+        else
+        {
+            popupPriceCG.alpha = 1;
+        }
         if (priceStr != null && popupPrice != null)
             popupPrice.text = priceStr;
         //详情

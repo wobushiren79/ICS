@@ -200,8 +200,8 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
                 {
                     number = mUserLevelData.goodsNumber;
                     otherStr =
-                        "➤ " + GameCommonInfo.GetTextById(41) + " " + nameStr + " " + GameCommonInfo.GetTextById(39) + GameCommonInfo.GetTextById(42) + mUserLevelData.itemGrow + GameCommonInfo.GetTextById(40) + "\n" +
-                        "➤ " + number + " " + GameCommonInfo.GetTextById(43) + " " + nameStr + " " + GameCommonInfo.GetTextById(39) + GameCommonInfo.GetTextById(42) + mUserLevelData.itemGrow * number + GameCommonInfo.GetTextById(40);
+                        "➤ " + GameCommonInfo.GetTextById(41) + " " + nameStr + " " + GameCommonInfo.GetTextById(39) + GameCommonInfo.GetTextById(42) + mUserLevelData.itemGrow * mUserLevelData.itemTimes + GameCommonInfo.GetTextById(40) + "\n" +
+                        "➤ " + number + " " + GameCommonInfo.GetTextById(43) + " " + nameStr + " " + GameCommonInfo.GetTextById(39) + GameCommonInfo.GetTextById(42) + mUserLevelData.itemGrow * number * mUserLevelData.itemTimes + GameCommonInfo.GetTextById(40);
                 }
                 break;
             case StoreItemType.Space:
@@ -240,7 +240,7 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
                 price = originalPrice * Math.Pow(1.15f, number);
                 break;
             case StoreItemType.Space:
-                price = originalPrice * Math.Pow(2.5f, number);
+                price = originalPrice * Math.Pow(50f, number);
                 break;
         }
         return price;

@@ -13,6 +13,7 @@ public abstract class PopupReplyView : BaseMonoBehaviour, IPointerEnterHandler, 
         if (infoPopupView != null)
             infoPopupView.gameObject.SetActive(true);
         OpenPopup();
+        infoPopupView.RefreshViewSize();
     }
 
     public void OnPointerExit(PointerEventData eventData)

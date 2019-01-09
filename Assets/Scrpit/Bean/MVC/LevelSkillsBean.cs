@@ -20,4 +20,11 @@ public class LevelSkillsBean
     public string introduction;
     //解锁等级
     public int unlock_level;
+
+    //增长生成效率
+    public double add_grow;
+    //增加个数
+    public int add_number;
+    //增长率
+    public double add_times;
 }

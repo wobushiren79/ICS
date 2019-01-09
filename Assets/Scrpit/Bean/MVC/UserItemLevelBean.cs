@@ -13,4 +13,6 @@ public class UserItemLevelBean
     public int goodsNumber = 0;
     //单个物品的增长率
     public double itemGrow = 0;
+    //增长倍率
+    public double itemTimes = 1;
 }

@@ -3,10 +3,13 @@ using UnityEditor;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
+using DG.Tweening;
 
 public class UIGameNewsInfoCpt : BaseUIComponent,IGameDataCallBack,INewsInfoView
 {
     public Text tvContent;
+    public CanvasGroup tvCG;
+    public Transform tfContent;
 
     public List<NewsInfoBean> listNewsInfoData;
     public GameDataCpt gameDataCpt;
@@ -37,14 +40,25 @@ public class UIGameNewsInfoCpt : BaseUIComponent,IGameDataCallBack,INewsInfoView
 
     public IEnumerator NewsUpdata()
     {
-        while (isShowNews&& gameObject!=null&&gameObject.activeSelf)
+        while (isShowNews&& gameObject!=null&&gameObject.activeSelf&& tfContent!=null&& tvCG!=null)
         {
             if (!CheckUtil.ListIsNull(listNewsInfoData))
             {
-                int randomPosition = Random.Range(0, listNewsInfoData.Count);
-                LogUtil.Log("randomPosition" + randomPosition);
-                NewsInfoBean itemData= listNewsInfoData[randomPosition];
-                tvContent.text = itemData.content;
+                tvCG.DOFade(0, 1).OnComplete(delegate() {
+                    int randomPosition = Random.Range(0, listNewsInfoData.Count);
+                    NewsInfoBean itemData = listNewsInfoData[randomPosition];
+                    string contentStr = "";
+                    if (!CheckUtil.StringIsNull(itemData.content))
+                    {
+                        contentStr += itemData.content;
+                    }
+                    if (!CheckUtil.StringIsNull(itemData.author))
+                    {
+                        contentStr += "\n                        --" + itemData.author;
+                    }
+                    tvContent.text = contentStr;
+                });
+                tvCG.DOFade(1,1).SetDelay(1);      
             }
             yield return new WaitForSeconds(newsUpdateTime);
         }

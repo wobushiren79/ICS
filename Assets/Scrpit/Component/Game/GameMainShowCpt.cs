@@ -10,6 +10,7 @@ public class GameMainShowCpt : BaseMonoBehaviour,IGameDataCallBack
     public Button btAdd;
     //增加的特效模板
     public GameObject itemAddModel;
+    public GameObject itemNumberModel;
     //列表样式
     public List<Sprite> listSp;
     //显示的分数
@@ -41,12 +42,13 @@ public class GameMainShowCpt : BaseMonoBehaviour,IGameDataCallBack
     {
         if (tvScore == null)
             return;
-        GameObject addItem = Instantiate(itemAddModel, itemAddModel.transform);
-        addItem.SetActive(true);
-        addItem.transform.SetParent(transform);
         Vector2 outPosition;
         //屏幕坐标转换为UI坐标
         RectTransformUtility.ScreenPointToLocalPointInRectangle(screenRTF, Input.mousePosition, Camera.main, out outPosition);
+
+        GameObject addItem = Instantiate(itemAddModel, itemAddModel.transform);
+        addItem.SetActive(true);
+        addItem.transform.SetParent(transform);
         addItem.transform.localPosition = new Vector3(outPosition.x, outPosition.y, addItem.transform.position.z);
         Vector3 moveLocation = new Vector3(tvScore.transform.position.x, tvScore.transform.position.y+100, tvScore.transform.position.z);
         addItem.transform.DOLocalMove(moveLocation, addAnimTime ).SetEase(Ease.InOutBack).OnComplete(delegate ()
@@ -54,9 +56,20 @@ public class GameMainShowCpt : BaseMonoBehaviour,IGameDataCallBack
             if (dataCpt != null)
                 dataCpt.AddScore(1);
             Destroy(addItem);
-        }) ;
-        CanvasGroup itemCG = addItem.GetComponent<CanvasGroup>();
-        itemCG.DOFade(0, addAnimTime * 0.3f).SetDelay(addAnimTime * 0.7f);
+        });
+        CanvasGroup itemAddCG = addItem.GetComponent<CanvasGroup>();
+        itemAddCG.DOFade(0, addAnimTime * 0.3f).SetDelay(addAnimTime * 0.7f);
+
+        GameObject numberItem = Instantiate(itemNumberModel, itemNumberModel.transform);
+        numberItem.SetActive(true);
+        numberItem.transform.SetParent(transform);
+        numberItem.transform.localPosition = new Vector3(outPosition.x+10, outPosition.y-10, addItem.transform.position.z);
+        numberItem.transform.DOLocalMoveY(numberItem.transform.localPosition.y+100, addAnimTime/2).OnComplete(delegate ()
+        {
+            Destroy(numberItem);
+        });
+        CanvasGroup itemNumberCG = numberItem.GetComponent<CanvasGroup>();
+        itemNumberCG.DOFade(0, addAnimTime/2 );
     }
 
     public void GoodsNumberChange(int level, int number)

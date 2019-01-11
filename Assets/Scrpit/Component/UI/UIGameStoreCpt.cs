@@ -87,6 +87,8 @@ public class UIGameStoreCpt : BaseUIComponent,IGameDataCallBack
         for (int i = 0; i < listScenesData.Count; i++)
         {
             LevelScenesBean itemData = listScenesData[i];
+            if (itemData.level <= 0)
+                continue;
             GameObject itemObj = Instantiate(contentGoodsItemModel, contentGoodsItemModel.transform);
             itemObj.SetActive(true);
             itemObj.transform.SetParent(listContentObj.transform);
@@ -116,6 +118,8 @@ public class UIGameStoreCpt : BaseUIComponent,IGameDataCallBack
         for (int i = 0; i < listScenesData.Count; i++)
         {
             LevelScenesBean itemData = listScenesData[i];
+            if (itemData.level <= 0)
+                continue;
             GameObject itemObj = Instantiate(contentSpaceItemModel, contentSpaceItemModel.transform);
             itemObj.SetActive(true);
             itemObj.transform.parent = listContentObj.transform;

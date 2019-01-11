@@ -65,6 +65,8 @@ public class UIGameSkillCpt : BaseUIComponent, IGameDataCallBack
         if (CheckUtil.ListIsNull(listScenesData) || listSkillsContent == null || itemSkillsModel == null)
             return;
         CptUtil.RemoveChildsByActive(listSkillsContent.transform);
+
+        //增加手指点击数据
         for (int i = 0; i < listScenesData.Count; i++)
         {
             LevelScenesBean itemData = listScenesData[i];

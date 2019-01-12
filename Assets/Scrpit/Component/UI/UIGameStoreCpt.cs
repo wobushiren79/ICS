@@ -122,7 +122,7 @@ public class UIGameStoreCpt : BaseUIComponent,IGameDataCallBack
                 continue;
             GameObject itemObj = Instantiate(contentSpaceItemModel, contentSpaceItemModel.transform);
             itemObj.SetActive(true);
-            itemObj.transform.parent = listContentObj.transform;
+            itemObj.transform.SetParent(listContentObj.transform);
             //动画
             itemObj.transform.localScale = new Vector3(0, 0, 1);
             itemObj

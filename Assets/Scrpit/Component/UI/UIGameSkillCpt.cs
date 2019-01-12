@@ -15,6 +15,7 @@ public class UIGameSkillCpt : BaseUIComponent, IGameDataCallBack
 
     public GameDataCpt gameDataCpt;
 
+    public RectTransform listSkillsRTF;
     public GameObject listSkillsContent;
     public GameObject itemSkillsModel;
 
@@ -76,6 +77,7 @@ public class UIGameSkillCpt : BaseUIComponent, IGameDataCallBack
             GameSkillsItem skillItem= itemObj.GetComponent<GameSkillsItem>();
             skillItem.SetData(itemData);
         }
+        GameUtil.RefreshRectViewHight(listSkillsRTF,true);
     }
 
     #region

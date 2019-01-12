@@ -42,6 +42,38 @@ public class GameUtil
         return topBorder - downBorder;
     }
 
+
+
+    /// <summary>
+    /// 刷新UI控件高
+    /// </summary>
+    /// <param name="itemRTF"></param>
+    /// <param name="isWithFitter">宽是否自适应大小</param>
+    public static void RefreshRectViewHight(RectTransform itemRTF,bool isWithFitter)
+    {
+        if (itemRTF == null)
+            return;
+        float itemWith = itemRTF.rect.width;
+        if (isWithFitter)
+        {
+            itemWith = 0;
+        }
+        float itemHight = itemRTF.rect.height;
+        RectTransform[] childTFList = itemRTF.GetComponentsInChildren<RectTransform>();
+        if (childTFList == null)
+            return;
+        itemHight = 0;
+        foreach (RectTransform itemTF in childTFList)
+        {
+            itemHight += itemTF.rect.height;
+        }
+        //设置大小
+        if (itemRTF != null)
+            itemRTF.sizeDelta = new Vector2(itemWith, itemHight);
+
+    }
+
+
     /// <summary>
     /// 离开游戏
     /// </summary>

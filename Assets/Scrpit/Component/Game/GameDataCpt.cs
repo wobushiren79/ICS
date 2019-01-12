@@ -236,6 +236,8 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
     /// <param name="level"></param>
     public UserItemLevelBean GetUserItemLevelDataByLevel(int level)
     {
+        if (level == 0)
+            return userData.clickData;
         if (userData == null || CheckUtil.ListIsNull(userData.listUserLevelData))
             return null;
         List<UserItemLevelBean> listLevelData = userData.listUserLevelData;
@@ -362,7 +364,14 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
         for (int i = 0; i < listUserLevelData.Count; i++)
         {
             UserItemLevelBean itemData = listUserLevelData[i];
-            userData.userGrow += (itemData.itemGrow * itemData.goodsNumber * itemData.itemTimes);
+            if (itemData.level == 0)
+            {
+
+            }
+            else
+            {
+                userData.userGrow += (itemData.itemGrow * itemData.goodsNumber * itemData.itemTimes);
+            }
         }
     }
 

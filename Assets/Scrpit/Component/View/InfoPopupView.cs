@@ -17,6 +17,7 @@ public class InfoPopupView : BaseMonoBehaviour
 
     //屏幕(用来找到鼠标点击的相对位置)
     public RectTransform screenRTF;
+    public RectTransform thisRTF;
 
     private void Update()
     {
@@ -103,21 +104,7 @@ public class InfoPopupView : BaseMonoBehaviour
     /// </summary>
     public void RefreshViewSize()
     {
-        RectTransform thisRTF = GetComponent<RectTransform>();
-        float itemWith = thisRTF.rect.width;
-        float itemHight = thisRTF.rect.height;
-
-        RectTransform[] childTFList = GetComponentsInChildren<RectTransform>();
-        if (childTFList == null)
-            return;
-        itemHight = 0;
-        foreach (RectTransform itemTF in childTFList)
-        {
-            itemHight += itemTF.rect.height;
-        }
-        //设置大小
-        if (thisRTF != null)
-            thisRTF.sizeDelta = new Vector2(itemWith, itemHight);
+        GameUtil.RefreshRectViewHight(thisRTF,false);
     }
 
 

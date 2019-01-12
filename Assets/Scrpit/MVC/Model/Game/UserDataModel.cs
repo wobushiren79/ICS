@@ -54,22 +54,36 @@ public class UserDataModel : BaseMVCModel
         UserDataBean userData = new UserDataBean();
         List<UserItemLevelBean> itemLevelList = new List<UserItemLevelBean>();
 
+        
+
         //查询等级1的数据 
-        List<LevelScenesBean> listLevelData = mLevelScenesService.QueryDataByLevel(1);
+        List<LevelScenesBean> listLevelData = mLevelScenesService.QueryDataByLevel(new int[] {0,1});
         if (CheckUtil.ListIsNull(listLevelData))
             return null;
-        LevelScenesBean initLevelData = listLevelData[0];
-        //添加一个数据
-        UserItemLevelBean itemLevelData = new UserItemLevelBean();
-        itemLevelData.level = initLevelData.level;
-        itemLevelData.goodsNumber = 1;
-        itemLevelData.spaceNumber = 1;
-        itemLevelData.itemGrow = initLevelData.item_grow;
-        itemLevelList.Add(itemLevelData);
+        double totalGrow = 0;
+        for(int i = 0; i < listLevelData.Count; i++)
+        {
+            //添加一个数据
+            LevelScenesBean initLevelData = listLevelData[i];
+            UserItemLevelBean itemLevelData = new UserItemLevelBean();
+            itemLevelData.level = initLevelData.level;
+            itemLevelData.goodsNumber = 1;
+            itemLevelData.spaceNumber = 1;
+            itemLevelData.itemGrow = initLevelData.item_grow;
+            if (initLevelData.level==0)
+            {
+                userData.clickData = itemLevelData;
+            }
+            else
+            {
+                itemLevelList.Add(itemLevelData);
+                totalGrow += itemLevelData.itemGrow;
+            }
+        }
 
-        userData.userId = "UserId_" + SystemUtil.GetUUID(SystemUtil.UUIDTypeEnum.N);
+        userData.userId = "USERID_" + SystemUtil.GetUUID(SystemUtil.UUIDTypeEnum.N);
         userData.listUserLevelData = itemLevelList;
-        userData.userGrow = initLevelData.item_grow;
+        userData.userGrow = totalGrow;
         userData.userName = userName;
         userData = mUserDataService.SaveData(userData);
         return userData;

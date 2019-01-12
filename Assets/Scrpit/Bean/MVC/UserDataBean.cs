@@ -20,6 +20,8 @@ public class UserDataBean
     public double userGrow;
     //不同等级的数据
     public List<UserItemLevelBean> listUserLevelData;
+    //点击数据
+    public UserItemLevelBean clickData;
     //用户技能列表
     public List<long> listSkillsData;
 }

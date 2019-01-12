@@ -8,6 +8,7 @@ public class GameSkillsItem :BaseMonoBehaviour
 {
     public Text tvName;
 
+    public RectTransform listDetailsRTF;
     public GameObject listDetailsObj;
     public GameObject itemDetailsModel;
 
@@ -36,6 +37,7 @@ public class GameSkillsItem :BaseMonoBehaviour
             if (itemCpt != null)
                 itemCpt.SetData(itemData, levelScenesData);
         }
+        GameUtil.RefreshRectViewHight(listDetailsRTF, true);
     }
 
     private void Start()

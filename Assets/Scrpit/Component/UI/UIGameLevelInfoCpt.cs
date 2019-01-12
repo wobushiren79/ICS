@@ -47,7 +47,7 @@ public class UIGameLevelInfoCpt : BaseUIComponent,IGameDataCallBack
             UserItemLevelBean levelData= userLevelDataList[i];
             GameObject levelObj =   Instantiate(levelItemModel, levelItemModel.transform);
             levelObj.SetActive(true);
-            levelObj.transform.parent = levelContent.transform;
+            levelObj.transform.SetParent(levelContent.transform);
             //设置等级图片
             Image itemImage = CptUtil.GetCptInChildrenByName<Image>(levelObj,"Icon");
             itemImage.sprite = levelIconList[levelData.level-1];

@@ -248,22 +248,14 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
     #region 游戏数据回调
     public void GoodsNumberChange(int level, int number)
     {
-        if (mUserLevelData == null)
-            return;
-        SetNumber(mUserLevelData.goodsNumber);
-        double pirce = PriceConversion(StoreItemType.Goods, this.levelScenesBean.goods_sell_price, mUserLevelData.goodsNumber);
-        SetPrice(pirce);
-        OpenPopup();
+        NumberChange(StoreItemType.Goods);
     }
 
     public void SpaceNumberChange(int level, int number)
     {
-        if (mUserLevelData == null)
-            return;
-        SetNumber(mUserLevelData.spaceNumber);
-        double pirce = PriceConversion(StoreItemType.Space, this.levelScenesBean.space_sell_price, mUserLevelData.spaceNumber);
-        SetPrice(pirce);
+        NumberChange(StoreItemType.Space);
     }
+
 
     public void ScoreChange(double score)
     {
@@ -284,4 +276,33 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
   
     }
     #endregion
+
+    private void NumberChange(StoreItemType type)
+    {
+        if (mUserLevelData == null)
+        {
+            mUserLevelData = gameData.GetUserItemLevelDataByLevel(this.levelScenesBean.level);
+            if (mUserLevelData == null)
+            {
+                return;
+            }
+        }
+        int number = 0;
+        double originalPrice = 0;
+        switch (type)
+        {
+            case StoreItemType.Goods:
+                number = mUserLevelData.goodsNumber;
+                originalPrice = this.levelScenesBean.goods_sell_price;
+                break;
+            case StoreItemType.Space:
+                number = mUserLevelData.spaceNumber;
+                originalPrice = this.levelScenesBean.space_sell_price;
+                break;
+        }
+        SetNumber(number);
+        double pirce = PriceConversion(type, originalPrice, number);
+        SetPrice(pirce);
+        OpenPopup();
+    }
 }

@@ -27,4 +27,6 @@ public class LevelSkillsBean
     public int add_number;
     //增长率
     public double add_times;
+    //用户整体的增长率
+    public double add_user_times;
 }

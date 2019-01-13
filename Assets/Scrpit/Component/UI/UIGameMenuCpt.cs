@@ -117,7 +117,7 @@ public class UIGameMenuCpt : BaseUIComponent
         {
             string outNumberStr;
             UnitUtil.UnitEnum outUnit;
-            UnitUtil.DoubleToStrUnitKeepNumber(gameDataCpt.userData.userGrow, 2, out outNumberStr, out outUnit);
+            UnitUtil.DoubleToStrUnitKeepNumber(gameDataCpt.userData.userGrow*gameDataCpt.userData.userTimes, 2, out outNumberStr, out outUnit);
             tvGrow.text = GameCommonInfo.GetTextById(39)+":" + outNumberStr +" "+GameCommonInfo.GetUnitStr(outUnit);
         }
         if (tvName != null)

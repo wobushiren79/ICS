@@ -36,7 +36,7 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
         float updateNumber = 1 / Time.fixedDeltaTime;
         if (updateNumber <= 0)
             return;
-        double tempGrow = userData.userGrow / updateNumber;
+        double tempGrow = (userData.userGrow * userData.userTimes) / updateNumber;
         userData.userScore += tempGrow;
         CheckLevel();
     }

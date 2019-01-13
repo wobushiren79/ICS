@@ -5403,8 +5403,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1143885929}
   m_HandleRect: {fileID: 1143885928}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.9999996
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5557,6 +5557,7 @@ MonoBehaviour:
     add_grow: 0
     add_number: 0
     add_times: 0
+    add_user_times: 0
   levelScenesBean:
     id: 0
     level: 0
@@ -5868,8 +5869,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000016212, y: 0}
-  m_SizeDelta: {x: 0.000015259, y: -442.7727}
+  m_AnchoredPosition: {x: -0.000016212, y: -0.000061035156}
+  m_SizeDelta: {x: 0.000015259, y: -553.26575}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1120993538
 MonoBehaviour:
@@ -5938,7 +5939,7 @@ RectTransform:
   m_Father: {fileID: 1374765388}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.00000011920929}
+  m_AnchorMin: {x: 0, y: 0.0000004172325}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -6526,13 +6527,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1240478022}
-  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 5, z: -7}
+  m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
+  m_LocalPosition: {x: 0, y: 6.5, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
 --- !u!1 &1256054735 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1032455944001932, guid: c803676256329d849a118e5a81fb296e,
@@ -7437,6 +7438,7 @@ MonoBehaviour:
     scoreLevel: 1
     userScore: 0
     userGrow: 0
+    userTimes: 0
     listUserLevelData: []
     clickData:
       level: 0
@@ -7478,6 +7480,56 @@ MonoBehaviour:
     value: {fileID: 21300006, guid: c390bd2630729124c8e23e923d33a151, type: 3}
   - key: level_1_multiple_4
     value: {fileID: 21300008, guid: c390bd2630729124c8e23e923d33a151, type: 3}
+  - key: level_1_fire_0
+    value: {fileID: 21300000, guid: eea1fdace494a634cae0e28680b874a3, type: 3}
+  - key: level_1_fire_1
+    value: {fileID: 21300002, guid: eea1fdace494a634cae0e28680b874a3, type: 3}
+  - key: level_1_fire_2
+    value: {fileID: 21300004, guid: eea1fdace494a634cae0e28680b874a3, type: 3}
+  - key: level_1_fire_3
+    value: {fileID: 21300006, guid: eea1fdace494a634cae0e28680b874a3, type: 3}
+  - key: level_1_fire_4
+    value: {fileID: 21300008, guid: eea1fdace494a634cae0e28680b874a3, type: 3}
+  - key: level_1_number_0
+    value: {fileID: 21300000, guid: bbbe0307b46697a468914aefe82e2c9f, type: 3}
+  - key: level_1_number_1
+    value: {fileID: 21300002, guid: bbbe0307b46697a468914aefe82e2c9f, type: 3}
+  - key: level_1_number_2
+    value: {fileID: 21300004, guid: bbbe0307b46697a468914aefe82e2c9f, type: 3}
+  - key: level_1_number_3
+    value: {fileID: 21300006, guid: bbbe0307b46697a468914aefe82e2c9f, type: 3}
+  - key: level_1_number_4
+    value: {fileID: 21300008, guid: bbbe0307b46697a468914aefe82e2c9f, type: 3}
+  - key: level_1_stove_0
+    value: {fileID: 21300000, guid: 93da983e8b684c548a1441236c1b690c, type: 3}
+  - key: level_1_stove_1
+    value: {fileID: 21300002, guid: 93da983e8b684c548a1441236c1b690c, type: 3}
+  - key: level_1_stove_2
+    value: {fileID: 21300004, guid: 93da983e8b684c548a1441236c1b690c, type: 3}
+  - key: level_1_stove_3
+    value: {fileID: 21300006, guid: 93da983e8b684c548a1441236c1b690c, type: 3}
+  - key: level_1_stove_4
+    value: {fileID: 21300008, guid: 93da983e8b684c548a1441236c1b690c, type: 3}
+  - key: level_all_chili_0
+    value: {fileID: 21300000, guid: e0a85e542a3489345b234300f17c067b, type: 3}
+  - key: level_all_chili_1
+    value: {fileID: 21300002, guid: e0a85e542a3489345b234300f17c067b, type: 3}
+  - key: level_all_chili_2
+    value: {fileID: 21300004, guid: e0a85e542a3489345b234300f17c067b, type: 3}
+  - key: level_all_chili_3
+    value: {fileID: 21300006, guid: e0a85e542a3489345b234300f17c067b, type: 3}
+  - key: level_all_chili_4
+    value: {fileID: 21300008, guid: e0a85e542a3489345b234300f17c067b, type: 3}
+  - key: level_0_potion_0
+    value: {fileID: 21300000, guid: 3963cf84c7c09de4e81292ed58456027, type: 3}
+  - key: level_0_potion_1
+    value: {fileID: 21300002, guid: 3963cf84c7c09de4e81292ed58456027, type: 3}
+  - key: level_0_potion_2
+    value: {fileID: 21300004, guid: 3963cf84c7c09de4e81292ed58456027, type: 3}
+  - key: level_0_potion_3
+    value: {fileID: 21300006, guid: 3963cf84c7c09de4e81292ed58456027, type: 3}
+  - key: level_0_potion_4
+    value: {fileID: 21300008, guid: 3963cf84c7c09de4e81292ed58456027, type: 3}
 --- !u!114 &1387247831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7956,6 +8008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tvName: {fileID: 699203207}
+  listDetailsRTF: {fileID: 838485561}
   listDetailsObj: {fileID: 838485560}
   itemDetailsModel: {fileID: 1024926866}
   gameDataCpt: {fileID: 1387247830}
@@ -8153,6 +8206,7 @@ MonoBehaviour:
   line1: {fileID: 847118500}
   line2: {fileID: 341199427}
   screenRTF: {fileID: 351465812}
+  thisRTF: {fileID: 1457210684}
 --- !u!114 &1457210682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9883,6 +9937,7 @@ MonoBehaviour:
   tvTitle: {fileID: 1858333252}
   tvScore: {fileID: 2042205877}
   gameDataCpt: {fileID: 1387247830}
+  listSkillsRTF: {fileID: 1120993537}
   listSkillsContent: {fileID: 1120993536}
   itemSkillsModel: {fileID: 1415689350}
 --- !u!224 &1785338045

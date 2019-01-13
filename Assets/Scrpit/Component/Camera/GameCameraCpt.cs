@@ -46,15 +46,15 @@ public class GameCameraCpt : BaseMonoBehaviour {
             return;
         if (gameCamera == null)
             return;
-       
+        
         //设置边界
         gameScenes.GetScenesBorderByLevel(level,out mCameraMoveLeftMax,out mCameraMoveRightMax);
         //获取场景位置
         Vector3 levelScenesPosition= gameScenes.GetScenesPositionByLevel(level);
         //设置摄像头位置
-        gameCamera.transform.position = new Vector3(x, levelScenesPosition.y+5,-7);
+        gameCamera.transform.position = new Vector3(x, levelScenesPosition.y+6.5f,-7);
         gameCamera.transform.rotation = new Quaternion();
-        gameCamera.transform.Rotate(new Vector3(45,0,0));
+        gameCamera.transform.Rotate(new Vector3(50,0,0));
         //gameCamera.transform.LookAt(levelScenesPosition);
         cameraLevel = level;
     }

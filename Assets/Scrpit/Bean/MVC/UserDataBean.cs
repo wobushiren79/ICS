@@ -18,6 +18,8 @@ public class UserDataBean
     public double userScore;
     //用户分数增量(每秒增量)
     public double userGrow;
+    //用户增长倍率
+    public double userTimes;
     //不同等级的数据
     public List<UserItemLevelBean> listUserLevelData;
     //点击数据

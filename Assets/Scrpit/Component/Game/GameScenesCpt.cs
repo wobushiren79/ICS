@@ -188,13 +188,12 @@ public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView,IGameDataCallBac
         Vector3 itemGoodsPosition = new Vector3(markLoaction.x+1f , markLoaction.y +0.5f, markLoaction.z+1f);
         GameObject levelGoodsItem = Instantiate(itemGoodsModel, itemGoodsPosition, itemGoodsModel.transform.rotation);
         levelGoodsItem.SetActive(true);
-        levelGoodsItem.transform.parent = parentObj.transform;
+        levelGoodsItem.transform.SetParent(parentObj.transform);
 
         //添加不同等级goods
         GameObject tempItem= Instantiate(listGoodsItemModel[level - 1], levelGoodsItem.transform);
         tempItem.SetActive(true);
-        tempItem.transform.parent = levelGoodsItem.transform;
-
+        tempItem.transform.SetParent(levelGoodsItem.transform);
         //设置数据
         GameItemGoodsCpt itemCpt = levelGoodsItem.GetComponent<GameItemGoodsCpt>();
         itemCpt.SetLevelData(level);

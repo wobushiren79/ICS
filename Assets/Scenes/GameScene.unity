@@ -2804,31 +2804,31 @@ Prefab:
         type: 2}
       propertyPath: listGoodsItemModel.Array.data[0]
       value: 
-      objectReference: {fileID: 1552046029467118, guid: 934bdad51b533f44d8769ce05ac69409,
+      objectReference: {fileID: 1521200401404910, guid: 934bdad51b533f44d8769ce05ac69409,
         type: 2}
     - target: {fileID: 114216166252537696, guid: c803676256329d849a118e5a81fb296e,
         type: 2}
       propertyPath: listGoodsItemModel.Array.data[1]
       value: 
-      objectReference: {fileID: 1552046029467118, guid: 934bdad51b533f44d8769ce05ac69409,
+      objectReference: {fileID: 1521200401404910, guid: 68be7bfe32e7d0c48b85b6306626e1c5,
         type: 2}
     - target: {fileID: 114216166252537696, guid: c803676256329d849a118e5a81fb296e,
         type: 2}
       propertyPath: listGoodsItemModel.Array.data[2]
       value: 
-      objectReference: {fileID: 1552046029467118, guid: 934bdad51b533f44d8769ce05ac69409,
+      objectReference: {fileID: 1233659237065298, guid: 105bc3a02c4f36942a32599903d36522,
         type: 2}
     - target: {fileID: 114216166252537696, guid: c803676256329d849a118e5a81fb296e,
         type: 2}
       propertyPath: listGoodsItemModel.Array.data[3]
       value: 
-      objectReference: {fileID: 1552046029467118, guid: 934bdad51b533f44d8769ce05ac69409,
+      objectReference: {fileID: 1521200401404910, guid: 934bdad51b533f44d8769ce05ac69409,
         type: 2}
     - target: {fileID: 114216166252537696, guid: c803676256329d849a118e5a81fb296e,
         type: 2}
       propertyPath: listGoodsItemModel.Array.data[4]
       value: 
-      objectReference: {fileID: 1552046029467118, guid: 934bdad51b533f44d8769ce05ac69409,
+      objectReference: {fileID: 1521200401404910, guid: 934bdad51b533f44d8769ce05ac69409,
         type: 2}
     - target: {fileID: 4136608435775936, guid: c803676256329d849a118e5a81fb296e, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2876,10 +2876,15 @@ Prefab:
       propertyPath: gameCameraCpt
       value: 
       objectReference: {fileID: 1387247832}
+    - target: {fileID: 4136608435775936, guid: c803676256329d849a118e5a81fb296e, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 95338086525674956, guid: c803676256329d849a118e5a81fb296e, type: 2}
     - {fileID: 114641140202851980, guid: c803676256329d849a118e5a81fb296e, type: 2}
     - {fileID: 114944942685551820, guid: c803676256329d849a118e5a81fb296e, type: 2}
+    - {fileID: 212508942814362958, guid: c803676256329d849a118e5a81fb296e, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: c803676256329d849a118e5a81fb296e, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &585399365
@@ -6502,7 +6507,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 25
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -7530,6 +7535,36 @@ MonoBehaviour:
     value: {fileID: 21300006, guid: 3963cf84c7c09de4e81292ed58456027, type: 3}
   - key: level_0_potion_4
     value: {fileID: 21300008, guid: 3963cf84c7c09de4e81292ed58456027, type: 3}
+  - key: level_2_windmill_0
+    value: {fileID: 21300000, guid: fed54fb87c9c1c942bb9154233136c35, type: 3}
+  - key: level_2_windmill_1
+    value: {fileID: 21300002, guid: fed54fb87c9c1c942bb9154233136c35, type: 3}
+  - key: level_2_windmill_2
+    value: {fileID: 21300004, guid: fed54fb87c9c1c942bb9154233136c35, type: 3}
+  - key: level_2_windmill_3
+    value: {fileID: 21300006, guid: fed54fb87c9c1c942bb9154233136c35, type: 3}
+  - key: level_2_windmill_4
+    value: {fileID: 21300008, guid: fed54fb87c9c1c942bb9154233136c35, type: 3}
+  - key: level_2_multiple_0
+    value: {fileID: 21300000, guid: 5b2210cf514c28d47b1d294130dc173c, type: 3}
+  - key: level_2_multiple_1
+    value: {fileID: 21300002, guid: 5b2210cf514c28d47b1d294130dc173c, type: 3}
+  - key: level_2_multiple_2
+    value: {fileID: 21300004, guid: 5b2210cf514c28d47b1d294130dc173c, type: 3}
+  - key: level_2_multiple_3
+    value: {fileID: 21300006, guid: 5b2210cf514c28d47b1d294130dc173c, type: 3}
+  - key: level_2_multiple_4
+    value: {fileID: 21300008, guid: 5b2210cf514c28d47b1d294130dc173c, type: 3}
+  - key: level_2_number_0
+    value: {fileID: 21300000, guid: 6e7973483f23bf348b427eaf4b2c78dc, type: 3}
+  - key: level_2_number_1
+    value: {fileID: 21300002, guid: 6e7973483f23bf348b427eaf4b2c78dc, type: 3}
+  - key: level_2_number_2
+    value: {fileID: 21300004, guid: 6e7973483f23bf348b427eaf4b2c78dc, type: 3}
+  - key: level_2_number_3
+    value: {fileID: 21300006, guid: 6e7973483f23bf348b427eaf4b2c78dc, type: 3}
+  - key: level_2_number_4
+    value: {fileID: 21300008, guid: 6e7973483f23bf348b427eaf4b2c78dc, type: 3}
 --- !u!114 &1387247831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9015,8 +9050,8 @@ MonoBehaviour:
   levelRG: {fileID: 1573118320}
   levelItemModel: {fileID: 1477194759}
   levelIconList:
-  - {fileID: 21300000, guid: 9c95aa1478dea0d4fb667fed93d2ddf3, type: 3}
-  - {fileID: 21300000, guid: 2f6406e784bb2494db0df2866bf11685, type: 3}
+  - {fileID: 21300000, guid: 81a13a8c5ca6d954db9401b50cccaf45, type: 3}
+  - {fileID: 21300000, guid: fed54fb87c9c1c942bb9154233136c35, type: 3}
   - {fileID: 21300000, guid: 9c95aa1478dea0d4fb667fed93d2ddf3, type: 3}
   - {fileID: 21300000, guid: 9c95aa1478dea0d4fb667fed93d2ddf3, type: 3}
   - {fileID: 21300000, guid: 9c95aa1478dea0d4fb667fed93d2ddf3, type: 3}

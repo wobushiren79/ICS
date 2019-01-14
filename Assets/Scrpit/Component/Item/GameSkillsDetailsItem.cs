@@ -29,7 +29,8 @@ public class GameSkillsDetailsItem : PopupReplyView
         }
         else
         {
-            ivBorder.color = new Color(0.5f, 0.5f, 0.5f);
+            ivBorder.color = new Color(0.3f, 0.3f, 0.3f);
+            ivIcon.color = new Color(0.3f, 0.3f, 0.3f);
         }
         btSubmit.onClick.AddListener(BTSkillsBuyOnClick);
     }
@@ -84,6 +85,8 @@ public class GameSkillsDetailsItem : PopupReplyView
 
             gameDataCpt.userData.listSkillsData.Add(levelSkillsBean.id);
             ivBorder.color = new Color(1, 1, 1);
+            ivIcon.color = new Color(1, 1, 1);
+
             hasSkills = true;
 
             gameDataCpt.RefreshData();
@@ -128,12 +131,12 @@ public class GameSkillsDetailsItem : PopupReplyView
         }
         if (levelSkillsBean.add_number != 0)
         {
-            remarkStr += "【" + GameCommonInfo.GetTextById(47) + "】";
+            remarkStr += "【" + GameCommonInfo.GetTextById(48) + "】";
             otherStr += "➤" + levelScenesBean.goods_name + GameCommonInfo.GetTextById(48) + GameCommonInfo.GetTextById(49) + levelSkillsBean.add_number + GameCommonInfo.GetTextById(43) + "\n";
         }
         if (levelSkillsBean.add_times != 0)
         {
-            remarkStr += "【" + GameCommonInfo.GetTextById(48) + "】";
+            remarkStr += "【" + GameCommonInfo.GetTextById(47) + "】";
             otherStr += "➤" + levelScenesBean.goods_name + GameCommonInfo.GetTextById(50) + GameCommonInfo.GetTextById(42) + GameCommonInfo.GetTextById(47) + GameCommonInfo.GetTextById(49) + levelSkillsBean.add_times * 100 + "%" + "\n";
         }
         string priceStr = null;

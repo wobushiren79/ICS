@@ -2,10 +2,10 @@
 using UnityEditor;
 using UnityEngine;
 
-public class Builder : Editor
+public class AssetEditor : Editor
 {
 
-    [MenuItem("Custom/BuildAssetBundle")]
+    [MenuItem("Custom/Asset/BuildAssetBundle")]
     public static void BuildAssetBundle()
     {
 
@@ -16,7 +16,7 @@ public class Builder : Editor
 
     }
 
-    [MenuItem("Custom/ReNamePuzzlesAsset")]
+    [MenuItem("Custom/Asset/ReNamePuzzlesAsset")]
     public static void ReAssetName()
     {
         Object[] objs = Selection.objects;
@@ -44,7 +44,7 @@ public class Builder : Editor
     /// 清除之前设置过的AssetBundleName，避免产生不必要的资源也打包
     /// 之前说过，只要设置了AssetBundleName的，都会进行打包，不论在什么目录下
     /// </summary>
-    [MenuItem("Custom/ClearAssetBundlesName")]
+    [MenuItem("Custom/Asset/ClearAssetBundlesName")]
     public static void ClearAssetBundlesName()
     {
         int length = AssetDatabase.GetAllAssetBundleNames().Length;

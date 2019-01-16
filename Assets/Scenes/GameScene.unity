@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 0}
+  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -802,8 +802,33 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d1713c1b33b6be74db233b58a01da1d8,
+      objectReference: {fileID: 21300000, guid: 286969602ff315548a17004c6c3efe67,
         type: 3}
+    - target: {fileID: 114958639539743258, guid: 2a05c5a24d44d894ba765e77a18988aa,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114958639539743258, guid: 2a05c5a24d44d894ba765e77a18988aa,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.6279815
+      objectReference: {fileID: 0}
+    - target: {fileID: 114958639539743258, guid: 2a05c5a24d44d894ba765e77a18988aa,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.85064006
+      objectReference: {fileID: 0}
+    - target: {fileID: 114958639539743258, guid: 2a05c5a24d44d894ba765e77a18988aa,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.9056604
+      objectReference: {fileID: 0}
+    - target: {fileID: 114958639539743258, guid: 2a05c5a24d44d894ba765e77a18988aa,
+        type: 2}
+      propertyPath: m_PreserveAspect
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a05c5a24d44d894ba765e77a18988aa, type: 2}
   m_IsPrefabAsset: 0
@@ -2770,7 +2795,7 @@ Prefab:
         type: 2}
       propertyPath: listGoodsItemModel.Array.data[4]
       value: 
-      objectReference: {fileID: 1521200401404910, guid: 934bdad51b533f44d8769ce05ac69409,
+      objectReference: {fileID: 1233659237065298, guid: 34937082ffbc4a44faf9fd18fa71da43,
         type: 2}
     - target: {fileID: 4136608435775936, guid: c803676256329d849a118e5a81fb296e, type: 2}
       propertyPath: m_LocalRotation.x
@@ -4967,8 +4992,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 85981e075b4e4a24e854520e2cd7fb18, type: 3}
   - {fileID: 21300000, guid: 0a30127c814059f41a2037d9ae9587ea, type: 3}
   - {fileID: 21300000, guid: 1c71f2bbb9a940541bf3b354de33a4c0, type: 3}
-  - {fileID: 21300000, guid: 85981e075b4e4a24e854520e2cd7fb18, type: 3}
-  - {fileID: 21300000, guid: 85981e075b4e4a24e854520e2cd7fb18, type: 3}
+  - {fileID: 21300000, guid: f2c1553ffabb82748bc9e2e51cff1d05, type: 3}
+  - {fileID: 21300000, guid: a6bfa08194f5ba547ad924af786178e4, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -4978,8 +5003,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a1b4ce530ed493b4fb4829d03686ce66, type: 3}
   - {fileID: 21300000, guid: fffdbb78c492aaf4bad633bbc06a4441, type: 3}
   - {fileID: 21300000, guid: 86cf0fab02fc40f4ba1a0ab9e52fe8ac, type: 3}
-  - {fileID: 21300000, guid: a1b4ce530ed493b4fb4829d03686ce66, type: 3}
-  - {fileID: 21300000, guid: a1b4ce530ed493b4fb4829d03686ce66, type: 3}
+  - {fileID: 21300000, guid: 43b393bb1968b8241a7c78fdf44dae74, type: 3}
+  - {fileID: 21300000, guid: 9ff381d67666b944699139e025a024ce, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -6437,7 +6462,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -9108,7 +9133,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 2.5
+  m_Spacing: 1
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1

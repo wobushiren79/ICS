@@ -5,11 +5,19 @@ public class GameBufferItem : PopupReplyView
 {
 
     public Button btItem;
+    public Image ivMask;
 
+    public float amount = 0.5f;
     private void Start()
     {
         if (btItem != null)
             btItem.onClick.AddListener(Test);
+       
+    }
+
+    private void Update()
+    {
+        ivMask.fillAmount = amount;
     }
 
     public void Test()

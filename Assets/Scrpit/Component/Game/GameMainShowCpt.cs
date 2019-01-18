@@ -13,13 +13,11 @@ public class GameMainShowCpt : BaseMonoBehaviour,IGameDataCallBack
     //增加的特效模板
     public GameObject itemAddModel;
     public GameObject itemNumberModel;
-    //列表样式
-    public List<Sprite> listSp;
     //显示的分数
     public GameObject objBase;
     public Text tvScore;
     //游戏数据控制
-    public GameDataCpt dataCpt;
+    public GameDataCpt gameDataCpt;
 
     //屏幕(用来找到鼠标点击的相对位置)
     public RectTransform screenRTF;
@@ -39,15 +37,15 @@ public class GameMainShowCpt : BaseMonoBehaviour,IGameDataCallBack
 
     private void Start()
     {
-        dataCpt.AddObserver(this);
+        gameDataCpt.AddObserver(this);
         if (btAdd != null)
             btAdd.onClick.AddListener(BTAddOnClick);
     }
 
     private void OnDestroy()
     {
-        if (dataCpt != null)
-            dataCpt.RemoveObserver(this);
+        if (gameDataCpt != null)
+            gameDataCpt.RemoveObserver(this);
     }
     /// <summary>
     /// 增加按钮点击
@@ -61,7 +59,7 @@ public class GameMainShowCpt : BaseMonoBehaviour,IGameDataCallBack
         //屏幕坐标转换为UI坐标
         RectTransformUtility.ScreenPointToLocalPointInRectangle(screenRTF, Input.mousePosition, Camera.main, out outPosition);
         double addScore = 1;
-        UserItemLevelBean itemData = dataCpt.userData.clickData;
+        UserItemLevelBean itemData = gameDataCpt.userData.clickData;
         if (itemData != null)
         {
             addScore = itemData.itemGrow * itemData.itemTimes * itemData.goodsNumber;
@@ -70,12 +68,16 @@ public class GameMainShowCpt : BaseMonoBehaviour,IGameDataCallBack
         GameObject addItem = Instantiate(itemAddModel, itemAddModel.transform);
         addItem.SetActive(true);
         addItem.transform.SetParent(transform);
+        Image sauceIV= addItem.GetComponentInChildren<Image>();
+        GameDataCpt.IconKV tempKV = RandomUtil.GetRandomDataByList(gameDataCpt.listSauceData);
+        sauceIV.sprite = tempKV.value;
+
         addItem.transform.localPosition = new Vector3(outPosition.x, outPosition.y, addItem.transform.position.z);
         addItem.transform.DOLocalMove(objBase.transform.localPosition, addAnimTime ).SetEase(Ease.InOutBack).OnComplete(delegate ()
         {
-            if (dataCpt != null)
+            if (gameDataCpt != null)
             {
-                dataCpt.AddScore(addScore);
+                gameDataCpt.AddScore(addScore);
             }          
             Destroy(addItem);
         });

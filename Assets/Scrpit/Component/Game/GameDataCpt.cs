@@ -14,6 +14,8 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
     public List<LevelSkillsBean> listSkillsData;
     //图标列表
     public List<IconKV> listIconData;
+    public List<IconKV> listSauceData;
+    public List<IconKV> listChiliData;
 
     //用户数据管理
     private UserDataController mUserDataController;
@@ -342,6 +344,10 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
                 userItemLevelBean.itemGrow = levelScenesData.item_grow;
             userData.listUserLevelData.Add(userItemLevelBean);
         }
+        //排序
+        userData.listUserLevelData.Sort(delegate (UserItemLevelBean x, UserItemLevelBean y) {
+            return x.level.CompareTo(y.level);
+        });
         //通知所有观察者
         List<IGameDataCallBack> listObserver = GetAllObserver();
         foreach (IGameDataCallBack itemObserver in listObserver)

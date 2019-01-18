@@ -4,6 +4,21 @@ using System.Collections.Generic;
 
 public class RandomUtil
 {
+
+    /// <summary>
+    /// 获取List 中 随机一个数
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="list"></param>
+    /// <returns></returns>
+    public static T GetRandomDataByList<T>(List<T> list)
+    {
+        if (CheckUtil.ListIsNull(list))
+            return default(T);
+       int position = Random.Range(0, list.Count);
+       return list[position];
+    }
+
     /// <summary>
     /// 获取List随机数
     /// </summary>

@@ -11,8 +11,9 @@ public class GameBufferShowCpt : BaseMonoBehaviour, IBufferInfoView
 
     public RectTransform listShowContent;
     public GameObject itemShowModel;
+    public GameObject itemShowDetailsModel;
 
-
+    public GameDataCpt gameDataCpt;
     public List<BufferInfoBean> listBufferInfoData;
     private BufferInfoController mBufferInfoController;
 
@@ -40,6 +41,9 @@ public class GameBufferShowCpt : BaseMonoBehaviour, IBufferInfoView
             if (CheckUtil.ListIsNull(listBufferInfoData))
                 continue;
             BufferInfoBean itemBufferData = RandomUtil.GetRandomDataByList(listBufferInfoData);
+            if (gameDataCpt.userData.goodsLevel < itemBufferData.level) {
+                continue;
+            }
             CreateShowItem(itemBufferData);
         }
     }
@@ -55,35 +59,99 @@ public class GameBufferShowCpt : BaseMonoBehaviour, IBufferInfoView
         GameObject showObj = Instantiate(itemShowModel, itemShowModel.transform);
         showObj.transform.SetParent(listShowContent.transform);
         showObj.SetActive(true);
-        RectTransform showItemRT= showObj.GetComponent<RectTransform>();
-        CanvasGroup showItemCG= showObj.GetComponent<CanvasGroup>();
-        Vector2 showPosition = new Vector2(Random.Range(showItemRT.rect.width / 2f, listShowContent.rect.width- showItemRT.rect.width/2f), Random.Range(-(listShowContent.rect.height - showItemRT.rect.height/2f), -showItemRT.rect.height/2f));
+        RectTransform showItemRT = showObj.GetComponent<RectTransform>();
+        CanvasGroup showItemCG = showObj.GetComponent<CanvasGroup>();
+        Vector2 showPosition = new Vector2(Random.Range(showItemRT.rect.width / 2f, listShowContent.rect.width - showItemRT.rect.width / 2f), Random.Range(-(listShowContent.rect.height - showItemRT.rect.height / 2f), -showItemRT.rect.height / 2f));
         showItemRT.anchoredPosition = showPosition;
         Button btShow = showObj.GetComponent<Button>();
         if (btShow != null)
         {
             btShow.onClick.AddListener(delegate ()
             {
-                bufferListCpt.AddBuffer(itemBufferData);
+                CreateDetailsItem(itemBufferData, showPosition);
                 showObj.transform.DOKill();
                 if (showObj)
                     Destroy(showObj);
             });
         }
-      
+
         //设置本身动画
-        showObj.transform.localScale=new Vector3(0,0,0);
-        showObj.transform.DOScale(new Vector3(1,1,1),1).OnComplete(delegate() {
-            showObj.transform.DOScale(new Vector3(0,0), animDuration/2f).SetDelay(animDuration/2f);
+        showObj.transform.localScale = new Vector3(0, 0, 0);
+        showObj.transform.DOScale(new Vector3(1, 1, 1), 1).OnComplete(delegate ()
+        {
+            showObj.transform.DOScale(new Vector3(0, 0), animDuration / 2f).SetDelay(animDuration / 2f);
         });
-        showObj.transform.DOPunchRotation(new Vector3(0, 0, 10),1,5,1f).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.Linear);
-        showItemCG.DOFade(0, animDuration/2f).SetDelay(animDuration / 2f).OnComplete(delegate () {
+        showObj.transform.DOPunchRotation(new Vector3(0, 0, 10), 1, 5, 1f).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.Linear);
+        showItemCG.DOFade(0, animDuration / 2f).SetDelay(animDuration / 2f).OnComplete(delegate ()
+        {
             showObj.transform.DOKill();
             if (showObj)
                 Destroy(showObj);
         });
-        Image ivBackground=  CptUtil.GetCptInChildrenByName<Image>(showObj,"Background");
-   
+        Image ivIcon = CptUtil.GetCptInChildrenByName<Image>(showObj, "Icon");
+        ivIcon.sprite = gameDataCpt.GetIconByKey(itemBufferData.icon_key);
+    }
+
+    /// <summary>
+    /// 创建展示的详情
+    /// </summary>
+    /// <param name="itemBufferData"></param>
+    public void CreateDetailsItem(BufferInfoBean itemBufferData, Vector2 showPostion)
+    {
+        GameObject itemDetailsObj = Instantiate(itemShowDetailsModel, itemShowDetailsModel.transform);
+        itemDetailsObj.SetActive(true);
+        itemDetailsObj.transform.SetParent(listShowContent.transform);
+        RectTransform detailsItemRT = itemDetailsObj.GetComponent<RectTransform>();
+        CanvasGroup detailsItemCG = itemDetailsObj.GetComponent<CanvasGroup>();
+        Text detailsContent = itemDetailsObj.GetComponentInChildren<Text>();
+        detailsItemRT.anchoredPosition = showPostion;
+        //设置内容
+        string contentStr = "";
+        if (itemBufferData.add_grow != 0)
+        {
+            if (!contentStr.Equals(""))
+                contentStr += "\n";
+            if (itemBufferData.level == -1)
+            {
+                 contentStr += ("+ " + itemBufferData.add_grow * 100 + "%" + GameCommonInfo.GetTextById(50) + GameCommonInfo.GetTextById(54));
+            }
+            else
+            {
+                LevelScenesBean levelScenesBean = gameDataCpt.GetScenesByLevel(itemBufferData.level);
+                if (levelScenesBean != null)
+                    contentStr += ("+ " + itemBufferData.add_grow * 100 + "%" + levelScenesBean.goods_name + GameCommonInfo.GetTextById(54));
+            }
+            contentStr += "\n" + GameCommonInfo.GetTextById(55) + itemBufferData.time + GameCommonInfo.GetTextById(56);
+        }
+        if (itemBufferData.add_number != 0)
+        {
+            if (!contentStr.Equals(""))
+                contentStr += "\n";
+            double addNumber = itemBufferData.add_number;
+            contentStr += ("+ " + addNumber + GameCommonInfo.GetTextById(40));
+        }
+        if (itemBufferData.add_percentage != 0)
+        {
+            if (!contentStr.Equals(""))
+                contentStr += "\n";
+            double addNumber = gameDataCpt.userData.userScore * itemBufferData.add_percentage;
+            contentStr += ("+ " + addNumber + GameCommonInfo.GetTextById(40));
+            gameDataCpt.userData.userScore += addNumber;
+        }
+        detailsContent.text = contentStr;
+        //设置动画
+        Vector3 oldScale = itemDetailsObj.transform.localScale;
+        Vector3 positionScale = itemDetailsObj.transform.localPosition;
+        itemDetailsObj.transform.localScale = new Vector3(0, 0, 0);
+        itemDetailsObj.transform.DOScale(oldScale, 1);
+
+        detailsItemCG.DOFade(0, 10);
+        itemDetailsObj.transform.DOLocalMoveY(positionScale.y + 100, 10).OnComplete(delegate ()
+        {
+            Destroy(itemDetailsObj);
+        });
+    
+        bufferListCpt.AddBuffer(itemBufferData);
     }
 
     #region 数据回调

@@ -43,30 +43,45 @@ public class GameBufferItem : PopupReplyView
         {
             amount = countDownTime / this.bufferData.time;
             ivMask.fillAmount = amount;
-            yield return new WaitForSeconds(0.1f);
-            countDownTime-=0.1f;
+            yield return new WaitForSeconds(1f);
+            countDownTime -= 1f;
+            double addScore = 0;
+            if (bufferData.level == -1)
+            {
+                addScore = gameDataCpt.userData.userGrow * gameDataCpt.userData.userTimes * bufferData.add_grow;
+            }
+            else
+            {
+                UserItemLevelBean userItemLevel = gameDataCpt.GetUserItemLevelDataByLevel(bufferData.level);
+                if (userItemLevel != null)
+                {
+                    addScore = userItemLevel.itemGrow * userItemLevel.itemTimes * userItemLevel.goodsNumber * bufferData.add_grow;
+                }
+            }
+            gameDataCpt.userData.userScore += addScore;
         }
-        transform.DOScale(new Vector3(0, 0), 0.5f).OnComplete(delegate() {
+        transform.DOScale(new Vector3(0, 0), 0.5f).OnComplete(delegate ()
+        {
             Destroy(this.gameObject);
         });
     }
 
     private void OnDestroy()
     {
-        if(infoPopupView!=null)
-        infoPopupView.gameObject.SetActive(false);  
+        if (infoPopupView != null)
+            infoPopupView.gameObject.SetActive(false);
     }
 
     public override void ClosePopup()
     {
-       
+
     }
 
     public override void OpenPopup()
     {
-        if (bufferData == null|| gameDataCpt==null)
+        if (bufferData == null || gameDataCpt == null)
             return;
-        Sprite iconSP= gameDataCpt.GetIconByKey(bufferData.icon_key);
-        infoPopupView.SetInfoData(iconSP, bufferData.name, null,null, bufferData.content, null);
+        Sprite iconSP = gameDataCpt.GetIconByKey(bufferData.icon_key);
+        infoPopupView.SetInfoData(iconSP, bufferData.name, null, null, bufferData.content, null);
     }
 }

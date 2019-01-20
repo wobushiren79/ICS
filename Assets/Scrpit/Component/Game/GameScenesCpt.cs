@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView,IGameDataCallBack
 {
@@ -101,7 +102,7 @@ public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView,IGameDataCallBac
         //创建地形
         for (int i = 0; i < itemLevelData.spaceNumber; i++)
         {
-            CreateSpaceItem(levelScenesData.level, levelObj);
+            CreateSpaceItem(levelScenesData.level, levelObj,false);
         }
 
         //创建单位
@@ -110,7 +111,7 @@ public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView,IGameDataCallBac
         mMarkGoodsLocation.Add(levelScenesData.level,new Vector3(tempX, objPositionY, tempZ));
         for(int i=0;i< itemLevelData.goodsNumber;i++)
         {
-            CreateGoodsItem(levelScenesData.level, levelObj);
+            CreateGoodsItem(levelScenesData.level, levelObj,false);
         }
     }
 
@@ -128,7 +129,7 @@ public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView,IGameDataCallBac
             return;
         for(int i = 0; i < number; i++)
         {
-            CreateGoodsItem(level, levelParentTF.gameObject);
+            CreateGoodsItem(level, levelParentTF.gameObject,true);
         }
     }
 
@@ -145,7 +146,7 @@ public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView,IGameDataCallBac
         }
         for (int i = 0; i < number; i++)
         {
-            CreateSpaceItem(level, levelParentTF.gameObject);
+            CreateSpaceItem(level, levelParentTF.gameObject,true);
         }
     }
 
@@ -174,7 +175,7 @@ public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView,IGameDataCallBac
     /// </summary>
     /// <param name="level"></param>
     /// <param name="parentObj"></param>
-    private void CreateGoodsItem(int level,GameObject parentObj)
+    private void CreateGoodsItem(int level,GameObject parentObj, bool isMoveCamera)
     {
         if (!mMarkGoodsLocation.ContainsKey(level))
         {
@@ -197,6 +198,13 @@ public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView,IGameDataCallBac
         //设置数据
         GameItemGoodsCpt itemCpt = levelGoodsItem.GetComponent<GameItemGoodsCpt>();
         itemCpt.SetLevelData(level);
+        //设置动画
+        Vector3 oldScale = tempItem.transform.localScale;
+        Vector3 oldPosition = tempItem.transform.localPosition;
+        tempItem.transform.localScale = new Vector3(0, oldScale.y, oldScale.z);
+        tempItem.transform.localPosition = new Vector3(oldPosition.x, oldPosition.y+5, oldPosition.z);
+        tempItem.transform.DOScaleX(oldScale.x, 3).SetEase(Ease.OutBack);
+        tempItem.transform.DOLocalMoveY(oldPosition.y, 1.5f);
 
         markLoaction.z+=2;
         if (markLoaction.z >= 5)
@@ -205,6 +213,11 @@ public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView,IGameDataCallBac
             markLoaction.x+=2;
         }
         mMarkGoodsLocation[level] = markLoaction;
+
+        if (gameCameraCpt != null && isMoveCamera)
+        {
+            gameCameraCpt.ChangePerspectiveByLevel(level, tempItem.transform.position.x);
+        }
     }
 
     /// <summary>
@@ -212,7 +225,7 @@ public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView,IGameDataCallBac
     /// </summary>
     /// <param name="level"></param>
     /// <param name="parentObj"></param>
-    private void CreateSpaceItem(int level, GameObject parentObj)
+    private void CreateSpaceItem(int level, GameObject parentObj,bool isMoveCamera)
     {        
         //获取当前Y轴位置
         float objPositionY = scenesInterval * (level - 1);
@@ -227,6 +240,8 @@ public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView,IGameDataCallBac
         GameObject levelSpaceItem = Instantiate(itemSpaceModel, itemSpacePosition, itemSpaceModel.transform.rotation);
         levelSpaceItem.SetActive(true);
         levelSpaceItem.transform.parent = parentObj.transform;
+        levelSpaceItem.transform.localScale = new Vector3(0, 0, 1);
+        levelSpaceItem.transform.DOScale(new Vector3(10,10,1),1).SetEase(Ease.OutBounce);
         GameItemSpaceCpt spaceCpt = levelSpaceItem.GetComponent<GameItemSpaceCpt>();
 
         //设置地形数据
@@ -240,7 +255,7 @@ public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView,IGameDataCallBac
 
         mMarkSpaceLocation[level] = (markLocation + 1);
 
-        if (gameCameraCpt != null)
+        if (gameCameraCpt != null&& isMoveCamera)
         {
             gameCameraCpt.ChangePerspectiveByLevel(level, levelSpaceItem.transform.position.x);
         }

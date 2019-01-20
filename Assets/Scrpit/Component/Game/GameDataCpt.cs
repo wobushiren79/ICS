@@ -156,13 +156,13 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
     /// <returns></returns>
     public Sprite GetIconByKey(string key)
     {
-        if (CheckUtil.ListIsNull(listIconData))
+        List<IconKV> listTempData = new List<IconKV>();
+        listTempData.AddRange(listSauceData);
+        listTempData.AddRange(listChiliData);
+        listTempData.AddRange(listIconData);
+        for (int i = 0; i < listTempData.Count; i++)
         {
-            return null;
-        }
-        for (int i = 0; i < listIconData.Count; i++)
-        {
-            IconKV itemData = listIconData[i];
+            IconKV itemData = listTempData[i];
             if (itemData.key.Equals(key))
             {
                 return itemData.value;

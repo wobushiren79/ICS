@@ -82,6 +82,6 @@ public class GameBufferItem : PopupReplyView
         if (bufferData == null || gameDataCpt == null)
             return;
         Sprite iconSP = gameDataCpt.GetIconByKey(bufferData.icon_key);
-        infoPopupView.SetInfoData(iconSP, bufferData.name, null, null, bufferData.content, null);
+        infoPopupView.SetInfoData(iconSP, bufferData.name, "[" + GameCommonInfo.GetTextById(47) + "]", null, bufferData.content, null);
     }
 }

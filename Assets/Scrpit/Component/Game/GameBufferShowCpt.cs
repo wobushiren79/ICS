@@ -17,8 +17,8 @@ public class GameBufferShowCpt : BaseMonoBehaviour, IBufferInfoView
     public List<BufferInfoBean> listBufferInfoData;
     private BufferInfoController mBufferInfoController;
 
-    public float waitMinTime = 1f;
-    public float waitMaxTime = 2f;
+    public float waitMinTime = 120f;
+    public float waitMaxTime = 1200f;
     public float animDuration = 20;
     public bool IsShow = true;
     private void Awake()

@@ -7,7 +7,14 @@ public class GameBufferListCpt : BaseMonoBehaviour
     public GameObject itemBufferModel;
     public GameObject listBufferContent;
 
+    public Image ivBackground;
+
+    private void Update()
+    {
  
+
+    }
+
     /// <summary>
     /// 增加1个BUFFer
     /// </summary>
@@ -24,5 +31,12 @@ public class GameBufferListCpt : BaseMonoBehaviour
         GameBufferItem itemBuffer= itemObj.GetComponent<GameBufferItem>();
         if (itemBuffer != null)
            itemBuffer.SetData(bufferData);
+
+        if (ivBackground != null) {
+            ivBackground.transform.DOKill();
+            ivBackground.DOColor(new Color(1, 0, 0, 0.2f), 1).SetLoops(bufferData.time, LoopType.Yoyo).OnComplete(delegate () {
+                ivBackground.color = new Color(0, 0, 0, 0);
+            });
+        }
     }
 }

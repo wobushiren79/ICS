@@ -275,15 +275,15 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
     /// <returns></returns>
     public bool RemoveScore(double score)
     {
-        //if (userData.userScore < score)
-        //{
-        //    return false;
-        //}
-        //else
-        //{
-        //    userData.userScore -= score;
-        //    return true;
-        //}
+        if (userData.userScore < score)
+        {
+            return false;
+        }
+        else
+        {
+            userData.userScore -= score;
+            return true;
+        }
         return true;
     }
 

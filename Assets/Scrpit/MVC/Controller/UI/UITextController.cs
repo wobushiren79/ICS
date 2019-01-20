@@ -27,6 +27,8 @@ public class UITextController : BaseMVCController<UITextModel,IUITextView>
     {
         mMapData = new Dictionary<long, UITextBean>();
         List<UITextBean> listData = GetModel().GetAllData();
+        if (listData == null)
+            return;
         foreach (UITextBean itemData in listData)
         {
             mMapData.Add(itemData.id, itemData);

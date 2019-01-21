@@ -216,7 +216,7 @@ public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView,IGameDataCallBac
 
         if (gameCameraCpt != null && isMoveCamera)
         {
-            gameCameraCpt.ChangePerspectiveByLevel(level, tempItem.transform.position.x);
+            gameCameraCpt.ChangePerspectiveByLevel(level, tempItem.transform.position.x+3);
         }
     }
 

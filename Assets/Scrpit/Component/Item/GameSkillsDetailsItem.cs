@@ -146,7 +146,7 @@ public class GameSkillsDetailsItem : PopupReplyView
         }
         else
         {
-            priceStr = levelSkillsBean.price + "";
+            priceStr =GameCommonInfo.GetPriceStr(levelSkillsBean.price);
         }
 
         string descriptionStr = levelSkillsBean.introduction;

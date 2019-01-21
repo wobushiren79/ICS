@@ -21,6 +21,19 @@ public class GameCommonInfo
        return mUITextController.GetTextById(id);
     }
 
+    public static string GetPriceStr(double number) {
+        return GetPriceStr(number, 0);
+    }
+
+    public static string GetPriceStr(double number,int keepNumber)
+    {
+        string priceStr = "";
+        UnitUtil.UnitEnum outUnit;
+        UnitUtil.DoubleToStrUnitKeepNumber(number, 0,out priceStr,out outUnit);
+        priceStr+= GetUnitStr(outUnit);
+        return priceStr;
+    }
+
     public static string GetUnitStr(UnitUtil.UnitEnum unitEnum)
     {
         string unitStr = "";

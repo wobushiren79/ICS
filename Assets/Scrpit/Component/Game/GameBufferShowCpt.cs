@@ -128,14 +128,14 @@ public class GameBufferShowCpt : BaseMonoBehaviour, IBufferInfoView
             if (!contentStr.Equals(""))
                 contentStr += "\n";
             double addNumber = itemBufferData.add_number;
-            contentStr += ("+ " + addNumber + GameCommonInfo.GetTextById(40));
+            contentStr += ("+ " + GameCommonInfo.GetPriceStr(addNumber) + GameCommonInfo.GetTextById(40));
         }
         if (itemBufferData.add_percentage != 0)
         {
             if (!contentStr.Equals(""))
                 contentStr += "\n";
             double addNumber = gameDataCpt.userData.userScore * itemBufferData.add_percentage;
-            contentStr += ("+ " + addNumber + GameCommonInfo.GetTextById(40));
+            contentStr += ("+ " + GameCommonInfo.GetPriceStr(addNumber) + GameCommonInfo.GetTextById(40));
             gameDataCpt.userData.userScore += addNumber;
         }
         detailsContent.text = contentStr;

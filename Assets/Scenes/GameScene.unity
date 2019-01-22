@@ -5434,12 +5434,24 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   listSpaceIcon:
   - {fileID: 21300000, guid: a1b4ce530ed493b4fb4829d03686ce66, type: 3}
   - {fileID: 21300000, guid: fffdbb78c492aaf4bad633bbc06a4441, type: 3}
   - {fileID: 21300000, guid: 86cf0fab02fc40f4ba1a0ab9e52fe8ac, type: 3}
   - {fileID: 21300000, guid: 43b393bb1968b8241a7c78fdf44dae74, type: 3}
   - {fileID: 21300000, guid: 9ff381d67666b944699139e025a024ce, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -9854,6 +9866,12 @@ MonoBehaviour:
   - {fileID: 21300010, guid: 84741c3873752cd42aeb6d9589b19785, type: 3}
   - {fileID: 21300000, guid: cd1d8b217cbb0af48aab6aa01dc24247, type: 3}
   - {fileID: 21300000, guid: 61e3d327f7295ce4d9547e3f13b5df4d, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

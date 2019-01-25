@@ -955,9 +955,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 37e3a581f46726f4ab811b0a02ddfe57, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -2774,7 +2774,12 @@ Prefab:
     - target: {fileID: 114216166252537696, guid: c803676256329d849a118e5a81fb296e,
         type: 2}
       propertyPath: listGoodsItemModel.Array.size
-      value: 10
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114216166252537696, guid: c803676256329d849a118e5a81fb296e,
+        type: 2}
+      propertyPath: listLevelSpaceTexture.Array.size
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4376489852449640, guid: c803676256329d849a118e5a81fb296e, type: 2}
       propertyPath: m_LocalPosition.x
@@ -2917,6 +2922,91 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114216166252537696, guid: c803676256329d849a118e5a81fb296e,
+        type: 2}
+      propertyPath: listGoodsItemModel.Array.data[5]
+      value: 
+      objectReference: {fileID: 1233659237065298, guid: 10d3724600260f9429b6ce5b8373e834,
+        type: 2}
+    - target: {fileID: 114216166252537696, guid: c803676256329d849a118e5a81fb296e,
+        type: 2}
+      propertyPath: listGoodsItemModel.Array.data[6]
+      value: 
+      objectReference: {fileID: 1233659237065298, guid: d183acc45e116434abf4b19ef60553b5,
+        type: 2}
+    - target: {fileID: 114216166252537696, guid: c803676256329d849a118e5a81fb296e,
+        type: 2}
+      propertyPath: listGoodsItemModel.Array.data[7]
+      value: 
+      objectReference: {fileID: 1233659237065298, guid: c0d3772e0482cdd4284214901b15ad89,
+        type: 2}
+    - target: {fileID: 114216166252537696, guid: c803676256329d849a118e5a81fb296e,
+        type: 2}
+      propertyPath: listGoodsItemModel.Array.data[8]
+      value: 
+      objectReference: {fileID: 1233659237065298, guid: 33afeba9c0b53b04b9a645a59e5809ef,
+        type: 2}
+    - target: {fileID: 114216166252537696, guid: c803676256329d849a118e5a81fb296e,
+        type: 2}
+      propertyPath: listGoodsItemModel.Array.data[9]
+      value: 
+      objectReference: {fileID: 1233659237065298, guid: dd229a166e086814c8a48f7357057a52,
+        type: 2}
+    - target: {fileID: 114216166252537696, guid: c803676256329d849a118e5a81fb296e,
+        type: 2}
+      propertyPath: listGoodsItemModel.Array.data[10]
+      value: 
+      objectReference: {fileID: 1233659237065298, guid: 8311c99d98d494e4280ccdf78a8919a7,
+        type: 2}
+    - target: {fileID: 114216166252537696, guid: c803676256329d849a118e5a81fb296e,
+        type: 2}
+      propertyPath: listGoodsItemModel.Array.data[11]
+      value: 
+      objectReference: {fileID: 1233659237065298, guid: 90a868f63519d6a49a65bdb892903bb6,
+        type: 2}
+    - target: {fileID: 114216166252537696, guid: c803676256329d849a118e5a81fb296e,
+        type: 2}
+      propertyPath: listGoodsItemModel.Array.data[12]
+      value: 
+      objectReference: {fileID: 1233659237065298, guid: 940e78725f1941e4e8843732de2dbbbc,
+        type: 2}
+    - target: {fileID: 114216166252537696, guid: c803676256329d849a118e5a81fb296e,
+        type: 2}
+      propertyPath: listGoodsItemModel.Array.data[13]
+      value: 
+      objectReference: {fileID: 1233659237065298, guid: ea66433b631d51a428df88ff7b153596,
+        type: 2}
+    - target: {fileID: 114216166252537696, guid: c803676256329d849a118e5a81fb296e,
+        type: 2}
+      propertyPath: listGoodsItemModel.Array.data[14]
+      value: 
+      objectReference: {fileID: 1233659237065298, guid: b20ed57c8a22dbb44877459b52d2deba,
+        type: 2}
+    - target: {fileID: 114216166252537696, guid: c803676256329d849a118e5a81fb296e,
+        type: 2}
+      propertyPath: listLevelSpaceTexture.Array.data[5]
+      value: 
+      objectReference: {fileID: 2800000, guid: bffb2c0bf8eebf04294070a6eb6bb285, type: 3}
+    - target: {fileID: 114216166252537696, guid: c803676256329d849a118e5a81fb296e,
+        type: 2}
+      propertyPath: listLevelSpaceTexture.Array.data[6]
+      value: 
+      objectReference: {fileID: 2800000, guid: 82ab9381e0e3a9048b272ee8289d024b, type: 3}
+    - target: {fileID: 114216166252537696, guid: c803676256329d849a118e5a81fb296e,
+        type: 2}
+      propertyPath: listLevelSpaceTexture.Array.data[7]
+      value: 
+      objectReference: {fileID: 2800000, guid: a4f1bf96a95ad85418133f20f6a653e0, type: 3}
+    - target: {fileID: 114216166252537696, guid: c803676256329d849a118e5a81fb296e,
+        type: 2}
+      propertyPath: listLevelSpaceTexture.Array.data[8]
+      value: 
+      objectReference: {fileID: 2800000, guid: 768bc0145580c51489bb370f47660bca, type: 3}
+    - target: {fileID: 114216166252537696, guid: c803676256329d849a118e5a81fb296e,
+        type: 2}
+      propertyPath: listLevelSpaceTexture.Array.data[9]
+      value: 
+      objectReference: {fileID: 2800000, guid: a7bd7ef16186aed4baffd37f7d9a80af, type: 3}
     m_RemovedComponents:
     - {fileID: 95338086525674956, guid: c803676256329d849a118e5a81fb296e, type: 2}
     - {fileID: 114641140202851980, guid: c803676256329d849a118e5a81fb296e, type: 2}
@@ -4009,7 +4099,7 @@ MonoBehaviour:
   colorTVSelected: {r: 1, g: 1, b: 1, a: 1}
   spUnselected: {fileID: 0}
   colorIVUnselected: {r: 1, g: 1, b: 1, a: 0}
-  colorTVUnselected: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+  colorTVUnselected: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}
   rbButton: {fileID: 720281143}
   rbImage: {fileID: 720281144}
   rbText: {fileID: 1054477677}
@@ -5429,29 +5519,27 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1c71f2bbb9a940541bf3b354de33a4c0, type: 3}
   - {fileID: 21300000, guid: f2c1553ffabb82748bc9e2e51cff1d05, type: 3}
   - {fileID: 21300000, guid: a6bfa08194f5ba547ad924af786178e4, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 9575cf76ebcd3434aaf6b798c9b098ea, type: 3}
+  - {fileID: 21300000, guid: a078f321b50d80e4a98dd551a14f34a2, type: 3}
+  - {fileID: 21300000, guid: a0025d7a18b964849b6cc5db7fd6c787, type: 3}
+  - {fileID: 21300000, guid: 33198549d6f27de43890b600d3e35573, type: 3}
+  - {fileID: 21300000, guid: 684eae8c17e8b964c892249c6c991b37, type: 3}
+  - {fileID: 21300000, guid: 6548c4877a809de44bcfdf83a5997bc6, type: 3}
+  - {fileID: 21300000, guid: cbe8f7395fba2f7469e911e19c936a84, type: 3}
+  - {fileID: 21300000, guid: 6f33b9a7e9b1c524ebc722f9d2aa9b4d, type: 3}
+  - {fileID: 21300000, guid: 717955ac4b76e17488eeb0d513d13912, type: 3}
+  - {fileID: 21300000, guid: 80b96c9eda7142a468b71acd985720fa, type: 3}
   listSpaceIcon:
   - {fileID: 21300000, guid: a1b4ce530ed493b4fb4829d03686ce66, type: 3}
   - {fileID: 21300000, guid: fffdbb78c492aaf4bad633bbc06a4441, type: 3}
   - {fileID: 21300000, guid: 86cf0fab02fc40f4ba1a0ab9e52fe8ac, type: 3}
   - {fileID: 21300000, guid: 43b393bb1968b8241a7c78fdf44dae74, type: 3}
   - {fileID: 21300000, guid: 9ff381d67666b944699139e025a024ce, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 4410d895819d20546a6c8b4ccd9a3f07, type: 3}
+  - {fileID: 21300000, guid: 2665d4f4d2956bb47a2943dac93ce16e, type: 3}
+  - {fileID: 21300000, guid: 82960d5070e423645aab25b7406d536a, type: 3}
+  - {fileID: 21300000, guid: 10c1ea82438e6a14591fd92466433151, type: 3}
+  - {fileID: 21300000, guid: d267bf238077a244aad1fb940c1d7816, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -6226,7 +6314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+  m_Color: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6891,7 +6979,7 @@ MonoBehaviour:
   colorTVSelected: {r: 1, g: 1, b: 1, a: 1}
   spUnselected: {fileID: 0}
   colorIVUnselected: {r: 1, g: 1, b: 1, a: 0}
-  colorTVUnselected: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+  colorTVUnselected: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   rbButton: {fileID: 1195790885}
   rbImage: {fileID: 1195790886}
   rbText: {fileID: 878718839}

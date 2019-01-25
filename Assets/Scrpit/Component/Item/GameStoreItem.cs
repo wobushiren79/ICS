@@ -198,9 +198,12 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
                 if (mUserLevelData != null)
                 {
                     number = mUserLevelData.goodsNumber;
+
+                    string itemTempGrow = GameCommonInfo.GetPriceStr(mUserLevelData.itemGrow * mUserLevelData.itemTimes);
+                    string totalTempGrow = GameCommonInfo.GetPriceStr(mUserLevelData.itemGrow * number * mUserLevelData.itemTimes);
                     otherStr =
-                        "➤ " + GameCommonInfo.GetTextById(41) + " " + nameStr + " " + GameCommonInfo.GetTextById(39) + GameCommonInfo.GetTextById(42) + mUserLevelData.itemGrow * mUserLevelData.itemTimes + GameCommonInfo.GetTextById(40) + "\n" +
-                        "➤ " + number + " " + GameCommonInfo.GetTextById(43) + " " + nameStr + " " + GameCommonInfo.GetTextById(39) + GameCommonInfo.GetTextById(42) + mUserLevelData.itemGrow * number * mUserLevelData.itemTimes + GameCommonInfo.GetTextById(40);
+                        "➤ " + GameCommonInfo.GetTextById(41) + " " + nameStr + " " + GameCommonInfo.GetTextById(39) + GameCommonInfo.GetTextById(42) + itemTempGrow + GameCommonInfo.GetTextById(40) + "\n" +
+                        "➤ " + number + " " + GameCommonInfo.GetTextById(43) + " " + nameStr + " " + GameCommonInfo.GetTextById(39) + GameCommonInfo.GetTextById(42) + totalTempGrow + GameCommonInfo.GetTextById(40);
                 }
                 break;
             case StoreItemType.Space:

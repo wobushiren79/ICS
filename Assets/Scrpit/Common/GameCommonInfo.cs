@@ -29,7 +29,7 @@ public class GameCommonInfo
     {
         string priceStr = "";
         UnitUtil.UnitEnum outUnit;
-        UnitUtil.DoubleToStrUnitKeepNumber(number, 0,out priceStr,out outUnit);
+        UnitUtil.DoubleToStrUnitKeepNumber(number, keepNumber , out priceStr,out outUnit);
         priceStr+= GetUnitStr(outUnit);
         return priceStr;
     }

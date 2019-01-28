@@ -812,17 +812,17 @@ Prefab:
     - target: {fileID: 114958639539743258, guid: 2a05c5a24d44d894ba765e77a18988aa,
         type: 2}
       propertyPath: m_Color.r
-      value: 0.6279815
+      value: 0.72365606
       objectReference: {fileID: 0}
     - target: {fileID: 114958639539743258, guid: 2a05c5a24d44d894ba765e77a18988aa,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.85064006
+      value: 0.8867924
       objectReference: {fileID: 0}
     - target: {fileID: 114958639539743258, guid: 2a05c5a24d44d894ba765e77a18988aa,
         type: 2}
       propertyPath: m_Color.b
-      value: 0.9056604
+      value: 0.7524449
       objectReference: {fileID: 0}
     - target: {fileID: 114958639539743258, guid: 2a05c5a24d44d894ba765e77a18988aa,
         type: 2}
@@ -6849,7 +6849,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 37e3a581f46726f4ab811b0a02ddfe57, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f0023fbd8ea28204c8b13d5af5a1b286, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -9969,22 +9969,21 @@ MonoBehaviour:
   levelRG: {fileID: 1573118320}
   levelItemModel: {fileID: 1477194759}
   levelIconList:
-  - {fileID: 21300000, guid: 81a13a8c5ca6d954db9401b50cccaf45, type: 3}
-  - {fileID: 21300000, guid: fed54fb87c9c1c942bb9154233136c35, type: 3}
-  - {fileID: 21300010, guid: 84741c3873752cd42aeb6d9589b19785, type: 3}
-  - {fileID: 21300000, guid: cd1d8b217cbb0af48aab6aa01dc24247, type: 3}
-  - {fileID: 21300000, guid: 61e3d327f7295ce4d9547e3f13b5df4d, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 85981e075b4e4a24e854520e2cd7fb18, type: 3}
+  - {fileID: 21300000, guid: 0a30127c814059f41a2037d9ae9587ea, type: 3}
+  - {fileID: 21300000, guid: 1c71f2bbb9a940541bf3b354de33a4c0, type: 3}
+  - {fileID: 21300000, guid: f2c1553ffabb82748bc9e2e51cff1d05, type: 3}
+  - {fileID: 21300000, guid: a6bfa08194f5ba547ad924af786178e4, type: 3}
+  - {fileID: 21300000, guid: 9575cf76ebcd3434aaf6b798c9b098ea, type: 3}
+  - {fileID: 21300000, guid: a078f321b50d80e4a98dd551a14f34a2, type: 3}
+  - {fileID: 21300000, guid: a0025d7a18b964849b6cc5db7fd6c787, type: 3}
+  - {fileID: 21300000, guid: 33198549d6f27de43890b600d3e35573, type: 3}
+  - {fileID: 21300000, guid: 684eae8c17e8b964c892249c6c991b37, type: 3}
+  - {fileID: 21300000, guid: 6548c4877a809de44bcfdf83a5997bc6, type: 3}
+  - {fileID: 21300000, guid: cbe8f7395fba2f7469e911e19c936a84, type: 3}
+  - {fileID: 21300000, guid: 6f33b9a7e9b1c524ebc722f9d2aa9b4d, type: 3}
+  - {fileID: 21300000, guid: 717955ac4b76e17488eeb0d513d13912, type: 3}
+  - {fileID: 21300000, guid: 80b96c9eda7142a468b71acd985720fa, type: 3}
 --- !u!1 &1573118314
 GameObject:
   m_ObjectHideFlags: 0
@@ -11183,7 +11182,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 37e3a581f46726f4ab811b0a02ddfe57, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f0023fbd8ea28204c8b13d5af5a1b286, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

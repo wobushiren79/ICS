@@ -199,8 +199,8 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
                 {
                     number = mUserLevelData.goodsNumber;
 
-                    string itemTempGrow = GameCommonInfo.GetPriceStr(mUserLevelData.itemGrow * mUserLevelData.itemTimes);
-                    string totalTempGrow = GameCommonInfo.GetPriceStr(mUserLevelData.itemGrow * number * mUserLevelData.itemTimes);
+                    string itemTempGrow = GameCommonInfo.GetPriceStr(mUserLevelData.itemGrow * mUserLevelData.itemTimes,2);
+                    string totalTempGrow = GameCommonInfo.GetPriceStr(mUserLevelData.itemGrow * number * mUserLevelData.itemTimes,2);
                     otherStr =
                         "➤ " + GameCommonInfo.GetTextById(41) + " " + nameStr + " " + GameCommonInfo.GetTextById(39) + GameCommonInfo.GetTextById(42) + itemTempGrow + GameCommonInfo.GetTextById(40) + "\n" +
                         "➤ " + number + " " + GameCommonInfo.GetTextById(43) + " " + nameStr + " " + GameCommonInfo.GetTextById(39) + GameCommonInfo.GetTextById(42) + totalTempGrow + GameCommonInfo.GetTextById(40);

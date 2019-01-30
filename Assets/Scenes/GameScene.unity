@@ -7133,6 +7133,7 @@ GameObject:
   - component: {fileID: 1240478024}
   - component: {fileID: 1240478023}
   - component: {fileID: 1240478026}
+  - component: {fileID: 1240478027}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7212,6 +7213,101 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: a955bc72bc51003458177293c40b11dc, type: 2}
+--- !u!82 &1240478027
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1240478022}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1256054735 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1032455944001932, guid: c803676256329d849a118e5a81fb296e,
@@ -8078,6 +8174,7 @@ GameObject:
   - component: {fileID: 1387247830}
   - component: {fileID: 1387247831}
   - component: {fileID: 1387247832}
+  - component: {fileID: 1387247833}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -8138,36 +8235,6 @@ MonoBehaviour:
     value: {fileID: 21300006, guid: 81a13a8c5ca6d954db9401b50cccaf45, type: 3}
   - key: level_1_pot_4
     value: {fileID: 21300008, guid: 81a13a8c5ca6d954db9401b50cccaf45, type: 3}
-  - key: level_1_cursor_0
-    value: {fileID: 21300000, guid: 90328696bd46b44489e9efe965291e4a, type: 3}
-  - key: level_1_cursor_1
-    value: {fileID: 21300002, guid: 90328696bd46b44489e9efe965291e4a, type: 3}
-  - key: level_1_cursor_2
-    value: {fileID: 21300004, guid: 90328696bd46b44489e9efe965291e4a, type: 3}
-  - key: level_1_cursor_3
-    value: {fileID: 21300006, guid: 90328696bd46b44489e9efe965291e4a, type: 3}
-  - key: level_1_cursor_4
-    value: {fileID: 21300008, guid: 90328696bd46b44489e9efe965291e4a, type: 3}
-  - key: level_1_multiple_0
-    value: {fileID: 21300000, guid: c390bd2630729124c8e23e923d33a151, type: 3}
-  - key: level_1_multiple_1
-    value: {fileID: 21300002, guid: c390bd2630729124c8e23e923d33a151, type: 3}
-  - key: level_1_multiple_2
-    value: {fileID: 21300004, guid: c390bd2630729124c8e23e923d33a151, type: 3}
-  - key: level_1_multiple_3
-    value: {fileID: 21300006, guid: c390bd2630729124c8e23e923d33a151, type: 3}
-  - key: level_1_multiple_4
-    value: {fileID: 21300008, guid: c390bd2630729124c8e23e923d33a151, type: 3}
-  - key: level_1_fire_0
-    value: {fileID: 21300000, guid: eea1fdace494a634cae0e28680b874a3, type: 3}
-  - key: level_1_fire_1
-    value: {fileID: 21300002, guid: eea1fdace494a634cae0e28680b874a3, type: 3}
-  - key: level_1_fire_2
-    value: {fileID: 21300004, guid: eea1fdace494a634cae0e28680b874a3, type: 3}
-  - key: level_1_fire_3
-    value: {fileID: 21300006, guid: eea1fdace494a634cae0e28680b874a3, type: 3}
-  - key: level_1_fire_4
-    value: {fileID: 21300008, guid: eea1fdace494a634cae0e28680b874a3, type: 3}
   - key: level_1_number_0
     value: {fileID: 21300000, guid: bbbe0307b46697a468914aefe82e2c9f, type: 3}
   - key: level_1_number_1
@@ -8188,26 +8255,6 @@ MonoBehaviour:
     value: {fileID: 21300006, guid: 93da983e8b684c548a1441236c1b690c, type: 3}
   - key: level_1_stove_4
     value: {fileID: 21300008, guid: 93da983e8b684c548a1441236c1b690c, type: 3}
-  - key: level_all_chili_0
-    value: {fileID: 21300000, guid: e0a85e542a3489345b234300f17c067b, type: 3}
-  - key: level_all_chili_1
-    value: {fileID: 21300002, guid: e0a85e542a3489345b234300f17c067b, type: 3}
-  - key: level_all_chili_2
-    value: {fileID: 21300004, guid: e0a85e542a3489345b234300f17c067b, type: 3}
-  - key: level_all_chili_3
-    value: {fileID: 21300006, guid: e0a85e542a3489345b234300f17c067b, type: 3}
-  - key: level_all_chili_4
-    value: {fileID: 21300008, guid: e0a85e542a3489345b234300f17c067b, type: 3}
-  - key: level_0_potion_0
-    value: {fileID: 21300000, guid: 3963cf84c7c09de4e81292ed58456027, type: 3}
-  - key: level_0_potion_1
-    value: {fileID: 21300002, guid: 3963cf84c7c09de4e81292ed58456027, type: 3}
-  - key: level_0_potion_2
-    value: {fileID: 21300004, guid: 3963cf84c7c09de4e81292ed58456027, type: 3}
-  - key: level_0_potion_3
-    value: {fileID: 21300006, guid: 3963cf84c7c09de4e81292ed58456027, type: 3}
-  - key: level_0_potion_4
-    value: {fileID: 21300008, guid: 3963cf84c7c09de4e81292ed58456027, type: 3}
   - key: level_2_windmill_0
     value: {fileID: 21300000, guid: fed54fb87c9c1c942bb9154233136c35, type: 3}
   - key: level_2_windmill_1
@@ -8328,6 +8375,126 @@ MonoBehaviour:
     value: {fileID: 21300006, guid: e4886c5c14d033c44a815107f823f39b, type: 3}
   - key: level_5_number_4
     value: {fileID: 21300008, guid: e4886c5c14d033c44a815107f823f39b, type: 3}
+  - key: level_0_fire_0
+    value: {fileID: 21300020, guid: eea1fdace494a634cae0e28680b874a3, type: 3}
+  - key: level_0_fire_1
+    value: {fileID: 21300022, guid: eea1fdace494a634cae0e28680b874a3, type: 3}
+  - key: level_0_fire_2
+    value: {fileID: 21300024, guid: eea1fdace494a634cae0e28680b874a3, type: 3}
+  - key: level_0_fire_3
+    value: {fileID: 21300026, guid: eea1fdace494a634cae0e28680b874a3, type: 3}
+  - key: level_0_fire_4
+    value: {fileID: 21300028, guid: eea1fdace494a634cae0e28680b874a3, type: 3}
+  - key: level_0_fire_5
+    value: {fileID: 21300000, guid: eea1fdace494a634cae0e28680b874a3, type: 3}
+  - key: level_0_fire_6
+    value: {fileID: 21300002, guid: eea1fdace494a634cae0e28680b874a3, type: 3}
+  - key: level_0_fire_7
+    value: {fileID: 21300004, guid: eea1fdace494a634cae0e28680b874a3, type: 3}
+  - key: level_0_fire_8
+    value: {fileID: 21300006, guid: eea1fdace494a634cae0e28680b874a3, type: 3}
+  - key: level_0_fire_9
+    value: {fileID: 21300008, guid: eea1fdace494a634cae0e28680b874a3, type: 3}
+  - key: level_0_fire_10
+    value: {fileID: 21300010, guid: eea1fdace494a634cae0e28680b874a3, type: 3}
+  - key: level_0_fire_11
+    value: {fileID: 21300012, guid: eea1fdace494a634cae0e28680b874a3, type: 3}
+  - key: level_0_fire_12
+    value: {fileID: 21300014, guid: eea1fdace494a634cae0e28680b874a3, type: 3}
+  - key: level_0_fire_13
+    value: {fileID: 21300016, guid: eea1fdace494a634cae0e28680b874a3, type: 3}
+  - key: level_0_fire_14
+    value: {fileID: 21300018, guid: eea1fdace494a634cae0e28680b874a3, type: 3}
+  - key: level_0_potion_0
+    value: {fileID: 21300020, guid: 3963cf84c7c09de4e81292ed58456027, type: 3}
+  - key: level_0_potion_1
+    value: {fileID: 21300022, guid: 3963cf84c7c09de4e81292ed58456027, type: 3}
+  - key: level_0_potion_2
+    value: {fileID: 21300024, guid: 3963cf84c7c09de4e81292ed58456027, type: 3}
+  - key: level_0_potion_3
+    value: {fileID: 21300026, guid: 3963cf84c7c09de4e81292ed58456027, type: 3}
+  - key: level_0_potion_4
+    value: {fileID: 21300028, guid: 3963cf84c7c09de4e81292ed58456027, type: 3}
+  - key: level_0_potion_5
+    value: {fileID: 21300000, guid: 3963cf84c7c09de4e81292ed58456027, type: 3}
+  - key: level_0_potion_6
+    value: {fileID: 21300002, guid: 3963cf84c7c09de4e81292ed58456027, type: 3}
+  - key: level_0_potion_7
+    value: {fileID: 21300004, guid: 3963cf84c7c09de4e81292ed58456027, type: 3}
+  - key: level_0_potion_8
+    value: {fileID: 21300006, guid: 3963cf84c7c09de4e81292ed58456027, type: 3}
+  - key: level_0_potion_9
+    value: {fileID: 21300008, guid: 3963cf84c7c09de4e81292ed58456027, type: 3}
+  - key: level_0_potion_10
+    value: {fileID: 21300010, guid: 3963cf84c7c09de4e81292ed58456027, type: 3}
+  - key: level_0_potion_11
+    value: {fileID: 21300012, guid: 3963cf84c7c09de4e81292ed58456027, type: 3}
+  - key: level_0_potion_12
+    value: {fileID: 21300014, guid: 3963cf84c7c09de4e81292ed58456027, type: 3}
+  - key: level_0_potion_13
+    value: {fileID: 21300016, guid: 3963cf84c7c09de4e81292ed58456027, type: 3}
+  - key: level_0_potion_14
+    value: {fileID: 21300018, guid: 3963cf84c7c09de4e81292ed58456027, type: 3}
+  - key: level_0_cursor_0
+    value: {fileID: 21300020, guid: f9a856e93c3380241b4e5b18166ab392, type: 3}
+  - key: level_0_cursor_1
+    value: {fileID: 21300022, guid: f9a856e93c3380241b4e5b18166ab392, type: 3}
+  - key: level_0_cursor_2
+    value: {fileID: 21300024, guid: f9a856e93c3380241b4e5b18166ab392, type: 3}
+  - key: level_0_cursor_3
+    value: {fileID: 21300026, guid: f9a856e93c3380241b4e5b18166ab392, type: 3}
+  - key: level_0_cursor_4
+    value: {fileID: 21300028, guid: f9a856e93c3380241b4e5b18166ab392, type: 3}
+  - key: level_0_cursor_5
+    value: {fileID: 21300000, guid: f9a856e93c3380241b4e5b18166ab392, type: 3}
+  - key: level_0_cursor_6
+    value: {fileID: 21300002, guid: f9a856e93c3380241b4e5b18166ab392, type: 3}
+  - key: level_0_cursor_7
+    value: {fileID: 21300004, guid: f9a856e93c3380241b4e5b18166ab392, type: 3}
+  - key: level_0_cursor_8
+    value: {fileID: 21300006, guid: f9a856e93c3380241b4e5b18166ab392, type: 3}
+  - key: level_0_cursor_9
+    value: {fileID: 21300008, guid: f9a856e93c3380241b4e5b18166ab392, type: 3}
+  - key: level_0_cursor_10
+    value: {fileID: 21300010, guid: f9a856e93c3380241b4e5b18166ab392, type: 3}
+  - key: level_0_cursor_11
+    value: {fileID: 21300012, guid: f9a856e93c3380241b4e5b18166ab392, type: 3}
+  - key: level_0_cursor_12
+    value: {fileID: 21300014, guid: f9a856e93c3380241b4e5b18166ab392, type: 3}
+  - key: level_0_cursor_13
+    value: {fileID: 21300016, guid: f9a856e93c3380241b4e5b18166ab392, type: 3}
+  - key: level_0_cursor_14
+    value: {fileID: 21300018, guid: f9a856e93c3380241b4e5b18166ab392, type: 3}
+  - key: level_0_multiple_0
+    value: {fileID: 21300020, guid: 14d4dbadc3998c14c87d043a44b23b0b, type: 3}
+  - key: level_0_multiple_1
+    value: {fileID: 21300022, guid: 14d4dbadc3998c14c87d043a44b23b0b, type: 3}
+  - key: level_0_multiple_2
+    value: {fileID: 21300024, guid: 14d4dbadc3998c14c87d043a44b23b0b, type: 3}
+  - key: level_0_multiple_3
+    value: {fileID: 21300026, guid: 14d4dbadc3998c14c87d043a44b23b0b, type: 3}
+  - key: level_0_multiple_4
+    value: {fileID: 21300028, guid: 14d4dbadc3998c14c87d043a44b23b0b, type: 3}
+  - key: level_0_multiple_5
+    value: {fileID: 21300000, guid: 14d4dbadc3998c14c87d043a44b23b0b, type: 3}
+  - key: level_0_multiple_6
+    value: {fileID: 21300002, guid: 14d4dbadc3998c14c87d043a44b23b0b, type: 3}
+  - key: level_0_multiple_7
+    value: {fileID: 21300004, guid: 14d4dbadc3998c14c87d043a44b23b0b, type: 3}
+  - key: level_0_multiple_8
+    value: {fileID: 21300006, guid: 14d4dbadc3998c14c87d043a44b23b0b, type: 3}
+  - key: level_0_multiple_9
+    value: {fileID: 21300008, guid: 14d4dbadc3998c14c87d043a44b23b0b, type: 3}
+  - key: level_0_multiple_10
+    value: {fileID: 21300010, guid: 14d4dbadc3998c14c87d043a44b23b0b, type: 3}
+  - key: level_0_multiple_11
+    value: {fileID: 21300012, guid: 14d4dbadc3998c14c87d043a44b23b0b, type: 3}
+  - key: level_0_multiple_12
+    value: {fileID: 21300014, guid: 14d4dbadc3998c14c87d043a44b23b0b, type: 3}
+  - key: level_0_multiple_13
+    value: {fileID: 21300016, guid: 14d4dbadc3998c14c87d043a44b23b0b, type: 3}
+  - key: level_0_multiple_14
+    value: {fileID: 21300018, guid: 14d4dbadc3998c14c87d043a44b23b0b, type: 3}
   listSauceData:
   - key: sacuce_list_0
     value: {fileID: 21300000, guid: f0023fbd8ea28204c8b13d5af5a1b286, type: 3}
@@ -8339,7 +8506,37 @@ MonoBehaviour:
     value: {fileID: 21300006, guid: f0023fbd8ea28204c8b13d5af5a1b286, type: 3}
   - key: sacuce_list_4
     value: {fileID: 21300008, guid: f0023fbd8ea28204c8b13d5af5a1b286, type: 3}
-  listChiliData: []
+  listChiliData:
+  - key: level_all_chili_0
+    value: {fileID: 21300020, guid: e0a85e542a3489345b234300f17c067b, type: 3}
+  - key: level_all_chili_1
+    value: {fileID: 21300022, guid: e0a85e542a3489345b234300f17c067b, type: 3}
+  - key: level_all_chili_2
+    value: {fileID: 21300024, guid: e0a85e542a3489345b234300f17c067b, type: 3}
+  - key: level_all_chili_3
+    value: {fileID: 21300026, guid: e0a85e542a3489345b234300f17c067b, type: 3}
+  - key: level_all_chili_4
+    value: {fileID: 21300028, guid: e0a85e542a3489345b234300f17c067b, type: 3}
+  - key: level_all_chili_5
+    value: {fileID: 21300000, guid: e0a85e542a3489345b234300f17c067b, type: 3}
+  - key: level_all_chili_6
+    value: {fileID: 21300002, guid: e0a85e542a3489345b234300f17c067b, type: 3}
+  - key: level_all_chili_7
+    value: {fileID: 21300004, guid: e0a85e542a3489345b234300f17c067b, type: 3}
+  - key: level_all_chili_8
+    value: {fileID: 21300006, guid: e0a85e542a3489345b234300f17c067b, type: 3}
+  - key: level_all_chili_9
+    value: {fileID: 21300008, guid: e0a85e542a3489345b234300f17c067b, type: 3}
+  - key: level_all_chili_10
+    value: {fileID: 21300010, guid: e0a85e542a3489345b234300f17c067b, type: 3}
+  - key: level_all_chili_11
+    value: {fileID: 21300012, guid: e0a85e542a3489345b234300f17c067b, type: 3}
+  - key: level_all_chili_12
+    value: {fileID: 21300014, guid: e0a85e542a3489345b234300f17c067b, type: 3}
+  - key: level_all_chili_13
+    value: {fileID: 21300016, guid: e0a85e542a3489345b234300f17c067b, type: 3}
+  - key: level_all_chili_14
+    value: {fileID: 21300018, guid: e0a85e542a3489345b234300f17c067b, type: 3}
 --- !u!114 &1387247831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8366,6 +8563,21 @@ MonoBehaviour:
   gameScenes: {fileID: 510485173}
   gameCamera: {fileID: 1240478024}
   cameraLevel: 0
+--- !u!114 &1387247833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1387247828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1f24112bc8ef7b4ca340ccc49c75ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseAudioSource: {fileID: 1240478027}
+  listClip:
+  - {fileID: 8300000, guid: 38a7855198f46534bb407d194308c722, type: 3}
+  listMusic: []
 --- !u!1 &1391374027
 GameObject:
   m_ObjectHideFlags: 0
@@ -9496,6 +9708,7 @@ MonoBehaviour:
   objBase: {fileID: 1455905963}
   tvScore: {fileID: 1391374029}
   gameDataCpt: {fileID: 1387247830}
+  gameAudioCpt: {fileID: 1387247833}
   screenRTF: {fileID: 1502091310}
   addAnimTime: 3
 --- !u!1 &1516840805

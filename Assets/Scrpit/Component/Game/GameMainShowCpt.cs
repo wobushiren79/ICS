@@ -18,6 +18,7 @@ public class GameMainShowCpt : BaseMonoBehaviour,IGameDataCallBack
     public Text tvScore;
     //游戏数据控制
     public GameDataCpt gameDataCpt;
+    public GameAudioCpt gameAudioCpt;
 
     //屏幕(用来找到鼠标点击的相对位置)
     public RectTransform screenRTF;
@@ -96,6 +97,8 @@ public class GameMainShowCpt : BaseMonoBehaviour,IGameDataCallBack
         CanvasGroup itemNumberCG = numberItem.GetComponent<CanvasGroup>();
         itemNumberCG.DOFade(0, addAnimTime/2 );
         numberItem.GetComponent<Text>().text ="+"+addScore;
+        //播放音效
+        gameAudioCpt.PlayClip("btn_clip_1",1);
     }
 
     public void GoodsNumberChange(int level, int number)

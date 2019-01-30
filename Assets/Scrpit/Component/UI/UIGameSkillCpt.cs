@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,7 +31,7 @@ public class UIGameSkillCpt : BaseUIComponent, IGameDataCallBack
         if (tvTitle != null)
             tvTitle.text = GameCommonInfo.GetTextById(33);
 
-        RefreshData();
+      StartCoroutine(RefreshData());
     }
 
     /// <summary>
@@ -60,24 +61,29 @@ public class UIGameSkillCpt : BaseUIComponent, IGameDataCallBack
     /// <summary>
     /// 刷新数据
     /// </summary>
-    public void RefreshData()
+    public IEnumerator RefreshData()
     {
         List<LevelScenesBean> listScenesData = gameDataCpt.GetScenesListByLevel(gameDataCpt.userData.goodsLevel);
-        if (CheckUtil.ListIsNull(listScenesData) || listSkillsContent == null || itemSkillsModel == null)
-            return;
-        CptUtil.RemoveChildsByActive(listSkillsContent.transform);
-
-        //增加手指点击数据
-        for (int i = 0; i < listScenesData.Count; i++)
-        {
-            LevelScenesBean itemData = listScenesData[i];
-            GameObject itemObj = Instantiate(itemSkillsModel, itemSkillsModel.transform);
-            itemObj.transform.SetParent(listSkillsContent.transform);
-            itemObj.SetActive(true);
-            GameSkillsItem skillItem= itemObj.GetComponent<GameSkillsItem>();
-            skillItem.SetData(itemData);
+        if (CheckUtil.ListIsNull(listScenesData) || listSkillsContent == null || itemSkillsModel == null) {
+            yield return 0;
         }
-        GameUtil.RefreshRectViewHight(listSkillsRTF,true);
+        else
+        {
+            CptUtil.RemoveChildsByActive(listSkillsContent.transform);
+
+            //增加手指点击数据
+            for (int i = 0; i < listScenesData.Count; i++)
+            {
+                LevelScenesBean itemData = listScenesData[i];
+                GameObject itemObj = Instantiate(itemSkillsModel, itemSkillsModel.transform);
+                itemObj.transform.SetParent(listSkillsContent.transform);
+                itemObj.SetActive(true);
+                GameSkillsItem skillItem = itemObj.GetComponent<GameSkillsItem>();
+                skillItem.SetData(itemData);
+                yield return 0;
+            }
+            GameUtil.RefreshRectViewHight(listSkillsRTF, true);
+        }
     }
 
     #region
@@ -100,7 +106,7 @@ public class UIGameSkillCpt : BaseUIComponent, IGameDataCallBack
 
     public void GoodsLevelChange(int level)
     {
-        RefreshData();
+        StartCoroutine(RefreshData());
     }
     public void ObserbableUpdate(int type, params UnityEngine.Object[] obj)
     {

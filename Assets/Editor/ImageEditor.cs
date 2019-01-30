@@ -24,6 +24,11 @@ public class ImageEditor : Editor
         BaseSpriteEditor(SpriteImportMode.Multiple, 5, 2);
     }
 
+    [MenuItem("Custom/Image/Multiple_5x3")]
+    public static void Multiple5x3()
+    {
+        BaseSpriteEditor(SpriteImportMode.Multiple, 5, 3);
+    }
 
 
     static void BaseSpriteEditor(SpriteImportMode spriteType, int cNumber, int rNumber)

@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: e0a85e542a3489345b234300f17c067b
+guid: 14d4dbadc3998c14c87d043a44b23b0b
 TextureImporter:
   fileIDToRecycleName:
-    21300000: level_all_chili_5
-    21300002: level_all_chili_6
-    21300004: level_all_chili_7
-    21300006: level_all_chili_8
-    21300008: level_all_chili_9
-    21300010: level_all_chili_10
-    21300012: level_all_chili_11
-    21300014: level_all_chili_12
-    21300016: level_all_chili_13
-    21300018: level_all_chili_14
-    21300020: level_all_chili_0
-    21300022: level_all_chili_1
-    21300024: level_all_chili_2
-    21300026: level_all_chili_3
-    21300028: level_all_chili_4
+    21300000: level_0_multiple_5
+    21300002: level_0_multiple_6
+    21300004: level_0_multiple_7
+    21300006: level_0_multiple_8
+    21300008: level_0_multiple_9
+    21300010: level_0_multiple_10
+    21300012: level_0_multiple_11
+    21300014: level_0_multiple_12
+    21300016: level_0_multiple_13
+    21300018: level_0_multiple_14
+    21300020: level_0_multiple_0
+    21300022: level_0_multiple_1
+    21300024: level_0_multiple_2
+    21300026: level_0_multiple_3
+    21300028: level_0_multiple_4
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -88,7 +88,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: level_all_chili_0
+      name: level_0_multiple_0
       rect:
         serializedVersion: 2
         x: 0
@@ -102,13 +102,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 46b394315a3bd354f8878a01b5e83304
+      spriteID: a349d8220b4dc1040a769b1833627e03
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_all_chili_1
+      name: level_0_multiple_1
       rect:
         serializedVersion: 2
         x: 32
@@ -122,13 +122,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9fe69dc861b70c04d8116dc056b48752
+      spriteID: cad8123b2b1b4d54b9f963b6b4f167cc
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_all_chili_2
+      name: level_0_multiple_2
       rect:
         serializedVersion: 2
         x: 64
@@ -142,13 +142,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a9d8d5be9b789c744a74a6399ca6e46e
+      spriteID: 4ba8a5dae8827294889d0b255688d9de
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_all_chili_3
+      name: level_0_multiple_3
       rect:
         serializedVersion: 2
         x: 96
@@ -162,13 +162,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e8346f3bd0ece0248a09e2868a40bb7c
+      spriteID: 85315293f2f0aaf4d82fb7c5a7ca17d5
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_all_chili_4
+      name: level_0_multiple_4
       rect:
         serializedVersion: 2
         x: 128
@@ -182,13 +182,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c7b3829b4fb48114fbe575d30edb2a2e
+      spriteID: 11945cd6ea316cc4a9bb7c23666ba946
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_all_chili_5
+      name: level_0_multiple_5
       rect:
         serializedVersion: 2
         x: 0
@@ -202,13 +202,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a9587e44a0075da40999496438a061ab
+      spriteID: ac2d0a7869468af4695152be629f92cd
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_all_chili_6
+      name: level_0_multiple_6
       rect:
         serializedVersion: 2
         x: 32
@@ -222,13 +222,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 69f07db5c8c72554cbd458ec5ebffd8c
+      spriteID: c2e962312b72f8549b17abba242144f5
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_all_chili_7
+      name: level_0_multiple_7
       rect:
         serializedVersion: 2
         x: 64
@@ -242,13 +242,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 44978936ffd42624885dcb587023b8c6
+      spriteID: 25382b42a8617f74eaef17afd260a51c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_all_chili_8
+      name: level_0_multiple_8
       rect:
         serializedVersion: 2
         x: 96
@@ -262,13 +262,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 12d98279f2e2b1f4b9dc02d4335fa16d
+      spriteID: a35ec9c9686d88245ba75359f8ab9abd
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_all_chili_9
+      name: level_0_multiple_9
       rect:
         serializedVersion: 2
         x: 128
@@ -282,13 +282,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 50daea3ca2ae82849ba03d71a3edc64e
+      spriteID: 1ca8ac05fcdb5664bb1515716e0222c9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_all_chili_10
+      name: level_0_multiple_10
       rect:
         serializedVersion: 2
         x: 0
@@ -302,13 +302,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8cbd49a35f8579c40a931f19e4308994
+      spriteID: c9d9f15a6ffc6d640a27bfb07a59338e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_all_chili_11
+      name: level_0_multiple_11
       rect:
         serializedVersion: 2
         x: 32
@@ -322,13 +322,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: acd8c50537ce24e42b3f0069f0a90e39
+      spriteID: c91f2e0dac0db5a4daf6af512a2650a2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_all_chili_12
+      name: level_0_multiple_12
       rect:
         serializedVersion: 2
         x: 64
@@ -342,13 +342,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ed4bc2cb28beee642b8ef66b21c70932
+      spriteID: 8079f793c6f121c46b124c59ebcd696b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_all_chili_13
+      name: level_0_multiple_13
       rect:
         serializedVersion: 2
         x: 96
@@ -362,13 +362,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 559696d270e31d846a75ea56cfd649bf
+      spriteID: da14775e4063bb84b892597a5fa537dd
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_all_chili_14
+      name: level_0_multiple_14
       rect:
         serializedVersion: 2
         x: 128
@@ -382,7 +382,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: da1b9f7397fe87e4ca00cddd3279463b
+      spriteID: 36dd3df51f9227245b7495077fe40d23
       vertices: []
       indices: 
       edges: []

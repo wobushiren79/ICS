@@ -112,27 +112,31 @@ public class GameSkillsDetailsItem : PopupReplyView
         string nameStr = levelSkillsBean.name;
         string remarkStr = "";
         string otherStr = "";
+        string numberStr = "";
         if (levelSkillsBean.add_user_times != 0)
         {
+
             remarkStr += "【" + GameCommonInfo.GetTextById(52) + "】";
             otherStr += "➤" + GameCommonInfo.GetTextById(40) + GameCommonInfo.GetTextById(42) + GameCommonInfo.GetTextById(52) + GameCommonInfo.GetTextById(49)+levelSkillsBean.add_user_times*100 +"%" + "\n";
         }
         if (levelSkillsBean.add_grow != 0)
         {
+            numberStr = GameCommonInfo.GetPriceStr(levelSkillsBean.add_grow);
             remarkStr += "【" + GameCommonInfo.GetTextById(46) + "】";
             if (levelScenesBean.level == 0)
             {
-                otherStr += "➤" + GameCommonInfo.GetTextById(53) + levelScenesBean.goods_name+ GameCommonInfo.GetTextById(49) + levelSkillsBean.add_grow + GameCommonInfo.GetTextById(40) + "\n";
+                otherStr += "➤" + GameCommonInfo.GetTextById(53) + levelScenesBean.goods_name+ GameCommonInfo.GetTextById(49) + numberStr + GameCommonInfo.GetTextById(40) + "\n";
             }
             else
             {
-                otherStr += "➤" + GameCommonInfo.GetTextById(41) + levelScenesBean.goods_name + GameCommonInfo.GetTextById(39) + GameCommonInfo.GetTextById(49) + levelSkillsBean.add_grow + GameCommonInfo.GetTextById(40) + "\n";
+                otherStr += "➤" + GameCommonInfo.GetTextById(41) + levelScenesBean.goods_name + GameCommonInfo.GetTextById(39) + GameCommonInfo.GetTextById(49) + numberStr + GameCommonInfo.GetTextById(40) + "\n";
             }
         }
         if (levelSkillsBean.add_number != 0)
         {
+            numberStr = GameCommonInfo.GetPriceStr(levelSkillsBean.add_number);
             remarkStr += "【" + GameCommonInfo.GetTextById(48) + "】";
-            otherStr += "➤" + levelScenesBean.goods_name + GameCommonInfo.GetTextById(48) + GameCommonInfo.GetTextById(49) + levelSkillsBean.add_number + GameCommonInfo.GetTextById(43) + "\n";
+            otherStr += "➤" + levelScenesBean.goods_name + GameCommonInfo.GetTextById(48) + GameCommonInfo.GetTextById(49) + numberStr + GameCommonInfo.GetTextById(43) + "\n";
         }
         if (levelSkillsBean.add_times != 0)
         {

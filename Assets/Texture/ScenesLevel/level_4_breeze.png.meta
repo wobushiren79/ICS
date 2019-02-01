@@ -7,6 +7,16 @@ TextureImporter:
     21300004: level_4_breeze_2
     21300006: level_4_breeze_3
     21300008: level_4_breeze_4
+    21300010: level_4_breeze_5
+    21300012: level_4_breeze_6
+    21300014: level_4_breeze_7
+    21300016: level_4_breeze_8
+    21300018: level_4_breeze_9
+    21300020: level_4_breeze_10
+    21300022: level_4_breeze_11
+    21300024: level_4_breeze_12
+    21300026: level_4_breeze_13
+    21300028: level_4_breeze_14
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -93,6 +103,206 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99e1eb41adc67634a8c3eea384aeda11
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_4_breeze_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 898e0e5fea09d9440a24e099a4d5bdcc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_4_breeze_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a80661db7a00cec4f87c635721ef2ea2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_4_breeze_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3b66aced18589d419757ef02cfd8a75
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_4_breeze_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dc621e1dc2726f41a36d5e204f521df
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_4_breeze_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c099986a7457f334ca92004849243351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_4_breeze_6
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 871fea12f9f1ab14496fcb4bb0e1cf43
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_4_breeze_7
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34720b1d6949c0c439b7e34def3dbf78
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_4_breeze_8
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd604fc91fb800149b06b7bce3fd9fc5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_4_breeze_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a34c5b32d56f914dbf5e5b61aea0347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_4_breeze_10
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 0
         width: 32
         height: 32
@@ -103,13 +313,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c80321d03196f7240b82e16bd9e6106e
+      spriteID: dbdbe9b50c068d94683db08409534018
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_4_breeze_1
+      name: level_4_breeze_11
       rect:
         serializedVersion: 2
         x: 32
@@ -123,13 +333,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c861beea2d7dcf54dbd1ea32c17f5705
+      spriteID: f43ad8ae86c43ce4fb76ca9cffa692c2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_4_breeze_2
+      name: level_4_breeze_12
       rect:
         serializedVersion: 2
         x: 64
@@ -143,13 +353,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 92f708d5500c0a0478153e4972343e2e
+      spriteID: 2239b1b2292b682498bf8d070c0d5c6e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_4_breeze_3
+      name: level_4_breeze_13
       rect:
         serializedVersion: 2
         x: 96
@@ -163,13 +373,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b1b26056c584ed141ac5d83b94c65387
+      spriteID: 93080b5f41217b749a836bfd3e0f54c6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_4_breeze_4
+      name: level_4_breeze_14
       rect:
         serializedVersion: 2
         x: 128
@@ -183,7 +393,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 28714ae4ec19eb943af3e83163fb802b
+      spriteID: 11a17fe885a7df44785c8396a5e46376
       vertices: []
       indices: 
       edges: []

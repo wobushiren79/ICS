@@ -7,6 +7,16 @@ TextureImporter:
     21300004: level_5_light_2
     21300006: level_5_light_3
     21300008: level_5_light_4
+    21300010: level_5_light_5
+    21300012: level_5_light_6
+    21300014: level_5_light_7
+    21300016: level_5_light_8
+    21300018: level_5_light_9
+    21300020: level_5_light_10
+    21300022: level_5_light_11
+    21300024: level_5_light_12
+    21300026: level_5_light_13
+    21300028: level_5_light_14
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -82,6 +92,206 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58ce93f57a0583445aba8a7cd2009a24
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_5_light_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e05794526cf07c48b0e0fa4b61472fe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_5_light_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 215c4445787e6304884e600b844be0a8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_5_light_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67e629bf46fd973459535e6335655188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_5_light_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19c98766da097b142b50c06f20c25462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_5_light_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 428f35ae6cae74f4797c94d0496ac0a6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_5_light_6
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3354ba8ecdc10104c930383a77189e55
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_5_light_7
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f78c62bce2c04fb48a1a603f0fbe2429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_5_light_8
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4245d2c418c98ef43bdf0b244192b2e6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_5_light_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ef6042eac4ee4148ad587ad1744d7d2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_5_light_10
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 0
         width: 32
         height: 32
@@ -92,13 +302,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 45df9984c8123914091e17124ff8aea9
+      spriteID: 858d841a8e1ab5148bc9b42d36603555
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_5_light_1
+      name: level_5_light_11
       rect:
         serializedVersion: 2
         x: 32
@@ -112,13 +322,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 76a34a5ac29ad1146ac715fad2eacb63
+      spriteID: 1b940fdf9ccb71f4c949ba0612fec251
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_5_light_2
+      name: level_5_light_12
       rect:
         serializedVersion: 2
         x: 64
@@ -132,13 +342,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d1ad723562508f844a7f4d8510d7d635
+      spriteID: 43a631abe10837e4d8e69c3f4f67072f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_5_light_3
+      name: level_5_light_13
       rect:
         serializedVersion: 2
         x: 96
@@ -152,13 +362,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 59d0fd2056deb454da553335d8bfbf0a
+      spriteID: 8c0148e51a21e34419045547fcb18473
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_5_light_4
+      name: level_5_light_14
       rect:
         serializedVersion: 2
         x: 128
@@ -172,7 +382,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ddef5d2b668989c44a6804ba1e6e2e63
+      spriteID: e38ec26024b4e694c84900f55f44276c
       vertices: []
       indices: 
       edges: []

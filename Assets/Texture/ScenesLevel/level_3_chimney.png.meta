@@ -16,6 +16,16 @@ TextureImporter:
     21300022: level_3_chimney_2
     21300024: level_3_chimney_3
     21300026: level_3_chimney_4
+    21300028: level_3_chimney_5
+    21300030: level_3_chimney_6
+    21300032: level_3_chimney_7
+    21300034: level_3_chimney_8
+    21300036: level_3_chimney_9
+    21300038: level_3_chimney_10
+    21300040: level_3_chimney_11
+    21300042: level_3_chimney_12
+    21300044: level_3_chimney_13
+    21300046: level_3_chimney_14
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -102,6 +112,206 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cae804a96079c2a4d9fb2d7c04210ca8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_3_chimney_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7e459241ccbcdb47864c30d9138f26b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_3_chimney_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fed7e5febdc057d4a92cad88441f505d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_3_chimney_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 879758c0bf935a94ab69ad05649555f6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_3_chimney_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d83a454c91446d440afa51e3b7450b09
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_3_chimney_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7926baa05700bd24a8297882b4fb9048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_3_chimney_6
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 486a39ff14c1838459541f8c4bedbb3d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_3_chimney_7
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a1d104bde24b344b8663fcdfea87a83
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_3_chimney_8
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 549e7c2150b5dfc49ad3cb6ffd01782b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_3_chimney_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: defccc794002266478a3d63bdea49f88
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_3_chimney_10
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 0
         width: 32
         height: 32
@@ -112,13 +322,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4214f74f6d1e96543b53e25df9b394b7
+      spriteID: 367eef4b8b0e2b04c8f46c3a4c13390e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_3_chimney_1
+      name: level_3_chimney_11
       rect:
         serializedVersion: 2
         x: 32
@@ -132,13 +342,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cfded25d793d83846a75d468305d2758
+      spriteID: c8494f66896351149acf4898b2ba2726
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_3_chimney_2
+      name: level_3_chimney_12
       rect:
         serializedVersion: 2
         x: 64
@@ -152,13 +362,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bb041ac80150b554cacda31ec332d6a9
+      spriteID: 9fedd526cf7a38245b11a5d46588a81d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_3_chimney_3
+      name: level_3_chimney_13
       rect:
         serializedVersion: 2
         x: 96
@@ -172,13 +382,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f314f9cdd842f4a47981ac1f351f6f26
+      spriteID: 6917678a06be90e4ba414482dcae0699
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_3_chimney_4
+      name: level_3_chimney_14
       rect:
         serializedVersion: 2
         x: 128
@@ -192,7 +402,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ced7933119825744c9b4a6155668b26d
+      spriteID: 97930c1d1e37d5b4691d45c9b61385b8
       vertices: []
       indices: 
       edges: []

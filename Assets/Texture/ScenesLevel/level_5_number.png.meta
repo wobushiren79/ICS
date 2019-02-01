@@ -7,6 +7,16 @@ TextureImporter:
     21300004: level_5_number_2
     21300006: level_5_number_3
     21300008: level_5_number_4
+    21300010: level_5_number_5
+    21300012: level_5_number_6
+    21300014: level_5_number_7
+    21300016: level_5_number_8
+    21300018: level_5_number_9
+    21300020: level_5_number_10
+    21300022: level_5_number_11
+    21300024: level_5_number_12
+    21300026: level_5_number_13
+    21300028: level_5_number_14
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -82,6 +92,206 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07171416c8a6f834c83b362a62b9850f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_5_number_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a9c350d50048224d9bf245650b435f7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_5_number_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e12e79fcf8ae35e4191df3f05e79a062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_5_number_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f988a8552dfca1f43b137836cfdd529b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_5_number_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4bd12352c59ea14192229b71d7995b3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_5_number_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29df178ba66cd0144aca7b39f54c184e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_5_number_6
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bd64f71dfbd0ab47be04f224ca353dd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_5_number_7
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d9c33be660a81b4e82fe670944a5507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_5_number_8
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 234dbb162b121bc4aa0fcd47dc896359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_5_number_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3758d4d91d03a44598d2c154308cd47
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_5_number_10
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 0
         width: 32
         height: 32
@@ -92,13 +302,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f8349f7521e48334bbf4d69d2eeddfc8
+      spriteID: a86ab671da6b6d84d9b392f78c64f92a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_5_number_1
+      name: level_5_number_11
       rect:
         serializedVersion: 2
         x: 32
@@ -112,13 +322,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e4969054eb7ab114f9ed013fc49c37c0
+      spriteID: c91230555f4927d478ba422585307685
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_5_number_2
+      name: level_5_number_12
       rect:
         serializedVersion: 2
         x: 64
@@ -132,13 +342,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 83d7c19f0a1b6334ba287ac3a770b33e
+      spriteID: 54ad678aa47adb74eb3d186b36ae4f7f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_5_number_3
+      name: level_5_number_13
       rect:
         serializedVersion: 2
         x: 96
@@ -152,13 +362,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 861326b4b48b56a46a99dfe53c2442f2
+      spriteID: e42e76c89735ef746a51b41bdc0c5857
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_5_number_4
+      name: level_5_number_14
       rect:
         serializedVersion: 2
         x: 128
@@ -172,7 +382,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5215bfa2176929c408515cf50b907574
+      spriteID: 9dc8e3a8ca149ce43b629fce52e649e6
       vertices: []
       indices: 
       edges: []

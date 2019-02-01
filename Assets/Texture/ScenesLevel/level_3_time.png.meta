@@ -7,6 +7,16 @@ TextureImporter:
     21300004: level_3_time_2
     21300006: level_3_time_3
     21300008: level_3_time_4
+    21300010: level_3_time_5
+    21300012: level_3_time_6
+    21300014: level_3_time_7
+    21300016: level_3_time_8
+    21300018: level_3_time_9
+    21300020: level_3_time_10
+    21300022: level_3_time_11
+    21300024: level_3_time_12
+    21300026: level_3_time_13
+    21300028: level_3_time_14
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -82,6 +92,206 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9a6e3f0ea21cdf48a65881f3c78fae7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_3_time_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28740e48fca6de845ba0e9632c337f25
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_3_time_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 129566d896ec65748b12709bb9ec3207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_3_time_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f00aa3e5d7ac7f54f832f6abb10c0d7e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_3_time_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00101891e4b9c804c82e94b7694aac7f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_3_time_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61acfcad7a098d34dadcbd71413cdc38
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_3_time_6
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dcd3671face7f046916dfb6057def1d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_3_time_7
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47f2aee5fe47fe5448b653c0ad144b58
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_3_time_8
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 786389d8b6e4d944fb4e3129ac816a84
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_3_time_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfecd6078a0de784cbf7d3f703abd08b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_3_time_10
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 0
         width: 32
         height: 32
@@ -92,13 +302,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8f2449f2ca9ff074fb6b3b12c3e799fc
+      spriteID: 2c2bdba2c433fed4586ee701fc6611e9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_3_time_1
+      name: level_3_time_11
       rect:
         serializedVersion: 2
         x: 32
@@ -112,13 +322,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 41da113ff8565ad478362acd7c4b6d61
+      spriteID: fc4d92cfe07dca74aa8467579cb3a4c0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_3_time_2
+      name: level_3_time_12
       rect:
         serializedVersion: 2
         x: 64
@@ -132,13 +342,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b5ca2cb6585f719468db7c299b6ef91b
+      spriteID: 54dc834048cbaeb4eac7a62eb5ff8217
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_3_time_3
+      name: level_3_time_13
       rect:
         serializedVersion: 2
         x: 96
@@ -152,13 +362,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0fe41b812267a62479f4ce0725522c8f
+      spriteID: 586e4fd8066edc54e98c03572cc7fd6d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_3_time_4
+      name: level_3_time_14
       rect:
         serializedVersion: 2
         x: 128
@@ -172,7 +382,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d1b12616a1a2a7f42857082337006927
+      spriteID: f0d7cc4492e1b1f4590137260c1d9d5c
       vertices: []
       indices: 
       edges: []

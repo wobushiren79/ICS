@@ -20,7 +20,7 @@ public class BaseUIComponent : BaseMonoBehaviour
     /// <summary>
     /// 开启UI
     /// </summary>
-    public void OpenUI()
+    public virtual void OpenUI()
     {
         if (this.gameObject.activeSelf)
             return;
@@ -32,7 +32,7 @@ public class BaseUIComponent : BaseMonoBehaviour
     /// <summary>
     /// 关闭UI
     /// </summary>
-    public void CloseUI()
+    public virtual void CloseUI()
     {
         if (!this.gameObject.activeSelf)
             return;

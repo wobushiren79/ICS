@@ -20,6 +20,8 @@ public class UIGameSkillCpt : BaseUIComponent, IGameDataCallBack
     public GameObject listSkillsContent;
     public GameObject itemSkillsModel;
 
+    private bool mNeedRefresh=false;
+
     private void Start()
     {
         gameDataCpt.AddObserver(this);
@@ -30,8 +32,7 @@ public class UIGameSkillCpt : BaseUIComponent, IGameDataCallBack
             tvBack.text = GameCommonInfo.GetTextById(36);
         if (tvTitle != null)
             tvTitle.text = GameCommonInfo.GetTextById(33);
-
-      StartCoroutine(RefreshData());
+        StartCoroutine(RefreshData());
     }
 
     /// <summary>
@@ -56,6 +57,16 @@ public class UIGameSkillCpt : BaseUIComponent, IGameDataCallBack
     public void BTBack()
     {
         uiManager.OpenUIAndCloseOtherByName("GameMenu");
+    }
+
+    public override void OpenUI()
+    {
+        base.OpenUI();
+        if (mNeedRefresh)
+        {
+            StartCoroutine(RefreshData());
+            mNeedRefresh = false;
+        }
     }
 
     /// <summary>
@@ -106,10 +117,15 @@ public class UIGameSkillCpt : BaseUIComponent, IGameDataCallBack
 
     public void GoodsLevelChange(int level)
     {
-        StartCoroutine(RefreshData());
+        if (gameObject.activeSelf)
+            StartCoroutine(RefreshData());
+        else
+            mNeedRefresh = true;
     }
+
     public void ObserbableUpdate(int type, params UnityEngine.Object[] obj)
     {
+
     }
 
 

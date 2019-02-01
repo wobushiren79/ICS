@@ -7,6 +7,16 @@ TextureImporter:
     21300004: level_5_hall_2
     21300006: level_5_hall_3
     21300008: level_5_hall_4
+    21300010: level_5_hall_5
+    21300012: level_5_hall_6
+    21300014: level_5_hall_7
+    21300016: level_5_hall_8
+    21300018: level_5_hall_9
+    21300020: level_5_hall_10
+    21300022: level_5_hall_11
+    21300024: level_5_hall_12
+    21300026: level_5_hall_13
+    21300028: level_5_hall_14
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -82,6 +92,206 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbd0deebbcee7de4083b0504060fbf33
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_5_hall_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f14a91f4c2ca9542a6102734e806732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_5_hall_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4f1f34dcd21ab8438b28692c9c18de1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_5_hall_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2e555b1230966c40a9000c0d30263d4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_5_hall_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e421ada08e06cf14896ba5c5becc25f8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_5_hall_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd961321c03f73343a77f0f8911bcdb4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_5_hall_6
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8ce628a193060c40a779c6a71fcfa8e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_5_hall_7
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c636208b2b54d7d4998aa5c46d2b1664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_5_hall_8
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3176b52d891c3374d93598b8421ac7cf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_5_hall_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5ab16180b4112a4a8426d3b63e37fb9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_5_hall_10
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 0
         width: 32
         height: 32
@@ -92,13 +302,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b5cb4543a48c4ba4db87f2052de3fa5f
+      spriteID: b0714dae41215f544976a9684f422351
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_5_hall_1
+      name: level_5_hall_11
       rect:
         serializedVersion: 2
         x: 32
@@ -112,13 +322,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 65a435c87f322124294e06b45b1b0068
+      spriteID: 0e0d923fb2dca254a878316bb7f1f04a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_5_hall_2
+      name: level_5_hall_12
       rect:
         serializedVersion: 2
         x: 64
@@ -132,13 +342,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cb8f37b6d2bcf804ea0c0f68258cb9df
+      spriteID: 0649e0d52445e5a4d86ece63018802b1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_5_hall_3
+      name: level_5_hall_13
       rect:
         serializedVersion: 2
         x: 96
@@ -152,13 +362,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 36c37973d039075488cfb1dc356f608d
+      spriteID: 133f6bff6f2a76a48b7fc5ffac93677f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: level_5_hall_4
+      name: level_5_hall_14
       rect:
         serializedVersion: 2
         x: 128
@@ -172,7 +382,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3b68c0de2f291e8448154535b4f517a5
+      spriteID: 006673d54de87b44c8486d05ffd9e301
       vertices: []
       indices: 
       edges: []

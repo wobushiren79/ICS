@@ -4508,8 +4508,8 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 40, y: 40}
-  m_Spacing: {x: 5, y: 5}
+  m_CellSize: {x: 42, y: 42}
+  m_Spacing: {x: 1, y: 1}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!114 &838485563
@@ -8740,6 +8740,276 @@ MonoBehaviour:
     value: {fileID: 21300020, guid: 8cde4e7b45d000e4ab89fe6443f0eb5a, type: 3}
   - key: level_4_breeze_11
     value: {fileID: 21300022, guid: 8cde4e7b45d000e4ab89fe6443f0eb5a, type: 3}
+  - key: level_6_dish_0
+    value: {fileID: 21300000, guid: 8a71944492c3d9e42a8b816a6ca566ca, type: 3}
+  - key: level_6_dish_1
+    value: {fileID: 21300002, guid: 8a71944492c3d9e42a8b816a6ca566ca, type: 3}
+  - key: level_6_dish_2
+    value: {fileID: 21300004, guid: 8a71944492c3d9e42a8b816a6ca566ca, type: 3}
+  - key: level_6_dish_3
+    value: {fileID: 21300006, guid: 8a71944492c3d9e42a8b816a6ca566ca, type: 3}
+  - key: level_6_dish_4
+    value: {fileID: 21300008, guid: 8a71944492c3d9e42a8b816a6ca566ca, type: 3}
+  - key: level_6_dish_5
+    value: {fileID: 21300010, guid: 8a71944492c3d9e42a8b816a6ca566ca, type: 3}
+  - key: level_6_dish_6
+    value: {fileID: 21300012, guid: 8a71944492c3d9e42a8b816a6ca566ca, type: 3}
+  - key: level_6_dish_7
+    value: {fileID: 21300014, guid: 8a71944492c3d9e42a8b816a6ca566ca, type: 3}
+  - key: level_6_dish_8
+    value: {fileID: 21300016, guid: 8a71944492c3d9e42a8b816a6ca566ca, type: 3}
+  - key: level_6_dish_9
+    value: {fileID: 21300018, guid: 8a71944492c3d9e42a8b816a6ca566ca, type: 3}
+  - key: level_6_number_0
+    value: {fileID: 21300000, guid: 60a7a571a25270844a6109732a2f4c9e, type: 3}
+  - key: level_6_number_1
+    value: {fileID: 21300002, guid: 60a7a571a25270844a6109732a2f4c9e, type: 3}
+  - key: level_6_number_2
+    value: {fileID: 21300004, guid: 60a7a571a25270844a6109732a2f4c9e, type: 3}
+  - key: level_6_number_3
+    value: {fileID: 21300006, guid: 60a7a571a25270844a6109732a2f4c9e, type: 3}
+  - key: level_6_number_4
+    value: {fileID: 21300008, guid: 60a7a571a25270844a6109732a2f4c9e, type: 3}
+  - key: level_6_number_5
+    value: {fileID: 21300010, guid: 60a7a571a25270844a6109732a2f4c9e, type: 3}
+  - key: level_6_number_6
+    value: {fileID: 21300012, guid: 60a7a571a25270844a6109732a2f4c9e, type: 3}
+  - key: level_6_number_7
+    value: {fileID: 21300014, guid: 60a7a571a25270844a6109732a2f4c9e, type: 3}
+  - key: level_6_number_8
+    value: {fileID: 21300016, guid: 60a7a571a25270844a6109732a2f4c9e, type: 3}
+  - key: level_6_number_9
+    value: {fileID: 21300018, guid: 60a7a571a25270844a6109732a2f4c9e, type: 3}
+  - key: level_6_power_0
+    value: {fileID: 21300000, guid: 25b9756733dd5c2478e6cb8c09521c29, type: 3}
+  - key: level_6_power_1
+    value: {fileID: 21300002, guid: 25b9756733dd5c2478e6cb8c09521c29, type: 3}
+  - key: level_6_power_2
+    value: {fileID: 21300004, guid: 25b9756733dd5c2478e6cb8c09521c29, type: 3}
+  - key: level_6_power_3
+    value: {fileID: 21300006, guid: 25b9756733dd5c2478e6cb8c09521c29, type: 3}
+  - key: level_6_power_4
+    value: {fileID: 21300008, guid: 25b9756733dd5c2478e6cb8c09521c29, type: 3}
+  - key: level_6_power_5
+    value: {fileID: 21300010, guid: 25b9756733dd5c2478e6cb8c09521c29, type: 3}
+  - key: level_6_power_6
+    value: {fileID: 21300012, guid: 25b9756733dd5c2478e6cb8c09521c29, type: 3}
+  - key: level_6_power_7
+    value: {fileID: 21300014, guid: 25b9756733dd5c2478e6cb8c09521c29, type: 3}
+  - key: level_6_power_8
+    value: {fileID: 21300016, guid: 25b9756733dd5c2478e6cb8c09521c29, type: 3}
+  - key: level_6_power_9
+    value: {fileID: 21300018, guid: 25b9756733dd5c2478e6cb8c09521c29, type: 3}
+  - key: level_7_drill_0
+    value: {fileID: 21300000, guid: f0f9fee3c496d8e4f845adf5971b6780, type: 3}
+  - key: level_7_drill_1
+    value: {fileID: 21300002, guid: f0f9fee3c496d8e4f845adf5971b6780, type: 3}
+  - key: level_7_drill_2
+    value: {fileID: 21300004, guid: f0f9fee3c496d8e4f845adf5971b6780, type: 3}
+  - key: level_7_drill_3
+    value: {fileID: 21300006, guid: f0f9fee3c496d8e4f845adf5971b6780, type: 3}
+  - key: level_7_drill_4
+    value: {fileID: 21300008, guid: f0f9fee3c496d8e4f845adf5971b6780, type: 3}
+  - key: level_7_drill_5
+    value: {fileID: 21300010, guid: f0f9fee3c496d8e4f845adf5971b6780, type: 3}
+  - key: level_7_drill_6
+    value: {fileID: 21300012, guid: f0f9fee3c496d8e4f845adf5971b6780, type: 3}
+  - key: level_7_drill_7
+    value: {fileID: 21300014, guid: f0f9fee3c496d8e4f845adf5971b6780, type: 3}
+  - key: level_7_drill_8
+    value: {fileID: 21300016, guid: f0f9fee3c496d8e4f845adf5971b6780, type: 3}
+  - key: level_7_number_0
+    value: {fileID: 21300000, guid: 397215c875ea29d43a658326144a144b, type: 3}
+  - key: level_7_number_1
+    value: {fileID: 21300002, guid: 397215c875ea29d43a658326144a144b, type: 3}
+  - key: level_7_number_2
+    value: {fileID: 21300004, guid: 397215c875ea29d43a658326144a144b, type: 3}
+  - key: level_7_number_3
+    value: {fileID: 21300006, guid: 397215c875ea29d43a658326144a144b, type: 3}
+  - key: level_7_number_4
+    value: {fileID: 21300008, guid: 397215c875ea29d43a658326144a144b, type: 3}
+  - key: level_7_number_5
+    value: {fileID: 21300010, guid: 397215c875ea29d43a658326144a144b, type: 3}
+  - key: level_7_number_6
+    value: {fileID: 21300012, guid: 397215c875ea29d43a658326144a144b, type: 3}
+  - key: level_7_number_7
+    value: {fileID: 21300014, guid: 397215c875ea29d43a658326144a144b, type: 3}
+  - key: level_7_number_8
+    value: {fileID: 21300016, guid: 397215c875ea29d43a658326144a144b, type: 3}
+  - key: level_7_wheel_0
+    value: {fileID: 21300000, guid: 288b44db625057b4b9fa74435c8e6e25, type: 3}
+  - key: level_7_wheel_1
+    value: {fileID: 21300002, guid: 288b44db625057b4b9fa74435c8e6e25, type: 3}
+  - key: level_7_wheel_2
+    value: {fileID: 21300004, guid: 288b44db625057b4b9fa74435c8e6e25, type: 3}
+  - key: level_7_wheel_3
+    value: {fileID: 21300006, guid: 288b44db625057b4b9fa74435c8e6e25, type: 3}
+  - key: level_7_wheel_4
+    value: {fileID: 21300008, guid: 288b44db625057b4b9fa74435c8e6e25, type: 3}
+  - key: level_7_wheel_5
+    value: {fileID: 21300010, guid: 288b44db625057b4b9fa74435c8e6e25, type: 3}
+  - key: level_7_wheel_6
+    value: {fileID: 21300012, guid: 288b44db625057b4b9fa74435c8e6e25, type: 3}
+  - key: level_7_wheel_7
+    value: {fileID: 21300014, guid: 288b44db625057b4b9fa74435c8e6e25, type: 3}
+  - key: level_7_wheel_8
+    value: {fileID: 21300016, guid: 288b44db625057b4b9fa74435c8e6e25, type: 3}
+  - key: level_8_power_0
+    value: {fileID: 21300000, guid: 211cab432bcff3e419c41694877689da, type: 3}
+  - key: level_8_power_1
+    value: {fileID: 21300002, guid: 211cab432bcff3e419c41694877689da, type: 3}
+  - key: level_8_power_2
+    value: {fileID: 21300004, guid: 211cab432bcff3e419c41694877689da, type: 3}
+  - key: level_8_power_3
+    value: {fileID: 21300006, guid: 211cab432bcff3e419c41694877689da, type: 3}
+  - key: level_8_power_4
+    value: {fileID: 21300008, guid: 211cab432bcff3e419c41694877689da, type: 3}
+  - key: level_8_power_5
+    value: {fileID: 21300010, guid: 211cab432bcff3e419c41694877689da, type: 3}
+  - key: level_8_power_6
+    value: {fileID: 21300012, guid: 211cab432bcff3e419c41694877689da, type: 3}
+  - key: level_8_power_7
+    value: {fileID: 21300014, guid: 211cab432bcff3e419c41694877689da, type: 3}
+  - key: level_8_number_0
+    value: {fileID: 21300000, guid: 0bbb40ff5a5ed5c4dafe6da8a259ea08, type: 3}
+  - key: level_8_number_1
+    value: {fileID: 21300002, guid: 0bbb40ff5a5ed5c4dafe6da8a259ea08, type: 3}
+  - key: level_8_number_2
+    value: {fileID: 21300004, guid: 0bbb40ff5a5ed5c4dafe6da8a259ea08, type: 3}
+  - key: level_8_number_3
+    value: {fileID: 21300006, guid: 0bbb40ff5a5ed5c4dafe6da8a259ea08, type: 3}
+  - key: level_8_number_4
+    value: {fileID: 21300008, guid: 0bbb40ff5a5ed5c4dafe6da8a259ea08, type: 3}
+  - key: level_8_number_5
+    value: {fileID: 21300010, guid: 0bbb40ff5a5ed5c4dafe6da8a259ea08, type: 3}
+  - key: level_8_number_6
+    value: {fileID: 21300012, guid: 0bbb40ff5a5ed5c4dafe6da8a259ea08, type: 3}
+  - key: level_8_number_7
+    value: {fileID: 21300014, guid: 0bbb40ff5a5ed5c4dafe6da8a259ea08, type: 3}
+  - key: level_8_build_0
+    value: {fileID: 21300000, guid: 7e22615b6e982a1468393bfe1cebc5b9, type: 3}
+  - key: level_8_build_1
+    value: {fileID: 21300002, guid: 7e22615b6e982a1468393bfe1cebc5b9, type: 3}
+  - key: level_8_build_2
+    value: {fileID: 21300004, guid: 7e22615b6e982a1468393bfe1cebc5b9, type: 3}
+  - key: level_8_build_3
+    value: {fileID: 21300006, guid: 7e22615b6e982a1468393bfe1cebc5b9, type: 3}
+  - key: level_8_build_4
+    value: {fileID: 21300008, guid: 7e22615b6e982a1468393bfe1cebc5b9, type: 3}
+  - key: level_8_build_5
+    value: {fileID: 21300010, guid: 7e22615b6e982a1468393bfe1cebc5b9, type: 3}
+  - key: level_8_build_6
+    value: {fileID: 21300012, guid: 7e22615b6e982a1468393bfe1cebc5b9, type: 3}
+  - key: level_8_build_7
+    value: {fileID: 21300014, guid: 7e22615b6e982a1468393bfe1cebc5b9, type: 3}
+  - key: level_9_cover_0
+    value: {fileID: 21300000, guid: a24e040e5fe03b645a18bdfa1293c872, type: 3}
+  - key: level_9_cover_1
+    value: {fileID: 21300002, guid: a24e040e5fe03b645a18bdfa1293c872, type: 3}
+  - key: level_9_cover_2
+    value: {fileID: 21300004, guid: a24e040e5fe03b645a18bdfa1293c872, type: 3}
+  - key: level_9_cover_3
+    value: {fileID: 21300006, guid: a24e040e5fe03b645a18bdfa1293c872, type: 3}
+  - key: level_9_cover_4
+    value: {fileID: 21300008, guid: a24e040e5fe03b645a18bdfa1293c872, type: 3}
+  - key: level_9_cover_5
+    value: {fileID: 21300010, guid: a24e040e5fe03b645a18bdfa1293c872, type: 3}
+  - key: level_9_cover_6
+    value: {fileID: 21300012, guid: a24e040e5fe03b645a18bdfa1293c872, type: 3}
+  - key: level_9_number_0
+    value: {fileID: 21300000, guid: 12a5d9a6e2bbea442b6d7071c4ba04b9, type: 3}
+  - key: level_9_number_1
+    value: {fileID: 21300002, guid: 12a5d9a6e2bbea442b6d7071c4ba04b9, type: 3}
+  - key: level_9_number_2
+    value: {fileID: 21300004, guid: 12a5d9a6e2bbea442b6d7071c4ba04b9, type: 3}
+  - key: level_9_number_3
+    value: {fileID: 21300006, guid: 12a5d9a6e2bbea442b6d7071c4ba04b9, type: 3}
+  - key: level_9_number_4
+    value: {fileID: 21300008, guid: 12a5d9a6e2bbea442b6d7071c4ba04b9, type: 3}
+  - key: level_9_number_5
+    value: {fileID: 21300010, guid: 12a5d9a6e2bbea442b6d7071c4ba04b9, type: 3}
+  - key: level_9_number_6
+    value: {fileID: 21300012, guid: 12a5d9a6e2bbea442b6d7071c4ba04b9, type: 3}
+  - key: level_9_purifier_0
+    value: {fileID: 21300000, guid: 3cbadaac6b740384cb3fe597813ec813, type: 3}
+  - key: level_9_purifier_1
+    value: {fileID: 21300002, guid: 3cbadaac6b740384cb3fe597813ec813, type: 3}
+  - key: level_9_purifier_2
+    value: {fileID: 21300004, guid: 3cbadaac6b740384cb3fe597813ec813, type: 3}
+  - key: level_9_purifier_3
+    value: {fileID: 21300006, guid: 3cbadaac6b740384cb3fe597813ec813, type: 3}
+  - key: level_9_purifier_4
+    value: {fileID: 21300008, guid: 3cbadaac6b740384cb3fe597813ec813, type: 3}
+  - key: level_9_purifier_5
+    value: {fileID: 21300010, guid: 3cbadaac6b740384cb3fe597813ec813, type: 3}
+  - key: level_9_purifier_6
+    value: {fileID: 21300012, guid: 3cbadaac6b740384cb3fe597813ec813, type: 3}
+  - key: level_10_land_0
+    value: {fileID: 21300000, guid: 678cd40c4913b604fbe9c7295b538638, type: 3}
+  - key: level_10_land_1
+    value: {fileID: 21300002, guid: 678cd40c4913b604fbe9c7295b538638, type: 3}
+  - key: level_10_land_2
+    value: {fileID: 21300004, guid: 678cd40c4913b604fbe9c7295b538638, type: 3}
+  - key: level_10_land_3
+    value: {fileID: 21300006, guid: 678cd40c4913b604fbe9c7295b538638, type: 3}
+  - key: level_10_land_4
+    value: {fileID: 21300008, guid: 678cd40c4913b604fbe9c7295b538638, type: 3}
+  - key: level_10_land_5
+    value: {fileID: 21300010, guid: 678cd40c4913b604fbe9c7295b538638, type: 3}
+  - key: level_10_number_0
+    value: {fileID: 21300000, guid: f0b81e11a9247f849bb7038eea1a11d8, type: 3}
+  - key: level_10_number_1
+    value: {fileID: 21300002, guid: f0b81e11a9247f849bb7038eea1a11d8, type: 3}
+  - key: level_10_number_2
+    value: {fileID: 21300004, guid: f0b81e11a9247f849bb7038eea1a11d8, type: 3}
+  - key: level_10_number_3
+    value: {fileID: 21300006, guid: f0b81e11a9247f849bb7038eea1a11d8, type: 3}
+  - key: level_10_number_4
+    value: {fileID: 21300008, guid: f0b81e11a9247f849bb7038eea1a11d8, type: 3}
+  - key: level_10_number_5
+    value: {fileID: 21300010, guid: f0b81e11a9247f849bb7038eea1a11d8, type: 3}
+  - key: level_10_water_0
+    value: {fileID: 21300000, guid: cee7495b2e22a334f895a79044ea593a, type: 3}
+  - key: level_10_water_1
+    value: {fileID: 21300002, guid: cee7495b2e22a334f895a79044ea593a, type: 3}
+  - key: level_10_water_2
+    value: {fileID: 21300004, guid: cee7495b2e22a334f895a79044ea593a, type: 3}
+  - key: level_10_water_3
+    value: {fileID: 21300006, guid: cee7495b2e22a334f895a79044ea593a, type: 3}
+  - key: level_10_water_4
+    value: {fileID: 21300008, guid: cee7495b2e22a334f895a79044ea593a, type: 3}
+  - key: level_10_water_5
+    value: {fileID: 21300010, guid: cee7495b2e22a334f895a79044ea593a, type: 3}
+  - key: level_11_bus_0
+    value: {fileID: 21300000, guid: 37556e10aaa161a4fba693fba8cdbbc4, type: 3}
+  - key: level_11_bus_1
+    value: {fileID: 21300002, guid: 37556e10aaa161a4fba693fba8cdbbc4, type: 3}
+  - key: level_11_bus_2
+    value: {fileID: 21300004, guid: 37556e10aaa161a4fba693fba8cdbbc4, type: 3}
+  - key: level_11_bus_3
+    value: {fileID: 21300006, guid: 37556e10aaa161a4fba693fba8cdbbc4, type: 3}
+  - key: level_11_bus_4
+    value: {fileID: 21300008, guid: 37556e10aaa161a4fba693fba8cdbbc4, type: 3}
+  - key: level_11_number_0
+    value: {fileID: 21300000, guid: 53270684905b9db4780c42fdf18d0ee8, type: 3}
+  - key: level_11_number_1
+    value: {fileID: 21300002, guid: 53270684905b9db4780c42fdf18d0ee8, type: 3}
+  - key: level_11_number_2
+    value: {fileID: 21300004, guid: 53270684905b9db4780c42fdf18d0ee8, type: 3}
+  - key: level_11_number_3
+    value: {fileID: 21300006, guid: 53270684905b9db4780c42fdf18d0ee8, type: 3}
+  - key: level_11_number_4
+    value: {fileID: 21300008, guid: 53270684905b9db4780c42fdf18d0ee8, type: 3}
+  - key: level_11_space_0
+    value: {fileID: 21300000, guid: b9059e6f054c2b540a0491c7f8d23b8b, type: 3}
+  - key: level_11_space_1
+    value: {fileID: 21300002, guid: b9059e6f054c2b540a0491c7f8d23b8b, type: 3}
+  - key: level_11_space_2
+    value: {fileID: 21300004, guid: b9059e6f054c2b540a0491c7f8d23b8b, type: 3}
+  - key: level_11_space_3
+    value: {fileID: 21300006, guid: b9059e6f054c2b540a0491c7f8d23b8b, type: 3}
+  - key: level_11_space_4
+    value: {fileID: 21300008, guid: b9059e6f054c2b540a0491c7f8d23b8b, type: 3}
   listSauceData:
   - key: sacuce_list_0
     value: {fileID: 21300000, guid: f0023fbd8ea28204c8b13d5af5a1b286, type: 3}
@@ -10642,9 +10912,9 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 5af80356261d6ff4f8aeec8a15c0cab5, type: 3}
-    m_FontSize: 12
+    m_FontSize: 1
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 1
     m_MaxSize: 15
     m_Alignment: 4
@@ -11186,7 +11456,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000000029802322, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -5, y: -5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1719258817

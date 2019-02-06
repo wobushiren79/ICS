@@ -14,4 +14,4 @@ public interface IBufferInfoView
     /// 获取所有BUFF信息失败
     /// </summary>
     void GetAllBufferInfoFail();
-}
+}  

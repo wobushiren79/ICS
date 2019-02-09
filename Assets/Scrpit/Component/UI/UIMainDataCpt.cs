@@ -17,6 +17,8 @@ public class UIMainDataCpt : BaseUIComponent,IUserDataView
     public GameObject itemOldDataModel;
     public GameObject itemNewDataModel;
 
+    public DialogManager dialogManager;
+
     //数据控制
     private UserDataController mUserDataController;
 
@@ -126,8 +128,14 @@ public class UIMainDataCpt : BaseUIComponent,IUserDataView
         Button btDelete = CptUtil.GetCptInChildrenByName<Button>(oldItem, "Delete");
         btDelete.onClick.AddListener(delegate ()
         {
-            mUserDataController.DeleteUserData(userData.userId);
-            RefreshData();
+            if (dialogManager != null) {
+                DialogBean dialogBean = new DialogBean();
+                dialogBean.submitStr = GameCommonInfo.GetTextById(57) ;
+                dialogBean.cancelStr = GameCommonInfo.GetTextById(58);
+                dialogBean.title = GameCommonInfo.GetTextById(59);
+                dialogBean.content = GameCommonInfo.GetTextById(60);
+                dialogManager.CreateDialog(0, new DeleteDialogCallBack(this, userData), dialogBean);
+            }
         });
         //开始游戏
         Button btStart = oldItem.GetComponent<Button>();
@@ -155,4 +163,30 @@ public class UIMainDataCpt : BaseUIComponent,IUserDataView
         Text tvCreate = CptUtil.GetCptInChildrenByName<Text>(newItem, "Content");
         tvCreate.text = GameCommonInfo.GetTextById(5);
     }
+
+    #region 删除回调
+    public class DeleteDialogCallBack : DialogView.IDialogCallBack
+    {
+
+        private UIMainDataCpt uiCpt;
+        private UserDataBean userData;
+
+        public DeleteDialogCallBack(UIMainDataCpt uiCpt, UserDataBean userData)
+        {
+            this.uiCpt= uiCpt;
+            this.userData = userData;
+        }
+
+        public void Cancel(DialogView dialogView)
+        {
+        
+        }
+
+        public void Submit(DialogView dialogView)
+        {
+            uiCpt.mUserDataController.DeleteUserData(userData.userId);
+            uiCpt.RefreshData();
+        }
+    }
+    #endregion
 }

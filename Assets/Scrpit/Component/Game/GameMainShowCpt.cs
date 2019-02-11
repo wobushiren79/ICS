@@ -56,7 +56,9 @@ public class GameMainShowCpt : BaseMonoBehaviour,IGameDataCallBack
         if (tvScore == null)
             return;
         Vector2 outPosition;
-   
+
+        //成就记录
+        gameDataCpt.userData.userAchievement.clickTime++;
         //屏幕坐标转换为UI坐标
         RectTransformUtility.ScreenPointToLocalPointInRectangle(screenRTF, Input.mousePosition, Camera.main, out outPosition);
         double addScore = 1;

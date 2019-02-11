@@ -26,4 +26,8 @@ public class UserDataBean
     public UserItemLevelBean clickData;
     //用户技能列表
     public List<long> listSkillsData;
+    //转生次数
+    public int reincarnationNumber;
+    //用户成就
+    public AchievementBean userAchievement;
 }

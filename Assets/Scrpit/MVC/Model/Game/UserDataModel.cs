@@ -53,15 +53,14 @@ public class UserDataModel : BaseMVCModel
     {
         UserDataBean userData = new UserDataBean();
         List<UserItemLevelBean> itemLevelList = new List<UserItemLevelBean>();
-
         
-
         //查询等级1的数据 
         List<LevelScenesBean> listLevelData = mLevelScenesService.QueryDataByLevel(new int[] {0,1});
         if (CheckUtil.ListIsNull(listLevelData))
             return null;
         double totalGrow = 0;
-        for(int i = 0; i < listLevelData.Count; i++)
+        AchievementItemLevelBean tempLevelAch = new AchievementItemLevelBean();
+        for (int i = 0; i < listLevelData.Count; i++)
         {
             //添加一个数据
             LevelScenesBean initLevelData = listLevelData[i];
@@ -70,6 +69,8 @@ public class UserDataModel : BaseMVCModel
             itemLevelData.goodsNumber = 1;
             itemLevelData.spaceNumber = 1;
             itemLevelData.itemGrow = initLevelData.item_grow;
+
+
             if (initLevelData.level==0)
             {
                 userData.clickData = itemLevelData;
@@ -78,7 +79,11 @@ public class UserDataModel : BaseMVCModel
             {
                 itemLevelList.Add(itemLevelData);
                 totalGrow += itemLevelData.itemGrow;
+
+                tempLevelAch.level = initLevelData.level;
+                tempLevelAch.totalNumber = itemLevelData.goodsNumber;
             }
+
         }
 
         userData.userId = "USERID_" + SystemUtil.GetUUID(SystemUtil.UUIDTypeEnum.N);
@@ -86,6 +91,12 @@ public class UserDataModel : BaseMVCModel
         userData.userGrow = totalGrow;
         userData.userTimes = 1;
         userData.userName = userName;
+ 
+        userData.userAchievement = new AchievementBean();
+        userData.userAchievement.unlockSkillsList = new List<long>();
+        userData.userAchievement.listLevelData = new List<AchievementItemLevelBean>();
+        userData.userAchievement.listLevelData.Add(tempLevelAch);
+
         userData = mUserDataService.SaveData(userData);
         return userData;
     }

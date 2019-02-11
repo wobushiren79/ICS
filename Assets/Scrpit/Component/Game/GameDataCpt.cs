@@ -41,6 +41,21 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
         double tempGrow = (userData.userGrow * userData.userTimes) / updateNumber;
         userData.userScore += tempGrow;
         CheckLevel();
+        CheckAchievement();
+    }
+
+    /// <summary>
+    /// 检测成就
+    /// </summary>
+    public void CheckAchievement()
+    {
+        if (userData.userAchievement == null)
+            userData.userAchievement = new AchievementBean();
+        if(userData.userScore> userData.userAchievement.maxUserScore)
+        {
+            //最高得分修改
+            userData.userAchievement.maxUserScore = userData.userScore;
+        }
     }
 
     /// <summary>
@@ -243,11 +258,33 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
         if (userData == null || CheckUtil.ListIsNull(userData.listUserLevelData))
             return null;
         List<UserItemLevelBean> listLevelData = userData.listUserLevelData;
-        foreach (UserItemLevelBean itemLevel in listLevelData)
+        for (int i = 0; i < listLevelData.Count; i++)
         {
+            UserItemLevelBean itemLevel = listLevelData[i];
             if (itemLevel.level.Equals(level))
             {
                 return itemLevel;
+            }
+        }
+        return null;
+    }
+
+    /// <summary>
+    /// 根据等级获取成就数据
+    /// </summary>
+    /// <param name="level"></param>
+    /// <returns></returns>
+    public AchievementItemLevelBean GetAchItemLevelDataByLevel(int  level)
+    {
+        if (userData == null ||userData.userAchievement==null||CheckUtil.ListIsNull(userData.userAchievement.listLevelData))
+            return null;
+        List<AchievementItemLevelBean> listAchData = userData.userAchievement.listLevelData;
+        for(int i=0;i< listAchData.Count; i++)
+        {
+            AchievementItemLevelBean itemAch= listAchData[i];
+            if(itemAch.level== level)
+            {
+                return itemAch;
             }
         }
         return null;
@@ -284,7 +321,6 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
             userData.userScore -= score;
             return true;
         }
-        return true;
     }
 
     /// <summary>
@@ -297,6 +333,7 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
         List<UserItemLevelBean> listUserLevelData = userData.listUserLevelData;
         if (CheckUtil.ListIsNull(listUserLevelData))
             listUserLevelData = new List<UserItemLevelBean>();
+        //增加数量
         for (int i = 0; i < listUserLevelData.Count; i++)
         {
             UserItemLevelBean itemData = listUserLevelData[i];
@@ -311,6 +348,25 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
                 }
             }
         }
+        //增加成就
+        AchievementItemLevelBean itemAch = GetAchItemLevelDataByLevel(level);
+        if (itemAch == null)
+        {
+            itemAch = new AchievementItemLevelBean();
+            itemAch.level = level;
+            if (userData.userAchievement == null)
+            {
+                userData.userAchievement = new AchievementBean();
+                userData.userAchievement.listLevelData = new List<AchievementItemLevelBean>();
+                userData.userAchievement.unlockSkillsList = new List<long>();
+            }
+            if (userData.userAchievement.listLevelData == null)
+            {
+                userData.userAchievement.listLevelData = new List<AchievementItemLevelBean>();
+            }
+            userData.userAchievement.listLevelData.Add(itemAch);
+        }
+        itemAch.totalNumber += number;
         RefreshData();
     }
 

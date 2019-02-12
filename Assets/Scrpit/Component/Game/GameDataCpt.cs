@@ -187,7 +187,7 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
     }
 
     /// <summary>
-    /// 根据等级获取相信技能列表
+    /// 根据等级获取相应技能列表
     /// </summary>
     /// <param name="level">技能等级</param>
     /// <param name="userLevel">技能解锁等级</param>
@@ -205,6 +205,35 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
             if (itemData.level == level && userLevel >= itemData.unlock_level)
             {
                 tempListData.Add(itemData);
+            }
+        }
+        return tempListData;
+    }
+
+    /// <summary>
+    /// 根据ID列表获取相应技能列表
+    /// </summary>
+    /// <param name="idList"></param>
+    /// <returns></returns>
+    public List<LevelSkillsBean> GetSkillsListByIds(List<long> idList)
+    {
+        List<LevelSkillsBean> tempListData = new List<LevelSkillsBean>();
+        if (CheckUtil.ListIsNull(listSkillsData)|| CheckUtil.ListIsNull(idList))
+        {
+            return tempListData;
+        }
+        for (int i = 0; i < idList.Count; i++)
+        {
+            long itemId = idList[i];
+
+            for(int f=0;f< listSkillsData.Count; f++)
+            {
+                LevelSkillsBean itemSkill= listSkillsData[f];
+                if(itemSkill.id == itemId)
+                {
+                    tempListData.Add(itemSkill);
+                    break;
+                }
             }
         }
         return tempListData;
@@ -357,8 +386,6 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
             if (userData.userAchievement == null)
             {
                 userData.userAchievement = new AchievementBean();
-                userData.userAchievement.listLevelData = new List<AchievementItemLevelBean>();
-                userData.userAchievement.unlockSkillsList = new List<long>();
             }
             if (userData.userAchievement.listLevelData == null)
             {

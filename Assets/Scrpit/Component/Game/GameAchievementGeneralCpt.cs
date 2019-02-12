@@ -9,7 +9,6 @@ public class GameAchievementGeneralCpt : BaseMonoBehaviour
 
     public GameObject itemModel;
     public GameObject listContent;
-    public RectTransform listContentRT;
 
     public GameDataCpt gameDataCpt;
 
@@ -63,7 +62,6 @@ public class GameAchievementGeneralCpt : BaseMonoBehaviour
                 }
             }
         }
-        GameUtil.RefreshRectViewHight(listContentRT,true);
     }
 
     private void CreateItem(string title, string content)

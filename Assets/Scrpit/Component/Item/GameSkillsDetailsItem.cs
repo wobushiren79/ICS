@@ -14,7 +14,7 @@ public class GameSkillsDetailsItem : PopupReplyView
     public GameDataCpt gameDataCpt;
     private bool hasSkills = false;
 
-    public void SetData(LevelSkillsBean levelSkillsBean, LevelScenesBean levelScenesBean)
+    public virtual void SetData(LevelSkillsBean levelSkillsBean, LevelScenesBean levelScenesBean)
     {
         this.levelScenesBean = levelScenesBean;
         this.levelSkillsBean = levelSkillsBean;
@@ -84,6 +84,18 @@ public class GameSkillsDetailsItem : PopupReplyView
             }
 
             gameDataCpt.userData.listSkillsData.Add(levelSkillsBean.id);
+            gameDataCpt.userData.listSkillsData.Sort();
+            //添加成就
+            if (gameDataCpt.userData.userAchievement == null)
+            {
+                gameDataCpt.userData.userAchievement = new AchievementBean();
+            }
+            if (gameDataCpt.userData.userAchievement.unlockSkillsList==null)
+            {
+                gameDataCpt.userData.userAchievement.unlockSkillsList = new System.Collections.Generic.List<long>();
+            }
+            gameDataCpt.userData.userAchievement.unlockSkillsList.Add(levelSkillsBean.id);
+            gameDataCpt.userData.userAchievement.unlockSkillsList.Sort();
             ivBorder.color = new Color(1, 1, 1);
             ivIcon.color = new Color(1, 1, 1);
 

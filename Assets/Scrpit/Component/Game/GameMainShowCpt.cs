@@ -98,7 +98,7 @@ public class GameMainShowCpt : BaseMonoBehaviour,IGameDataCallBack
         });
         CanvasGroup itemNumberCG = numberItem.GetComponent<CanvasGroup>();
         itemNumberCG.DOFade(0, addAnimTime/2 );
-        numberItem.GetComponent<Text>().text ="+"+addScore;
+        numberItem.GetComponent<Text>().text ="+"+GameCommonInfo.GetPriceStr(addScore);
         //播放音效
         gameAudioCpt.PlayClip("btn_clip_1",1);
     }

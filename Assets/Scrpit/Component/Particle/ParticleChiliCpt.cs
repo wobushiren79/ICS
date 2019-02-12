@@ -12,6 +12,11 @@ public class ParticleChiliCpt : BaseMonoBehaviour, IGameDataCallBack
             gameData.AddObserver(this);
     }
 
+    private void OnGUI()
+    {
+        LogUtil.Log("Resolution :" + Screen.width + " X" + Screen.height);
+    }
+
     private void OnDestroy()
     {
         if (gameData != null)
@@ -21,7 +26,7 @@ public class ParticleChiliCpt : BaseMonoBehaviour, IGameDataCallBack
     private void Start()
     {
         mChiliParticle = GetComponent<ParticleSystem>();
-        SetChiliDensity(gameData.userData.goodsLevel);
+        SetChiliDensity(gameData.userData.goodsLevel * 10-9);
     }
 
     /// <summary>
@@ -59,7 +64,7 @@ public class ParticleChiliCpt : BaseMonoBehaviour, IGameDataCallBack
 
     public void GoodsLevelChange(int level)
     {
-        SetChiliDensity(gameData.userData.scoreLevel);
+        SetChiliDensity(gameData.userData.goodsLevel * 10-9);
     }
 
     public void LevelChange(int level)
@@ -73,4 +78,5 @@ public class ParticleChiliCpt : BaseMonoBehaviour, IGameDataCallBack
     }
 
     #endregion
+    
 }

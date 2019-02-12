@@ -7,6 +7,7 @@ public class UIGameAchievementCpt : BaseUIComponent
 {
     public Button btBack;
     public Text tvBack;
+    public RectTransform contentTF;
 
     public GameAchievementGeneralCpt achievementGeneralCpt;
     public GameAchievementSkillCpt achievementSkillCpt;
@@ -36,6 +37,7 @@ public class UIGameAchievementCpt : BaseUIComponent
             achievementGeneralCpt.RefreshData();
         if (achievementSkillCpt)
             achievementSkillCpt.RefreshData();
+        GameUtil.RefreshRectViewHight(contentTF, true);
     }
 
     /// <summary>

@@ -12,11 +12,6 @@ public class ParticleChiliCpt : BaseMonoBehaviour, IGameDataCallBack
             gameData.AddObserver(this);
     }
 
-    private void OnGUI()
-    {
-        LogUtil.Log("Resolution :" + Screen.width + " X" + Screen.height);
-    }
-
     private void OnDestroy()
     {
         if (gameData != null)

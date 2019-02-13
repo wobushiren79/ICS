@@ -19,4 +19,14 @@ public class BufferInfoModel : BaseMVCModel
     {
         return mBufferInfoService.QueryAllData();
     }
+
+    /// <summary>
+    /// 根据等级查询BUFFER信息
+    /// </summary>
+    /// <param name="level"></param>
+    /// <returns></returns>
+    public List<BufferInfoBean> GetBufferInfoByLevel(int[] level)
+    {
+        return mBufferInfoService.QueryDataByLevel(level);
+    }
 }

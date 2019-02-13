@@ -34,7 +34,7 @@ public class GameBufferListCpt : BaseMonoBehaviour
 
         if (ivBackground != null) {
             ivBackground.transform.DOKill();
-            ivBackground.DOColor(new Color(1, 0, 0, 0.2f), 1).SetLoops(bufferData.time, LoopType.Yoyo).OnComplete(delegate () {
+            ivBackground.DOColor(new Color(1, 0, 0, 0.5f), 1).SetLoops(bufferData.time, LoopType.Yoyo).OnComplete(delegate () {
                 ivBackground.color = new Color(0, 0, 0, 0);
             });
         }

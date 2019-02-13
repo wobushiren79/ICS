@@ -20,6 +20,16 @@ public class BufferInfoController : BaseMVCController<BufferInfoModel, IBufferIn
     public void GetAllBufferInfo()
     {
         List<BufferInfoBean> listData= GetModel().GetAllBufferInfo();
-        GetView().GetAllBufferInfoSuccess(listData);
+        GetView().GetBufferInfoSuccess(listData);
+    }
+
+    /// <summary>
+    /// 根据等级查询BUFFER信息
+    /// </summary>
+    /// <param name="levels"></param>
+    public void GetBufferInfoByLevel(int[] levels)
+    {
+        List<BufferInfoBean> listData = GetModel().GetBufferInfoByLevel(levels);
+        GetView().GetBufferInfoSuccess(listData);
     }
 }

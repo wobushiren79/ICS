@@ -9,9 +9,11 @@ public class GameBufferItem : PopupReplyView
 
     public Button btItem;
     public Image ivMask;
+    public Image ivIcon;
 
     public GameDataCpt gameDataCpt;
     public BufferInfoBean bufferData;
+    public LevelScenesBean scenesData;
 
     public float amount = 1f;
     public float countDownTime = 0;
@@ -28,11 +30,14 @@ public class GameBufferItem : PopupReplyView
 
     public void SetData(BufferInfoBean bufferData)
     {
+        this.bufferData = bufferData;
+        scenesData= gameDataCpt.GetScenesByLevel(bufferData.level);
+        if (ivIcon != null)
+            ivIcon.sprite = gameDataCpt.GetIconByKey(bufferData.icon_key);
         transform.localScale = new Vector3(0, 0, 0);
         transform.DOScale(new Vector3(1, 1), 0.5f);
         if (bufferData == null)
             return;
-        this.bufferData = bufferData;
         StartCoroutine(StartTime(bufferData));
     }
 
@@ -79,9 +84,10 @@ public class GameBufferItem : PopupReplyView
 
     public override void OpenPopup()
     {
-        if (bufferData == null || gameDataCpt == null)
+        if (bufferData == null || gameDataCpt == null|| scenesData==null)
             return;
-        Sprite iconSP = gameDataCpt.GetIconByKey(bufferData.icon_key);
-        infoPopupView.SetInfoData(iconSP, bufferData.name, "[" + GameCommonInfo.GetTextById(47) + "]", null, bufferData.content, null);
+        Sprite iconSP = ivIcon.sprite;
+        string remark = "+ " + bufferData.add_grow * 100 + "%" + scenesData.goods_name + GameCommonInfo.GetTextById(54);
+        infoPopupView.SetInfoData(iconSP, bufferData.name, "[" + GameCommonInfo.GetTextById(47) + "]", null, bufferData.content, remark);
     }
 }

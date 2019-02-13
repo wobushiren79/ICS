@@ -8,10 +8,11 @@ public interface IBufferInfoView
     /// 获取所有BUFF信息成功
     /// </summary>
     /// <param name="listData"></param>
-    void GetAllBufferInfoSuccess(List<BufferInfoBean> listData);
+    void GetBufferInfoSuccess(List<BufferInfoBean> listData);
 
     /// <summary>
     /// 获取所有BUFF信息失败
     /// </summary>
-    void GetAllBufferInfoFail();
+    void GetBufferInfoFail();
+
 }  

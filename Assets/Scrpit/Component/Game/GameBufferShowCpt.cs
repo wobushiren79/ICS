@@ -17,8 +17,7 @@ public class GameBufferShowCpt : BaseMonoBehaviour, IBufferInfoView
     public List<BufferInfoBean> listBufferInfoData;
     private BufferInfoController mBufferInfoController;
 
-    public float waitMinTime = 120f;
-    public float waitMaxTime = 1200f;
+    public float waitTime = 180f;
     public float animDuration = 20;
     public bool IsShow = true;
     private void Awake()
@@ -36,17 +35,15 @@ public class GameBufferShowCpt : BaseMonoBehaviour, IBufferInfoView
     {
         while (IsShow)
         {
-            float waitTime = Random.Range(waitMinTime, waitMaxTime);
             yield return new WaitForSeconds(waitTime);
             if (CheckUtil.ListIsNull(listBufferInfoData))
                 continue;
-            BufferInfoBean itemBufferData = RandomUtil.GetRandomDataByList(listBufferInfoData);
-            if (gameDataCpt.userData.goodsLevel < itemBufferData.level) {
-                continue;
-            }
+            BufferInfoBean itemBufferData= GetOneBuffer();
+            if(itemBufferData!=null)
             CreateShowItem(itemBufferData);
         }
     }
+
 
     /// <summary>
     /// 创建一个展示
@@ -154,13 +151,32 @@ public class GameBufferShowCpt : BaseMonoBehaviour, IBufferInfoView
         bufferListCpt.AddBuffer(itemBufferData);
     }
 
+    private BufferInfoBean GetOneBuffer()
+    {
+        if (listBufferInfoData == null)
+            return null;
+        int level= Random.Range(-1, gameDataCpt.userData.goodsLevel + 1);
+        List<BufferInfoBean> tempList = new List<BufferInfoBean>();
+        for(int i=0;i< listBufferInfoData.Count; i++)
+        {
+            BufferInfoBean itemInfo= listBufferInfoData[i];
+            if (itemInfo.level == level)
+            {
+                tempList.Add(itemInfo);
+            }
+        }
+        if (tempList == null)
+            return null;
+       return RandomUtil.GetRandomDataByList(tempList);
+    }
+
     #region 数据回调
-    public void GetAllBufferInfoFail()
+    public void GetBufferInfoFail()
     {
 
     }
 
-    public void GetAllBufferInfoSuccess(List<BufferInfoBean> listData)
+    public void GetBufferInfoSuccess(List<BufferInfoBean> listData)
     {
         listBufferInfoData = listData;
     }

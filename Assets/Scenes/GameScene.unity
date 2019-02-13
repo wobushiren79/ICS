@@ -9378,6 +9378,7 @@ GameObject:
   - component: {fileID: 1387247831}
   - component: {fileID: 1387247832}
   - component: {fileID: 1387247833}
+  - component: {fileID: 1387247834}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -10387,6 +10388,20 @@ MonoBehaviour:
   listClip:
   - {fileID: 8300000, guid: 38a7855198f46534bb407d194308c722, type: 3}
   listMusic: []
+--- !u!114 &1387247834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1387247828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6573a9c95d9e4794d9fa47b8d922bd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  secretCodeMaxLength: 20
+  tempCode: 
+  gameDataCpt: {fileID: 1387247830}
 --- !u!1 &1391374027
 GameObject:
   m_ObjectHideFlags: 0
@@ -11328,6 +11343,7 @@ MonoBehaviour:
   infoPopupView: {fileID: 1457210681}
   btItem: {fileID: 1478159440}
   ivMask: {fileID: 788116809}
+  ivIcon: {fileID: 1101093068}
   gameDataCpt: {fileID: 1387247830}
   bufferData:
     id: 0
@@ -11340,6 +11356,16 @@ MonoBehaviour:
     add_number: 0
     add_grow: 0
     add_percentage: 0
+  scenesData:
+    id: 0
+    level: 0
+    goods_sell_price: 0
+    space_sell_price: 0
+    item_grow: 0
+    goods_name: 
+    space_name: 
+    goods_introduction: 
+    space_introduction: 
   amount: 0.5
   countDownTime: 0
 --- !u!114 &1478159438
@@ -12062,7 +12088,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000034332275, y: -0.000016871896}
+  m_AnchoredPosition: {x: 0.000034332275, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1573118317
@@ -14177,8 +14203,7 @@ MonoBehaviour:
   itemShowDetailsModel: {fileID: 668550713}
   gameDataCpt: {fileID: 1387247830}
   listBufferInfoData: []
-  waitMinTime: 120
-  waitMaxTime: 1200
+  waitTime: 1
   animDuration: 20
   IsShow: 1
 --- !u!1 &1920852387

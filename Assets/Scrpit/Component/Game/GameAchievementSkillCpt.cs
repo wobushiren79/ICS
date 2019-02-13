@@ -34,7 +34,7 @@ public class GameAchievementSkillCpt : BaseMonoBehaviour
         }
         else
         {
-            tvHeading.gameObject.SetActive(true);
+            headingObj.SetActive(true);
             List<long> listAch = gameDataCpt.userData.userAchievement.unlockSkillsList;
             List<LevelSkillsBean> listSkills = gameDataCpt.GetSkillsListByIds(listAch);
             for(int i = 0; i < listSkills.Count; i++)

@@ -18,7 +18,6 @@ public class GameMainShowCpt : BaseMonoBehaviour,IGameDataCallBack
     public Text tvScore;
     //游戏数据控制
     public GameDataCpt gameDataCpt;
-    public GameAudioCpt gameAudioCpt;
 
     //屏幕(用来找到鼠标点击的相对位置)
     public RectTransform screenRTF;
@@ -38,6 +37,7 @@ public class GameMainShowCpt : BaseMonoBehaviour,IGameDataCallBack
 
     private void Start()
     {
+        GoodsLevelChange(gameDataCpt.userData.goodsLevel);
         gameDataCpt.AddObserver(this);
         if (btAdd != null)
             btAdd.onClick.AddListener(BTAddOnClick);
@@ -99,8 +99,6 @@ public class GameMainShowCpt : BaseMonoBehaviour,IGameDataCallBack
         CanvasGroup itemNumberCG = numberItem.GetComponent<CanvasGroup>();
         itemNumberCG.DOFade(0, addAnimTime/2 );
         numberItem.GetComponent<Text>().text ="+"+GameCommonInfo.GetPriceStr(addScore);
-        //播放音效
-        gameAudioCpt.PlayClip("btn_clip_1",1);
     }
 
     public void GoodsNumberChange(int level, int number)
@@ -131,7 +129,6 @@ public class GameMainShowCpt : BaseMonoBehaviour,IGameDataCallBack
             ivLight1.color = new Color(1f, 0f, 0f, 0.2f + (level / 10f));
             ivLight2.color = new Color(1f, 0f, 0f, 0.2f + (level / 10f));
         }
-        
     }
 
     public void ObserbableUpdate(int type, params Object[] obj)

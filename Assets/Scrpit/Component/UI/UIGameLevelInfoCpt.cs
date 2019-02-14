@@ -15,6 +15,7 @@ public class UIGameLevelInfoCpt : BaseUIComponent,IGameDataCallBack
     public GameObject levelContent;
     public RadioGroupView levelRG;
     public GameObject levelItemModel;
+    public GameAudioCpt gameAudioCpt;
 
     public List<Sprite> levelIconList;
 
@@ -55,6 +56,7 @@ public class UIGameLevelInfoCpt : BaseUIComponent,IGameDataCallBack
             Button itemButton = levelObj.GetComponent<Button>();
             itemButton.onClick.AddListener(delegate() {
                 gameCameraCpt.ChangePerspectiveByLevel(levelData.level,0);
+                gameAudioCpt.PlayClip("btn_clip_4", Camera.main.transform.position,1);
             });    
         }
     }

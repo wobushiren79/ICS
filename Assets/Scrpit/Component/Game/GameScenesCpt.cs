@@ -122,7 +122,7 @@ public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView,IGameDataCallBac
     #endregion
 
     #region 数据改变回调
-    public void GoodsNumberChange(int level, int number)
+    public void GoodsNumberChange(int level, int number, int totalNumber)
     {
         Transform levelParentTF =CptUtil.GetCptInChildrenByName<Transform>(gameObject, "LevelScene_"+level);
         if (levelParentTF == null)
@@ -133,7 +133,7 @@ public class GameScenesCpt : BaseMonoBehaviour, IGameScenesView,IGameDataCallBac
         }
     }
 
-    public void SpaceNumberChange(int level, int number)
+    public void SpaceNumberChange(int level, int number, int totalNumber)
     {
         Transform levelParentTF = CptUtil.GetCptInChildrenByName<Transform>(gameObject, "LevelScene_" + level);
         if (levelParentTF == null)

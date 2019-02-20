@@ -249,12 +249,12 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
     }
 
     #region 游戏数据回调
-    public void GoodsNumberChange(int level, int number)
+    public void GoodsNumberChange(int level, int number, int totalNumber)
     {
         NumberChange(StoreItemType.Goods);
     }
 
-    public void SpaceNumberChange(int level, int number)
+    public void SpaceNumberChange(int level, int number, int totalNumber)
     {
         NumberChange(StoreItemType.Space);
     }

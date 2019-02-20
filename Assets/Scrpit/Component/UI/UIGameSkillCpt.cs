@@ -98,11 +98,11 @@ public class UIGameSkillCpt : BaseUIComponent, IGameDataCallBack
     }
 
     #region
-    public void GoodsNumberChange(int level, int number)
+    public void GoodsNumberChange(int level, int number, int totalNumber)
     {
     }
 
-    public void SpaceNumberChange(int level, int number)
+    public void SpaceNumberChange(int level, int number, int totalNumber)
     {
     }
 

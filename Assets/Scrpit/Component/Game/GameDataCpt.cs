@@ -373,7 +373,7 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
                 List<IGameDataCallBack> listObserver = GetAllObserver();
                 foreach (IGameDataCallBack itemObserver in listObserver)
                 {
-                    itemObserver.GoodsNumberChange(level, number);
+                    itemObserver.GoodsNumberChange(level, number, itemData.goodsNumber);
                 }
             }
         }
@@ -408,24 +408,26 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
         if (CheckUtil.ListIsNull(listUserLevelData))
             listUserLevelData = new List<UserItemLevelBean>();
         bool hasData = false;
+        UserItemLevelBean tempData=null ;
         for (int i = 0; i < listUserLevelData.Count; i++)
         {
-            UserItemLevelBean itemData = listUserLevelData[i];
-            if (itemData.level.Equals(level))
+            tempData = listUserLevelData[i];
+            if (tempData.level.Equals(level))
             {
                 hasData = true;
-                itemData.spaceNumber += number;
+                tempData.spaceNumber += number;
+                break;
             }
         }
         if (!hasData)
         {
-            UserItemLevelBean userItemLevelBean = new UserItemLevelBean();
-            userItemLevelBean.level = level;
-            userItemLevelBean.spaceNumber = number;
+            tempData = new UserItemLevelBean();
+            tempData.level = level;
+            tempData.spaceNumber = number;
             LevelScenesBean levelScenesData = GetScenesByLevel(level);
             if (levelScenesData != null)
-                userItemLevelBean.itemGrow = levelScenesData.item_grow;
-            userData.listUserLevelData.Add(userItemLevelBean);
+                tempData.itemGrow = levelScenesData.item_grow;
+            userData.listUserLevelData.Add(tempData);
         }
         //排序
         userData.listUserLevelData.Sort(delegate (UserItemLevelBean x, UserItemLevelBean y) {
@@ -435,7 +437,7 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
         List<IGameDataCallBack> listObserver = GetAllObserver();
         foreach (IGameDataCallBack itemObserver in listObserver)
         {
-            itemObserver.SpaceNumberChange(level, number);
+            itemObserver.SpaceNumberChange(level, number, tempData.spaceNumber);
         }
     }
 

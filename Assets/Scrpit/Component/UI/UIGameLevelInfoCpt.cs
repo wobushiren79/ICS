@@ -67,11 +67,6 @@ public class UIGameLevelInfoCpt : BaseUIComponent,IGameDataCallBack
 
     }
 
-    public void GoodsNumberChange(int level, int number)
-    {
-     
-    }
-
     public void ScoreChange(double score)
     {
 
@@ -86,7 +81,13 @@ public class UIGameLevelInfoCpt : BaseUIComponent,IGameDataCallBack
     {
 
     }
-    public void SpaceNumberChange(int level, int number)
+
+    public void GoodsNumberChange(int level, int number, int totalNumber)
+    {
+
+    }
+
+    public void SpaceNumberChange(int level, int number, int totalNumber)
     {
         //创建Item
         CreateLevelButton();

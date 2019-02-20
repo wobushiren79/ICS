@@ -70,12 +70,12 @@ public class UIGameNewsInfoCpt : BaseUIComponent,IGameDataCallBack,INewsInfoView
     }
      
     #region 游戏数据回调
-    public void GoodsNumberChange(int level, int number)
+    public void GoodsNumberChange(int level, int number, int totalNumber)
     {
 
     }
 
-    public void SpaceNumberChange(int level, int number)
+    public void SpaceNumberChange(int level, int number, int totalNumber)
     {
        
     }

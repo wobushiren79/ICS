@@ -147,11 +147,11 @@ public class UIGameStoreCpt : BaseUIComponent,IGameDataCallBack
 
     #region  -------------------------场景数据回调-------------------------------
 
-    public void GoodsNumberChange(int level, int number)
+    public void GoodsNumberChange(int level, int number, int totalNumber)
     {
     }
 
-    public void SpaceNumberChange(int level, int number)
+    public void SpaceNumberChange(int level, int number, int totalNumber)
     {
     }
 

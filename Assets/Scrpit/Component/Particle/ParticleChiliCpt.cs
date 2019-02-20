@@ -37,12 +37,12 @@ public class ParticleChiliCpt : BaseMonoBehaviour, IGameDataCallBack
     }
 
     #region 用户数据改变回调
-    public void GoodsNumberChange(int level, int number)
+    public void GoodsNumberChange(int level, int number, int totalNumber)
     {
  
     }
 
-    public void SpaceNumberChange(int level, int number)
+    public void SpaceNumberChange(int level, int number, int totalNumber)
     {
     
     }

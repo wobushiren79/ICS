@@ -101,12 +101,12 @@ public class GameMainShowCpt : BaseMonoBehaviour,IGameDataCallBack
         numberItem.GetComponent<Text>().text ="+"+GameCommonInfo.GetPriceStr(addScore);
     }
 
-    public void GoodsNumberChange(int level, int number)
+    public void GoodsNumberChange(int level, int number, int totalNumber)
     {
    
     }
 
-    public void SpaceNumberChange(int level, int number)
+    public void SpaceNumberChange(int level, int number,int totalNumber)
     {
    
     }

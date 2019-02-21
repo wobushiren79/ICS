@@ -7040,6 +7040,7 @@ MonoBehaviour:
     space_introduction: 
   gameToastCpt: {fileID: 819547904}
   gameDataCpt: {fileID: 1387247830}
+  gameAchievementCpt: {fileID: 1387247836}
 --- !u!222 &1024926869
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7875,6 +7876,7 @@ MonoBehaviour:
     space_introduction: 
   gameToastCpt: {fileID: 819547904}
   gameDataCpt: {fileID: 1387247830}
+  gameAchievementCpt: {fileID: 0}
 --- !u!1 &1190520680
 GameObject:
   m_ObjectHideFlags: 0
@@ -10594,6 +10596,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameDataCpt: {fileID: 1387247830}
   apiGoodsLevel: GOODS_LEVEL
+  apiNumberGoods: NUMBER_LEVEL_
+  apiUnlockSkills: NUMBER_SKILLS
 --- !u!1 &1391374027
 GameObject:
   m_ObjectHideFlags: 0

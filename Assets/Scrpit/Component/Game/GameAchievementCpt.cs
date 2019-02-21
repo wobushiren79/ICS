@@ -2,12 +2,13 @@
 using UnityEditor;
 using System.Collections.Generic;
 
-public class GameAchievementCpt : BaseMonoBehaviour,IGameDataCallBack
+public class GameAchievementCpt : BaseMonoBehaviour, IGameDataCallBack
 {
     public GameDataCpt gameDataCpt;
 
     public string apiGoodsLevel = "GOODS_LEVEL";
     public string apiNumberGoods = "NUMBER_LEVEL_";
+    public string apiUnlockSkills = "NUMBER_SKILLS";
     private void Start()
     {
         if (gameDataCpt != null)
@@ -15,6 +16,12 @@ public class GameAchievementCpt : BaseMonoBehaviour,IGameDataCallBack
             gameDataCpt.AddObserver(this);
             GoodsLevelChange(gameDataCpt.userData.goodsLevel);
         }
+    }
+
+    public void UpdateUnlockSkillsData()
+    {
+        if (gameDataCpt != null && gameDataCpt.userData.userAchievement != null && gameDataCpt.userData.userAchievement.unlockSkillsList != null)
+            SteamUserStatsHandle.UserStatsDataUpdate(apiUnlockSkills, gameDataCpt.userData.userAchievement.unlockSkillsList.Count);
     }
 
     public void GoodsLevelChange(int level)
@@ -39,7 +46,7 @@ public class GameAchievementCpt : BaseMonoBehaviour,IGameDataCallBack
     {
     }
 
-    public void SpaceNumberChange(int level, int number,int totalNumber)
+    public void SpaceNumberChange(int level, int number, int totalNumber)
     {
     }
 }

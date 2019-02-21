@@ -2,6 +2,7 @@
 using UnityEditor;
 using UnityEngine.UI;
 using DG.Tweening;
+using System.Linq;
 
 public class GameSkillsDetailsItem : PopupReplyView
 {
@@ -12,6 +13,7 @@ public class GameSkillsDetailsItem : PopupReplyView
     public LevelScenesBean levelScenesBean;
     public GameToastCpt gameToastCpt;
     public GameDataCpt gameDataCpt;
+    public GameAchievementCpt gameAchievementCpt;
     private bool hasSkills = false;
 
     public virtual void SetData(LevelSkillsBean levelSkillsBean, LevelScenesBean levelScenesBean)
@@ -95,7 +97,12 @@ public class GameSkillsDetailsItem : PopupReplyView
                 gameDataCpt.userData.userAchievement.unlockSkillsList = new System.Collections.Generic.List<long>();
             }
             gameDataCpt.userData.userAchievement.unlockSkillsList.Add(levelSkillsBean.id);
+            gameDataCpt.userData.userAchievement.unlockSkillsList.Distinct();
             gameDataCpt.userData.userAchievement.unlockSkillsList.Sort();
+            if (gameAchievementCpt != null)
+            {
+                gameAchievementCpt.UpdateUnlockSkillsData();
+            }
             ivBorder.color = new Color(1, 1, 1);
             ivIcon.color = new Color(1, 1, 1);
 

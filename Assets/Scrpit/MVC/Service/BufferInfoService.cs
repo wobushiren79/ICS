@@ -10,7 +10,7 @@ public class BufferInfoService
     public BufferInfoService()
     {
         mTableName = "buffer_info";
-        mLeftTableName = "buffer_info_details_" + GameCommonInfo.LANGUAGE;
+        mLeftTableName = "buffer_info_details_" + GameCommonInfo.gameConfig.language;
     }
 
     /// <summary>

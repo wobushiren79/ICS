@@ -10,7 +10,7 @@ public class LevelScenesService
     public LevelScenesService()
     {
         mTableName = "level_scenes";
-        mLeftTableName = "level_scenes_details_" + GameCommonInfo.LANGUAGE;
+        mLeftTableName = "level_scenes_details_" + GameCommonInfo.gameConfig.language;
     }
 
     /// <summary>

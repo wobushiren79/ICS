@@ -11,6 +11,9 @@ public class UIMainStartCpt : BaseUIComponent {
     //开始按钮
     public Button btStart;
     public Text tvStart;
+    //设置按钮
+    public Button btSetting;
+    public Text tvSetting;
 
     private void Start()
     {
@@ -18,11 +21,15 @@ public class UIMainStartCpt : BaseUIComponent {
             btExit.onClick.AddListener(BTExitOnClick);
         if (btStart != null)
             btStart.onClick.AddListener(BTStartOnClick);
+        if (btSetting != null)
+            btSetting.onClick.AddListener(BTSettingOnClick);
 
         if (tvStart != null)
             tvStart.text = GameCommonInfo.GetTextById(1);
         if (tvExit != null)
             tvExit.text = GameCommonInfo.GetTextById(2);
+        if(tvSetting!=null)
+            tvSetting.text= GameCommonInfo.GetTextById(68);
     }
 
 
@@ -35,10 +42,19 @@ public class UIMainStartCpt : BaseUIComponent {
     }
 
     /// <summary>
+    /// 设置按钮点击
+    /// </summary>
+    public void BTSettingOnClick()
+    {
+        uiManager.OpenUIAndCloseOtherByName("Setting");
+    }
+
+    /// <summary>
     /// 退出按钮点击
     /// </summary>
     public void BTExitOnClick()
     {
         GameUtil.ExitGame();
     }
+
 }

@@ -3,17 +3,23 @@ using UnityEditor;
 
 public class GameCommonInfo 
 {
-    public static string LANGUAGE = "cn";
     public static string gameUserId;
+    public static  GameConfigBean gameConfig;
 
     private static GameConfigController mGameConfigController;
     private static UITextController mUITextController;
      
     static GameCommonInfo()
     {
+        gameConfig = new GameConfigBean();
         mGameConfigController = new GameConfigController(null, new GameConfigCallBack());
         mUITextController = new UITextController(null,null);
         mGameConfigController.GetGameConfigData();
+    }
+
+    public static void SaveGameConfig()
+    {
+        mGameConfigController.SaveGameConfigData(gameConfig);
     }
 
     public static string GetTextById(long id)
@@ -119,7 +125,7 @@ public class GameCommonInfo
 
         public void GetGameConfigSuccess(GameConfigBean configBean)
         {
-            GameCommonInfo.LANGUAGE = configBean.language;
+            gameConfig = configBean;
             mUITextController.RefreshData();
         }
 

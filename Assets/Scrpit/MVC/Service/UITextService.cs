@@ -10,7 +10,7 @@ public class UITextService
     public UITextService()
     {
         mTableName = "ui_text";
-        mLeftTableName = "ui_text_details_" + GameCommonInfo.LANGUAGE;
+        mLeftTableName = "ui_text_details_" + GameCommonInfo.gameConfig.language;
     }
 
     /// <summary>

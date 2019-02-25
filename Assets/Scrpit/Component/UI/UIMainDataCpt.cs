@@ -8,8 +8,6 @@ public class UIMainDataCpt : BaseUIComponent,IUserDataView
     public Text tvTitle;
     //返回按钮文字
     public Text tvBack;
-
-
     //返回按钮
     public Button btBack;
 

@@ -10,7 +10,7 @@ public class LevelSkillsService
     public LevelSkillsService()
     {
         mTableName = "level_skills";
-        mLeftTableName = "level_skills_details_" + GameCommonInfo.LANGUAGE;
+        mLeftTableName = "level_skills_details_" + GameCommonInfo.gameConfig.language;
     }
 
     /// <summary>

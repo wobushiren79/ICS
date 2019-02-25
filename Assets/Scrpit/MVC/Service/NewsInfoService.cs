@@ -10,7 +10,7 @@ public class NewsInfoService
     public NewsInfoService()
     {
         mTableName = "news_info";
-        mLeftTableName = "news_info_details_" + GameCommonInfo.LANGUAGE;
+        mLeftTableName = "news_info_details_" + GameCommonInfo.gameConfig.language;
     }
 
     /// <summary>

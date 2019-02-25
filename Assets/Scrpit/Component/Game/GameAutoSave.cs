@@ -10,6 +10,7 @@ public class GameAutoSave : BaseMonoBehaviour
 
     private void Start()
     {
+        autoTime = GameCommonInfo.gameConfig.autoSaveTime;
         StartCoroutine(AutoSave());
     }
 

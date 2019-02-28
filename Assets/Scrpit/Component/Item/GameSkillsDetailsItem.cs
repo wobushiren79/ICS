@@ -140,7 +140,7 @@ public class GameSkillsDetailsItem : PopupReplyView
         }
         if (levelSkillsBean.add_grow != 0)
         {
-            numberStr = GameCommonInfo.GetPriceStr(levelSkillsBean.add_grow);
+            numberStr = GameCommonInfo.GetPriceStr(levelSkillsBean.add_grow,2);
             remarkStr += "【" + GameCommonInfo.GetTextById(46) + "】";
             if (levelScenesBean.level == 0)
             {

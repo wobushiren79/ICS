@@ -31,7 +31,7 @@ public class GameSkillsItem :BaseMonoBehaviour
             GameObject itemObj=  Instantiate(itemDetailsModel, itemDetailsModel.transform);
             itemObj.transform.SetParent(listDetailsObj.transform);
             itemObj.transform.localScale=new Vector3(0,0,0);
-            itemObj.transform.DOScale(new Vector3(1,1,1),0.5f).SetDelay(i * 0.1f);
+            itemObj.transform.DOScale(new Vector3(1,1,1),0.5f).SetDelay(i * 0.05f);
             itemObj.SetActive(true);
             GameSkillsDetailsItem itemCpt= itemObj.GetComponent<GameSkillsDetailsItem>();
             if (itemCpt != null)

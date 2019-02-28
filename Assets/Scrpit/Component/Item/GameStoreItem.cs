@@ -88,7 +88,8 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
             {
                 gameObject.transform.DOKill();
                 gameObject.transform.localScale = new Vector3(1, 1, 1);
-                gameObject.transform.DOShakeScale(1f, new Vector3(1.1f, 1.1f));
+            gameObject.transform.DOScale(new Vector3(0.8f, 0.8f), 0.2f).From();
+                // gameObject.transform.DOShakeScale(1f, new Vector3(1.1f, 1.1f));
                 //是否扣款成功
                 bool isRemove = false;
                 //是否有足够的地皮

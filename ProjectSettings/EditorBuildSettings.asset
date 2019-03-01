@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: b7435cf9b7c025b499e271ced74be4bc
+  - enabled: 1
+    path: Assets/Scenes/RebirthScene.unity
+    guid: acdac05abf110b1479fcb30c9a07a5d1
   m_configObjects: {}

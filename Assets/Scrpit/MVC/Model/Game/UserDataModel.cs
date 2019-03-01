@@ -97,6 +97,7 @@ public class UserDataModel : BaseMVCModel
         userData.userAchievement.listLevelData = new List<AchievementItemLevelBean>();
         userData.userAchievement.listLevelData.Add(tempLevelAch);
 
+        userData.rebirthData = new RebirthBean();
         userData = mUserDataService.SaveData(userData);
         return userData;
     }

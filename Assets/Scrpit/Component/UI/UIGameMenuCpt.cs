@@ -28,6 +28,9 @@ public class UIGameMenuCpt : BaseUIComponent
     //按钮-保存并退出
     public Button btSaveAndExit;
     public Text tvSaveAndExit;
+    //按钮-重生
+    public Button btRebirth;
+
 
     //数据管理
     public GameDataCpt gameDataCpt;
@@ -45,6 +48,8 @@ public class UIGameMenuCpt : BaseUIComponent
             btAchievement.onClick.AddListener(BTAchievementOnClick);
         if (btSaveAndExit != null)
             btSaveAndExit.onClick.AddListener(BTSaveAndExitOnClick);
+        if (btRebirth != null)
+            btRebirth.onClick.AddListener(BTRebirthOnClick);
         //初始化数据
         if (tvStore != null)
             tvStore.text = GameCommonInfo.GetTextById(32);
@@ -98,6 +103,14 @@ public class UIGameMenuCpt : BaseUIComponent
         SceneUtil.SceneChange("MainScene");
     }
 
+    /// <summary>
+    /// 重生按钮
+    /// </summary>
+    public void BTRebirthOnClick()
+    {
+        gameDataCpt.SaveUserData();
+        SceneUtil.SceneChange("RebirthScene");
+    }
 
     /// <summary>
     /// //实时更新数据

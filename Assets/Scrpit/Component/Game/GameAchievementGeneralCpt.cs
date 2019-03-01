@@ -22,15 +22,17 @@ public class GameAchievementGeneralCpt : BaseMonoBehaviour
     {
         if (itemModel == null || gameDataCpt == null)
             return;
+        if (gameDataCpt.userData.rebirthData == null)
+            gameDataCpt.userData.rebirthData = new RebirthBean();
         CptUtil.RemoveChildsByActive(listContent.transform);
         CreateItem(GameCommonInfo.GetTextById(63) + "：", GameCommonInfo.GetPriceStr(gameDataCpt.userData.userScore), "sacuce_list_0");
         CreateItem(GameCommonInfo.GetTextById(65) + "：", GameCommonInfo.GetPriceStr(gameDataCpt.userData.userAchievement.maxUserScore), "sacuce_list_0");
-        CreateItem(GameCommonInfo.GetTextById(64) + "：", gameDataCpt.userData.reincarnationNumber+"");
+        CreateItem(GameCommonInfo.GetTextById(64) + "：", gameDataCpt.userData.rebirthData.rebirthNumber+"");
         CreateItem(GameCommonInfo.GetTextById(67) + "：", gameDataCpt.userData.userAchievement.clickTime + "");
         List<LevelScenesBean> listScenesData= gameDataCpt.listScenesData;
         if (listScenesData!=null)
         {
-            if (gameDataCpt.userData.reincarnationNumber <= 0)
+            if (gameDataCpt.userData.rebirthData.rebirthNumber <= 0)
             {
 
             }

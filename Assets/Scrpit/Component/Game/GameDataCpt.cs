@@ -3,7 +3,7 @@ using UnityEditor;
 using System.Collections.Generic;
 using System.Collections;
 
-public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGameScenesView, IGameSkillsView
+public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGameScenesView, IGameSkillsView,ITalentInfoView
 {
 
     //用户数据
@@ -12,6 +12,8 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
     public List<LevelScenesBean> listScenesData;
     //所有技能数据
     public List<LevelSkillsBean> listSkillsData;
+    //所有天赋数据
+    public List<TalentInfoBean> listTalentData;
     //图标列表
     public List<IconKV> listIconData;
     public List<IconKV> listSauceData;
@@ -21,20 +23,27 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
     private UserDataController mUserDataController;
     private GameScenesController mGameScenesController;
     private GameSkillsController mGameSkillsController;
+    private TalentInfoController mTalentInfoController;
+
+    public bool isUpdate = true;
 
     private void Awake()
     {
         mUserDataController = new UserDataController(this, this);
         mGameScenesController = new GameScenesController(this, this);
         mGameSkillsController = new GameSkillsController(this, this);
+        mTalentInfoController = new TalentInfoController(this,this);
 
         mUserDataController.GetUserData(GameCommonInfo.gameUserId);
         mGameScenesController.GetAllGameScenesData();
         mGameSkillsController.GetAllLevelSkill();
+        mTalentInfoController.GetAllTalentInfo();
     }
 
     private void FixedUpdate()
     {
+        if (!isUpdate)
+            return;
         float updateNumber = 1 / Time.fixedDeltaTime;
         if (updateNumber <= 0)
             return;
@@ -55,6 +64,16 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
         {
             //最高得分修改
             userData.userAchievement.maxUserScore = userData.userScore;
+        }
+        if (userData.goodsLevel > userData.userAchievement.maxUserGoodsLevel)
+        {
+            //最高物品等级修改
+            userData.userAchievement.maxUserGoodsLevel = userData.goodsLevel;
+        }
+        if (userData.scoreLevel > userData.userAchievement.maxUserScoreLevel)
+        {
+            //最高物品等级修改
+            userData.userAchievement.maxUserScoreLevel = userData.scoreLevel;
         }
     }
 
@@ -522,6 +541,16 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
     }
 
     public void GetAllLevelSkillsDataFail()
+    {
+
+    }
+
+    public void GetTalentInfoDataSuccess(List<TalentInfoBean> listData)
+    {
+        this.listTalentData = listData;
+    }
+
+    public void GetTalentInfoDataFail()
     {
 
     }

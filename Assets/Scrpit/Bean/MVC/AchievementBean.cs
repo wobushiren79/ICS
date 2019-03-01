@@ -8,6 +8,10 @@ public class AchievementBean
 {
     //达到过的最高用户分数
     public double maxUserScore;
+    //达到过的最高物品等级
+    public int maxUserGoodsLevel;
+    //达到过的最高地皮等级
+    public int maxUserScoreLevel;
     //点击次数
     public long clickTime;
     //用户解锁过的技能列表

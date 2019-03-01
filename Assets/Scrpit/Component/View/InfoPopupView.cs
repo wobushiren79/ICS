@@ -19,6 +19,11 @@ public class InfoPopupView : BaseMonoBehaviour
     public RectTransform screenRTF;
     public RectTransform thisRTF;
 
+    public bool isMoveX = true;
+    public bool isMoveY = true;
+    public float offsetX = 0;
+    public float offsetY = 0;
+
     private void Update()
     {
         if (screenRTF == null)
@@ -29,7 +34,17 @@ public class InfoPopupView : BaseMonoBehaviour
             Vector2 outPosition;
             //屏幕坐标转换为UI坐标
             RectTransformUtility.ScreenPointToLocalPointInRectangle(screenRTF, Input.mousePosition, Camera.main, out outPosition);
-            transform.localPosition = new Vector3(transform.localPosition.x, outPosition.y, transform.localPosition.z);
+            float moveX = outPosition.x;
+            float moveY = outPosition.y;
+            if (!isMoveX)
+            {
+                moveX = transform.localPosition.x;
+            }
+            if (!isMoveY)
+            {
+                moveY = transform.localPosition.y;
+            }
+            transform.localPosition = new Vector3(moveX+ offsetX, moveY+ offsetY, transform.localPosition.z);
         }
     }
 

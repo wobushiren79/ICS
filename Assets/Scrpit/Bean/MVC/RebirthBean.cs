@@ -6,6 +6,8 @@ using System.Collections.Generic;
 [Serializable]
 public class RebirthBean 
 {
+    //转生辣椒
+    public double rebirthChili;
     //转生次数
     public int rebirthNumber;
     //天赋数据

@@ -6,6 +6,11 @@ using System.Collections.Generic;
 
 public class UIRebirthTalentCpt : BaseUIComponent
 {
+    public Button btBack;
+    public Button btRebirth;
+    public Text tvBack;
+    public Text tvRebirth;
+
     public GameDataCpt gameDataCpt;
 
     public GameObject listTalentContent;
@@ -13,6 +18,10 @@ public class UIRebirthTalentCpt : BaseUIComponent
 
     private void Start()
     {
+        if (btBack != null)
+            btBack.onClick.AddListener(BackOnClick);
+        if (btRebirth != null)
+            btRebirth.onClick.AddListener(RebirthOnClick);
         InitData();
     }
 
@@ -37,6 +46,21 @@ public class UIRebirthTalentCpt : BaseUIComponent
         }
     }
 
+    public void RebirthOnClick()
+    {
+
+    }
+
+    public void BackOnClick()
+    {
+        SceneUtil.SceneChange("GameScene");
+    }
+
+    /// <summary>
+    /// 创建Item
+    /// </summary>
+    /// <param name="talentInfoBean"></param>
+    /// <param name="rebirthTalentItemBean"></param>
     public void CreateItemTalent(TalentInfoBean talentInfoBean, RebirthTalentItemBean rebirthTalentItemBean)
     {
         if (listTalentContent == null || itemTalentModel == null)

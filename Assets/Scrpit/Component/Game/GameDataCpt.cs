@@ -172,6 +172,14 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
     }
 
     /// <summary>
+    /// 重生用户数据
+    /// </summary>
+    public void RebirthUserData()
+    {
+        mUserDataController.RebirthUserData(userData);
+    }
+
+    /// <summary>
     /// 获取用户名称
     /// </summary>
     /// <returns></returns>
@@ -525,6 +533,16 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
 
     }
 
+    public void ChangeUserDataSuccess(UserDataBean userData)
+    {
+
+    }
+
+    public void ChangeUserDataFail(UserDataModel.UserDataFailEnum failEnum)
+    {
+
+    }
+
     public void GetScenesDataSuccessByUserData(LevelScenesBean levelScenesData, UserItemLevelBean itemLevelData)
     {
 
@@ -554,6 +572,7 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
     {
 
     }
+
     #endregion
 
 

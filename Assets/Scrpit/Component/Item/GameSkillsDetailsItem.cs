@@ -34,6 +34,7 @@ public class GameSkillsDetailsItem : PopupReplyView
             ivBorder.color = new Color(0.3f, 0.3f, 0.3f);
             ivIcon.color = new Color(0.3f, 0.3f, 0.3f);
         }
+        btSubmit.onClick.RemoveAllListeners();
         btSubmit.onClick.AddListener(BTSkillsBuyOnClick);
     }
 

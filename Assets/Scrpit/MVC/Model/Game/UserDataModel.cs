@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
+using System;
 
 public class UserDataModel : BaseMVCModel
 {
@@ -98,6 +99,29 @@ public class UserDataModel : BaseMVCModel
         userData.userAchievement.listLevelData.Add(tempLevelAch);
 
         userData.rebirthData = new RebirthBean();
+        userData = mUserDataService.SaveData(userData);
+        return userData;
+    }
+
+    /// <summary>
+    /// 重生用户数据
+    /// </summary>
+    /// <param name="userData"></param>
+    /// <param name="userDataView"></param>
+    /// <returns></returns>
+    public UserDataBean RebirthUserData(UserDataBean userData, IUserDataView userDataView)
+    {
+        if (CheckUtil.StringIsNull(userData.userId))
+        {
+            userDataView.ChangeUserDataFail(UserDataFailEnum.NoUserId);
+            return userData;
+        }
+        List<UserItemLevelBean> itemLevelList = userData.listUserLevelData ;
+        //查询等级1的数据 
+        double totalGrow = 0;
+        userData.listUserLevelData = itemLevelList;
+        userData.userGrow = totalGrow;
+        userData.userTimes = 1;
         userData = mUserDataService.SaveData(userData);
         return userData;
     }

@@ -11,6 +11,10 @@ public class UIRebirthTalentCpt : BaseUIComponent
     public Text tvBack;
     public Text tvRebirth;
 
+    public Text tvTitle;
+    public Text tvRebirthNumber;
+    public Text tvPoints;
+
     public GameDataCpt gameDataCpt;
 
     public GameObject listTalentContent;
@@ -22,9 +26,22 @@ public class UIRebirthTalentCpt : BaseUIComponent
             btBack.onClick.AddListener(BackOnClick);
         if (btRebirth != null)
             btRebirth.onClick.AddListener(RebirthOnClick);
+        if (tvBack != null)
+            tvBack.text = GameCommonInfo.GetTextById(78);
+        if (tvRebirth != null)
+            tvRebirth.text = GameCommonInfo.GetTextById(77);
+        if (tvTitle != null)
+            tvTitle.text = GameCommonInfo.GetTextById(75);
+        if (tvRebirthNumber != null)
+            tvRebirthNumber.text = GameCommonInfo.GetTextById(76)+"\n"+gameDataCpt.userData.rebirthData.rebirthNumber;
         InitData();
     }
 
+    private void Update()
+    {
+        if (tvPoints != null)
+            tvPoints.text = "x" + gameDataCpt.userData.rebirthData.rebirthChili;
+    }
     public void InitData()
     {
         if (gameDataCpt.userData.rebirthData==null)

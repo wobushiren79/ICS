@@ -50,4 +50,16 @@ public interface IUserDataView
     /// </summary>
     /// <param name="failEnum"></param>
     void DeleteUserDataFail(UserDataModel.UserDataFailEnum failEnum);
+
+    /// <summary>
+    /// 修改用户数据成功
+    /// </summary>
+    /// <param name="userData"></param>
+    void ChangeUserDataSuccess(UserDataBean userData);
+    
+    /// <summary>
+    /// 修改用户数据失败
+    /// </summary>
+    /// <param name="failEnum"></param>
+    void ChangeUserDataFail(UserDataModel.UserDataFailEnum failEnum);
 }

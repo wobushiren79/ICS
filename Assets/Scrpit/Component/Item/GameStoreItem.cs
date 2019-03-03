@@ -84,6 +84,8 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
         SetPrice(pirce);
         //设置按钮
         if (btSubmit != null)
+        {
+            btSubmit.onClick.RemoveAllListeners();
             btSubmit.onClick.AddListener(delegate ()
             {
                 gameObject.transform.DOKill();
@@ -97,7 +99,7 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
                 switch (itemType)
                 {
                     case StoreItemType.Goods:
-                        isSpace = gameData.HasSpaceToAddGoodsByLevel(mUserLevelData,1); 
+                        isSpace = gameData.HasSpaceToAddGoodsByLevel(mUserLevelData, 1);
                         if (isSpace)
                             isRemove = gameData.RemoveScore(PriceConversion(StoreItemType.Goods, this.levelScenesBean.goods_sell_price, mUserLevelData.goodsNumber));
                         if (isRemove && isSpace)
@@ -124,6 +126,8 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
                     }
                 }
             });
+        }
+           
 
         //设置不同状态的按钮
         if (gameData.userData.scoreLevel >= levelScenesBean.level)

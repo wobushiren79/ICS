@@ -72,6 +72,19 @@ public class UserDataController : BaseMVCController<UserDataModel, IUserDataView
     }
 
     /// <summary>
+    /// 重生用户数据
+    /// </summary>
+    /// <param name="userData"></param>
+    public void RebirthUserData(UserDataBean userData)
+    {
+        //重生用户数据
+        GetModel().RebirthUserData(userData, GetView());
+        //通知保存成功
+        if (userData != null)
+            GetView().ChangeUserDataSuccess(userData);
+    }
+
+    /// <summary>
     /// 删除用户数据
     /// </summary>
     /// <param name="userId"></param>

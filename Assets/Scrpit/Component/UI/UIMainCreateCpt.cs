@@ -108,5 +108,15 @@ public class UIMainCreateCpt : BaseUIComponent,IUserDataView
     {
         throw new System.NotImplementedException();
     }
+
+    public void ChangeUserDataSuccess(UserDataBean userData)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void ChangeUserDataFail(UserDataModel.UserDataFailEnum failEnum)
+    {
+        throw new System.NotImplementedException();
+    }
     #endregion
 }

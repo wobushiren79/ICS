@@ -12,7 +12,10 @@ public class TalentInfoBean
     public int unlock_level;//解锁等级
     public int add_type;//类型 0 手指；1-15 等级；
     public string icon_key;//图标key
+    public double price;//价格
+    public double add_number;//增加数量
 
     public string name;
     public string content;
+    public string other;
 }

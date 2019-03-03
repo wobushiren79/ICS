@@ -97,6 +97,16 @@ public class UIMainDataCpt : BaseUIComponent,IUserDataView
     {
         throw new System.NotImplementedException();
     }
+
+    public void ChangeUserDataSuccess(UserDataBean userData)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void ChangeUserDataFail(UserDataModel.UserDataFailEnum failEnum)
+    {
+        throw new System.NotImplementedException();
+    }
     #endregion
 
     /// <summary>
@@ -124,6 +134,7 @@ public class UIMainDataCpt : BaseUIComponent,IUserDataView
         }
         //设置删除按钮
         Button btDelete = CptUtil.GetCptInChildrenByName<Button>(oldItem, "Delete");
+        btDelete.onClick.RemoveAllListeners();
         btDelete.onClick.AddListener(delegate ()
         {
             if (dialogManager != null) {
@@ -137,6 +148,7 @@ public class UIMainDataCpt : BaseUIComponent,IUserDataView
         });
         //开始游戏
         Button btStart = oldItem.GetComponent<Button>();
+        btStart.onClick.RemoveAllListeners();
         btStart.onClick.AddListener(delegate ()
         {
             GameCommonInfo.gameUserId = userData.userId;
@@ -154,6 +166,7 @@ public class UIMainDataCpt : BaseUIComponent,IUserDataView
         newItem.transform.parent = listUserDataContent.transform;
         //创建按钮
         Button btCreate = newItem.GetComponent<Button>();
+        btCreate.onClick.RemoveAllListeners();
         btCreate.onClick.AddListener(delegate ()
         {
             uiManager.OpenUIAndCloseOtherByName("Create");

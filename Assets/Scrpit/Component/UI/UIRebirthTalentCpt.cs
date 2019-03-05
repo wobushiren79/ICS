@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using System.Collections.Generic;
 
-public class UIRebirthTalentCpt : BaseUIComponent
+public class UIRebirthTalentCpt : BaseUIComponent,DialogView.IDialogCallBack
 {
     public Button btBack;
     public Button btRebirth;
@@ -19,6 +19,7 @@ public class UIRebirthTalentCpt : BaseUIComponent
 
     public GameObject listTalentContent;
     public GameObject itemTalentModel;
+    public DialogManager dialogManager;
 
     private void Start()
     {
@@ -42,6 +43,7 @@ public class UIRebirthTalentCpt : BaseUIComponent
         if (tvPoints != null)
             tvPoints.text = "x" + gameDataCpt.userData.rebirthData.rebirthChili;
     }
+
     public void InitData()
     {
         if (gameDataCpt.userData.rebirthData==null)
@@ -63,13 +65,28 @@ public class UIRebirthTalentCpt : BaseUIComponent
         }
     }
 
+    /// <summary>
+    /// 转生按钮
+    /// </summary>
     public void RebirthOnClick()
     {
-
+        if (dialogManager != null)
+        {
+            DialogBean dialogBean = new DialogBean();
+            dialogBean.title = GameCommonInfo.GetTextById(89);
+            dialogBean.content = GameCommonInfo.GetTextById(90);
+            dialogBean.submitStr = GameCommonInfo.GetTextById(57);
+            dialogBean.cancelStr = GameCommonInfo.GetTextById(58);
+            dialogManager.CreateDialog(0, this, dialogBean);
+        }
     }
 
+    /// <summary>
+    /// 返回按钮 
+    /// </summary>
     public void BackOnClick()
     {
+        //TODO 如果加了天赋，天赋的点数需要返回
         SceneUtil.SceneChange("GameScene");
     }
 
@@ -91,4 +108,27 @@ public class UIRebirthTalentCpt : BaseUIComponent
         talentItem.SetData(talentInfoBean, rebirthTalentItemBean);
         talentObj.transform.DOScale(new Vector3(0, 0, 0),1f).From();
     }
+
+    /// <summary>
+    /// 增加重生辣酱
+    /// </summary>
+    /// <param name="chiliNumber"></param>
+    public void AddRebirthChili(int chiliNumber)
+    {
+        gameDataCpt.userData.rebirthData.rebirthChili += chiliNumber;
+    }
+
+
+    #region 转生Dialog回调
+    public void Submit(DialogView dialogView)
+    {
+        gameDataCpt.RebirthUserData();
+        SceneUtil.SceneChange("GameScene");
+    }
+
+    public void Cancel(DialogView dialogView)
+    {
+
+    }
+    #endregion
 }

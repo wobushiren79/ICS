@@ -55,6 +55,8 @@ public class RebirthTalentItemCpt : PopupReplyView
         if (rebirthTalentItemBean == null)
         {
             this.rebirthTalentItemBean = new RebirthTalentItemBean();
+            this.rebirthTalentItemBean.talent_id = talentBean.id;
+            this.rebirthTalentItemBean.add_type = talentBean.add_type;
             gameDataCpt.userData.rebirthData.listRebirthTalentData.Add(this.rebirthTalentItemBean);
         }
         if (gameDataCpt == null)
@@ -106,12 +108,12 @@ public class RebirthTalentItemCpt : PopupReplyView
         transform.localScale = new Vector3(1, 1, 1);
         transform.DOScale(new Vector3(0.8f, 0.8f), 0.3f).From();
         double price = GetTalentPrice(talentBean.price, rebirthBean.talent_level);
-        //if (gameDataCpt.userData.rebirthData.rebirthChili - price < 0)
-        //{
-        //    gameToastCpt.ToastHint(GameCommonInfo.GetTextById(84));
-        //    return;
-        //}
-        //gameDataCpt.userData.rebirthData.rebirthChili -= price;
+        if (gameDataCpt.userData.rebirthData.rebirthChili - price < 0)
+        {
+            gameToastCpt.ToastHint(GameCommonInfo.GetTextById(84));
+            return;
+        }
+        gameDataCpt.userData.rebirthData.rebirthChili -= price;
         rebirthTalentItemBean.talent_level += 1;
         rebirthTalentItemBean.total_add += talentBean.add_number;
 

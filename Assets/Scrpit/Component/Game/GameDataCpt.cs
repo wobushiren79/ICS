@@ -535,7 +535,9 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
 
     public void ChangeUserDataSuccess(UserDataBean userData)
     {
-
+        this.userData = userData;
+        RefreshData();
+        SaveUserData();
     }
 
     public void ChangeUserDataFail(UserDataModel.UserDataFailEnum failEnum)

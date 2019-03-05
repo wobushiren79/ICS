@@ -509,6 +509,10 @@ MonoBehaviour:
   line2: {fileID: 114872753520850798}
   screenRTF: {fileID: 0}
   thisRTF: {fileID: 224151384507123728}
+  isMoveX: 1
+  isMoveY: 1
+  offsetX: 0
+  offsetY: 0
 --- !u!114 &114772409988548704
 MonoBehaviour:
   m_ObjectHideFlags: 1

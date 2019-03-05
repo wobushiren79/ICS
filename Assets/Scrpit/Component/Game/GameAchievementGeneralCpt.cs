@@ -27,8 +27,9 @@ public class GameAchievementGeneralCpt : BaseMonoBehaviour
         CptUtil.RemoveChildsByActive(listContent.transform);
         CreateItem(GameCommonInfo.GetTextById(63) + "：", GameCommonInfo.GetPriceStr(gameDataCpt.userData.userScore), "sacuce_list_0");
         CreateItem(GameCommonInfo.GetTextById(65) + "：", GameCommonInfo.GetPriceStr(gameDataCpt.userData.userAchievement.maxUserScore), "sacuce_list_0");
-        CreateItem(GameCommonInfo.GetTextById(64) + "：", gameDataCpt.userData.rebirthData.rebirthNumber+"");
         CreateItem(GameCommonInfo.GetTextById(67) + "：", gameDataCpt.userData.userAchievement.clickTime + "");
+        CreateItem(GameCommonInfo.GetTextById(64) + "：", gameDataCpt.userData.rebirthData.rebirthNumber + "");
+        CreateItem(GameCommonInfo.GetTextById(88) + "：", gameDataCpt.userData.rebirthData.rebirthChili + "", "rebirth_chili");
         List<LevelScenesBean> listScenesData= gameDataCpt.listScenesData;
         if (listScenesData!=null)
         {

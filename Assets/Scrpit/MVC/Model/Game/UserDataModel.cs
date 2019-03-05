@@ -55,7 +55,7 @@ public class UserDataModel : BaseMVCModel
         UserDataBean userData = new UserDataBean();
         List<UserItemLevelBean> itemLevelList = new List<UserItemLevelBean>();
         
-        //查询等级1的数据 
+        //查询等级0 1的数据 
         List<LevelScenesBean> listLevelData = mLevelScenesService.QueryDataByLevel(new int[] {0,1});
         if (CheckUtil.ListIsNull(listLevelData))
             return null;
@@ -117,12 +117,69 @@ public class UserDataModel : BaseMVCModel
             return userData;
         }
         List<UserItemLevelBean> itemLevelList = userData.listUserLevelData ;
-        //查询等级1的数据 
-        double totalGrow = 0;
+        List<RebirthTalentItemBean> rebirthTalentList= userData.rebirthData.listRebirthTalentData;
+        double userTimeAdd = 1;
+        if (rebirthTalentList != null)
+        {
+            //不同等级重生
+            for (int f = 0; f < itemLevelList.Count; f++)
+            {
+                UserItemLevelBean itemLevelBean = itemLevelList[f];
+                itemLevelBean.itemTimes = 1;
+                itemLevelBean.itemGrow = 0;
+                itemLevelBean.goodsNumber = 0;
+                itemLevelBean.spaceNumber = 0;
+                if (itemLevelBean.level == 1)
+                {
+                    itemLevelBean.goodsNumber = 1;
+                    itemLevelBean.spaceNumber = 1;
+                    List<LevelScenesBean> levelScenesBeans = mLevelScenesService.QueryDataByLevel(1);
+                    if (!CheckUtil.ListIsNull(levelScenesBeans))
+                    {
+                        itemLevelBean.itemGrow = levelScenesBeans[0].item_grow;
+                    }
+                }
+
+                for (int i = 0; i < rebirthTalentList.Count; i++)
+                {
+                    RebirthTalentItemBean rebirthTalentItem = rebirthTalentList[i];
+                    if(rebirthTalentItem.add_type== itemLevelBean.level)
+                    {
+                        itemLevelBean.itemTimes += rebirthTalentItem.total_add;
+                        break;
+                    }
+                }
+            }
+            //特殊修改
+            for (int i = 0; i < rebirthTalentList.Count; i++)
+            {
+                RebirthTalentItemBean rebirthTalentItem = rebirthTalentList[i];
+                //手指点击修改
+                if (rebirthTalentItem.add_type == 101)
+                {
+                    userData.clickData.itemGrow = 1;
+                    userData.clickData.itemTimes = 1;
+                    List<LevelScenesBean> levelScenesBeans= mLevelScenesService.QueryDataByLevel(0);
+                    if (!CheckUtil.ListIsNull(levelScenesBeans))
+                    {
+                        userData.clickData.itemGrow = levelScenesBeans[0].item_grow;
+                    }
+                    userData.clickData.itemTimes += rebirthTalentItem.total_add;
+                }
+                if (rebirthTalentItem.add_type == 201)
+                {
+                    userTimeAdd += rebirthTalentItem.total_add;
+                }
+            }
+        }
         userData.listUserLevelData = itemLevelList;
-        userData.userGrow = totalGrow;
-        userData.userTimes = 1;
-        userData = mUserDataService.SaveData(userData);
+        userData.userScore = 0;
+        userData.userGrow = 0;
+        userData.userTimes = userTimeAdd;
+        userData.goodsLevel = 1;
+        userData.scoreLevel = 1;
+        userData.listSkillsData = new List<long>();
+        userData.rebirthData.rebirthNumber += 1;
         return userData;
     }
 

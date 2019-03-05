@@ -46,6 +46,8 @@ public class UIGameLevelInfoCpt : BaseUIComponent,IGameDataCallBack
         for(int i=0;i< userLevelDataList.Count; i++)
         {
             UserItemLevelBean levelData= userLevelDataList[i];
+            if (levelData.spaceNumber == 0)
+                return;
             GameObject levelObj =   Instantiate(levelItemModel, levelItemModel.transform);
             levelObj.SetActive(true);
             levelObj.transform.SetParent(levelContent.transform);
@@ -101,7 +103,7 @@ public class UIGameLevelInfoCpt : BaseUIComponent,IGameDataCallBack
         //重新初始化RB
         if (levelRG != null)
             levelRG.AutoFindRadioButton();
-       RadioButtonView itemRB=  levelRG.listButton[gameCameraCpt.cameraLevel - 1];
+        RadioButtonView itemRB=  levelRG.listButton[gameCameraCpt.cameraLevel - 1];
         levelRG.RadioButtonSelected(itemRB);
     }
 

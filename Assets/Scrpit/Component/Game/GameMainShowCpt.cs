@@ -98,7 +98,7 @@ public class GameMainShowCpt : BaseMonoBehaviour,IGameDataCallBack
         });
         CanvasGroup itemNumberCG = numberItem.GetComponent<CanvasGroup>();
         itemNumberCG.DOFade(0, addAnimTime/2 );
-        numberItem.GetComponent<Text>().text ="+"+GameCommonInfo.GetPriceStr(addScore);
+        numberItem.GetComponent<Text>().text ="+"+GameCommonInfo.GetPriceStr(addScore,2);
     }
 
     public void GoodsNumberChange(int level, int number, int totalNumber)

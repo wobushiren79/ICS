@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIGameMenuCpt : BaseUIComponent
+public class UIGameMenuCpt : BaseUIComponent, DialogView.IDialogCallBack
 {
 
     //显示-名字
@@ -34,6 +34,10 @@ public class UIGameMenuCpt : BaseUIComponent
 
     //数据管理
     public GameDataCpt gameDataCpt;
+    //提示框
+    public GameToastCpt gameToastCpt;
+    //提示框
+    public DialogManager dialogManager;
     /// <summary>
     /// 初始化
     /// </summary>
@@ -108,8 +112,20 @@ public class UIGameMenuCpt : BaseUIComponent
     /// </summary>
     public void BTRebirthOnClick()
     {
-        gameDataCpt.SaveUserData();
-        SceneUtil.SceneChange("RebirthScene");
+        if (gameToastCpt!=null&& gameDataCpt.userData.userScore < 1e8)
+        {
+            gameToastCpt.ToastHint(GameCommonInfo.GetTextById(87));
+            return;
+        }
+        if (dialogManager != null)
+        {
+            DialogBean dialogBean = new DialogBean();
+            dialogBean.title = GameCommonInfo.GetTextById(86);
+            dialogBean.content = GameCommonInfo.GetTextById(85);
+            dialogBean.submitStr = GameCommonInfo.GetTextById(57);
+            dialogBean.cancelStr = GameCommonInfo.GetTextById(58);
+            dialogManager.CreateDialog(0,this, dialogBean);
+        }
     }
 
     /// <summary>
@@ -136,4 +152,17 @@ public class UIGameMenuCpt : BaseUIComponent
         if (tvName != null)
             tvName.text = gameDataCpt.userData.userName;
     }
+
+    #region 重生弹窗回调
+    public void Cancel(DialogView dialogView)
+    {
+
+    }
+
+    public void Submit(DialogView dialogView)
+    {
+        gameDataCpt.SaveUserData();
+        SceneUtil.SceneChange("RebirthScene");
+    }
+    #endregion
 }

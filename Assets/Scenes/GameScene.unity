@@ -13970,7 +13970,7 @@ MonoBehaviour:
   itemShowDetailsModel: {fileID: 668550713}
   gameDataCpt: {fileID: 1387247830}
   listBufferInfoData: []
-  waitTime: 180
+  waitTime: 2
   animDuration: 20
   IsShow: 1
 --- !u!1 &1920852387

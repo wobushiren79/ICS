@@ -3,6 +3,7 @@ using UnityEditor;
 using UnityEngine.UI;
 using System.Collections;
 using DG.Tweening;
+using System.Threading;
 
 public class GameBufferItem : PopupReplyView
 {
@@ -18,6 +19,7 @@ public class GameBufferItem : PopupReplyView
     public float amount = 1f;
     public float countDownTime = 0;
 
+    Thread thread;
     private void Start()
     {
 
@@ -25,30 +27,37 @@ public class GameBufferItem : PopupReplyView
 
     private void Update()
     {
-
+        ivMask.fillAmount = amount;
+        if (thread != null && !thread.IsAlive)
+        {
+            transform.DOScale(new Vector3(0, 0), 0.5f).OnComplete(delegate ()
+            {
+                Destroy(this.gameObject);
+            });
+        }
     }
 
     public void SetData(BufferInfoBean bufferData)
     {
         this.bufferData = bufferData;
-        scenesData= gameDataCpt.GetScenesByLevel(bufferData.level);
+        scenesData = gameDataCpt.GetScenesByLevel(bufferData.level);
         if (ivIcon != null)
             ivIcon.sprite = gameDataCpt.GetIconByKey(bufferData.icon_key);
         transform.localScale = new Vector3(0, 0, 0);
         transform.DOScale(new Vector3(1, 1), 0.5f);
         if (bufferData == null)
             return;
-        StartCoroutine(StartTime(bufferData));
+        thread = new Thread(new ThreadStart(StartTime));
+        thread.Start();
     }
 
-    private IEnumerator StartTime(BufferInfoBean bufferData)
+    private void StartTime()
     {
         countDownTime = bufferData.time;
         while (countDownTime > 0)
         {
             amount = countDownTime / this.bufferData.time;
-            ivMask.fillAmount = amount;
-            yield return new WaitForSeconds(1f);
+            Thread.Sleep(1000);
             countDownTime -= 1f;
             double addScore = 0;
             if (bufferData.level == -1)
@@ -65,14 +74,16 @@ public class GameBufferItem : PopupReplyView
             }
             gameDataCpt.userData.userScore += addScore;
         }
-        transform.DOScale(new Vector3(0, 0), 0.5f).OnComplete(delegate ()
-        {
-            Destroy(this.gameObject);
-        });
     }
+
+
 
     private void OnDestroy()
     {
+        if (thread != null)
+        {
+            thread.Abort();
+        }
         if (infoPopupView != null)
             infoPopupView.gameObject.SetActive(false);
     }
@@ -84,7 +95,7 @@ public class GameBufferItem : PopupReplyView
 
     public override void OpenPopup()
     {
-        if (bufferData == null || gameDataCpt == null|| scenesData==null)
+        if (bufferData == null || gameDataCpt == null || scenesData == null)
             return;
         Sprite iconSP = ivIcon.sprite;
         string remark = "+ " + bufferData.add_grow * 100 + "%" + scenesData.goods_name + GameCommonInfo.GetTextById(54);

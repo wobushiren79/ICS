@@ -98,7 +98,7 @@ public class GameSkillsDetailsItem : PopupReplyView
                 gameDataCpt.userData.userAchievement.unlockSkillsList = new System.Collections.Generic.List<long>();
             }
             gameDataCpt.userData.userAchievement.unlockSkillsList.Add(levelSkillsBean.id);
-            gameDataCpt.userData.userAchievement.unlockSkillsList.Distinct();
+            gameDataCpt.userData.userAchievement.unlockSkillsList=gameDataCpt.userData.userAchievement.unlockSkillsList.Distinct().ToList(); ;
             gameDataCpt.userData.userAchievement.unlockSkillsList.Sort();
             if (gameAchievementCpt != null)
             {

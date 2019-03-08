@@ -180,6 +180,26 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
     }
 
     /// <summary>
+    /// 通过ID获取天赋数据
+    /// </summary>
+    /// <param name="id"></param>
+    public RebirthTalentItemBean GetRebirthTalentById(long id)
+    {
+        List<RebirthTalentItemBean> listData = userData.rebirthData.listRebirthTalentData;
+        if (listData == null)
+            return null;
+        for(int i = 0; i < listData.Count; i++)
+        {
+            RebirthTalentItemBean itemData = listData[i];
+            if (itemData.talent_id == id)
+            {
+                return itemData;
+            }
+        }
+        return null;
+    }
+
+    /// <summary>
     /// 获取用户名称
     /// </summary>
     /// <returns></returns>

@@ -40,10 +40,10 @@ public class RebirthTalentItemCpt : PopupReplyView
 
             }
             priceStr = GetTalentPrice(talentInfoBean.price, rebirthTalentItemBean.talent_level) + "";
-            otherStr += ("◆" + talentInfoBean.other + talentInfoBean.add_number * 100 + "%");
+            otherStr += ("◆" + talentInfoBean.other + talentInfoBean.add_number );
             otherStr += "\n";
             otherStr += ("◆" + GameCommonInfo.GetTextById(80) + rebirthTalentItemBean.talent_level);
-            otherStr += (" " + GameCommonInfo.GetTextById(81) + rebirthTalentItemBean.total_add * 100 + "%");
+            otherStr += (" " + GameCommonInfo.GetTextById(81) + rebirthTalentItemBean.total_add );
         }
         infoPopupView.SetInfoData(ivTalentIcon.sprite, nameStr, remark, priceStr, contentStr, otherStr);
     }
@@ -67,7 +67,7 @@ public class RebirthTalentItemCpt : PopupReplyView
             return;
         string iconKeyStr = "";
         string titleStr = "";
-
+        Color tvTitleColor = new Color(1,1,1); ;
         if (talentInfoBean.unlock_level > gameDataCpt.userData.userAchievement.maxUserGoodsLevel)
         {
             iconKeyStr = "unlock";
@@ -77,10 +77,11 @@ public class RebirthTalentItemCpt : PopupReplyView
         {
             iconKeyStr = talentInfoBean.icon_key;
             titleStr = GameCommonInfo.GetTextById(82) + " " + this.rebirthTalentItemBean.talent_level;
+            tvTitleColor = new Color(1,1- (this.rebirthTalentItemBean.talent_level / 100f), 1- (this.rebirthTalentItemBean.talent_level / 100f));
         }
         ivTalentIcon.sprite = gameDataCpt.GetIconByKey(iconKeyStr);
         tvTitle.text = titleStr;
-
+        tvTitle.color = tvTitleColor;
         if (btTalent != null) {
             btTalent.onClick.RemoveAllListeners();
             btTalent.onClick.AddListener(delegate ()

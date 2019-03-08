@@ -21,7 +21,8 @@ public class GameMainShowCpt : BaseMonoBehaviour,IGameDataCallBack
 
     //屏幕(用来找到鼠标点击的相对位置)
     public RectTransform screenRTF;
-
+    //重生天赋 自动点击天赋
+    public RebirthTalentItemBean rebirthTalentData;
     public float addAnimTime =3;
 
     private void Awake()
@@ -40,18 +41,38 @@ public class GameMainShowCpt : BaseMonoBehaviour,IGameDataCallBack
         GoodsLevelChange(gameDataCpt.userData.goodsLevel);
         gameDataCpt.AddObserver(this);
         if (btAdd != null)
-            btAdd.onClick.AddListener(BTAddOnClick);
+            btAdd.onClick.AddListener(delegate() {
+                BTAddOnClick(true);
+            });
+        rebirthTalentData= gameDataCpt.GetRebirthTalentById(102);
     }
+
+    float autoClickTime = 0;
+    private void Update()
+    {
+        //自动点击
+        if (rebirthTalentData == null || rebirthTalentData.total_add == 0|| rebirthTalentData.talent_level==0)
+           return;
+        if (autoClickTime > rebirthTalentData.total_add/60f)
+        {
+            BTAddOnClick(false);
+            autoClickTime = 0;
+        }
+        autoClickTime += Time.deltaTime;
+    }
+
+    
 
     private void OnDestroy()
     {
         if (gameDataCpt != null)
             gameDataCpt.RemoveObserver(this);
     }
+
     /// <summary>
     /// 增加按钮点击
     /// </summary>
-    public void BTAddOnClick()
+    public void BTAddOnClick(bool isFollowMouse)
     {
         if (tvScore == null)
             return;
@@ -60,7 +81,14 @@ public class GameMainShowCpt : BaseMonoBehaviour,IGameDataCallBack
         //成就记录
         gameDataCpt.userData.userAchievement.clickTime++;
         //屏幕坐标转换为UI坐标
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(screenRTF, Input.mousePosition, Camera.main, out outPosition);
+        if (isFollowMouse)
+        {
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(screenRTF, Input.mousePosition, Camera.main, out outPosition);
+        }
+        else
+        {
+            outPosition = btAdd.transform.localPosition;
+        }
         double addScore = 1;
         UserItemLevelBean itemData = gameDataCpt.userData.clickData;
         if (itemData != null)

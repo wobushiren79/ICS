@@ -9,6 +9,7 @@ public class GameAchievementCpt : BaseMonoBehaviour, IGameDataCallBack
     public string apiGoodsLevel = "GOODS_LEVEL";
     public string apiNumberGoods = "NUMBER_LEVEL_";
     public string apiUnlockSkills = "NUMBER_SKILLS";
+    public string apiNumberRebirth = "NUMBER_REBIRTH";
     private void Start()
     {
         if (gameDataCpt != null)
@@ -32,6 +33,11 @@ public class GameAchievementCpt : BaseMonoBehaviour, IGameDataCallBack
     public void GoodsNumberChange(int level, int number, int totalNumber)
     {
         SteamUserStatsHandle.UserStatsDataUpdate(apiNumberGoods + level, totalNumber);
+    }
+
+    public void RebirthNumberChange(int totalNumber)
+    {
+        SteamUserStatsHandle.UserStatsDataUpdate(apiNumberRebirth, totalNumber);
     }
 
     public void ObserbableUpdate(int type, params Object[] obj)

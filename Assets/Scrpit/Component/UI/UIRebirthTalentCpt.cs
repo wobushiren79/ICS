@@ -16,10 +16,12 @@ public class UIRebirthTalentCpt : BaseUIComponent,DialogView.IDialogCallBack
     public Text tvPoints;
 
     public GameDataCpt gameDataCpt;
+    public GameAchievementCpt gameAchievementCpt;
 
     public GameObject listTalentContent;
     public GameObject itemTalentModel;
     public DialogManager dialogManager;
+
 
     private void Start()
     {
@@ -123,6 +125,8 @@ public class UIRebirthTalentCpt : BaseUIComponent,DialogView.IDialogCallBack
     public void Submit(DialogView dialogView)
     {
         gameDataCpt.RebirthUserData();
+        if (gameAchievementCpt != null)
+            gameAchievementCpt.RebirthNumberChange(gameDataCpt.userData.rebirthData.rebirthNumber);
         SceneUtil.SceneChange("GameScene");
     }
 

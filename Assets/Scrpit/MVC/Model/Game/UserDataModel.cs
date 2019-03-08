@@ -119,6 +119,7 @@ public class UserDataModel : BaseMVCModel
         List<UserItemLevelBean> itemLevelList = userData.listUserLevelData ;
         List<RebirthTalentItemBean> rebirthTalentList= userData.rebirthData.listRebirthTalentData;
         double userTimeAdd = 1;
+        double userScoreAdd = 0;
         if (rebirthTalentList != null)
         {
             //不同等级重生
@@ -155,25 +156,29 @@ public class UserDataModel : BaseMVCModel
             {
                 RebirthTalentItemBean rebirthTalentItem = rebirthTalentList[i];
                 //手指点击修改
-                if (rebirthTalentItem.add_type == 101)
+                switch (rebirthTalentItem.add_type)
                 {
-                    userData.clickData.itemGrow = 1;
-                    userData.clickData.itemTimes = 1;
-                    List<LevelScenesBean> levelScenesBeans= mLevelScenesService.QueryDataByLevel(0);
-                    if (!CheckUtil.ListIsNull(levelScenesBeans))
-                    {
-                        userData.clickData.itemGrow = levelScenesBeans[0].item_grow;
-                    }
-                    userData.clickData.itemTimes += rebirthTalentItem.total_add;
-                }
-                if (rebirthTalentItem.add_type == 201)
-                {
-                    userTimeAdd += rebirthTalentItem.total_add;
+                    case 101:
+                        userData.clickData.itemGrow = 1;
+                        userData.clickData.itemTimes = 1;
+                        List<LevelScenesBean> levelScenesBeans = mLevelScenesService.QueryDataByLevel(0);
+                        if (!CheckUtil.ListIsNull(levelScenesBeans))
+                        {
+                            userData.clickData.itemGrow = levelScenesBeans[0].item_grow;
+                        }
+                        userData.clickData.itemTimes += rebirthTalentItem.total_add;
+                        break;
+                    case 201:
+                        userTimeAdd += rebirthTalentItem.total_add;
+                        break;
+                    case 202:
+                        userScoreAdd += rebirthTalentItem.total_add;
+                        break;
                 }
             }
         }
         userData.listUserLevelData = itemLevelList;
-        userData.userScore = 0;
+        userData.userScore = userScoreAdd;
         userData.userGrow = 0;
         userData.userTimes = userTimeAdd;
         userData.goodsLevel = 1;

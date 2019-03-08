@@ -12017,6 +12017,7 @@ GameObject:
   - component: {fileID: 1492095870}
   - component: {fileID: 1492095869}
   - component: {fileID: 1492095871}
+  - component: {fileID: 1492095872}
   m_Layer: 0
   m_Name: RebirthMananger
   m_TagString: Untagged
@@ -12100,6 +12101,8 @@ MonoBehaviour:
     value: {fileID: 21300000, guid: 80b96c9eda7142a468b71acd985720fa, type: 3}
   - key: unlock
     value: {fileID: 21300000, guid: f0cb2356914229f4db26ac7a91b78c22, type: 3}
+  - key: cursor_auto
+    value: {fileID: 21300000, guid: b8b0144a01c2b9240acfb34512f1d182, type: 3}
   listSauceData:
   - key: sauce_list_0
     value: {fileID: 21300000, guid: f0023fbd8ea28204c8b13d5af5a1b286, type: 3}
@@ -12140,6 +12143,22 @@ MonoBehaviour:
   listDialogModel:
   - {fileID: 658685094}
   parentObj: {fileID: 1810474}
+--- !u!114 &1492095872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1492095868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce5904d85f5680e40b8e89e61cfa652b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameDataCpt: {fileID: 1492095869}
+  apiGoodsLevel: GOODS_LEVEL
+  apiNumberGoods: NUMBER_LEVEL_
+  apiUnlockSkills: NUMBER_SKILLS
+  apiNumberRebirth: NUMBER_REBIRTH
 --- !u!1 &1555634479
 GameObject:
   m_ObjectHideFlags: 0
@@ -12309,6 +12328,7 @@ MonoBehaviour:
   tvRebirthNumber: {fileID: 1933710291}
   tvPoints: {fileID: 1603783703}
   gameDataCpt: {fileID: 1492095869}
+  gameAchievementCpt: {fileID: 1492095872}
   listTalentContent: {fileID: 1478800498}
   itemTalentModel: {fileID: 37260036}
   dialogManager: {fileID: 1492095871}

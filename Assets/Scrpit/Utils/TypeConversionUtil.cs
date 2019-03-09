@@ -2,9 +2,20 @@
 using UnityEditor;
 using System.Collections.Generic;
 using System.Linq;
-
+using System;
 public class TypeConversionUtil
 {
+    /// <summary>
+    /// 自定义时间格式转换系统时间格式
+    /// </summary>
+    /// <param name="timeBean"></param>
+    /// <returns></returns>
+    public static DateTime TimeBeanToDateTime(TimeBean timeBean)
+    {
+        DateTime dateTime = new DateTime(timeBean.year, timeBean.month, timeBean.day, timeBean.hour, timeBean.minute, timeBean.second);
+        return dateTime;
+    }
+
     /// <summary>
     /// Vector3 转化为 Vector2
     /// </summary>

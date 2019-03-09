@@ -17,6 +17,10 @@ public class GameToastCpt : BaseMonoBehaviour
     {
         CreateToast(null, GameCommonInfo.GetTextById(27), hintContent,3);
     }
+    public void ToastHint(string hintContent, float destoryTime)
+    {
+        CreateToast(null, GameCommonInfo.GetTextById(27), hintContent, destoryTime);
+    }
 
     /// <summary>
     /// 创建toast

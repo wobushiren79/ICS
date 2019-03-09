@@ -2,6 +2,7 @@
 using UnityEditor;
 using System.Collections.Generic;
 using System.Collections;
+using System;
 
 public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGameScenesView, IGameSkillsView,ITalentInfoView
 {
@@ -47,7 +48,7 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
         float updateNumber = 1 / Time.fixedDeltaTime;
         if (updateNumber <= 0)
             return;
-        double tempGrow = (userData.userGrow * userData.userTimes) / updateNumber;
+        double tempGrow = userData.GetUserGrowBySecond() / updateNumber;
         userData.userScore += tempGrow;
         CheckLevel();
         CheckAchievement();
@@ -168,6 +169,7 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
     /// <returns></returns>
     public void SaveUserData()
     {
+        userData.offlineTime = TimeUtil.GetNowTime();
         mUserDataController.SaveUserData(userData);
     }
 

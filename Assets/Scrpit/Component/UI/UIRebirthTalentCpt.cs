@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using System.Collections.Generic;
 
-public class UIRebirthTalentCpt : BaseUIComponent,DialogView.IDialogCallBack
+public class UIRebirthTalentCpt : BaseUIComponent, DialogView.IDialogCallBack
 {
     public Button btBack;
     public Button btRebirth;
@@ -14,6 +14,7 @@ public class UIRebirthTalentCpt : BaseUIComponent,DialogView.IDialogCallBack
     public Text tvTitle;
     public Text tvRebirthNumber;
     public Text tvPoints;
+    public InputField etName;
 
     public GameDataCpt gameDataCpt;
     public GameAchievementCpt gameAchievementCpt;
@@ -21,6 +22,7 @@ public class UIRebirthTalentCpt : BaseUIComponent,DialogView.IDialogCallBack
     public GameObject listTalentContent;
     public GameObject itemTalentModel;
     public DialogManager dialogManager;
+    public GameToastCpt gameToastCpt;
 
 
     private void Start()
@@ -36,7 +38,9 @@ public class UIRebirthTalentCpt : BaseUIComponent,DialogView.IDialogCallBack
         if (tvTitle != null)
             tvTitle.text = GameCommonInfo.GetTextById(75);
         if (tvRebirthNumber != null)
-            tvRebirthNumber.text = GameCommonInfo.GetTextById(76)+"\n"+gameDataCpt.userData.rebirthData.rebirthNumber;
+            tvRebirthNumber.text = GameCommonInfo.GetTextById(76) + "\n" + gameDataCpt.userData.rebirthData.rebirthNumber;
+        if (etName != null)
+            etName.text = gameDataCpt.userData.userName;
         InitData();
     }
 
@@ -48,21 +52,21 @@ public class UIRebirthTalentCpt : BaseUIComponent,DialogView.IDialogCallBack
 
     public void InitData()
     {
-        if (gameDataCpt.userData.rebirthData==null)
+        if (gameDataCpt.userData.rebirthData == null)
         {
             gameDataCpt.userData.rebirthData = new RebirthBean();
         }
-        if (gameDataCpt.userData.rebirthData.listRebirthTalentData==null)
+        if (gameDataCpt.userData.rebirthData.listRebirthTalentData == null)
         {
             gameDataCpt.userData.rebirthData.listRebirthTalentData = new List<RebirthTalentItemBean>();
         }
         List<TalentInfoBean> listTalentData = gameDataCpt.listTalentData;
         if (listTalentData != null)
         {
-            for(int i = 0; i < listTalentData.Count; i++)
+            for (int i = 0; i < listTalentData.Count; i++)
             {
                 TalentInfoBean itemTalentData = listTalentData[i];
-                CreateItemTalent(itemTalentData,gameDataCpt.userData.rebirthData.GetRebirthTalentDataById(itemTalentData.id));
+                CreateItemTalent(itemTalentData, gameDataCpt.userData.rebirthData.GetRebirthTalentDataById(itemTalentData.id));
             }
         }
     }
@@ -72,6 +76,13 @@ public class UIRebirthTalentCpt : BaseUIComponent,DialogView.IDialogCallBack
     /// </summary>
     public void RebirthOnClick()
     {
+        if (CheckUtil.StringIsNull(etName.text))
+        {
+            if (gameToastCpt != null)
+                gameToastCpt.ToastHint(GameCommonInfo.GetTextById(28));
+            return;
+        }
+        gameDataCpt.userData.userName = etName.text;
         if (dialogManager != null)
         {
             DialogBean dialogBean = new DialogBean();
@@ -106,9 +117,9 @@ public class UIRebirthTalentCpt : BaseUIComponent,DialogView.IDialogCallBack
         talentObj.transform.SetParent(listTalentContent.transform);
         talentObj.transform.localPosition = new Vector3((float)talentInfoBean.position_x, (float)talentInfoBean.position_y, talentObj.transform.position.y);
 
-        RebirthTalentItemCpt talentItem= talentObj.GetComponent<RebirthTalentItemCpt>();
+        RebirthTalentItemCpt talentItem = talentObj.GetComponent<RebirthTalentItemCpt>();
         talentItem.SetData(talentInfoBean, rebirthTalentItemBean);
-        talentObj.transform.DOScale(new Vector3(0, 0, 0),1f).From();
+        talentObj.transform.DOScale(new Vector3(0, 0, 0), 1f).From();
     }
 
     /// <summary>

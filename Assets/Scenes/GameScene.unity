@@ -9183,6 +9183,7 @@ GameObject:
   - component: {fileID: 1387247835}
   - component: {fileID: 1387247836}
   - component: {fileID: 1387247837}
+  - component: {fileID: 1387247838}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -9241,6 +9242,13 @@ MonoBehaviour:
       clickTime: 0
       unlockSkillsList: 
       listLevelData: []
+    offlineTime:
+      year: 0
+      month: 0
+      day: 0
+      hour: 0
+      minute: 0
+      second: 0
   listScenesData: []
   listSkillsData: []
   listTalentData: []
@@ -10247,6 +10255,7 @@ MonoBehaviour:
   apiGoodsLevel: GOODS_LEVEL
   apiNumberGoods: NUMBER_LEVEL_
   apiUnlockSkills: NUMBER_SKILLS
+  apiNumberRebirth: NUMBER_REBIRTH
 --- !u!114 &1387247837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10261,6 +10270,19 @@ MonoBehaviour:
   listDialogModel:
   - {fileID: 7891166}
   parentObj: {fileID: 351465807}
+--- !u!114 &1387247838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1387247828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0941bd8e14e509a4381cfa23d2b91416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameDataCpt: {fileID: 1387247830}
+  gameToastCpt: {fileID: 819547904}
 --- !u!1 &1391374027
 GameObject:
   m_ObjectHideFlags: 0
@@ -11279,6 +11301,11 @@ MonoBehaviour:
   tvScore: {fileID: 1391374029}
   gameDataCpt: {fileID: 1387247830}
   screenRTF: {fileID: 1502091310}
+  rebirthTalentData:
+    talent_id: 0
+    add_type: 0
+    talent_level: 0
+    total_add: 0
   addAnimTime: 3
 --- !u!1 &1516840805
 GameObject:

@@ -30,4 +30,23 @@ public class UserDataBean
     public RebirthBean rebirthData;
     //用户成就
     public AchievementBean userAchievement;
+    //离线时间
+    public TimeBean offlineTime;
+
+    /// <summary>
+    /// 获取用户增加率（每秒）
+    /// </summary>
+    /// <returns></returns>
+    public double GetUserGrowBySecond()
+    {
+        return userGrow * userTimes;
+    }
+    /// <summary>
+    /// 获取用户增加率（每分钟）
+    /// </summary>
+    /// <returns></returns>
+    public double GetUserGrowByHours()
+    {
+        return GetUserGrowBySecond() * 60 * 60;
+    }
 }

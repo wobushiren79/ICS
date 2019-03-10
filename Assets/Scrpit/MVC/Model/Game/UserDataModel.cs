@@ -54,9 +54,9 @@ public class UserDataModel : BaseMVCModel
     {
         UserDataBean userData = new UserDataBean();
         List<UserItemLevelBean> itemLevelList = new List<UserItemLevelBean>();
-        
+
         //查询等级0 1的数据 
-        List<LevelScenesBean> listLevelData = mLevelScenesService.QueryDataByLevel(new int[] {0,1});
+        List<LevelScenesBean> listLevelData = mLevelScenesService.QueryDataByLevel(new int[] { 0, 1 });
         if (CheckUtil.ListIsNull(listLevelData))
             return null;
         double totalGrow = 0;
@@ -72,7 +72,7 @@ public class UserDataModel : BaseMVCModel
             itemLevelData.itemGrow = initLevelData.item_grow;
 
 
-            if (initLevelData.level==0)
+            if (initLevelData.level == 0)
             {
                 userData.clickData = itemLevelData;
             }
@@ -92,7 +92,7 @@ public class UserDataModel : BaseMVCModel
         userData.userGrow = totalGrow;
         userData.userTimes = 1;
         userData.userName = userName;
- 
+
         userData.userAchievement = new AchievementBean();
         userData.userAchievement.unlockSkillsList = new List<long>();
         userData.userAchievement.listLevelData = new List<AchievementItemLevelBean>();
@@ -116,10 +116,12 @@ public class UserDataModel : BaseMVCModel
             userDataView.ChangeUserDataFail(UserDataFailEnum.NoUserId);
             return userData;
         }
-        List<UserItemLevelBean> itemLevelList = userData.listUserLevelData ;
-        List<RebirthTalentItemBean> rebirthTalentList= userData.rebirthData.listRebirthTalentData;
+        List<UserItemLevelBean> itemLevelList = userData.listUserLevelData;
+        List<RebirthTalentItemBean> rebirthTalentList = userData.rebirthData.listRebirthTalentData;
+        List<LevelScenesBean> levelScenesBeans = mLevelScenesService.QueryAllData();
         double userTimeAdd = 1;
         double userScoreAdd = 0;
+
         if (rebirthTalentList != null)
         {
             //不同等级重生
@@ -130,21 +132,26 @@ public class UserDataModel : BaseMVCModel
                 itemLevelBean.itemGrow = 0;
                 itemLevelBean.goodsNumber = 0;
                 itemLevelBean.spaceNumber = 0;
+                if (levelScenesBeans != null)
+                    for (int g = 0; g < levelScenesBeans.Count; g++)
+                    {
+                        LevelScenesBean levelScenes = levelScenesBeans[g];
+                        if (levelScenes.level == itemLevelBean.level)
+                        {
+                            itemLevelBean.itemGrow = levelScenesBeans[g].item_grow;
+                            break;
+                        }
+                    }
                 if (itemLevelBean.level == 1)
                 {
                     itemLevelBean.goodsNumber = 1;
                     itemLevelBean.spaceNumber = 1;
-                    List<LevelScenesBean> levelScenesBeans = mLevelScenesService.QueryDataByLevel(1);
-                    if (!CheckUtil.ListIsNull(levelScenesBeans))
-                    {
-                        itemLevelBean.itemGrow = levelScenesBeans[0].item_grow;
-                    }
                 }
 
                 for (int i = 0; i < rebirthTalentList.Count; i++)
                 {
                     RebirthTalentItemBean rebirthTalentItem = rebirthTalentList[i];
-                    if(rebirthTalentItem.add_type== itemLevelBean.level)
+                    if (rebirthTalentItem.add_type == itemLevelBean.level)
                     {
                         itemLevelBean.itemTimes += rebirthTalentItem.total_add;
                         break;
@@ -161,10 +168,10 @@ public class UserDataModel : BaseMVCModel
                     case 101:
                         userData.clickData.itemGrow = 1;
                         userData.clickData.itemTimes = 1;
-                        List<LevelScenesBean> levelScenesBeans = mLevelScenesService.QueryDataByLevel(0);
-                        if (!CheckUtil.ListIsNull(levelScenesBeans))
+                        List<LevelScenesBean> levelScenesClickBeans = mLevelScenesService.QueryDataByLevel(0);
+                        if (!CheckUtil.ListIsNull(levelScenesClickBeans))
                         {
-                            userData.clickData.itemGrow = levelScenesBeans[0].item_grow;
+                            userData.clickData.itemGrow = levelScenesClickBeans[0].item_grow;
                         }
                         userData.clickData.itemTimes += rebirthTalentItem.total_add;
                         break;
@@ -193,7 +200,7 @@ public class UserDataModel : BaseMVCModel
     /// </summary>
     /// <param name="userData"></param>
     /// <returns></returns>
-    public UserDataBean SaveUserData(UserDataBean userData,IUserDataView callBackView)
+    public UserDataBean SaveUserData(UserDataBean userData, IUserDataView callBackView)
     {
         if (userData == null)
         {

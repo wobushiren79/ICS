@@ -169,7 +169,6 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
     /// <returns></returns>
     public void SaveUserData()
     {
-        userData.offlineTime = TimeUtil.GetNowTime();
         mUserDataController.SaveUserData(userData);
     }
 
@@ -415,6 +414,13 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
         for (int i = 0; i < listUserLevelData.Count; i++)
         {
             UserItemLevelBean itemData = listUserLevelData[i];
+            //--------------BUG修复 正式版可以删除--------------
+            if (itemData.itemGrow == 0)
+            {
+                LevelScenesBean levelScenes= GetScenesByLevel(itemData.level);
+                itemData.itemGrow = levelScenes.item_grow;
+            }
+            //--------------BUG修复 正式版可以删除  --------------   
             if (itemData.level.Equals(level))
             {
                 itemData.goodsNumber += number;

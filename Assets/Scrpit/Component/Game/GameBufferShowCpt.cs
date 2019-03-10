@@ -17,9 +17,15 @@ public class GameBufferShowCpt : BaseMonoBehaviour, IBufferInfoView
     public List<BufferInfoBean> listBufferInfoData;
     private BufferInfoController mBufferInfoController;
 
-    public float waitTime = 120f;
-    public float animDuration = 20;
-    public bool IsShow = true;
+    public float waitTime = 180f;
+    public float animDuration = 20f;
+    public int addNumber = 1;
+    public bool isShow = true;
+
+    private RebirthTalentItemBean mTalentWaitTimeData;
+    private RebirthTalentItemBean mTalentAddNumberData;
+    private RebirthTalentItemBean mTalentAnimDurationData;
+
     private void Awake()
     {
         mBufferInfoController = new BufferInfoController(this, this);
@@ -28,19 +34,37 @@ public class GameBufferShowCpt : BaseMonoBehaviour, IBufferInfoView
     private void Start()
     {
         mBufferInfoController.GetAllBufferInfo();
+        //获取天赋-间隔时间
+        mTalentWaitTimeData = gameDataCpt.GetRebirthTalentById(401);
+        if (mTalentWaitTimeData != null && mTalentWaitTimeData.total_add > 0)
+            waitTime = waitTime / (float)mTalentWaitTimeData.total_add;
+        //获取天赋-礼物出现个数
+        mTalentAddNumberData = gameDataCpt.GetRebirthTalentById(402);
+        if (mTalentAddNumberData != null)
+            addNumber += (int)mTalentAddNumberData.total_add;
+        //获取天赋-礼物展示时间
+        mTalentAnimDurationData = gameDataCpt.GetRebirthTalentById(403);
+        if (mTalentAnimDurationData != null)
+            animDuration += (int)mTalentAnimDurationData.total_add;
+
         StartCoroutine(StartShow());
     }
 
     private IEnumerator StartShow()
     {
-        while (IsShow)
+        while (isShow)
         {
             yield return new WaitForSeconds(waitTime);
             if (CheckUtil.ListIsNull(listBufferInfoData))
                 continue;
-            BufferInfoBean itemBufferData= GetOneBuffer();
-            if(itemBufferData!=null)
-            CreateShowItem(itemBufferData);
+            for (int i = 0; i < addNumber; i++)
+            {
+                BufferInfoBean itemBufferData = GetOneBuffer();
+                if (itemBufferData != null)
+                {
+                    CreateShowItem(itemBufferData);
+                }
+            }
         }
     }
 
@@ -110,7 +134,7 @@ public class GameBufferShowCpt : BaseMonoBehaviour, IBufferInfoView
                 contentStr += "\n";
             if (itemBufferData.level == -1)
             {
-                 contentStr += ("+ " + itemBufferData.add_grow * 100 + "%" + GameCommonInfo.GetTextById(50) + GameCommonInfo.GetTextById(54));
+                contentStr += ("+ " + itemBufferData.add_grow * 100 + "%" + GameCommonInfo.GetTextById(50) + GameCommonInfo.GetTextById(54));
             }
             else
             {
@@ -147,7 +171,7 @@ public class GameBufferShowCpt : BaseMonoBehaviour, IBufferInfoView
         {
             Destroy(itemDetailsObj);
         });
-    
+
         bufferListCpt.AddBuffer(itemBufferData);
     }
 
@@ -155,19 +179,19 @@ public class GameBufferShowCpt : BaseMonoBehaviour, IBufferInfoView
     {
         if (listBufferInfoData == null)
             return null;
-        int level= Random.Range(-1, gameDataCpt.userData.goodsLevel + 1);
+        int level = Random.Range(1, gameDataCpt.userData.goodsLevel + 1);
         List<BufferInfoBean> tempList = new List<BufferInfoBean>();
-        for(int i=0;i< listBufferInfoData.Count; i++)
+        for (int i = 0; i < listBufferInfoData.Count; i++)
         {
-            BufferInfoBean itemInfo= listBufferInfoData[i];
+            BufferInfoBean itemInfo = listBufferInfoData[i];
             if (itemInfo.level == level)
             {
                 tempList.Add(itemInfo);
             }
         }
-        if (tempList == null)
+        if (CheckUtil.ListIsNull(tempList))
             return null;
-       return RandomUtil.GetRandomDataByList(tempList);
+        return RandomUtil.GetRandomDataByList(tempList);
     }
 
     #region 数据回调

@@ -13997,7 +13997,7 @@ MonoBehaviour:
   itemShowDetailsModel: {fileID: 668550713}
   gameDataCpt: {fileID: 1387247830}
   listBufferInfoData: []
-  waitTime: 120
+  waitTime: 180
   animDuration: 20
   IsShow: 1
 --- !u!1 &1920852387
@@ -15402,7 +15402,7 @@ ParticleSystem:
   stopAction: 0
   looping: 1
   prewarm: 1
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1

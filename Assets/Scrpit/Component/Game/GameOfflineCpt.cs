@@ -9,6 +9,7 @@ public class GameOfflineCpt : BaseMonoBehaviour
 
     private RebirthTalentItemBean offlineAddGrowData;
     private RebirthTalentItemBean offlineAddTimeData;
+    private RebirthTalentItemBean offlineAddMagnificationData;
 
     public void Start()
     {
@@ -39,6 +40,10 @@ public class GameOfflineCpt : BaseMonoBehaviour
             else if (itemData.add_type == 302){
                 offlineAddTimeData = itemData;
             }
+            else if (itemData.add_type == 303)
+            {
+                offlineAddMagnificationData = itemData;
+            }
         };
 
         if (offlineAddGrowData == null)
@@ -50,6 +55,11 @@ public class GameOfflineCpt : BaseMonoBehaviour
             //添加增加的时间
             offlineTotalHours += offlineAddTimeData.total_add;
         }
+        if (offlineAddMagnificationData != null)
+        {
+            offlineTotalHours = offlineTotalHours * (1 + offlineAddMagnificationData.total_add);
+        }
+
         //添加分数
         double addNumber = gameDataCpt.userData.GetUserGrowByHours() * offlineTotalHours * offlineAddGrowData.total_add;
         gameDataCpt.userData.userScore += addNumber;

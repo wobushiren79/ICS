@@ -15,4 +15,5 @@ public class UserItemLevelBean
     public double itemGrow = 0;
     //增长倍率
     public double itemTimes = 1;
+
 }

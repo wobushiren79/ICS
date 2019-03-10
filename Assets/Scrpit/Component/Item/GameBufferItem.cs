@@ -18,8 +18,11 @@ public class GameBufferItem : PopupReplyView
 
     public float amount = 1f;
     public float countDownTime = 0;
+    public int addTime = 0;
 
     Thread thread;
+
+    private RebirthTalentItemBean mTalentAddTimeData;
     private void Start()
     {
 
@@ -47,16 +50,21 @@ public class GameBufferItem : PopupReplyView
         transform.DOScale(new Vector3(1, 1), 0.5f);
         if (bufferData == null)
             return;
+        //获取天赋-效果持续时间
+        mTalentAddTimeData = gameDataCpt.GetRebirthTalentById(404);
+        if (mTalentAddTimeData != null)
+            addTime += (int)mTalentAddTimeData.total_add;
+
         thread = new Thread(new ThreadStart(StartTime));
         thread.Start();
     }
 
     private void StartTime()
     {
-        countDownTime = bufferData.time;
+        countDownTime = bufferData.time+ addTime;
         while (countDownTime > 0)
         {
-            amount = countDownTime / this.bufferData.time;
+            amount = countDownTime /(float)(bufferData.time + addTime);
             Thread.Sleep(1000);
             countDownTime -= 1f;
             double addScore = 0;
@@ -98,7 +106,8 @@ public class GameBufferItem : PopupReplyView
         if (bufferData == null || gameDataCpt == null || scenesData == null)
             return;
         Sprite iconSP = ivIcon.sprite;
-        string remark = "+ " + bufferData.add_grow * 100 + "%" + scenesData.goods_name + GameCommonInfo.GetTextById(54);
+        string remark = "❤+ " + bufferData.add_grow * 100 + "%" + scenesData.goods_name + GameCommonInfo.GetTextById(54);
+        remark += "\n❤" + GameCommonInfo.GetTextById(95)+ (bufferData.time+addTime)+ "s"; 
         infoPopupView.SetInfoData(iconSP, bufferData.name, "[" + GameCommonInfo.GetTextById(47) + "]", null, bufferData.content, remark);
     }
 }

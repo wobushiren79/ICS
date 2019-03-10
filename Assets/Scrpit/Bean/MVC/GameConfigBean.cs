@@ -13,5 +13,7 @@ public class GameConfigBean
     public float musicVolume = 1;
     //自动保存时间
     public float autoSaveTime = 30;
+    //辣椒下落特效（1开启，0关闭）
+    public int chiliPS = 1;
    
 }

@@ -46,6 +46,7 @@ public class UserDataService : BaseDataStorageImpl<UserDataBean>
     /// <param name="userData"></param>
     public UserDataBean SaveData(UserDataBean userData)
     {
+        userData.offlineTime = TimeUtil.GetNowTime();
         List<UserDataBean> listUserData = QueryAllData();
         //如果没有数据，则添加数据
         if (listUserData == null|| listUserData.Count==0)

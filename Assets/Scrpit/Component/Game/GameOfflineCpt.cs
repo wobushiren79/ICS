@@ -46,7 +46,7 @@ public class GameOfflineCpt : BaseMonoBehaviour
             }
         };
 
-        if (offlineAddGrowData == null)
+        if (offlineAddGrowData == null||offlineAddGrowData.talent_level==0)
         {
             return;
         }

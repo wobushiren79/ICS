@@ -313,6 +313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   infoPopupView: {fileID: 1471473333}
   ivTalentIcon: {fileID: 1940816844}
+  ivBorder: {fileID: 792208868}
   tvTitle: {fileID: 1062885462}
   btTalent: {fileID: 37260041}
   psTalent: {fileID: 1825614345}
@@ -336,6 +337,9 @@ MonoBehaviour:
     add_type: 0
     talent_level: 0
     total_add: 0
+  noChiliColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
+  hasChiliColor: {r: 1, g: 1, b: 1, a: 1}
+  talentPrice: 0
 --- !u!114 &37260041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12355,6 +12359,14 @@ MonoBehaviour:
       hour: 0
       minute: 0
       second: 0
+    gameTime:
+      year: 0
+      month: 0
+      day: 0
+      hour: 0
+      minute: 0
+      second: 0
+    chiliOil: 0
   listScenesData: []
   listSkillsData: []
   listTalentData: []

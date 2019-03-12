@@ -30,6 +30,8 @@ public class UIGameMenuCpt : BaseUIComponent, DialogView.IDialogCallBack
     public Text tvSaveAndExit;
     //按钮-重生
     public Button btRebirth;
+    //按钮-转盘
+    public Button btTurntable;
 
 
     //数据管理
@@ -54,6 +56,8 @@ public class UIGameMenuCpt : BaseUIComponent, DialogView.IDialogCallBack
             btSaveAndExit.onClick.AddListener(BTSaveAndExitOnClick);
         if (btRebirth != null)
             btRebirth.onClick.AddListener(BTRebirthOnClick);
+        if (btTurntable != null)
+            btTurntable.onClick.AddListener(BTTurntableOnClick);
         //初始化数据
         if (tvStore != null)
             tvStore.text = GameCommonInfo.GetTextById(32);
@@ -127,6 +131,15 @@ public class UIGameMenuCpt : BaseUIComponent, DialogView.IDialogCallBack
             dialogManager.CreateDialog(0,this, dialogBean);
         }
     }
+
+    /// <summary>
+    /// 转盘按钮
+    /// </summary>
+    public void BTTurntableOnClick()
+    {
+        uiManager.OpenUIAndCloseOtherByName("GameTurntable");
+    }
+
 
     /// <summary>
     /// //实时更新数据

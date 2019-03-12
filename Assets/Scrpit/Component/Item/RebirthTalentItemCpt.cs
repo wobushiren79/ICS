@@ -7,6 +7,7 @@ using System;
 public class RebirthTalentItemCpt : PopupReplyView
 {
     public Image ivTalentIcon;
+    public Image ivBorder;
     public Text tvTitle;
     public Button btTalent;
     public ParticleSystem psTalent;
@@ -15,6 +16,29 @@ public class RebirthTalentItemCpt : PopupReplyView
     public GameDataCpt gameDataCpt;
     public TalentInfoBean talentInfoBean;
     public RebirthTalentItemBean rebirthTalentItemBean;
+
+    public Color noChiliColor = new Color(0.3f, 0.3f, 0.3f);
+    public Color hasChiliColor=new Color(1,1,1);
+
+    public double talentPrice=0;
+    private void Update()
+    {
+        if (gameDataCpt == null)
+            return;
+        if (gameDataCpt.userData.rebirthData == null)
+            gameDataCpt.userData.rebirthData = new RebirthBean();
+        if (talentPrice > gameDataCpt.userData.rebirthData.rebirthChili)
+        {
+            ivTalentIcon.color = noChiliColor;
+            ivBorder.color = noChiliColor;
+        }
+        else
+        {
+            ivTalentIcon.color = hasChiliColor;
+            ivBorder.color = hasChiliColor;
+        }
+    }
+
     public override void ClosePopup()
     {
 
@@ -65,6 +89,7 @@ public class RebirthTalentItemCpt : PopupReplyView
             return;
         if (tvTitle == null)
             return;
+        talentPrice = GetTalentPrice(talentInfoBean.price, rebirthTalentItemBean.talent_level);
         string iconKeyStr = "";
         string titleStr = "";
         Color tvTitleColor = new Color(1,1,1); ;
@@ -108,13 +133,12 @@ public class RebirthTalentItemCpt : PopupReplyView
         transform.DOKill();
         transform.localScale = new Vector3(1, 1, 1);
         transform.DOScale(new Vector3(0.8f, 0.8f), 0.3f).From();
-        double price = GetTalentPrice(talentBean.price, rebirthBean.talent_level);
-        if (gameDataCpt.userData.rebirthData.rebirthChili - price < 0)
+        if (gameDataCpt.userData.rebirthData.rebirthChili - talentPrice < 0)
         {
             gameToastCpt.ToastHint(GameCommonInfo.GetTextById(84));
             return;
         }
-        gameDataCpt.userData.rebirthData.rebirthChili -= price;
+        gameDataCpt.userData.rebirthData.rebirthChili -= talentPrice;
         rebirthTalentItemBean.talent_level += 1;
         rebirthTalentItemBean.total_add += talentBean.add_number;
 

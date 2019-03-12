@@ -30,21 +30,35 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
     public GameToastCpt toastCpt;
     //相关数据
     public LevelScenesBean levelScenesBean;
-    public GameDataCpt gameData;
+    public GameDataCpt gameDataCpt;
     private UserItemLevelBean mUserLevelData;
 
     public Sprite thumbIcon;//缩略图
     public StoreItemType itemType;
+
+    public Color noMoneyColor = new Color(1,0,0);
+    public Color hasMoneyColor = new Color(0,1,0);
+    public double goodsPirce = 0;
     private void Awake()
     {
-        if (gameData != null)
-            gameData.AddObserver(this);
+        if (gameDataCpt != null)
+            gameDataCpt.AddObserver(this);
     }
-
+    private void Update()
+    {
+        if (goodsPirce > gameDataCpt.userData.userScore)
+        {
+            tvPrice.color = noMoneyColor;
+        }
+        else
+        {
+            tvPrice.color = hasMoneyColor;
+        }
+    }
     private void OnDestroy()
     {
-        if (gameData != null)
-            gameData.RemoveObserver(this);
+        if (gameDataCpt != null)
+            gameDataCpt.RemoveObserver(this);
     }
 
     public void SetData(StoreItemType itemType, Sprite icon, Sprite thumbIcon, LevelScenesBean itemData)
@@ -52,24 +66,23 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
         this.levelScenesBean = itemData;
         this.thumbIcon = thumbIcon;
         this.itemType = itemType;
-        mUserLevelData = gameData.GetUserItemLevelDataByLevel(this.levelScenesBean.level);
+        mUserLevelData = gameDataCpt.GetUserItemLevelDataByLevel(this.levelScenesBean.level);
 
         string nameStr = "---";
         int number = 0;
-        double pirce = 0;
         switch (itemType)
         {
             case StoreItemType.Goods:
                 nameStr = itemData.goods_name;
                 if (mUserLevelData != null)
                     number = mUserLevelData.goodsNumber;
-                pirce = PriceConversion(StoreItemType.Goods, this.levelScenesBean.goods_sell_price, number);
+                goodsPirce = PriceConversion(StoreItemType.Goods, this.levelScenesBean.goods_sell_price, number);
                 break;
             case StoreItemType.Space:
                 nameStr = itemData.space_name;
                 if (mUserLevelData != null)
                     number = mUserLevelData.spaceNumber;
-                pirce = PriceConversion(StoreItemType.Space, this.levelScenesBean.space_sell_price, number);
+                goodsPirce = PriceConversion(StoreItemType.Space, this.levelScenesBean.space_sell_price, number);
                 break;
         }
         //设置名字
@@ -81,7 +94,7 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
         //设置数量
         SetNumber(number);
         //设置价格
-        SetPrice(pirce);
+        SetPrice(goodsPirce);
         //设置按钮
         if (btSubmit != null)
         {
@@ -99,19 +112,19 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
                 switch (itemType)
                 {
                     case StoreItemType.Goods:
-                        isSpace = gameData.HasSpaceToAddGoodsByLevel(mUserLevelData, 1);
+                        isSpace = gameDataCpt.HasSpaceToAddGoodsByLevel(mUserLevelData, 1);
                         if (isSpace)
-                            isRemove = gameData.RemoveScore(PriceConversion(StoreItemType.Goods, this.levelScenesBean.goods_sell_price, mUserLevelData.goodsNumber));
+                            isRemove = gameDataCpt.RemoveScore(PriceConversion(StoreItemType.Goods, this.levelScenesBean.goods_sell_price, mUserLevelData.goodsNumber));
                         if (isRemove && isSpace)
-                            gameData.AddLevelGoods(itemData.level, 1);
+                            gameDataCpt.AddLevelGoods(itemData.level, 1);
                         break;
                     case StoreItemType.Space:
                         int spaceNumber = 0;
                         if (mUserLevelData != null)
                             spaceNumber = mUserLevelData.spaceNumber;
-                        isRemove = gameData.RemoveScore(PriceConversion(StoreItemType.Space, this.levelScenesBean.space_sell_price, spaceNumber));
+                        isRemove = gameDataCpt.RemoveScore(PriceConversion(StoreItemType.Space, this.levelScenesBean.space_sell_price, spaceNumber));
                         if (isRemove)
-                            gameData.AddLevelSpace(itemData.level, 1);
+                            gameDataCpt.AddLevelSpace(itemData.level, 1);
                         break;
                 }
                 if (!isRemove && toastCpt != null)
@@ -130,11 +143,11 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
            
 
         //设置不同状态的按钮
-        if (gameData.userData.scoreLevel >= levelScenesBean.level)
+        if (gameDataCpt.userData.scoreLevel >= levelScenesBean.level)
         {
 
         }
-        else if (levelScenesBean.level - 1 == gameData.userData.scoreLevel)
+        else if (levelScenesBean.level - 1 == gameDataCpt.userData.scoreLevel)
         {
             if (ivIcon != null)
                 ivIcon.color = Color.HSVToRGB(0, 0, 0);
@@ -186,7 +199,7 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
     {
         if (levelScenesBean == null)
             return;
-        if (levelScenesBean.level - 1 == gameData.userData.scoreLevel)
+        if (levelScenesBean.level - 1 == gameDataCpt.userData.scoreLevel)
             infoPopupView.gameObject.SetActive(false);
         int number = 0;
         string nameStr = "---";
@@ -289,7 +302,7 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
     {
         if (mUserLevelData == null)
         {
-            mUserLevelData = gameData.GetUserItemLevelDataByLevel(this.levelScenesBean.level);
+            mUserLevelData = gameDataCpt.GetUserItemLevelDataByLevel(this.levelScenesBean.level);
             if (mUserLevelData == null)
             {
                 return;

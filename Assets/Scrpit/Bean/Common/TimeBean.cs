@@ -27,5 +27,15 @@ public class TimeBean
         this.second = second;
     }
 
-
+    public void AddSecond(int secondData)
+    {
+        if (second < 0)
+            return;
+        int totalSecond = second + secondData;
+        TimeSpan ts = new TimeSpan(day, hour, minute, totalSecond);
+        day = ts.Days;
+        hour = ts.Hours;
+        minute = ts.Minutes;
+        second = ts.Seconds;
+    }
 }

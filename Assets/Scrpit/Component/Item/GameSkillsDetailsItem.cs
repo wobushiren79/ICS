@@ -8,6 +8,7 @@ public class GameSkillsDetailsItem : PopupReplyView
 {
     public Image ivIcon;
     public Image ivBorder;
+    public Image ivBackground;
     public Button btSubmit;
     public LevelSkillsBean levelSkillsBean;
     public LevelScenesBean levelScenesBean;
@@ -15,6 +16,30 @@ public class GameSkillsDetailsItem : PopupReplyView
     public GameDataCpt gameDataCpt;
     public GameAchievementCpt gameAchievementCpt;
     private bool hasSkills = false;
+
+
+    public Color noSkillColor = new Color(0.3f, 0.3f, 0.3f);
+    public Color hasMoneyColor = new Color(0f,1f,0);
+    public Color noMoneyColor = new Color(1f, 1f,1f,0f);
+
+    private void Update()
+    {
+        if (hasSkills)
+        {
+            ivBackground.color = noMoneyColor;
+        }
+        else
+        {
+            if (levelSkillsBean.price > gameDataCpt.userData.userScore)
+            {
+                ivBackground.color = noMoneyColor;
+            }
+            else
+            {
+                ivBackground.color = hasMoneyColor;
+            }
+        }
+    }
 
     public virtual void SetData(LevelSkillsBean levelSkillsBean, LevelScenesBean levelScenesBean)
     {
@@ -31,8 +56,8 @@ public class GameSkillsDetailsItem : PopupReplyView
         }
         else
         {
-            ivBorder.color = new Color(0.3f, 0.3f, 0.3f);
-            ivIcon.color = new Color(0.3f, 0.3f, 0.3f);
+            ivBorder.color = noSkillColor;
+            ivIcon.color = noSkillColor;
         }
         btSubmit.onClick.RemoveAllListeners();
         btSubmit.onClick.AddListener(BTSkillsBuyOnClick);

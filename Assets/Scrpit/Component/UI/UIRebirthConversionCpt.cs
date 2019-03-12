@@ -93,7 +93,7 @@ public class UIRebirthConversionCpt : BaseUIComponent
             return 0;
         }
         score = score / 1e8;
-        double number= 1 +  Math.Log(score, 2);
+        double number= 5 +  Math.Log(score, 2);
         return (int)number;
     }
 }

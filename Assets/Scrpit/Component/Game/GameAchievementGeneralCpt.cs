@@ -24,12 +24,20 @@ public class GameAchievementGeneralCpt : BaseMonoBehaviour
             return;
         if (gameDataCpt.userData.rebirthData == null)
             gameDataCpt.userData.rebirthData = new RebirthBean();
+        if (gameDataCpt.userData.gameTime == null)
+            gameDataCpt.userData.gameTime = new TimeBean();
         CptUtil.RemoveChildsByActive(listContent.transform);
         CreateItem(GameCommonInfo.GetTextById(63) + "：", GameCommonInfo.GetPriceStr(gameDataCpt.userData.userScore), "sacuce_list_0");
         CreateItem(GameCommonInfo.GetTextById(65) + "：", GameCommonInfo.GetPriceStr(gameDataCpt.userData.userAchievement.maxUserScore), "sacuce_list_0");
         CreateItem(GameCommonInfo.GetTextById(67) + "：", gameDataCpt.userData.userAchievement.clickTime + "");
+
+        TimeBean gameTime = gameDataCpt.userData.gameTime;
+        string gameTimeStr = gameTime.day + GameCommonInfo.GetTextById(101) + gameTime.hour + GameCommonInfo.GetTextById(100) + gameTime.minute + GameCommonInfo.GetTextById(99) + gameTime.second + GameCommonInfo.GetTextById(98);
+        CreateItem(GameCommonInfo.GetTextById(106) + "：", gameTimeStr);
+
         CreateItem(GameCommonInfo.GetTextById(64) + "：", gameDataCpt.userData.rebirthData.rebirthNumber + "");
         CreateItem(GameCommonInfo.GetTextById(88) + "：", gameDataCpt.userData.rebirthData.rebirthChili + "", "rebirth_chili");
+        CreateItem(GameCommonInfo.GetTextById(96) + "：", (int)gameDataCpt.userData.chiliOil + "", "oil_barrel");
         List<LevelScenesBean> listScenesData= gameDataCpt.listScenesData;
         if (listScenesData!=null)
         {

@@ -32,6 +32,11 @@ public class UserDataBean
     public AchievementBean userAchievement;
     //离线时间
     public TimeBean offlineTime;
+    //总计游戏时间
+    public TimeBean gameTime;
+    //用户拥有的辣椒油
+    public float chiliOil;
+
 
     /// <summary>
     /// 获取用户增加率（每秒）

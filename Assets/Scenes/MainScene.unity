@@ -3021,7 +3021,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 0
-  m_Color: {r: 0.8018868, g: 0.682504, b: 0.45768067, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 50
   m_Range: 10
   m_SpotAngle: 54
@@ -3831,6 +3831,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 776699267}
+  - component: {fileID: 776699268}
   m_Layer: 0
   m_Name: BackgroundElement
   m_TagString: Untagged
@@ -3854,6 +3855,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &776699268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 776699266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6434da9cf277e83458086bcef249a4c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ivTable: {fileID: 2018693670}
+  listTableData:
+  - {fileID: 21300000, guid: bc3a96a09491fd14cb9204d0a2aaada9, type: 3}
+  - {fileID: 21300000, guid: 6829061fcd801284f8860a66346ad9ee, type: 3}
+  - {fileID: 21300000, guid: 5148d583a18eadd48a3affe8c402cb8d, type: 3}
 --- !u!1 &786065513
 GameObject:
   m_ObjectHideFlags: 0
@@ -10497,12 +10514,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 193f54ddc84855e4f93a2cdae11b2eb9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bc3a96a09491fd14cb9204d0a2aaada9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 0.64}
+  m_Size: {x: 1.28, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

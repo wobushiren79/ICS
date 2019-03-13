@@ -36,8 +36,8 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
     public Sprite thumbIcon;//缩略图
     public StoreItemType itemType;
 
-    public Color noMoneyColor = new Color(1,0,0);
-    public Color hasMoneyColor = new Color(0,1,0);
+    public Color noMoneyColor = new Color(1, 0, 0);
+    public Color hasMoneyColor = new Color(0, 1, 0);
     public double goodsPirce = 0;
     private void Awake()
     {
@@ -140,7 +140,7 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
                 }
             });
         }
-           
+
 
         //设置不同状态的按钮
         if (gameDataCpt.userData.scoreLevel >= levelScenesBean.level)
@@ -217,8 +217,8 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
                 {
                     number = mUserLevelData.goodsNumber;
 
-                    string itemTempGrow = GameCommonInfo.GetPriceStr(mUserLevelData.itemGrow * mUserLevelData.itemTimes,2);
-                    string totalTempGrow = GameCommonInfo.GetPriceStr(mUserLevelData.itemGrow * number * mUserLevelData.itemTimes,2);
+                    string itemTempGrow = GameCommonInfo.GetPriceStr(mUserLevelData.itemGrow * mUserLevelData.itemTimes, 2);
+                    string totalTempGrow = GameCommonInfo.GetPriceStr(mUserLevelData.itemGrow * number * mUserLevelData.itemTimes, 2);
                     otherStr =
                         "➤ " + GameCommonInfo.GetTextById(41) + " " + nameStr + " " + GameCommonInfo.GetTextById(39) + GameCommonInfo.GetTextById(42) + itemTempGrow + GameCommonInfo.GetTextById(40) + "\n" +
                         "➤ " + number + " " + GameCommonInfo.GetTextById(43) + " " + nameStr + " " + GameCommonInfo.GetTextById(39) + GameCommonInfo.GetTextById(42) + totalTempGrow + GameCommonInfo.GetTextById(40);
@@ -269,12 +269,14 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
     #region 游戏数据回调
     public void GoodsNumberChange(int level, int number, int totalNumber)
     {
-        NumberChange(StoreItemType.Goods);
+        if (mUserLevelData != null && level == mUserLevelData.level)
+            NumberChange(StoreItemType.Goods);
     }
 
     public void SpaceNumberChange(int level, int number, int totalNumber)
     {
-        NumberChange(StoreItemType.Space);
+        if (mUserLevelData != null && level == mUserLevelData.level)
+            NumberChange(StoreItemType.Space);
     }
 
 
@@ -289,12 +291,12 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
 
     public void ScoreLevelChange(int level)
     {
-       
+
     }
 
     public void GoodsLevelChange(int level)
     {
-  
+
     }
     #endregion
 
@@ -322,8 +324,8 @@ public class GameStoreItem : PopupReplyView, IGameDataCallBack
                 break;
         }
         SetNumber(number);
-        double pirce = PriceConversion(type, originalPrice, number);
-        SetPrice(pirce);
+        goodsPirce = PriceConversion(type, originalPrice, number);
+        SetPrice(goodsPirce);
         OpenPopup();
     }
 }

@@ -7,6 +7,7 @@ public class GameTurntableCpt : BaseMonoBehaviour
     public GameObject turntableTableObj;
     public CallBack callBack;
     public ParticleSystem saucePS;
+    public GameAudioCpt gameAudioCpt;
 
     public double betSorce;
     public void StartGame(double bet, CallBack callBack)
@@ -18,12 +19,12 @@ public class GameTurntableCpt : BaseMonoBehaviour
         float randomPro = Random.Range(0f, 1f);
         float axisRotate = 0;
         int rewardType = 0;
-        if (randomPro <= 0.7f)
+        if (randomPro <= 0.6f)
         {
             axisRotate = Random.Range(2f, 178f);
             rewardType = 0;
         }
-        else if (randomPro > 0.7f && randomPro <= 0.9f)
+        else if (randomPro > 0.6f && randomPro <= 0.9f)
         {
             axisRotate = Random.Range(182f, 268f);
             rewardType = 1;
@@ -41,7 +42,9 @@ public class GameTurntableCpt : BaseMonoBehaviour
 
         if (turntableTableObj == null)
             return;
-        turntableTableObj.transform.DOLocalAxisRotate(new Vector3(0, 0, 14400 + axisRotate), 10).SetEase(Ease.InOutQuart).OnComplete(delegate ()
+        if (gameAudioCpt != null)
+            gameAudioCpt.PlayGameClip("bgm_turntable");
+        turntableTableObj.transform.DOLocalAxisRotate(new Vector3(0, 0, 11520 + axisRotate), 8).SetEase(Ease.InOutQuart).OnComplete(delegate ()
         {
             RewardDeal(rewardType);
         });
@@ -59,6 +62,8 @@ public class GameTurntableCpt : BaseMonoBehaviour
         {
             case 0:
                 betSorce = 0;
+                if (gameAudioCpt != null)
+                    gameAudioCpt.PlayGameClip("turntable_fail");
                 break;
             case 1:
                 betSorce = betSorce * 2f;
@@ -78,8 +83,11 @@ public class GameTurntableCpt : BaseMonoBehaviour
         }
         if (isPlayPS)
         {
+            if (gameAudioCpt != null)
+                gameAudioCpt.PlayGameClip("bgm_water");
             saucePS.Play();
         }
+
         transform.DOScale(new Vector3(1, 1, 1), delay).OnComplete(delegate() {
             if (callBack != null)
                 callBack.EndGame(betSorce);

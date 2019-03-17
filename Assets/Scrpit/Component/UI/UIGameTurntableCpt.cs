@@ -19,6 +19,7 @@ public class UIGameTurntableCpt : BaseUIComponent,GameTurntableCpt.CallBack
 
     //按钮开始
     public Button btStart;
+    public Text tvStart;
     //分数变换
     public GameObject tvChangeScoreOne;
     public Transform tfChangeOneFather;
@@ -43,6 +44,8 @@ public class UIGameTurntableCpt : BaseUIComponent,GameTurntableCpt.CallBack
             tvWarning.text = GameCommonInfo.GetTextById(108);
         if (tvBetTitle != null)
             tvBetTitle.text = GameCommonInfo.GetTextById(110);
+        if (tvStart != null)
+            tvStart.text = GameCommonInfo.GetTextById(112);
         if (btStart != null)
             btStart.onClick.AddListener(TurntableStart);
     }

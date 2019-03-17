@@ -32,6 +32,8 @@ public class UIGameMenuCpt : BaseUIComponent, DialogView.IDialogCallBack
     public Button btRebirth;
     //按钮-转盘
     public Button btTurntable;
+    //按钮-油
+    public Button btOil;
 
 
     //数据管理
@@ -58,6 +60,8 @@ public class UIGameMenuCpt : BaseUIComponent, DialogView.IDialogCallBack
             btRebirth.onClick.AddListener(BTRebirthOnClick);
         if (btTurntable != null)
             btTurntable.onClick.AddListener(BTTurntableOnClick);
+        if (btOil != null)
+            btOil.onClick.AddListener(BTOilOnClick);
         //初始化数据
         if (tvStore != null)
             tvStore.text = GameCommonInfo.GetTextById(32);
@@ -102,6 +106,13 @@ public class UIGameMenuCpt : BaseUIComponent, DialogView.IDialogCallBack
         uiManager.OpenUIAndCloseOtherByName("GameAchievement");
     }
 
+    /// <summary>
+    /// 辣椒油点击
+    /// </summary>
+    public void BTOilOnClick()
+    {
+        uiManager.OpenUIAndCloseOtherByName("GameOil");
+    }
     /// <summary>
     /// 保存并退出按钮
     /// </summary>

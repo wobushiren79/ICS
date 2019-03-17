@@ -80,7 +80,7 @@ public class UIMainSettingCpt : BaseUIComponent
 
     public void LanguageChange(int position)
     {
-        LogUtil.Log("position:"+ position);
+
     }
 
     public void ChiliPSChange(int position)

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Collections;
 using System;
 
-public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGameScenesView, IGameSkillsView,ITalentInfoView
+public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGameScenesView, IGameSkillsView,ITalentInfoView,IOilInfoView
 {
 
     //用户数据
@@ -15,6 +15,8 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
     public List<LevelSkillsBean> listSkillsData;
     //所有天赋数据
     public List<TalentInfoBean> listTalentData;
+    //所有辣椒油技能
+    public List<OilInfoBean> listOilData;
     //图标列表
     public List<IconKV> listIconData;
     public List<IconKV> listSauceData;
@@ -25,6 +27,7 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
     private GameScenesController mGameScenesController;
     private GameSkillsController mGameSkillsController;
     private TalentInfoController mTalentInfoController;
+    private OilInfoController mOilInfoController;
 
     public bool isUpdate = true;
 
@@ -34,11 +37,13 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
         mGameScenesController = new GameScenesController(this, this);
         mGameSkillsController = new GameSkillsController(this, this);
         mTalentInfoController = new TalentInfoController(this,this);
+        mOilInfoController = new OilInfoController(this,this);
 
         mUserDataController.GetUserData(GameCommonInfo.gameUserId);
         mGameScenesController.GetAllGameScenesData();
         mGameSkillsController.GetAllLevelSkill();
         mTalentInfoController.GetAllTalentInfo();
+        mOilInfoController.GetAllOilInfo();
     }
 
     private void FixedUpdate()
@@ -599,6 +604,16 @@ public class GameDataCpt : BaseObservable<IGameDataCallBack>, IUserDataView, IGa
     }
 
     public void GetTalentInfoDataFail()
+    {
+
+    }
+
+    public void GetAllOilDataSuccess(List<OilInfoBean> listData)
+    {
+        this.listOilData = listData;
+    }
+
+    public void GetAllOilDataFail()
     {
 
     }

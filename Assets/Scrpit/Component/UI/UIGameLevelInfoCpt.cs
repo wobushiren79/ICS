@@ -47,7 +47,7 @@ public class UIGameLevelInfoCpt : BaseUIComponent,IGameDataCallBack
         {
             UserItemLevelBean levelData= userLevelDataList[i];
             if (levelData.spaceNumber == 0)
-                return;
+                continue;
             GameObject levelObj =   Instantiate(levelItemModel, levelItemModel.transform);
             levelObj.SetActive(true);
             levelObj.transform.SetParent(levelContent.transform);

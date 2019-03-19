@@ -14,6 +14,8 @@ public class InfoPopupView : BaseMonoBehaviour
     public Text popupOther;
     public Image line1;
     public Image line2;
+    public Image ivPriceIcon;
+    public List<Sprite> spPriceList;
 
     //屏幕(用来找到鼠标点击的相对位置)
     public RectTransform screenRTF;
@@ -57,7 +59,10 @@ public class InfoPopupView : BaseMonoBehaviour
     /// <param name="priceStr"></param>
     /// <param name="descriptionStr"></param>
     /// <param name="other"></param>
-    public void SetInfoData(Sprite iconSp,string titleStr,string remarkStr,string priceStr,string descriptionStr,string otherStr)
+    public void SetInfoData(Sprite iconSp, string titleStr, string remarkStr, string priceStr, string descriptionStr, string otherStr) {
+        SetInfoData(iconSp, titleStr, remarkStr, priceStr, descriptionStr, otherStr, 0);
+    }
+    public void SetInfoData(Sprite iconSp,string titleStr,string remarkStr,string priceStr,string descriptionStr,string otherStr,int priceIconPosition)
     {
         //头像
         if (iconSp != null && popupIcon != null)
@@ -111,6 +116,10 @@ public class InfoPopupView : BaseMonoBehaviour
             popupOther.gameObject.SetActive(true);
             popupOther.text = otherStr;
         }
+        //价格图标
+        if ( ivPriceIcon != null)
+            ivPriceIcon.sprite = spPriceList[priceIconPosition];
+
     }
 
 

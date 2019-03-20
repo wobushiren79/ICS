@@ -32,6 +32,8 @@ public class UIGameTurntableCpt : BaseUIComponent,GameTurntableCpt.CallBack
 
     private bool mIsStart = false;
     private double mBetScore = 0;
+
+    private RebirthTalentItemBean talentBetData;
     private void Start()
     {
         if (btBack != null)
@@ -48,6 +50,11 @@ public class UIGameTurntableCpt : BaseUIComponent,GameTurntableCpt.CallBack
             tvStart.text = GameCommonInfo.GetTextById(112);
         if (btStart != null)
             btStart.onClick.AddListener(TurntableStart);
+        if (gameDataCpt != null)
+        {
+            talentBetData = gameDataCpt.GetRebirthTalentById(502);
+        }
+
     }
 
     private void Update()
@@ -92,6 +99,11 @@ public class UIGameTurntableCpt : BaseUIComponent,GameTurntableCpt.CallBack
         {
             Destroy(itemRemoveScoreObj);
         });
+        //天赋加成
+        if (talentBetData != null)
+        {
+            mBetScore = mBetScore * (1 + talentBetData.total_add);
+        }
         //添加分数动画
         GameObject itemAddScoreObj = Instantiate(tvChangeScoreTwo, tvChangeScoreTwo.transform);
         itemAddScoreObj.transform.SetParent(tfChangeTwoFather);

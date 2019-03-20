@@ -12230,7 +12230,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: -0.000051016566, y: 0.000009438175}
-  m_SizeDelta: {x: 1900, y: 700}
+  m_SizeDelta: {x: 1900, y: 800}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1478909901
 GameObject:
@@ -12433,6 +12433,12 @@ MonoBehaviour:
     value: {fileID: 21300000, guid: 1044d281a3e9e95489096962198229c0, type: 3}
   - key: gift_time
     value: {fileID: 21300000, guid: f3ae3af6deae8ad48b72451a164513ea, type: 3}
+  - key: turntable_dice
+    value: {fileID: 21300000, guid: 46b0a2bc5f1798b4289788d1e5c4df7e, type: 3}
+  - key: turntable_coin
+    value: {fileID: 21300000, guid: ef2580cd0a7a3b24886993fa149d7bf1, type: 3}
+  - key: turntable_two
+    value: {fileID: 21300000, guid: 7770167aeb176914797ef53f55329604, type: 3}
   listSauceData:
   - key: sauce_list_0
     value: {fileID: 21300000, guid: f0023fbd8ea28204c8b13d5af5a1b286, type: 3}

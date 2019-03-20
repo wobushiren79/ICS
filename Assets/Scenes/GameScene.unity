@@ -24111,6 +24111,7 @@ MonoBehaviour:
   turntableTableObj: {fileID: 1069872075}
   saucePS: {fileID: 593693402}
   gameAudioCpt: {fileID: 1387247833}
+  gameDataCpt: {fileID: 1387247830}
   betSorce: 0
 --- !u!1 &1990856928
 GameObject:

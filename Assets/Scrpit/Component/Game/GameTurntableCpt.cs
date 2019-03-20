@@ -9,7 +9,21 @@ public class GameTurntableCpt : BaseMonoBehaviour
     public ParticleSystem saucePS;
     public GameAudioCpt gameAudioCpt;
 
+    private RebirthTalentItemBean talentRewardData;
+    private RebirthTalentItemBean talentTwoData;
+
+    public GameDataCpt gameDataCpt;
     public double betSorce;
+
+    private void Start()
+    {
+        if (gameDataCpt != null)
+        {
+            talentRewardData = gameDataCpt.GetRebirthTalentById(501);
+            talentTwoData = gameDataCpt.GetRebirthTalentById(503);
+        }
+    }
+
     public void StartGame(double bet, CallBack callBack)
     {
         this.betSorce = bet;
@@ -61,7 +75,22 @@ public class GameTurntableCpt : BaseMonoBehaviour
         switch (rewardType)
         {
             case 0:
-                betSorce = 0;
+                if (talentTwoData != null)
+                {
+                    float randomTemp=  Random.Range(0f, 1f);
+                    if (talentTwoData.total_add>= randomTemp)
+                    {
+
+                    }
+                    else
+                    {
+                        betSorce = 0;
+                    }
+                }
+                else
+                {
+                    betSorce = 0;
+                }
                 if (gameAudioCpt != null)
                     gameAudioCpt.PlayGameClip("turntable_fail");
                 break;
@@ -90,7 +119,14 @@ public class GameTurntableCpt : BaseMonoBehaviour
 
         transform.DOScale(new Vector3(1, 1, 1), delay).OnComplete(delegate() {
             if (callBack != null)
+            {
+                //天赋加成
+                if (talentRewardData != null)
+                {
+                    betSorce = betSorce * (1 + talentRewardData.total_add);
+                }
                 callBack.EndGame(betSorce);
+            }
         });
     }
 

@@ -11,6 +11,12 @@ public class UIMainMakerCpt : BaseUIComponent
     {
         if (btBack != null)
             btBack.onClick.AddListener(OnClickBack);
+        RefreshUI();
+    }
+
+    public override void RefreshUI()
+    {
+        base.RefreshUI();
         if (tvBack != null)
             tvBack.text = GameCommonInfo.GetTextById(4);
     }

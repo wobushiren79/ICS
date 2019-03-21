@@ -28,6 +28,7 @@ public class DialogView : BaseMonoBehaviour
         cgDialog.DOFade(1,0.5f);
     }
 
+
     public void InitData()
     {
      

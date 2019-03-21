@@ -40,4 +40,12 @@ public class BaseUIComponent : BaseMonoBehaviour
         if (uiAnimator != null)
             uiAnimator.SetInteger("UIStates", 0);
     }
+
+    /// <summary>
+    /// 刷新UI
+    /// </summary>
+    public virtual void RefreshUI()
+    {
+
+    }
 }

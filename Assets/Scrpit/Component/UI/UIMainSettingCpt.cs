@@ -28,18 +28,18 @@ public class UIMainSettingCpt : BaseUIComponent
     {
         if (btBack != null)
             btBack.onClick.AddListener(BTBackOnClick);
-        if (ddLanguage != null)
-            ddLanguage.onValueChanged.AddListener(LanguageChange);
-        if (ddChiliPS != null)
-            ddChiliPS.onValueChanged.AddListener(ChiliPSChange);
-        InitData();
     }
 
     public override void OpenUI()
     {
         base.OpenUI();
-        InitData();
+        RefreshUI();
+    }
 
+    public override void RefreshUI()
+    {
+        base.RefreshUI();
+        InitData();
     }
 
     public void InitData()
@@ -59,13 +59,13 @@ public class UIMainSettingCpt : BaseUIComponent
         if (sliderSound != null)
             sliderSound.value = GameCommonInfo.gameConfig.soundVolume;
         if (inputAutoSave != null)
-            inputAutoSave.text = GameCommonInfo.gameConfig.autoSaveTime+"";
+            inputAutoSave.text = GameCommonInfo.gameConfig.autoSaveTime + "";
         if (ddChiliPS != null)
         {
             ddChiliPS.ClearOptions();
 
             List<Dropdown.OptionData> listChiliPSOptions = new List<Dropdown.OptionData>();
-            Dropdown.OptionData itemClose= new Dropdown.OptionData();
+            Dropdown.OptionData itemClose = new Dropdown.OptionData();
             itemClose.text = GameCommonInfo.GetTextById(94);
             listChiliPSOptions.Add(itemClose);
             Dropdown.OptionData itemOpen = new Dropdown.OptionData();
@@ -73,14 +73,50 @@ public class UIMainSettingCpt : BaseUIComponent
             listChiliPSOptions.Add(itemOpen);
             ddChiliPS.AddOptions(listChiliPSOptions);
 
-            ddChiliPS.value= GameCommonInfo.gameConfig.chiliPS;
+            ddChiliPS.value = GameCommonInfo.gameConfig.chiliPS;
+
+            if (ddChiliPS != null)
+            {
+               ddChiliPS.onValueChanged.RemoveAllListeners();
+               ddChiliPS.onValueChanged.AddListener(ChiliPSChange);
+            }
+              
         }
- 
+        if (ddLanguage != null)
+        {
+            if (GameCommonInfo.gameConfig.language.Equals("cn"))
+            {
+                ddLanguage.value = 0;
+            }
+            else if (GameCommonInfo.gameConfig.language.Equals("en"))
+            {
+                ddLanguage.value = 1;
+            }
+            if (ddLanguage != null)
+            {
+                ddLanguage.onValueChanged.RemoveAllListeners();
+                ddLanguage.onValueChanged.AddListener(LanguageChange);
+            }
+                
+        }
     }
 
     public void LanguageChange(int position)
     {
-
+        if (ddLanguage != null)
+        {
+            ddLanguage.onValueChanged.RemoveAllListeners();
+        }
+        if (position == 0)
+        {
+            GameCommonInfo.gameConfig.language = "cn";
+        }
+        else if (position == 1)
+        {
+            GameCommonInfo.gameConfig.language = "en";
+        }
+        GameCommonInfo.RefreshUIText();
+        uiManager.RefreshAllUI();
     }
 
     public void ChiliPSChange(int position)
@@ -93,18 +129,17 @@ public class UIMainSettingCpt : BaseUIComponent
     /// </summary>
     public void BTBackOnClick()
     {
-        if(CheckUtil.StringIsNull(inputAutoSave.text))
+        if (CheckUtil.StringIsNull(inputAutoSave.text))
         {
-            inputAutoSave.text = 30+"";
+            inputAutoSave.text = 30 + "";
         }
-        if (int.Parse(inputAutoSave.text) <10)
+        if (int.Parse(inputAutoSave.text) < 10)
         {
             if (gameToastCpt != null)
                 gameToastCpt.ToastHint(GameCommonInfo.GetTextById(72));
             return;
         }
 
-        GameCommonInfo.gameConfig.language = "cn";
         GameCommonInfo.gameConfig.soundVolume = sliderSound.value;
         GameCommonInfo.gameConfig.autoSaveTime = int.Parse(inputAutoSave.text);
         GameCommonInfo.gameConfig.chiliPS = ddChiliPS.value;

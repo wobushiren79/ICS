@@ -100,4 +100,34 @@ public class BaseUIManager : BaseMonoBehaviour
             }
         }
     }
+
+    /// <summary>
+    /// 刷新UI
+    /// </summary>
+    public void RefreshAllUI()
+    {
+        if (uiList == null)
+            return;
+        foreach (BaseUIComponent itemUI in uiList)
+        {
+            itemUI.RefreshUI();
+        }
+    }
+
+    /// <summary>
+    /// 根据名字刷新UI
+    /// </summary>
+    /// <param name="uiName"></param>
+    public void RefreshUIByName(string uiName)
+    {
+        if (uiList == null || CheckUtil.StringIsNull(uiName))
+            return;
+        foreach (BaseUIComponent itemUI in uiList)
+        {
+            if (itemUI.name.Equals(uiName))
+            {
+                itemUI.RefreshUI();
+            }
+        }
+    }
 }

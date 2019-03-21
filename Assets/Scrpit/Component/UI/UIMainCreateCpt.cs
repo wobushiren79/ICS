@@ -31,7 +31,13 @@ public class UIMainCreateCpt : BaseUIComponent,IUserDataView
             btCancel.onClick.AddListener(BTCancelOnClick);
         if (btSubmit != null)
             btSubmit.onClick.AddListener(BTSubmitOnClick);
+        RefreshUI();
+    }
 
+
+    public override void RefreshUI()
+    {
+        base.RefreshUI();
         if (tvHint != null)
             tvHint.text = GameCommonInfo.GetTextById(29);
         if (tvSubmit != null)
@@ -39,8 +45,6 @@ public class UIMainCreateCpt : BaseUIComponent,IUserDataView
         if (tvCancel != null)
             tvCancel.text = GameCommonInfo.GetTextById(31);
     }
-
-   
 
     /// <summary>
     /// 退出按钮点击

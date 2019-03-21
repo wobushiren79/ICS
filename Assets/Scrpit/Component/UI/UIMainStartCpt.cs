@@ -23,16 +23,19 @@ public class UIMainStartCpt : BaseUIComponent {
             btStart.onClick.AddListener(BTStartOnClick);
         if (btSetting != null)
             btSetting.onClick.AddListener(BTSettingOnClick);
+        RefreshUI();
+    }
 
+    public override void RefreshUI()
+    {
+        base.RefreshUI();
         if (tvStart != null)
             tvStart.text = GameCommonInfo.GetTextById(1);
         if (tvExit != null)
             tvExit.text = GameCommonInfo.GetTextById(2);
-        if(tvSetting!=null)
-            tvSetting.text= GameCommonInfo.GetTextById(68);
+        if (tvSetting != null)
+            tvSetting.text = GameCommonInfo.GetTextById(68);
     }
-
-
     /// <summary>
     /// 开始按钮点击
     /// </summary>

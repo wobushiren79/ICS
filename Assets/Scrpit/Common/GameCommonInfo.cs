@@ -17,6 +17,11 @@ public class GameCommonInfo
         mGameConfigController.GetGameConfigData();
     }
 
+    public static void RefreshUIText()
+    {
+        mUITextController.RefreshData();
+    }
+
     public static void SaveGameConfig()
     {
         mGameConfigController.SaveGameConfigData(gameConfig);

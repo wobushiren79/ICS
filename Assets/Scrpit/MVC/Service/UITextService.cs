@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 public class UITextService 
 {
-    private readonly string mTableName;
-    private readonly string mLeftTableName;
+    private  string mTableName;
+    private  string mLeftTableName;
 
     public UITextService()
     {
@@ -19,6 +19,7 @@ public class UITextService
     /// <returns></returns>
     public List<UITextBean> QueryAllData()
     {
+        mLeftTableName = "ui_text_details_" + GameCommonInfo.gameConfig.language;
         return SQliteHandle.LoadTableData<UITextBean>(ProjectConfigInfo.DATA_BASE_INFO_NAME, mTableName, new string[] { mLeftTableName }, "id", new string[] { "text_id" });
     }
 }

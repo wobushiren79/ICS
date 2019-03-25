@@ -42,6 +42,7 @@ public class GameOilItemCpt : PopupReplyView
             return;
         tvPrice.text = oilInfoBean.price + "";
         ivIcon.sprite = iconSp;
+        ItemUIDeal();
         btOil.onClick.RemoveAllListeners();
         btOil.onClick.AddListener(BTOilOnClick);
     }
@@ -58,12 +59,12 @@ public class GameOilItemCpt : PopupReplyView
         }
         if (oilInfoBean.id >= 1 && oilInfoBean.id <= 15)
         {
-            UserItemLevelBean userItemLevel= gameDataCpt.GetUserItemLevelDataByLevel(oilInfoBean.unlock_level);
-            if(userItemLevel==null|| userItemLevel.goodsNumber == 0)
+            UserItemLevelBean userItemLevel = gameDataCpt.GetUserItemLevelDataByLevel(oilInfoBean.unlock_level);
+            if (userItemLevel == null || userItemLevel.goodsNumber == 0)
             {
-                LevelScenesBean levelScene= gameDataCpt.GetScenesByLevel(oilInfoBean.unlock_level);
+                LevelScenesBean levelScene = gameDataCpt.GetScenesByLevel(oilInfoBean.unlock_level);
                 if (gameToastCpt != null)
-                    gameToastCpt.ToastHint( GameCommonInfo.GetTextById(51)+ levelScene.goods_name);
+                    gameToastCpt.ToastHint(GameCommonInfo.GetTextById(51) + levelScene.goods_name);
                 return;
             }
             if (gameBufferListCpt != null)
@@ -77,9 +78,26 @@ public class GameOilItemCpt : PopupReplyView
                 bufferInfoBean.level = oilInfoBean.unlock_level;
                 gameBufferListCpt.AddBuffer(bufferInfoBean);
             }
-            
+
         }
-        else if (oilInfoBean.id == 101)
+        else if (oilInfoBean.id >= 101 && oilInfoBean.id <= 115)
+        {
+
+            bool isSpace = false;
+            int tempLevel = (int)(oilInfoBean.id % 100f);
+            int addNumber = 5;
+            isSpace = gameDataCpt.HasSpaceToAddGoodsByLevel(tempLevel, addNumber);
+            if (!isSpace)
+            {
+                gameToastCpt.ToastHint(GameCommonInfo.GetTextById(45));
+                return;
+            }
+            else
+            {
+                gameDataCpt.AddLevelGoods(tempLevel, addNumber);
+            }
+        }
+        else if (oilInfoBean.id == 1001)
         {
             if (gameDataCpt.userData.rebirthData == null)
                 gameDataCpt.userData.rebirthData = new RebirthBean();

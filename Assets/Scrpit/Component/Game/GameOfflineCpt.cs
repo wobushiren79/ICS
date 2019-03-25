@@ -10,7 +10,8 @@ public class GameOfflineCpt : BaseMonoBehaviour
     private RebirthTalentItemBean offlineAddGrowData;
     private RebirthTalentItemBean offlineAddTimeData;
     private RebirthTalentItemBean offlineAddMagnificationData;
-
+    private RebirthTalentItemBean offlineAddDoubleData;
+    private RebirthTalentItemBean offlineAddMoreDoubleData;
     public void Start()
     {
         if (gameDataCpt == null
@@ -44,6 +45,14 @@ public class GameOfflineCpt : BaseMonoBehaviour
             {
                 offlineAddMagnificationData = itemData;
             }
+            else if (itemData.add_type == 304)
+            {
+                offlineAddDoubleData = itemData;
+            }
+            else if (itemData.add_type == 305)
+            {
+                offlineAddMoreDoubleData = itemData;
+            }
         };
 
         if (offlineAddGrowData == null||offlineAddGrowData.talent_level==0)
@@ -62,6 +71,21 @@ public class GameOfflineCpt : BaseMonoBehaviour
 
         //添加分数
         double addNumber = gameDataCpt.userData.GetUserGrowByHours() * offlineTotalHours * offlineAddGrowData.total_add;
+        //天赋加成
+        if (offlineAddDoubleData != null)
+        {
+            float tempLucky= Random.Range(0f, 1f);
+            if(tempLucky <= offlineAddDoubleData.total_add)
+            {
+                double addTimes = 2;
+                if (offlineAddMoreDoubleData!=null)
+                {
+                    addTimes += offlineAddMoreDoubleData.total_add;
+                }
+                addNumber = addNumber * addTimes;
+                gameToastCpt.ToastHint(GameCommonInfo.GetTextById(115) + addTimes, 10);
+            }
+        }
         gameDataCpt.userData.userScore += addNumber;
         gameToastCpt.ToastHint(GameCommonInfo.GetTextById(91)+GameCommonInfo.GetPriceStr(addNumber),10);
     }

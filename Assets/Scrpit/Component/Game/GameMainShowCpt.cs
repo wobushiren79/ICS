@@ -22,7 +22,9 @@ public class GameMainShowCpt : BaseMonoBehaviour,IGameDataCallBack
     //屏幕(用来找到鼠标点击的相对位置)
     public RectTransform screenRTF;
     //重生天赋 自动点击天赋
-    public RebirthTalentItemBean rebirthTalentData;
+    private RebirthTalentItemBean talentAutoData;
+    private RebirthTalentItemBean talentLuckyData;
+    private RebirthTalentItemBean talentBeyondData;
     public float addAnimTime =3;
 
     private void Awake()
@@ -44,16 +46,18 @@ public class GameMainShowCpt : BaseMonoBehaviour,IGameDataCallBack
             btAdd.onClick.AddListener(delegate() {
                 BTAddOnClick(true);
             });
-        rebirthTalentData= gameDataCpt.GetRebirthTalentById(102);
+        talentAutoData = gameDataCpt.GetRebirthTalentById(102);
+        talentLuckyData= gameDataCpt.GetRebirthTalentById(103);
+        talentBeyondData = gameDataCpt.GetRebirthTalentById(104);
     }
 
     float autoClickTime = 0;
     private void Update()
     {
         //自动点击
-        if (rebirthTalentData == null || rebirthTalentData.total_add == 0|| rebirthTalentData.talent_level==0)
+        if (talentAutoData == null || talentAutoData.total_add == 0|| talentAutoData.talent_level==0)
            return;
-        if (autoClickTime > rebirthTalentData.total_add/60f)
+        if (autoClickTime > talentAutoData.total_add/60f)
         {
             BTAddOnClick(false);
             autoClickTime = 0;
@@ -90,10 +94,25 @@ public class GameMainShowCpt : BaseMonoBehaviour,IGameDataCallBack
             outPosition = btAdd.transform.localPosition;
         }
         double addScore = 1;
+        double addTime = 1;
         UserItemLevelBean itemData = gameDataCpt.userData.clickData;
         if (itemData != null)
         {
             addScore = itemData.itemGrow * itemData.itemTimes * itemData.goodsNumber;
+        }
+        //天赋加成
+        if (talentLuckyData != null)
+        {
+            float luckyTemp= Random.Range(0f,1f);
+            if(talentLuckyData.total_add >= luckyTemp)
+            {
+                addTime = 2;
+                if (talentBeyondData != null)
+                {
+                    addTime += talentBeyondData.total_add;
+                }
+            }
+            addScore = addScore * addTime;
         }
         //辣酱动画
         GameObject addItem = Instantiate(itemAddModel, itemAddModel.transform);
@@ -126,7 +145,14 @@ public class GameMainShowCpt : BaseMonoBehaviour,IGameDataCallBack
         });
         CanvasGroup itemNumberCG = numberItem.GetComponent<CanvasGroup>();
         itemNumberCG.DOFade(0, addAnimTime/2 );
-        numberItem.GetComponent<Text>().text ="+"+GameCommonInfo.GetPriceStr(addScore,2);
+        Text tvNumber = numberItem.GetComponent<Text>();
+        tvNumber.text ="+"+GameCommonInfo.GetPriceStr(addScore,2);
+        if (addTime != 1)
+        {
+            numberItem.transform.localScale = new Vector3(1.5f,1.5f,1.5f);
+            addItem.transform.localScale= new Vector3(1.5f, 1.5f, 1.5f);
+            tvNumber.color = new Color(1,1,0);
+        }
     }
 
     public void GoodsNumberChange(int level, int number, int totalNumber)

@@ -97,11 +97,21 @@ public class GameOilItemCpt : PopupReplyView
                 gameDataCpt.AddLevelGoods(tempLevel, addNumber);
             }
         }
+        else if (oilInfoBean.id >= 201 && oilInfoBean.id <= 215)
+        {
+            int tempLevel = (int)(oilInfoBean.id % 200f);
+            int addNumber = 1;
+            gameDataCpt.AddLevelSpace(tempLevel, addNumber);
+        }
         else if (oilInfoBean.id == 1001)
         {
             if (gameDataCpt.userData.rebirthData == null)
                 gameDataCpt.userData.rebirthData = new RebirthBean();
             gameDataCpt.userData.rebirthData.rebirthChili += 2;
+        }
+        else if (oilInfoBean.id == 1002)
+        {
+            gameDataCpt.userData.userScore += gameDataCpt.userData.userScore / 2f;
         }
         gameDataCpt.userData.chiliOil -= (float)oilInfoBean.price;
         if (gameToastCpt != null)

@@ -889,7 +889,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 286969602ff315548a17004c6c3efe67,
+      objectReference: {fileID: 21300000, guid: 8e8ed924d7b29294298eb2440b4a9c0f,
         type: 3}
     - target: {fileID: 114958639539743258, guid: 2a05c5a24d44d894ba765e77a18988aa,
         type: 2}
@@ -914,6 +914,11 @@ Prefab:
     - target: {fileID: 114958639539743258, guid: 2a05c5a24d44d894ba765e77a18988aa,
         type: 2}
       propertyPath: m_PreserveAspect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114958639539743258, guid: 2a05c5a24d44d894ba765e77a18988aa,
+        type: 2}
+      propertyPath: m_Type
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -11025,8 +11030,40 @@ MonoBehaviour:
     value: {fileID: 21300000, guid: 717955ac4b76e17488eeb0d513d13912, type: 3}
   - key: rebirth_chili
     value: {fileID: 21300000, guid: 873d9b7a261f18b42b220fa95673c7d1, type: 3}
+  - key: store_space_1
+    value: {fileID: 21300000, guid: a1b4ce530ed493b4fb4829d03686ce66, type: 3}
+  - key: store_space_2
+    value: {fileID: 21300000, guid: fffdbb78c492aaf4bad633bbc06a4441, type: 3}
+  - key: store_space_3
+    value: {fileID: 21300000, guid: 86cf0fab02fc40f4ba1a0ab9e52fe8ac, type: 3}
+  - key: store_space_4
+    value: {fileID: 21300000, guid: 43b393bb1968b8241a7c78fdf44dae74, type: 3}
+  - key: store_space_5
+    value: {fileID: 21300000, guid: 9ff381d67666b944699139e025a024ce, type: 3}
+  - key: store_space_6
+    value: {fileID: 21300000, guid: 4410d895819d20546a6c8b4ccd9a3f07, type: 3}
+  - key: store_space_7
+    value: {fileID: 21300000, guid: 2665d4f4d2956bb47a2943dac93ce16e, type: 3}
+  - key: store_space_8
+    value: {fileID: 21300000, guid: 82960d5070e423645aab25b7406d536a, type: 3}
+  - key: store_space_9
+    value: {fileID: 21300000, guid: 10c1ea82438e6a14591fd92466433151, type: 3}
+  - key: store_space_10
+    value: {fileID: 21300000, guid: d267bf238077a244aad1fb940c1d7816, type: 3}
+  - key: store_space_11
+    value: {fileID: 21300000, guid: da11256ec2a295e4a87321cc7f2ee47e, type: 3}
+  - key: store_space_12
+    value: {fileID: 21300000, guid: a6a59e9e4980384408e28f1d255188ae, type: 3}
+  - key: store_space_13
+    value: {fileID: 21300000, guid: 8fcd52ed1bf23184f8d677341d415d22, type: 3}
+  - key: store_space_14
+    value: {fileID: 21300000, guid: cadf4936b3f061540b96c84c02b21e47, type: 3}
+  - key: store_space_15
+    value: {fileID: 21300000, guid: 65cfa6b5a6f7256498727f4c514212f6, type: 3}
   - key: store_goods_15
     value: {fileID: 21300000, guid: 80b96c9eda7142a468b71acd985720fa, type: 3}
+  - key: sauce_list_0
+    value: {fileID: 21300000, guid: f0023fbd8ea28204c8b13d5af5a1b286, type: 3}
   gameDataCpt: {fileID: 1387247830}
   popupView: {fileID: 1457210681}
 --- !u!222 &712772821
@@ -16564,6 +16601,7 @@ RectTransform:
   - {fileID: 312547679}
   - {fileID: 1398729718}
   - {fileID: 863601941}
+  - {fileID: 2117164186}
   m_Father: {fileID: 351465812}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18713,7 +18751,6 @@ RectTransform:
   m_Children:
   - {fileID: 1336059127}
   - {fileID: 725017024}
-  - {fileID: 2117164186}
   m_Father: {fileID: 1311399608}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -20775,7 +20812,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000034332275, y: 0}
+  m_AnchoredPosition: {x: 0.000034332275, y: -0.00003008175}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1573118317
@@ -25361,15 +25398,15 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2117164185}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 50.000042}
+  m_LocalPosition: {x: 0, y: 0, z: 49.999924}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1398729718}
-  m_RootOrder: 2
+  m_Father: {fileID: 1311399608}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 90, y: 791.85815}
+  m_AnchoredPosition: {x: 90, y: 523.51324}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!199 &2117164187
@@ -25508,7 +25545,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 15
+      scalar: 50
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -25677,7 +25714,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.075
+      scalar: 0.1
       minScalar: 0.05
       maxCurve:
         serializedVersion: 2

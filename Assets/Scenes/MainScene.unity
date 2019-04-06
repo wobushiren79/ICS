@@ -1418,14 +1418,14 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 40
+    m_MaxSize: 60
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u65E0\u5C3D\u7684\u8FA3\u9171\nInfinite Chili Sauce"
+  m_Text: "\u65E0\u5C3D\u7684\u8FA3\u9171"
 --- !u!222 &276458025
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7327,6 +7327,7 @@ MonoBehaviour:
   - {fileID: 1877002594}
   - {fileID: 1288314556}
   btMaker: {fileID: 276458026}
+  tvTitle: {fileID: 276458024}
 --- !u!1 &1455540381
 GameObject:
   m_ObjectHideFlags: 0
